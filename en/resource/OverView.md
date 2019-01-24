@@ -1,6 +1,6 @@
-# TuyaSmartCamera Android SDK
 
-## Features Overview
+
+# Features Overview
 
 Tuya Smart Camera SDK provides the interface package for the communication with remote camera device to accelerate the application development process, including the following features:
 
