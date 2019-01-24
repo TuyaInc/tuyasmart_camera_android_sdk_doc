@@ -18,5 +18,5 @@
 * [获取相关参数](./resource/parameters.md)
 * [摄像头设备功能点](./resource/camera_device_points.md)
 * [二维码配网](./resource/wifi_config.md)
-* [错误码](./resource/errorCode.md)
+* [状态码](./resource/errorCode.md)
 
