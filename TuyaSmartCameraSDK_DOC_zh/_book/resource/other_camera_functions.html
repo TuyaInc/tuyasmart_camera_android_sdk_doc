@@ -1,0 +1,864 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>其他方法调用 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Doorbell_wakeup.html" />
+    
+    
+    <link rel="prev" href="camera_function.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="OverView.html">
+            
+                <a href="OverView.html">
+            
+                    
+                    功能概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Preparation.html">
+            
+                <a href="Preparation.html">
+            
+                    
+                    集成准备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Integrated.html">
+            
+                <a href="Integrated.html">
+            
+                    
+                    集成SDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="ProgramArchitecure.html">
+            
+                <a href="ProgramArchitecure.html">
+            
+                    
+                    程序架构说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="MainView.html">
+            
+                <a href="MainView.html">
+            
+                    
+                    View 主要物件
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="Attributes_methods.html">
+            
+                <a href="Attributes_methods.html">
+            
+                    
+                    属性和方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="Callback.html">
+            
+                <a href="Callback.html">
+            
+                    
+                    业务层回调
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="cameraView.html">
+            
+                <a href="cameraView.html">
+            
+                    
+                    camera 播放器控件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="LiveProcess.html">
+            
+                <a href="LiveProcess.html">
+            
+                    
+                    Live 运行流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="PlaybackProcess.html">
+            
+                <a href="PlaybackProcess.html">
+            
+                    
+                    Playback 运行流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" >
+            
+                <span>
+            
+                    
+                    摄像机功能具体方法调用及生命周期
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="camera_function.html">
+            
+                <a href="camera_function.html">
+            
+                    
+                     摄像机预览流程方法调用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.9.1.1" data-path="other_camera_functions.html">
+            
+                <a href="other_camera_functions.html">
+            
+                    
+                    其他方法调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="Doorbell_wakeup.html">
+            
+                <a href="Doorbell_wakeup.html">
+            
+                    
+                    低功耗门铃唤醒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="parameters.html">
+            
+                <a href="parameters.html">
+            
+                    
+                    获取相关参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html">
+            
+                    
+                    摄像头设备功能点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="wifi_config.html">
+            
+                <a href="wifi_config.html">
+            
+                    
+                    二维码配网
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="errorCode.html">
+            
+                <a href="errorCode.html">
+            
+                    
+                    错误码
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >其他方法调用</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#x8C03;&#x7528;">&#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#x8C03;&#x7528;</h1>
+<h3 id="&#x5F00;&#x542F;&#x89C6;&#x9891;&#x5F55;&#x5236;">&#x5F00;&#x542F;&#x89C6;&#x9891;&#x5F55;&#x5236;</h3>
+<p>&#x8FD9;&#x91CC;&#x6709;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x8C03;&#x7528;,&#x90FD;&#x662F;&#x963B;&#x585E;&#x65B9;&#x6CD5;&#xFF0C;&#x5EFA;&#x8BAE;&#x5728;&#x5B50;&#x7EBF;&#x7A0B;&#x4E2D;&#x505A;&#x5904;&#x7406;</p>
+<ul>
+<li><p>&#x4E0D;&#x5E26;&#x6709;&#x97F3;&#x9891;&#x6570;&#x636E;&#x7684;&#x5F55;&#x50CF;&#x65B9;&#x6CD5;</p>
+<pre><code class="lang-java">    String mRecordMp4Path = <span class="hljs-keyword">null</span>;
+                <span class="hljs-keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) {
+                    String picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + <span class="hljs-string">&quot;/Camera/&quot;</span>;
+                String fileName = System.currentTimeMillis() + <span class="hljs-string">&quot;.mp4&quot;</span>;
+                }
+                <span class="hljs-keyword">boolean</span> isRecording = <span class="hljs-keyword">false</span>;
+                <span class="hljs-keyword">try</span> {
+                    isRecording = camera.startRecordingWithoutAudio(mRecordMp4Path, fileName, MainActivity.<span class="hljs-keyword">this</span>);  <span class="hljs-comment">//isRecording = true,&#x4EE3;&#x8868;&#x5F55;&#x5236;&#x89C6;&#x9891;&#x8C03;&#x7528;&#x6210;&#x529F;</span>
+                } <span class="hljs-keyword">catch</span> (Exception e) {
+                    e.printStackTrace();
+                }
+                <span class="hljs-keyword">if</span> (isRecording) {
+                    Toast.makeText(MainActivity.<span class="hljs-keyword">this</span>, <span class="hljs-string">&quot;&#x5F55;&#x50CF;&#x5F00;&#x59CB;&#x3002;&#x3002;&#x3002;&quot;</span>, Toast.LENGTH_SHORT).show();
+                } <span class="hljs-keyword">else</span> {
+                    Toast.makeText(MainActivity.<span class="hljs-keyword">this</span>, <span class="hljs-string">&quot;&#x5F55;&#x50CF;&#x5931;&#x8D25;&quot;</span>, Toast.LENGTH_SHORT).show();
+                }
+</code></pre>
+</li>
+<li><p>&#x5E26;&#x6709;&#x97F3;&#x9891;&#x6570;&#x636E;&#x7684;&#x5F55;&#x50CF;&#x65B9;&#x6CD5;</p>
+</li>
+</ul>
+<pre><code class="lang-java">    String mRecordMp4Path = <span class="hljs-keyword">null</span>;
+                <span class="hljs-keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) {
+                   String picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + <span class="hljs-string">&quot;/Camera/&quot;</span>;
+                String fileName = System.currentTimeMillis() + <span class="hljs-string">&quot;.mp4&quot;</span>;
+                }
+                <span class="hljs-keyword">boolean</span> isRecording = <span class="hljs-keyword">false</span>;
+                <span class="hljs-keyword">try</span> {
+                    isRecording = camera.startRecordLocalMp4(mRecordMp4Path, fileName, MainActivity.<span class="hljs-keyword">this</span>);  <span class="hljs-comment">//isRecording = true,&#x4EE3;&#x8868;&#x5F55;&#x5236;&#x89C6;&#x9891;&#x8C03;&#x7528;&#x6210;&#x529F;</span>
+                } <span class="hljs-keyword">catch</span> (Exception e) {
+                    e.printStackTrace();
+                }
+                <span class="hljs-keyword">if</span> (isRecording) {
+                    Toast.makeText(MainActivity.<span class="hljs-keyword">this</span>, <span class="hljs-string">&quot;&#x5F55;&#x50CF;&#x5F00;&#x59CB;&#x3002;&#x3002;&#x3002;&quot;</span>, Toast.LENGTH_SHORT).show();
+                } <span class="hljs-keyword">else</span> {
+                    Toast.makeText(MainActivity.<span class="hljs-keyword">this</span>, <span class="hljs-string">&quot;&#x5F55;&#x50CF;&#x5931;&#x8D25;&quot;</span>, Toast.LENGTH_SHORT).show();
+                }
+</code></pre>
+<blockquote>
+<p>&#x6CE8;&#xFF1A;&#x5F55;&#x5236;&#x89C6;&#x9891;&#x9700;&#x8981;&#x5199;&#x5B58;&#x50A8;&#x5361;&#x6743;&#x9650;</p>
+</blockquote>
+<h3 id="&#x505C;&#x6B62;&#x89C6;&#x9891;&#x5F55;&#x5236;">&#x505C;&#x6B62;&#x89C6;&#x9891;&#x5F55;&#x5236;</h3>
+<pre><code class="lang-java">  <span class="hljs-keyword">boolean</span> isStopRecord = <span class="hljs-keyword">false</span>;
+              <span class="hljs-keyword">try</span> {
+                  isStopRecord = camera.stopRecordLocalMp4();
+              } <span class="hljs-keyword">catch</span> (Exception e) {
+                  e.printStackTrace();
+              }
+              <span class="hljs-keyword">if</span> (isStopRecord) {
+                  Toast.makeText(MainActivity.<span class="hljs-keyword">this</span>, <span class="hljs-string">&quot;&#x5F55;&#x50CF;&#x7ED3;&#x675F;&#x3002;&#x3002;&#x3002;&quot;</span>, Toast.LENGTH_SHORT).show();
+              } <span class="hljs-keyword">else</span> {
+                  Toast.makeText(MainActivity.<span class="hljs-keyword">this</span>, <span class="hljs-string">&quot;&#x5F55;&#x50CF;&#x7ED3;&#x675F;&#x5931;&#x8D25;&#x3002;&#x3002;&#x3002;&quot;</span>, Toast.LENGTH_SHORT).show();
+              }
+</code></pre>
+<blockquote>
+<p>&#x6CE8;&#xFF1A;&#x5982;&#x679C;&#x89C6;&#x9891;&#x5F55;&#x5236;&#x6210;&#x529F;&#xFF0C;&#x4F1A;&#x4FDD;&#x5B58;&#x5728;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x8DEF;&#x5F84;&#x5F53;&#x4E2D;</p>
+</blockquote>
+<h3 id="&#x89C6;&#x9891;&#x622A;&#x56FE;">&#x89C6;&#x9891;&#x622A;&#x56FE;</h3>
+<p>&#x89C6;&#x9891;&#x622A;&#x56FE;&#x9700;&#x8981;&#x533A;&#x5206;&#x662F;live&#x3001;playback&#x6A21;&#x5F0F;</p>
+<pre><code class="lang-java">  String picPath = <span class="hljs-keyword">null</span>;
+              <span class="hljs-keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) {
+                  picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + <span class="hljs-string">&quot;/Camera/&quot;</span> + System.currentTimeMillis() + <span class="hljs-string">&quot;.png&quot;</span>;
+              }
+              camera.snapshot(picPath, <span class="hljs-keyword">this</span>, ICameraP2P.PLAYMODE.LIVE);
+</code></pre>
+<p>  &#x622A;&#x5C4F;&#x64CD;&#x4F5C;&#x56DE;&#x8C03;</p>
+<pre><code class="lang-java">  &#xB7;&#xB7;&#xB7;
+  <span class="hljs-comment">// &#x622A;&#x5C4F;&#x64CD;&#x4F5C;&#x56DE;&#x8C03;</span>
+      <span class="hljs-meta">@Override</span>
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSnapshotSuccessCallback</span><span class="hljs-params">()</span> </span>{
+          Log.d(TAG, <span class="hljs-string">&quot;onSnapshotSuccessCallback&quot;</span>);
+      }
+
+      <span class="hljs-meta">@Override</span>
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSnapshotFailCallback</span><span class="hljs-params">()</span> </span>{
+          Log.d(TAG, <span class="hljs-string">&quot;onSnapshotFailCallback&quot;</span>);
+      }
+  &#xB7;&#xB7;&#xB7;
+</code></pre>
+<h3 id="&#x8BBE;&#x7F6E;&#x62FE;&#x97F3;&#x5668;&#x72B6;&#x6001;">&#x8BBE;&#x7F6E;&#x62FE;&#x97F3;&#x5668;&#x72B6;&#x6001;</h3>
+<pre><code class="lang-java">  <span class="hljs-keyword">int</span> mute = <span class="hljs-number">0</span>;
+              <span class="hljs-keyword">if</span> (ICameraP2P.PLAYMODE.LIVE == playmode) {
+                  mute = isPreviewMute == ICameraP2P.MUTE ? ICameraP2P.UNMUTE : ICameraP2P.MUTE;
+              } <span class="hljs-keyword">else</span> {
+                  mute = isPlaybackMute == ICameraP2P.MUTE ? ICameraP2P.UNMUTE : ICameraP2P.MUTE;
+              }
+              camera.setMute(playmode, mute, <span class="hljs-keyword">this</span>);
+</code></pre>
+<p>  &#x56DE;&#x8C03;&#x65B9;&#x6CD5;</p>
+<pre><code class="lang-java">  &#xB7;&#xB7;&#xB7;
+
+      <span class="hljs-meta">@Override</span>
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onMuteOperateSuccess</span><span class="hljs-params">(ICameraP2P.PLAYMODE playmode, <span class="hljs-keyword">int</span> isMute)</span> </span>{
+          isPreviewMute = isMute;
+          Log.d(TAG, <span class="hljs-string">&quot;onPreviewMuteOperateSuccess mute&quot;</span> + isPreviewMute);
+      }
+
+      <span class="hljs-meta">@Override</span>
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onMuteOperateFail</span><span class="hljs-params">(ICameraP2P.PLAYMODE playmode)</span> </span>{
+
+      }
+
+  &#xB7;&#xB7;&#xB7;
+</code></pre>
+<h3 id="&#x5F00;&#x542F;&#x5BF9;&#x8BB2;">&#x5F00;&#x542F;&#x5BF9;&#x8BB2;</h3>
+<blockquote>
+<p>p2ptype=1&#x7684;&#x7C7B;&#x578B;&#x9700;&#x8981;&#x5BF9;&#x8BB2;&#x64CD;&#x4F5C;&#x524D;&#xFF0C;&#x9996;&#x5148;&#x8981;&#x4FDD;&#x8BC1;&#x662F;&#x5426;&#x8C03;&#x7528;connectPlayback()&#x64CD;&#x4F5C;&#x6210;&#x529F;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-java">  <span class="hljs-keyword">try</span> {
+                      camera.startAudioTalk();
+                  } <span class="hljs-keyword">catch</span> (Exception e) {
+                      e.printStackTrace();
+                  }
+</code></pre>
+<pre><code class="lang-java">  &#xB7;&#xB7;&#xB7;
+      <span class="hljs-meta">@Override</span>
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSpeakSuccessCallback</span><span class="hljs-params">(<span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> isTalking)</span> </span>{
+          Log.d(TAG, <span class="hljs-string">&quot;&#x5F00;&#x542F;&#x5BF9;&#x8BB2;&#x6210;&#x529F;&quot;</span>);
+          <span class="hljs-keyword">this</span>.isSpeaking = isTalking;
+          runOnUiThread(<span class="hljs-keyword">new</span> Runnable() {
+              <span class="hljs-meta">@Override</span>
+              <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+                  <span class="hljs-keyword">if</span> (isTalking)
+                      startSpeakBtn.setText(<span class="hljs-string">&quot;&#x5BF9;&#x8BB2;&#xFF08;&#x5F00;&#xFF09;&quot;</span>);
+                  <span class="hljs-keyword">else</span>
+                      startSpeakBtn.setText(<span class="hljs-string">&quot;&#x5BF9;&#x8BB2;&#xFF08;&#x5173;&#xFF09;&quot;</span>);
+              }
+          });
+      }
+
+      <span class="hljs-meta">@Override</span>
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSpeakFailueCallback</span><span class="hljs-params">(<span class="hljs-keyword">int</span> errorCode)</span> </span>{
+          runOnUiThread(<span class="hljs-keyword">new</span> Runnable() {
+              <span class="hljs-meta">@Override</span>
+              <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+                  startSpeakBtn.setText(<span class="hljs-string">&quot;&#x5BF9;&#x8BB2;&#xFF08;&#x5173;&#xFF09;&quot;</span>);
+              }
+          });
+      }
+
+  &#xB7;&#xB7;&#xB7;
+</code></pre>
+<h3 id="&#x505C;&#x6B62;&#x5BF9;&#x8BB2;">&#x505C;&#x6B62;&#x5BF9;&#x8BB2;</h3>
+<pre><code class="lang-java">   camera.stopAudioTalk();
+</code></pre>
+<pre><code class="lang-java">  &#xB7;&#xB7;&#xB7;
+      <span class="hljs-meta">@Override</span>
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onStopSpeakSuccessCallback</span><span class="hljs-params">()</span> </span>{
+          Log.d(TAG, <span class="hljs-string">&quot;&#x5F00;&#x542F;&#x5BF9;&#x8BB2;&#x6210;&#x529F;&quot;</span>);
+          runOnUiThread(<span class="hljs-keyword">new</span> Runnable() {
+              <span class="hljs-meta">@Override</span>
+              <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+                  <span class="hljs-keyword">if</span> (isTalking)
+                      startSpeakBtn.setText(<span class="hljs-string">&quot;&#x5BF9;&#x8BB2;&#xFF08;&#x5F00;&#xFF09;&quot;</span>);
+                  <span class="hljs-keyword">else</span>
+                      startSpeakBtn.setText(<span class="hljs-string">&quot;&#x5BF9;&#x8BB2;&#xFF08;&#x5173;&#xFF09;&quot;</span>);
+              }
+          });
+      }
+
+      <span class="hljs-meta">@Override</span>
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onStopSpeakFailueCallback</span><span class="hljs-params">(<span class="hljs-keyword">int</span> errorCode)</span> </span>{
+
+      }
+  &#xB7;&#xB7;&#xB7;
+</code></pre>
+<blockquote>
+<p>&#x6CE8;&#xFF1A;&#x5BF9;&#x8BB2;&#x548C;&#x5F55;&#x5236;&#x662F;&#x4E92;&#x65A5;&#x7684;&#xFF0C;&#x800C;&#x4E14;&#x53EA;&#x6709;&#x5728;&#x9884;&#x89C8;&#x65F6;&#x53EF;&#x4EE5;&#x5F00;&#x542F;&#x5BF9;&#x8BB2;&#x3002;</p>
+</blockquote>
+<h3 id="&#x5206;&#x8FA8;&#x7387;&#x6539;&#x53D8;">&#x5206;&#x8FA8;&#x7387;&#x6539;&#x53D8;</h3>
+<pre><code class="lang-java">              camera.getVideoClarity();
+              camera.setVideoClarity(ICameraP2P.HD);
+</code></pre>
+<pre><code class="lang-java">  &#xB7;&#xB7;&#xB7;
+  <span class="hljs-meta">@Override</span>
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onDefinitionStatusCallback</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> isQuery, <span class="hljs-keyword">int</span> definition)</span> </span>{
+          <span class="hljs-keyword">if</span> (definition != <span class="hljs-keyword">null</span>) {
+              mDefinition = definition;
+              runOnUiThread(<span class="hljs-keyword">new</span> Runnable() {
+                  <span class="hljs-meta">@Override</span>
+                  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+                      enableHDBtn.setText(mDefinition == <span class="hljs-number">4</span> ? <span class="hljs-string">&quot;&#x9AD8;&#x6E05;&quot;</span> : <span class="hljs-string">&quot;&#x6807;&#x6E05;&quot;</span>);
+                  }
+              });
+          }
+      }
+  &#xB7;&#xB7;&#xB7;
+</code></pre>
+<p>&#x6E05;&#x6670;&#x5EA6;&#x6A21;&#x5F0F;</p>
+<pre><code class="lang-java">  <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ICameraP2P</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+       <span class="hljs-comment">/**
+       * &#x9AD8;&#x6E05;
+       */</span>
+      <span class="hljs-keyword">int</span> HD = <span class="hljs-number">4</span>;
+      <span class="hljs-comment">/**
+       * &#x6807;&#x6E05;
+       */</span>
+      <span class="hljs-keyword">int</span> STANDEND = <span class="hljs-number">2</span>;
+      ...
+
+      }
+</code></pre>
+<p>&#x83B7;&#x53D6;&#x6E05;&#x6670;&#x5EA6;</p>
+<pre><code class="lang-java"> camera.getVideoClarity();
+</code></pre>
+<p>&#x56DE;&#x8C03;&#x65B9;&#x6CD5;&#x548C;&#x8BBE;&#x7F6E;&#x6E05;&#x6670;&#x5EA6;&#x7684;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;&#x4E00;&#x81F4;</p>
+<h3 id="&#x5EFA;&#x7ACB;&#x56DE;&#x653E;&#x901A;&#x9053;">&#x5EFA;&#x7ACB;&#x56DE;&#x653E;&#x901A;&#x9053;</h3>
+<p>&#x4EC5;p2pType=1&#x7684;&#x8BBE;&#x5907;&#x7C7B;&#x578B;&#x4F7F;&#x7528;</p>
+<pre><code class="lang-java">   camera.connectPlayback();
+</code></pre>
+<pre><code class="lang-java">  &#xB7;&#xB7;&#xB7;
+      <span class="hljs-meta">@Override</span>
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onChannel1StartSuccess</span><span class="hljs-params">()</span> </span>{
+          Log.d(TAG, <span class="hljs-string">&quot;playback &#x901A;&#x9053;&#x5EFA;&#x7ACB;&quot;</span>);
+      }
+
+       <span class="hljs-meta">@Override</span>
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onChannelOtherStatus</span><span class="hljs-params">(<span class="hljs-keyword">int</span> errorCode)</span> </span>{
+          Log.d(TAG, <span class="hljs-string">&quot;onChannelOtherStatus...errorCode &quot;</span> + errorCode);
+      }
+
+      <span class="hljs-meta">@Override</span>
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onPlaybackEnterFail</span><span class="hljs-params">(String errorCode, String errorMsg)</span> </span>{
+          Log.d(TAG, <span class="hljs-string">&quot;playback &#x901A;&#x9053;&#x5EFA;&#x7ACB;&#x5931;&#x8D25;&quot;</span>);
+      }
+  &#xB7;&#xB7;&#xB7;
+</code></pre>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x83B7;&#x53D6;&#x5982;&#x679C;&#x8981;&#x8FDB;&#x884C;&#x5BF9;&#x8BB2;&#x64CD;&#x4F5C;&#xFF0C;&#x524D;&#x63D0;&#x8981;&#x5EFA;&#x7ACB;playback channel&#x901A;&#x9053;</p>
+</blockquote>
+<h3 id="&#x83B7;&#x53D6;&#x6709;&#x56DE;&#x653E;&#x89C6;&#x9891;&#x8BB0;&#x5F55;&#x7684;&#x65E5;&#x671F;">&#x83B7;&#x53D6;&#x6709;&#x56DE;&#x653E;&#x89C6;&#x9891;&#x8BB0;&#x5F55;&#x7684;&#x65E5;&#x671F;</h3>
+<p>  &#x5728;&#x5F00;&#x59CB;&#x56DE;&#x653E;&#x524D;&#xFF0C;&#x9700;&#x8981;&#x83B7;&#x53D6;&#x5230;&#x56DE;&#x653E;&#x89C6;&#x9891;&#x8BB0;&#x5F55;&#x7684;&#x4FE1;&#x606F;&#x3002;&#x9996;&#x5148;&#x83B7;&#x53D6;&#x6709;&#x56DE;&#x653E;&#x89C6;&#x9891;&#x8BB0;&#x5F55;&#x7684;&#x65E5;&#x671F;</p>
+<pre><code class="lang-java">  camera.queryRecordDaysByMonth(<span class="hljs-number">2018</span>, <span class="hljs-number">7</span>);
+</code></pre>
+<pre><code class="lang-java">  &#xB7;&#xB7;&#xB7;
+     <span class="hljs-meta">@Override</span>
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onQueryPlaybackDataSuccessByMonth</span><span class="hljs-params">(<span class="hljs-keyword">int</span> year, <span class="hljs-keyword">int</span> month, Object days)</span> </span>{
+          Log.d(TAG, <span class="hljs-string">&quot;onQueryPlaybackDataSuccessByMonth &quot;</span>);
+          String yearMonth = String.valueOf(year) + String.valueOf(month);
+          mBackDataMonthCache.put(yearMonth, days);
+      }
+
+      <span class="hljs-meta">@Override</span>
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onQueryPlaybackDataFailureByMonth</span><span class="hljs-params">(<span class="hljs-keyword">int</span> errorCode, String errorMsg)</span> </span>{
+          runOnUiThread(<span class="hljs-keyword">new</span> Runnable() {
+              <span class="hljs-meta">@Override</span>
+              <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+                  Toast.makeText(MainActivity.<span class="hljs-keyword">this</span>, <span class="hljs-string">&quot;&#x83B7;&#x53D6;&#x65E5;&#x671F;&#x6570;&#x636E;&#x5931;&#x8D25;&#x3002;&#x3002;&#x3002;&quot;</span>, Toast.LENGTH_SHORT).show();
+              }
+          });
+      }
+  &#xB7;&#xB7;&#xB7;
+</code></pre>
+<h3 id="&#x83B7;&#x53D6;&#x67D0;&#x65E5;&#x7684;&#x89C6;&#x9891;&#x56DE;&#x653E;&#x4FE1;&#x606F;">&#x83B7;&#x53D6;&#x67D0;&#x65E5;&#x7684;&#x89C6;&#x9891;&#x56DE;&#x653E;&#x4FE1;&#x606F;</h3>
+<p>&#x83B7;&#x53D6;&#x5230;&#x6709;&#x7528;&#x56DE;&#x653E;&#x8BB0;&#x5F55;&#x7684;&#x65E5;&#x671F;&#x540E;&#xFF0C;&#x6839;&#x636E;&#x65E5;&#x671F;&#x83B7;&#x53D6;&#x5F53;&#x65E5;&#x7684;&#x89C6;&#x9891;&#x56DE;&#x653E;&#x8BB0;&#x5F55;</p>
+<pre><code class="lang-java">camera.queryRecordTimeSliceByDay(<span class="hljs-number">2018</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>);
+</code></pre>
+<pre><code class="lang-java">&#xB7;&#xB7;&#xB7;
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onQueryPlaybackDataSuccessByDay</span><span class="hljs-params">(String yearmonthday, Object timePieceBeanList)</span> </span>{
+        Log.d(TAG, <span class="hljs-string">&quot;onQueryPlaybackDataSuccessByDay &quot;</span>);
+        mBackDataDayCache.put(yearmonthday, timePieceBeanList);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onQueryPlaybackDataFailureByDay</span><span class="hljs-params">(<span class="hljs-keyword">int</span> errorCode, String errorMsg)</span> </span>{
+        runOnUiThread(<span class="hljs-keyword">new</span> Runnable() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+                Toast.makeText(MainActivity.<span class="hljs-keyword">this</span>, <span class="hljs-string">&quot;&#x83B7;&#x53D6;&#x65F6;&#x95F4;&#x7247;&#x6BB5;&#x6570;&#x636E;&#x5931;&#x8D25;&#x3002;&#x3002;&#x3002;&quot;</span>, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+&#xB7;&#xB7;&#xB7;
+</code></pre>
+<h3 id="&#x5F00;&#x542F;&#x56DE;&#x653E;">&#x5F00;&#x542F;&#x56DE;&#x653E;</h3>
+<pre><code class="lang-java">  playmode = ICamerapP2P.PLAYMODE.PLAYBACK;
+              List&lt;TimePieceBean&gt; timePieceList = mBackDataDayCache.get(<span class="hljs-string">&quot;20180708&quot;</span>);
+              TimePieceBean defaultPlayTime = timePieceList.get(<span class="hljs-number">0</span>);
+              defaultPlayTime.setPlaytime(defaultPlayTime.getStarttime());
+              camera.startPlayBack(defaultPlayTime.getStartTime(), defaultPlayTime.getEndTime(), defaultPlayTime.getStartTime());
+</code></pre>
+<pre><code class="lang-java">  &#xB7;&#xB7;&#xB7;
+      <span class="hljs-meta">@Override</span>
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onPlaybackStartSuccess</span><span class="hljs-params">()</span> </span>{
+          Log.d(TAG, <span class="hljs-string">&quot;onPlaybackStartSuccess...&quot;</span>);
+      }
+
+      <span class="hljs-meta">@Override</span>
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onPlaybackStartFail</span><span class="hljs-params">(String errorCode, String errorMsg)</span> </span>{
+          Log.d(TAG, <span class="hljs-string">&quot;onPlaybackStartFail...&quot;</span>);
+      }
+  &#xB7;&#xB7;&#xB7;
+</code></pre>
+<h3 id="&#x6682;&#x505C;&#x56DE;&#x653E;">&#x6682;&#x505C;&#x56DE;&#x653E;</h3>
+<pre><code class="lang-java">   camera.pausePlayback();
+</code></pre>
+<pre><code class="lang-java">  &#xB7;&#xB7;&#xB7;
+      <span class="hljs-meta">@Override</span>
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onPlaybackPauseSuccess</span><span class="hljs-params">()</span> </span>{
+          Log.d(TAG, <span class="hljs-string">&quot;onPlaybackPauseSuccess...&quot;</span>);
+      }
+
+      <span class="hljs-meta">@Override</span>
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onPlaybackPauseFail</span><span class="hljs-params">(String errorCode, String errorMsg)</span> </span>{
+          Log.d(TAG, <span class="hljs-string">&quot;onPlaybackPauseFail...&quot;</span>);
+      }
+  &#xB7;&#xB7;&#xB7;
+</code></pre>
+<h3 id="&#x6062;&#x590D;&#x56DE;&#x653E;">&#x6062;&#x590D;&#x56DE;&#x653E;</h3>
+<pre><code class="lang-java">camera.resumePlayback();
+</code></pre>
+<pre><code class="lang-java">&#xB7;&#xB7;&#xB7;
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onPlaybackResumeSuccess</span><span class="hljs-params">()</span> </span>{
+        Log.d(TAG, <span class="hljs-string">&quot;onPlaybackResumeSuccess...&quot;</span>);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onPlaybackResumeFail</span><span class="hljs-params">(String errorCode, String errorMsg)</span> </span>{
+        Log.d(TAG, <span class="hljs-string">&quot;onPlaybackResumeFail...&quot;</span>);
+    }
+&#xB7;&#xB7;&#xB7;
+</code></pre>
+<h3 id="&#x56DE;&#x653E;&#x7ED3;&#x675F;&#x56DE;&#x8C03;">&#x56DE;&#x653E;&#x7ED3;&#x675F;&#x56DE;&#x8C03;</h3>
+<pre><code class="lang-java">&#xB7;&#xB7;&#xB7;   
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onPlaybackEnd</span><span class="hljs-params">()</span> </span>{
+        Log.d(TAG, <span class="hljs-string">&quot;onPlaybackEnd ...&quot;</span>);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onPlaybackEndFail</span><span class="hljs-params">()</span> </span>{
+
+    }
+&#xB7;&#xB7;&#xB7;
+</code></pre>
+<h3 id="&#x83B7;&#x53D6;&#x786C;&#x89E3;&#x89C6;&#x9891;&#x6570;&#x636E;">&#x83B7;&#x53D6;&#x786C;&#x89E3;&#x89C6;&#x9891;&#x6570;&#x636E;</h3>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x4EC5;p2pType&#x4E3A;1&#x7684;&#x8BBE;&#x5907;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x786C;&#x89E3;&#x89C6;&#x9891;&#x6570;&#x636E;</p>
+</blockquote>
+<pre><code class="lang-java">      <span class="hljs-meta">@Override</span>
+          <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">receiveFrameDataForMediaCodec</span><span class="hljs-params">(Camera camera, <span class="hljs-keyword">int</span> avChannel, <span class="hljs-keyword">byte</span>[] buf, <span class="hljs-keyword">int</span> length,
+                                                    <span class="hljs-keyword">int</span> pFrmNo, <span class="hljs-keyword">byte</span>[] pFrmInfoBuf, <span class="hljs-keyword">boolean</span> isIframe, <span class="hljs-keyword">int</span> codecId)</span> </span>{
+              Log.e(TAG, <span class="hljs-string">&quot;&#x786C;&#x89E3;&#x83B7;&#x53D6;&#x7801;&#x6D41; receiveFrameDataForMediaCodec ==== Camera =&quot;</span> + camera
+                      + <span class="hljs-string">&quot;  --avChannel =&quot;</span> + avChannel
+                      + <span class="hljs-string">&quot;  --buf =&quot;</span> + Arrays.toString(buf)
+                      + <span class="hljs-string">&quot;  --length =&quot;</span> + length
+                      + <span class="hljs-string">&quot;  --pFrmNo =&quot;</span> + pFrmNo
+                      + <span class="hljs-string">&quot;  --pFrmInfoBuf =&quot;</span> + Arrays.toString(pFrmInfoBuf)
+                      + <span class="hljs-string">&quot;  --isIframe =&quot;</span> + isIframe
+                      + <span class="hljs-string">&quot;  --codecId =&quot;</span> + codecId);
+          }
+</code></pre>
+<h3 id="&#x83B7;&#x53D6;&#x89C6;&#x9891;&#x6D41;&#x6570;&#x636E;">&#x83B7;&#x53D6;&#x89C6;&#x9891;&#x6D41;&#x6570;&#x636E;</h3>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x8BE5;&#x65B9;&#x6CD5;&#x4EC5;&#x4E3A;p2ptype=2&#x7684;&#x8BBE;&#x5907;&#x7C7B;&#x578B;&#x4F7F;&#x7528;</p>
+</blockquote>
+<pre><code class="lang-java">
+      <span class="hljs-meta">@Override</span>
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onReceiveFrameYUVData</span><span class="hljs-params">(<span class="hljs-keyword">int</span> sessionId, ByteBuffer y, ByteBuffer u, ByteBuffer v, <span class="hljs-keyword">int</span> width, <span class="hljs-keyword">int</span> height, <span class="hljs-keyword">long</span> timestamp, Object camera)</span> </span>{
+          mVideoView.receiveFrameYUVData(sessionId, y, u, v, width, height, camera);
+      }
+</code></pre>
+<h3 id="&#x83B7;&#x53D6;p2p&#x72B6;&#x6001;">&#x83B7;&#x53D6;p2p&#x72B6;&#x6001;</h3>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x8BE5;&#x65B9;&#x6CD5;&#x4EC5;&#x4E3A;p2ptype=2&#x7684;&#x8BBE;&#x5907;&#x7C7B;&#x578B;&#x4F7F;&#x7528;</p>
+</blockquote>
+<pre><code>```java
+ @Override
+    public void onSessionStatusChanged(Object camera, int sessionId, int sessionStatus) {
+        Log.d(TAG, &quot;sessionId &quot; + sessionId + &quot;sessionStatus &quot; + sessionStatus);
+    }
+```
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="camera_function.html" class="navigation navigation-prev " aria-label="Previous page:  摄像机预览流程方法调用">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Doorbell_wakeup.html" class="navigation navigation-next " aria-label="Next page: 低功耗门铃唤醒">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"其他方法调用","level":"1.9.1.1","depth":3,"next":{"title":"低功耗门铃唤醒","level":"1.10","depth":1,"path":"resource/Doorbell_wakeup.md","ref":"./resource/Doorbell_wakeup.md","articles":[]},"previous":{"title":" 摄像机预览流程方法调用","level":"1.9.1","depth":2,"path":"resource/camera_function.md","ref":"./resource/camera_function.md","articles":[{"title":"其他方法调用","level":"1.9.1.1","depth":3,"path":"resource/other_camera_functions.md","ref":"./resource/other_camera_functions.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"resource/other_camera_functions.md","mtime":"2019-01-24T09:05:34.057Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-24T06:56:28.102Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

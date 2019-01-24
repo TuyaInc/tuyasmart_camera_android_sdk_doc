@@ -1,1 +1,2 @@
-# tuyasmart_camera_android_sdk_doc
+- [English](TuyaSmartCameraSDK_DOC_en/)
+- [简体中文](TuyaSmartCameraSDK_DOC_zh/)
