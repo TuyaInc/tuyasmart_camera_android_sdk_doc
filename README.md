@@ -1,2 +1,2 @@
-- [English](TuyaSmartCameraSDK_DOC_en/)
+- [English](en/)
 - [简体中文](zh-hans/)
