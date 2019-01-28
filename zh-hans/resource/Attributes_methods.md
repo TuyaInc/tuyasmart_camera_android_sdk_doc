@@ -56,7 +56,7 @@ public int startRecordLocalMp4(String folderPath, String fileName, Context conte
 public boolean startRecordingWithoutAudio(final String filePath, final Context context)
     
 //结束本地录像
- public boolean stopRecordLocalMp4()
+ public int stopRecordLocalMp4()
 
 //开启语音通话
 public void startAudioTalk()

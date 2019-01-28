@@ -55,13 +55,13 @@
 ### 停止视频录制
 
 ```java
-  boolean isStopRecord = false;
+  int isStopRecord = -1;
               try {
                   isStopRecord = camera.stopRecordLocalMp4();
               } catch (Exception e) {
                   e.printStackTrace();
               }
-              if (isStopRecord) {
+              if (isStopRecord == 0) {
                   Toast.makeText(MainActivity.this, "录像结束。。。", Toast.LENGTH_SHORT).show();
               } else {
                   Toast.makeText(MainActivity.this, "录像结束失败。。。", Toast.LENGTH_SHORT).show();
