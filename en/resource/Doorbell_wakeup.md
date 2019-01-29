@@ -15,3 +15,6 @@ homeCamera.publishWirelessWake(topicId, bytes);
 camera.connect(p2pId, p2pWd,localKey);
 ```
 
+The flow chart is as follows:
+
+![](./images/wakeup_flow.png)

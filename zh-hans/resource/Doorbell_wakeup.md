@@ -13,3 +13,11 @@ homeCamera.publishWirelessWake(topicId, bytes);
 camera.connect(p2pId, p2pWd,localKey);
 ```
 
+
+
+流程图如下：
+
+![](./images/wakeup_flow.png)
+
+
+
