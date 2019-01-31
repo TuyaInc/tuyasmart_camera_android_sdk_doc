@@ -7,3 +7,13 @@ TuyaMonitorView是一个播放器控件，为适配p2ptype为1，2而产生的�
 
 > TuyaMonitorView.createVideoView(int p2pType, boolean isRunSoft)  构建对应p2ptype的播放器，及使用软硬解。
 
+### 获取p2pType
+
+```java
+Map<String, Object> map = mDeviceBean.getSkills();
+        if (map == null || map.size() == 0) {
+            p2pType = -1;
+        } else {
+        	p2pType = (Integer) (map.get(P2PTYPE));
+        }
+```
