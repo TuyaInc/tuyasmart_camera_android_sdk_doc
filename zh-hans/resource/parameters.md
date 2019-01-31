@@ -66,4 +66,4 @@
   	status = "ok",
   }
   ```
-
+> 注意：如果p2ptype=1，initStr,p2pkey传NULL就行

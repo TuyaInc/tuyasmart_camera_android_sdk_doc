@@ -60,3 +60,4 @@ access tuya home smart android sdk, initialize sdk，need to use general interfa
   	status = "ok",
   }
   ```
+> Note: If p2ptype = 1, initStr, p2pkey passes NULL
