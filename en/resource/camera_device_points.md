@@ -51,3 +51,10 @@ check the definition of data point in [tuya iot platform]((https://iot.tuya.com/
     }
 ```
 
+### Basic Functions of Camera
+| DpId | value | description |
+| ------ | ------ | ------ |
+| "101" | {"101":false} | Status indicator |
+| "104" | {"104":false} | Time watermark|
+| "103" | {"103":true} | Picture reversal|
+| "108" | {"108":"2"} | Infrared night vision function|
