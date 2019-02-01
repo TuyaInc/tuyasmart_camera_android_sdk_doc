@@ -17,6 +17,6 @@
 * [低功耗门铃唤醒](./resource/Doorbell_wakeup.md)
 * [获取相关参数](./resource/parameters.md)
 * [摄像头设备功能点](./resource/camera_device_points.md)
-* [QRCode Network Configuration](./resource/wifi_config.md)
+* [摄像头配网](./resource/wifi_config.md)
 * [状态码](./resource/statusCode.md)
 
