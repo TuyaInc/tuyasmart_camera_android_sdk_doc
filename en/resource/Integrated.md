@@ -52,15 +52,15 @@ Set appkey and appSecret in the AndroidManifest.xml file, and configure correspo
 ```xml
 <meta-data
 android:name="TUYA_SMART_APPKEY"
-android:value="应用id" />
+android:value="App id" />
 <meta-data
 android:name="TUYA_SMART_SECRET"
-android:value="应用密钥" />
+android:value="App key" />
 
 <!-- sdcard -->
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-<!-- 网络 -->
+<!-- Network -->
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
 <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />

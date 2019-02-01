@@ -9,44 +9,44 @@ There are 2 methods to use, both of them are blocking methods. Suggest to manage
 
 -  the recording method without audio data
 
-  ```java
-      String mRecordMp4Path = null;
-                  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                      String picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
-                  String fileName = System.currentTimeMillis() + ".mp4";
-                  }
-                  boolean isRecording = false;
-                  try {
-                      isRecording = camera.startRecordingWithoutAudio(mRecordMp4Path, fileName, MainActivity.this);  //isRecording = true,代表录制视频调用成功 means video recording call successfully
-                  } catch (Exception e) {
-                      e.printStackTrace();
-                  }
-                  if (isRecording) {
-                      Toast.makeText(MainActivity.this, "start record...", Toast.LENGTH_SHORT).show();
-                  } else {
-                      Toast.makeText(MainActivity.this, "record fail", Toast.LENGTH_SHORT).show();
-                  }       
+```java
+	String mRecordMp4Path = null;
+	if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+	    String picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
+		String fileName = System.currentTimeMillis() + ".mp4";
+	}
+	boolean isRecording = false;
+	try {
+		isRecording = camera.startRecordingWithoutAudio(mRecordMp4Path, fileName, MainActivity.this);  //		isRecording = true, video recording call successfully
+	} catch (Exception e) {
+	  e.printStackTrace();
+	}
+	if (isRecording) {
+	  Toast.makeText(MainActivity.this, "start record...", Toast.LENGTH_SHORT).show();
+	} else {
+	  Toast.makeText(MainActivity.this, "record fail", Toast.LENGTH_SHORT).show();
+	}       
   ```
 
 - the recording method with audio data
 
 ```java
-    String mRecordMp4Path = null;
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                   String picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
-                String fileName = System.currentTimeMillis() + ".mp4";
-                }
-                boolean isRecording = false;
-                try {
-                    isRecording = camera.startRecordLocalMp4(mRecordMp4Path, fileName, MainActivity.this);  //isRecording = true, means video recording call successfully
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (isRecording) {
-                    Toast.makeText(MainActivity.this, "start record..", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(MainActivity.this, "record fail", Toast.LENGTH_SHORT).show();
-                }     
+	    String mRecordMp4Path = null;
+	    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+	       String picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
+	    String fileName = System.currentTimeMillis() + ".mp4";
+	    }
+        boolean isRecording = false;
+        try {
+            isRecording = camera.startRecordLocalMp4(mRecordMp4Path, fileName, MainActivity.this);  //isRecording = true, means video recording call successfully
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (isRecording) {
+            Toast.makeText(MainActivity.this, "start record..", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(MainActivity.this, "record fail", Toast.LENGTH_SHORT).show();
+        }     
 ```
 
 > tip: video recording requires to write memory card permission
@@ -57,16 +57,16 @@ There are 2 methods to use, both of them are blocking methods. Suggest to manage
 
 ```java
   boolean isStopRecord = false;
-              try {
-                  isStopRecord = camera.stopRecordLocalMp4();
-              } catch (Exception e) {
-                  e.printStackTrace();
-              }
-              if (isStopRecord) {
-                  Toast.makeText(MainActivity.this, "record over...", Toast.LENGTH_SHORT).show();
-              } else {
-                  Toast.makeText(MainActivity.this, "stop record fail...", Toast.LENGTH_SHORT).show();
-              }
+  try {
+      isStopRecord = camera.stopRecordLocalMp4();
+  } catch (Exception e) {
+      e.printStackTrace();
+  }
+  if (isStopRecord) {
+      Toast.makeText(MainActivity.this, "record over...", Toast.LENGTH_SHORT).show();
+  } else {
+      Toast.makeText(MainActivity.this, "stop record fail...", Toast.LENGTH_SHORT).show();
+  }
 ```
 
 > tip: video will be saved in custom routine once it recorded successfully.
@@ -78,13 +78,11 @@ There are 2 methods to use, both of them are blocking methods. Suggest to manage
 video screen shot  needs to be divided by live mode and playback mode
 
 ```java
-  String picPath = null;
-              if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                  picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/" + System.currentTimeMillis() + ".png";
-              }
-              camera.snapshot(picPath, this, ICameraP2P.PLAYMODE.LIVE);
-  
-  
+		String picPath = null;
+       if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+              picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/" + 				System.currentTimeMillis() + ".png";
+      		}
+      camera.snapshot(picPath, this, ICameraP2P.PLAYMODE.LIVE);
   
 ```
 
@@ -111,12 +109,12 @@ video screen shot  needs to be divided by live mode and playback mode
 
 ```java
   int mute = 0;
-              if (ICameraP2P.PLAYMODE.LIVE == playmode) {
-                  mute = isPreviewMute == ICameraP2P.MUTE ? ICameraP2P.UNMUTE : ICameraP2P.MUTE;
-              } else {
-                  mute = isPlaybackMute == ICameraP2P.MUTE ? ICameraP2P.UNMUTE : ICameraP2P.MUTE;
-              }
-              camera.setMute(playmode, mute, this);
+  if (ICameraP2P.PLAYMODE.LIVE == playmode) {
+      mute = isPreviewMute == ICameraP2P.MUTE ? ICameraP2P.UNMUTE : ICameraP2P.MUTE;
+  } else {
+      mute = isPlaybackMute == ICameraP2P.MUTE ? ICameraP2P.UNMUTE : ICameraP2P.MUTE;
+  }
+  camera.setMute(playmode, mute, this);
 ```
 
   callback method
@@ -145,17 +143,17 @@ video screen shot  needs to be divided by live mode and playback mode
 > p2ptype=1 type requires to confirm whether connectPlayback() call successfully before the intercom operation
 
 ```java
-  try {
-                      camera.startAudioTalk();
-                  } catch (Exception e) {
-                      e.printStackTrace();
-                  }
+	try {
+	  camera.startAudioTalk();
+	} catch (Exception e) {
+	  e.printStackTrace();
+	}
 ```
 
   ```java
   ···
   	@Override
-      public void onSpeakSuccessCallback(final boolean isTalking) {
+    public void onSpeakSuccessCallback(final boolean isTalking) {
 
           this.isSpeaking = isTalking;
           runOnUiThread(new Runnable() {
@@ -170,7 +168,7 @@ video screen shot  needs to be divided by live mode and playback mode
       }
       
   	@Override
-      public void onSpeakFailueCallback(int errorCode) {
+    public void onSpeakFailueCallback(int errorCode) {
           runOnUiThread(new Runnable() {
               @Override
               public void run() {
@@ -221,24 +219,24 @@ video screen shot  needs to be divided by live mode and playback mode
 ### resolution change
 
 ```java
-  			camera.getVideoClarity();
-              camera.setVideoClarity(ICameraP2P.HD);
+  	camera.getVideoClarity();
+   camera.setVideoClarity(ICameraP2P.HD);
 ```
 
   ```java
   ···
   @Override
-      public void onDefinitionStatusCallback(boolean isQuery, int definition) {
-          if (definition != null) {
-              mDefinition = definition;
-              runOnUiThread(new Runnable() {
-                  @Override
-                  public void run() {
-                      enableHDBtn.setText(mDefinition == 4 ? "HD" : "SD");
-                  }
-              });
-          }
+  public void onDefinitionStatusCallback(boolean isQuery, int definition) {
+      if (definition != null) {
+          mDefinition = definition;
+          runOnUiThread(new Runnable() {
+              @Override
+              public void run() {
+                  enableHDBtn.setText(mDefinition == 4 ? "HD" : "SD");
+              }
+          });
       }
+  }
   ···
   ```
 
@@ -366,11 +364,11 @@ camera.queryRecordTimeSliceByDay(2018, 7, 8);
 ### Start playback
 
   ```java
-  playmode = ICamerapP2P.PLAYMODE.PLAYBACK;
-              List<TimePieceBean> timePieceList = mBackDataDayCache.get("20180708");
-              TimePieceBean defaultPlayTime = timePieceList.get(0);
-              defaultPlayTime.setPlaytime(defaultPlayTime.getStarttime());
-              camera.startPlayBack(defaultPlayTime.getStartTime(), defaultPlayTime.getEndTime(), defaultPlayTime.getStartTime());
+	playmode = ICamerapP2P.PLAYMODE.PLAYBACK;
+	List<TimePieceBean> timePieceList = mBackDataDayCache.get("20180708");
+	TimePieceBean defaultPlayTime = timePieceList.get(0);
+	defaultPlayTime.setPlaytime(defaultPlayTime.getStarttime());
+	camera.startPlayBack(defaultPlayTime.getStartTime(), defaultPlayTime.getEndTime(), 	defaultPlayTime.getStartTime());
        
   ```
 
@@ -411,7 +409,7 @@ camera.queryRecordTimeSliceByDay(2018, 7, 8);
 ### Resume playback
 
 ```java
-camera.resumePlayback();
+	camera.resumePlayback();
 ```
 
 ```java
@@ -452,7 +450,7 @@ camera.resumePlayback();
 
 ```java
       @Override
-          public void receiveFrameDataForMediaCodec(Camera camera, int avChannel, byte[] buf, int length,
+      public void receiveFrameDataForMediaCodec(Camera camera, int avChannel, byte[] buf, int length,
                                                     int pFrmNo, byte[] pFrmInfoBuf, boolean isIframe, int codecId) {
               Log.e(TAG, "receiveFrameDataForMediaCodec ==== Camera =" + camera
                       + "  --avChannel =" + avChannel

@@ -5,8 +5,8 @@
 Because android camera sdk is bound with TuyaMonitorView, the user need to create TuyaMonitorView, and bound it with TuyaSmartCameraSDK when you initialize it, in the meantime registor the OnDelegateCameraListener. please check below：
 
 ```java
-private static final int ASPECT_RATIO_WIDTH = 9;
-private static final int ASPECT_RATIO_HEIGHT = 16;
+	private static final int ASPECT_RATIO_WIDTH = 9;
+	private static final int ASPECT_RATIO_HEIGHT = 16;
 @Override
     protected void onCreate(Bundle savedInstanceState) {
         ···
@@ -21,7 +21,7 @@ private static final int ASPECT_RATIO_HEIGHT = 16;
        int height = width * ASPECT_RATIO_WIDTH / ASPECT_RATIO_HEIGHT;
        findViewById(R.id.camera_tutk_video_view_ll).setLayoutParams(new RelativeLayout.LayoutParams(width, height));
         ···
-        initCamera();  // initialization
+       initCamera();  // initialization
 
     }
 ```
@@ -75,13 +75,13 @@ private void initCamera(){
    camera p2p operate and call method
 
   ```java
-  camera.connect(p2pId, p2pWd,localKey);
+  	camera.connect(p2pId, p2pWd,localKey);
   ```
 
   ```java
-  public interface OnDelegateCameraListener {
-  ···
-       @Override
+  	public interface OnDelegateCameraListener {
+  	···
+      @Override
       public void connectFail(String errorCode, String errorMsg) {
           Log.d(TAG,"p2p channel fail ： errorCode" + errorCode + "errorMsg " + errorMsg);
       }
@@ -112,22 +112,22 @@ private void initCamera(){
 
   ```java
   public interface OnDelegateCameraListener {
-  ···
-  
-      @Override
-    public void onPreviewSuccess() {
-        Log.d(TAG, "onPreviewSuccess");
-    }
-
-    @Override
-    public void onPreviewFail(int errorCode) {
-        Log.d(TAG, "onPreviewFail errorCode" + errorCode);
-    }
-    
-      @Override
-       public void onreceiveFrameDataCallback() {
-          Log.d(TAG, "get iFrame"); 
-      }
+	  ···
+	  
+	@Override
+	public void onPreviewSuccess() {
+	    Log.d(TAG, "onPreviewSuccess");
+	}
+	
+	@Override
+	public void onPreviewFail(int errorCode) {
+	    Log.d(TAG, "onPreviewFail errorCode" + errorCode);
+	}
+	    
+	@Override
+	public void onreceiveFrameDataCallback() {
+	  Log.d(TAG, "get iFrame"); 
+	}
   
   ···    
   }
