@@ -485,9 +485,11 @@ camera.queryRecordTimeSliceByDay(2018, 7, 8);
 
 > tip: only for devices that p2pType =2
 
-    ```java
-     @Override
-        public void onSessionStatusChanged(Object camera, int sessionId, int sessionStatus) {
-            Log.d(TAG, "sessionId " + sessionId + "sessionStatus " + sessionStatus);
-        }
-    ```
+```java
+
+@Override
+public void onSessionStatusChanged(Object camera, int sessionId, int sessionStatus) {
+Log.d(TAG, "sessionId " + sessionId + "sessionStatus " + sessionStatus);
+}
+
+```
