@@ -105,7 +105,7 @@ ITuyaSmartCameraActivatorListener() {
     /**
      * active success
      *
-     * @param devResp 设备ID  device id
+     * @param devResp  device id
      */
     void onActiveSuccess(DeviceBean devResp);
 };
@@ -165,4 +165,5 @@ mTuyaActivator.start();
 mTuyaActivator.stop();
 //callback destroy
 mTuyaActivator.onDestroy();
+
 ```
