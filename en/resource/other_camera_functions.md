@@ -10,46 +10,36 @@ There are 2 methods to use, both of them are blocking methods. Suggest to manage
 -  the recording method without audio data
 
 ```java
-	String mRecordMp4Path = null;
-	if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-	    String picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
-		String fileName = System.currentTimeMillis() + ".mp4";
-	}
-	boolean isRecording = false;
-	try {
-		isRecording = camera.startRecordingWithoutAudio(mRecordMp4Path, fileName, MainActivity.this);  //		isRecording = true, video recording call successfully
-	} catch (Exception e) {
-	  e.printStackTrace();
-	}
-	if (isRecording) {
-	  Toast.makeText(MainActivity.this, "start record...", Toast.LENGTH_SHORT).show();
-	} else {
-	  Toast.makeText(MainActivity.this, "record fail", Toast.LENGTH_SHORT).show();
-	}       
+	if (Constants.hasStoragePermission()) {
+                String picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
+                File file = new File(picPath);
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                String fileName = System.currentTimeMillis() + ".mp4";
+                int ret = camera.startRecordLocalMp4WithoutAudio(picPath, fileName, this);   // ret =0 success, ret < 0 failure
+            } else {
+                Constants.requestPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE, Constants.EXTERNAL_STORAGE_REQ_CODE, "open_storage");
+            }     
   ```
 
 - the recording method with audio data
 
 ```java
-	    String mRecordMp4Path = null;
-	    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-	       String picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
-	    String fileName = System.currentTimeMillis() + ".mp4";
-	    }
-        boolean isRecording = false;
-        try {
-            isRecording = camera.startRecordLocalMp4(mRecordMp4Path, fileName, MainActivity.this);  //isRecording = true, means video recording call successfully
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        if (isRecording) {
-            Toast.makeText(MainActivity.this, "start record..", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(MainActivity.this, "record fail", Toast.LENGTH_SHORT).show();
-        }     
+	    if (Constants.hasStoragePermission()) {
+                String picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
+                File file = new File(picPath);
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                String fileName = System.currentTimeMillis() + ".mp4";
+                int ret = camera.startRecordLocalMp4(picPath, fileName, this);   // ret =0 success, ret < 0 failure
+            } else {
+                Constants.requestPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE, Constants.EXTERNAL_STORAGE_REQ_CODE, "open_storage");
+            }  
 ```
 
-> tip: video recording requires to write memory card permission
+> tip: video recording requires to write memory card permission, p2ptype=2 of device is not supoort startRecordLocalMp4()
 
 
 
