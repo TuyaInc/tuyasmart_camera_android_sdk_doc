@@ -9,46 +9,39 @@
 - 不带有音频数据的录像方法
 
   ```java
-      String mRecordMp4Path = null;
-                  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                      String picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
-                  String fileName = System.currentTimeMillis() + ".mp4";
-                  }
-                  boolean isRecording = false;
-                  try {
-                      isRecording = camera.startRecordingWithoutAudio(mRecordMp4Path, fileName, MainActivity.this);  //isRecording = true,代表录制视频调用成功
-                  } catch (Exception e) {
-                      e.printStackTrace();
-                  }
-                  if (isRecording) {
-                      Toast.makeText(MainActivity.this, "录像开始。。。", Toast.LENGTH_SHORT).show();
-                  } else {
-                      Toast.makeText(MainActivity.this, "录像失败", Toast.LENGTH_SHORT).show();
-                  }       
+  if (Constants.hasStoragePermission()) {
+                String picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
+                File file = new File(picPath);
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                String fileName = System.currentTimeMillis() + ".mp4";
+		
+                int ret = camera.startRecordLocalMp4WithoutAudio(picPath, fileName, this);    // ret =0 success, ret < 0 failure
+            } else { 
+                Constants.requestPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE, Constants.EXTERNAL_STORAGE_REQ_CODE, "open_storage");
+            }
+	          
   ```
 
 - 带有音频数据的录像方法
 
 ```java
-    String mRecordMp4Path = null;
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                   String picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
+ if (Constants.hasStoragePermission()) {
+                String picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
+                File file = new File(picPath);
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
                 String fileName = System.currentTimeMillis() + ".mp4";
-                }
-                boolean isRecording = false;
-                try {
-                    isRecording = camera.startRecordLocalMp4(mRecordMp4Path, fileName, MainActivity.this);  //isRecording = true,代表录制视频调用成功
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (isRecording) {
-                    Toast.makeText(MainActivity.this, "录像开始。。。", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(MainActivity.this, "录像失败", Toast.LENGTH_SHORT).show();
-                }     
+		
+                int ret = camera.startRecordLocalMp4(picPath, fileName, this);    // ret =0 success, ret < 0 failure
+            } else { 
+                Constants.requestPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE, Constants.EXTERNAL_STORAGE_REQ_CODE, "open_storage");
+            }     
 ```
 
-> 注：录制视频需要写存储卡权限
+> 注：录制视频需要写存储卡权限,p2pType=2的设备，暂时不支持startRecordLocalMp4该方法
 
 
 
