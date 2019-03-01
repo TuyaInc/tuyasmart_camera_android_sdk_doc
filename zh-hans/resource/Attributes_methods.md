@@ -53,7 +53,7 @@ public void snapshot(String absoluteFilePath, Context context, ICameraP2P.PLAYMO
 public int startRecordLocalMp4(String folderPath, String fileName, Context context)
 
 //不带音频的本地录像，此方法是同步方法，需要在线程中处理
-public boolean startRecordingWithoutAudio(final String filePath, final Context context)
+public int startRecordingWithoutAudio(final String filePath, final Context context)
     
 //结束本地录像
  public int stopRecordLocalMp4()
