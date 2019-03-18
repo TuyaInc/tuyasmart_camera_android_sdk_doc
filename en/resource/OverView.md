@@ -8,3 +8,5 @@ Tuya Smart Camera SDK provides the interface package for the communication with 
 - Play back recorded video of the remote camera
 - Record video
 - Talk to the remote camera
+- Data communication with camera
+
