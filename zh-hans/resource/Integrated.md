@@ -84,6 +84,10 @@ android:value="应用密钥" />
 -keep class org.eclipse.paho.client.mqttv3.** { *; }
 -dontwarn org.eclipse.paho.client.mqttv3.**
 
+#tutk
+-keep class com.tutk.**{*;}
+-dontwarn com.tutk.**
+
 -keep class com.squareup.okhttp.** { *; }
 -keep interface com.squareup.okhttp.** { *; }
 -dontwarn com.squareup.okhttp.**
@@ -93,5 +97,7 @@ android:value="应用密钥" />
 
 -keep class com.tuya.**{*;}
 -dontwarn com.tuya.**
+
+
 ```
 
