@@ -99,12 +99,12 @@ void onStopSpeakSuccessCallback()
 // stop intercom failed
 void onStopSpeakFailueCallback(int errorCode)
 
-//（p2ptype =2 not use）
+//Receiving Video Data Callback in Hard Decomposition Mode（p2ptype =2 not use）
 public void receiveFrameDataForMediaCodec(Camera var1, int var2, byte[] var3, int var4, int var5, byte[] var6, boolean var7, int var8)
 
-//（p2ptype=1 not use）
+//Callback for YUV video data（p2ptype=1 not use）
 void onReceiveFrameYUVData(int sessionId, ByteBuffer y, ByteBuffer u, ByteBuffer v, int width, int height, long timestamp, Object camera)
 
-//（p2ptype=1 not use）
+//P2P link state callback, session Id < 0, that is, P2P disconnected（p2ptype=1 not use）
 void onSessionStatusChanged(Object camera, int sessionId, int sessionStatus)
 ```

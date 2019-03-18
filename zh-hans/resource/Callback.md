@@ -101,9 +101,9 @@ void onStopSpeakFailueCallback(int errorCode)
 //硬解模式下，接收视频数据回调 （p2ptype =2 不使用）
 public void receiveFrameDataForMediaCodec(Camera var1, int var2, byte[] var3, int var4, int var5, byte[] var6, boolean var7, int var8)
 
-（仅p2ptype=2的设备使用该回调）
+//回调视频YUV数据（仅p2ptype=2的设备使用该回调）
 void onReceiveFrameYUVData(int sessionId, ByteBuffer y, ByteBuffer u, ByteBuffer v, int width, int height, long timestamp, Object camera)
 
-（仅p2ptype=2的设备使用该回调）
+//p2p的链接状态回调，sessionId < 0，即p2p断开（仅p2ptype=2的设备使用该回调）
 void onSessionStatusChanged(Object camera, int sessionId, int sessionStatus)
 ```
