@@ -9,13 +9,8 @@
 
 Build your project in the Android Studio.
 
-### 2、Import aar
 
-import tuyaCamera-3.0.x.aar to libs，etc：
-
-![import_aar_image](./images/import_aar_image.png)
-
-### 3、Configure the build.gradle
+### 2、Configure the build.gradle
 
 build.gradle 
 
@@ -32,6 +27,20 @@ defaultConfig {
         implementation 'com.alibaba:fastjson:1.1.67.android'
         implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.6.0'
         implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
+        
+        // required tuya home sdk
+	    implementation 'com.tuya.smart:tuyasmart:3.9.6'
+	     
+	    //required tuya camera module
+	    implementation 'com.tuya.smart:tuyasmart-ipc-camera-middleware:3.11.0r119'
+    	implementation 'com.tuya.smart:tuyasmart-ipc-camera-v2:3.11.0r119'
+    	implementation 'com.tuya.smart:tuyasmart-ipc-camera-utils:3.11.0r119'
+		 // tuya ipc devicecontrol
+    	implementation 'com.tuya.smart:tuyasmart-ipc-devicecontrol:3.11.0r119'
+	    
+        //not required Compatible with older versions
+    	implementation "com.tuya.smart:tuyaCamera:3.11.0r119h2"
+    	
     }
 
 repositories {
@@ -45,7 +54,7 @@ repositories {
 
 
 
-### 4、Set the AndroidManifest.xml
+### 3、Set the AndroidManifest.xml
 
 Set appkey and appSecret in the AndroidManifest.xml file, and configure corresponding permissions, etc.
 
@@ -72,7 +81,7 @@ android:value="App key" />
 
 
 
-### 5、proguard-rules
+### 4、proguard-rules
 
 Arrange aliasing configuration in corresponding proguard-rules.pro files.
 

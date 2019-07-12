@@ -6,12 +6,13 @@ TuyaMonitorView is a player controls, which is fit for 1 and 2 p2p type. show th
 
 | p2pType | description                |
 | ------- | ------------------- |
-| 1       | match device for P2p 1.0 |
 | 2       | match device for P2p 2.0 |
 
  method：
 
-> TuyaMonitorView.createVideoView(int p2pType, boolean isRunSoft， generate corresponding p2p player and use soft/hard decode
+> TuyaMonitorView.createVideoView(int provider), Build the VideoView corresponding to the provider.
+
+
 
 
 ### get p2pType

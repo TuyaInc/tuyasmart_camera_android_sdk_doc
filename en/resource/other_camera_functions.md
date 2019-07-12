@@ -5,58 +5,74 @@
 ### Turn on video recording
 
 
-There are 2 methods to use, both of them are blocking methods. Suggest to manage in the sub thread.
+int startRecordLocalMp4(String folderPath, String fileName, Context context, OperationDelegateCallBack callBack);
 
--  the recording method without audio data
+
+**parameter：**
+
+|parameter|Mandatory|Type|Description|
+|:----    |:---|:----- |-----   |
+| folderPath |yes|string| File path|
+| fileName | yes |string| File name|
+| Context | yes || |
+| OperationDelegateCallBack | yes || operation callback |
 
 ```java
-	if (Constants.hasStoragePermission()) {
+ if (Constants.hasStoragePermission()) {
                 String picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
                 File file = new File(picPath);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
                 String fileName = System.currentTimeMillis() + ".mp4";
-                int ret = camera.startRecordLocalMp4WithoutAudio(picPath, fileName, this);   // ret =0 success, ret < 0 failure
-            } else {
-                Constants.requestPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE, Constants.EXTERNAL_STORAGE_REQ_CODE, "open_storage");
-            }     
-  ```
+                videoPath = picPath + fileName;
+                mCameraP2P.startRecordLocalMp4(picPath, fileName, CameraPanelActivity.this, new OperationDelegateCallBack() {
+                    @Override
+                    public void onSuccess(int sessionId, int requestId, String data) {
+                        isRecording = true;
+                        mHandler.sendEmptyMessage(MSG_VIDEO_RECORD_BEGIN);
 
-- the recording method with audio data
+                    }
 
-```java
-	    if (Constants.hasStoragePermission()) {
-                String picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
-                File file = new File(picPath);
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                String fileName = System.currentTimeMillis() + ".mp4";
-                int ret = camera.startRecordLocalMp4(picPath, fileName, this);   // ret =0 success, ret < 0 failure
+                    @Override
+                    public void onFailure(int sessionId, int requestId, int errCode) {
+                        mHandler.sendEmptyMessage(MSG_VIDEO_RECORD_FAIL);
+                    }
+                });
+                recordStatue(true);
             } else {
-                Constants.requestPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE, Constants.EXTERNAL_STORAGE_REQ_CODE, "open_storage");
-            }  
+                Constants.requestPermission(CameraPanelActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE, Constants.EXTERNAL_STORAGE_REQ_CODE, "open_storage");
+            }       
 ```
 
-> tip: video recording requires to write memory card permission, p2ptype=2 of device is not supoort startRecordLocalMp4()
-
+> tip: video recording requires to write memory card permission,Suggestions for processing in sub-threads
 
 
 ### Stop video recording
 
+int stopRecordLocalMp4(OperationDelegateCallBack callBack);
+
+**parameter：**
+
+|parameter|Mandatory|Type|Description|
+|:----    |:---|:----- |-----   |
+| OperationDelegateCallBack ||| operation callback|
+
 ```java
-  boolean isStopRecord = false;
-  try {
-      isStopRecord = camera.stopRecordLocalMp4();
-  } catch (Exception e) {
-      e.printStackTrace();
-  }
-  if (isStopRecord) {
-      Toast.makeText(MainActivity.this, "record over...", Toast.LENGTH_SHORT).show();
-  } else {
-      Toast.makeText(MainActivity.this, "stop record fail...", Toast.LENGTH_SHORT).show();
-  }
+  mCameraP2P.stopRecordLocalMp4(new OperationDelegateCallBack() {
+                @Override
+                public void onSuccess(int sessionId, int requestId, String data) {
+                    isRecording = false;
+                    //data: Returns the file path
+                    mHandler.sendMessage(MessageUtil.getMessage(MSG_VIDEO_RECORD_OVER, ARG1_OPERATE_SUCCESS, data));
+                }
+
+                @Override
+                public void onFailure(int sessionId, int requestId, int errCode) {
+                    isRecording = false;
+                    mHandler.sendMessage(MessageUtil.getMessage(MSG_VIDEO_RECORD_OVER, ARG1_OPERATE_FAIL));
+                }
+            });
 ```
 
 > tip: video will be saved in custom routine once it recorded successfully.
@@ -65,110 +81,107 @@ There are 2 methods to use, both of them are blocking methods. Suggest to manage
 
 ### video screenshot
 
+int snapshot(String absoluteFilePath, Context context, PLAYMODE playmode, OperationDelegateCallBack callBack);
+
 video screen shot  needs to be divided by live mode and playback mode
 
+**parameter：**
+
+|parameter|Mandatory|Type|Description|
+|:----    |:---|:----- |-----   |
+| absoluteFilePath ||string| File path|
+| Context ||| |
+| PLAYMODE ||| live mode / playback mode|
+| OperationDelegateCallBack ||| operation callback|
+
 ```java
-		String picPath = null;
-       if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-              picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/" + 				System.currentTimeMillis() + ".png";
-      		}
-      camera.snapshot(picPath, this, ICameraP2P.PLAYMODE.LIVE);
-  
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
+            File file = new File(path);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            picPath = path;
+        }
+        mCameraP2P.snapshot(picPath, CameraPanelActivity.this, ICameraP2P.PLAYMODE.LIVE, new OperationDelegateCallBack() {
+            @Override
+            public void onSuccess(int sessionId, int requestId, String data) {
+             //data Returns the file path
+                mHandler.sendMessage(MessageUtil.getMessage(MSG_SCREENSHOT, ARG1_OPERATE_SUCCESS, data));
+            }
+
+            @Override
+            public void onFailure(int sessionId, int requestId, int errCode) {
+                mHandler.sendMessage(MessageUtil.getMessage(MSG_SCREENSHOT, ARG1_OPERATE_FAIL));
+            }
+        });
 ```
-
-   screenshot operation callback
-
-  ```java
-  ···
-  //  screenshot operation callback
-      @Override
-      public void onSnapshotSuccessCallback() {
-          Log.d(TAG, "onSnapshotSuccessCallback");
-      }
-  
-      @Override
-      public void onSnapshotFailCallback() {
-          Log.d(TAG, "onSnapshotFailCallback");
-      }
-  ···
-  ```
-
 
 
 ### set microphone status
+void setMute(PLAYMODE playModel, int mute, OperationDelegateCallBack callBack);
+
+**parameter：**
+
+|parameter|Mandatory|Type|Description|
+|:----    |:---|:----- |-----   |
+| PLAYMODE ||| live mode / playback mode|
+| mute |||  MUTE/UNMUTE |
+| OperationDelegateCallBack ||| operation callback|
 
 ```java
-  int mute = 0;
-  if (ICameraP2P.PLAYMODE.LIVE == playmode) {
-      mute = isPreviewMute == ICameraP2P.MUTE ? ICameraP2P.UNMUTE : ICameraP2P.MUTE;
-  } else {
-      mute = isPlaybackMute == ICameraP2P.MUTE ? ICameraP2P.UNMUTE : ICameraP2P.MUTE;
-  }
-  camera.setMute(playmode, mute, this);
+  int mute;
+        mute = previewMute == ICameraP2P.MUTE ? ICameraP2P.UNMUTE : ICameraP2P.MUTE;
+        mCameraP2P.setMute(ICameraP2P.PLAYMODE.LIVE, mute, new OperationDelegateCallBack() {
+            @Override
+            public void onSuccess(int sessionId, int requestId, String data) {
+            		//data： Return the result value after the corresponding operation
+                previewMute = Integer.valueOf(data);
+                mHandler.sendMessage(MessageUtil.getMessage(MSG_MUTE, ARG1_OPERATE_SUCCESS));
+            }
+
+            @Override
+            public void onFailure(int sessionId, int requestId, int errCode) {
+                mHandler.sendMessage(MessageUtil.getMessage(MSG_MUTE, ARG1_OPERATE_FAIL));
+            }
+        });
 ```
-
-  callback method
-
-  ```java
-  ···
-    
-      @Override
-      public void onMuteOperateSuccess(ICameraP2P.PLAYMODE playmode, int isMute) {
-          isPreviewMute = isMute;
-          Log.d(TAG, "onPreviewMuteOperateSuccess mute" + isPreviewMute);
-      }
-  
-      @Override
-      public void onMuteOperateFail(ICameraP2P.PLAYMODE playmode) {
-  
-      }
-  
-  ···
-  ```
 
 
 
 ### open intercom
 
-> p2ptype=1 type requires to confirm whether connectPlayback() call successfully before the intercom operation
+void startAudioTalk(OperationDelegateCallBack callBack);
+
+**parameter：**
+
+|parameter|Mandatory|Type|Description|
+|:----    |:---|:----- |-----   |
+| OperationDelegateCallBack ||| operation callback|
+
 
 ```java
-	try {
-	  camera.startAudioTalk();
-	} catch (Exception e) {
-	  e.printStackTrace();
-	}
+  if (Constants.hasRecordPermission()) {
+                mCameraP2P.startAudioTalk(new OperationDelegateCallBack() {
+                    @Override
+                    public void onSuccess(int sessionId, int requestId, String data) {
+                        isSpeaking = true;
+                        mHandler.sendMessage(MessageUtil.getMessage(MSG_TALK_BACK_BEGIN, ARG1_OPERATE_SUCCESS));
+                        ToastUtil.shortToast(CameraPanelActivity.this, "start talk success");
+                    }
+
+                    @Override
+                    public void onFailure(int sessionId, int requestId, int errCode) {
+                        isSpeaking = false;
+                        mHandler.sendMessage(MessageUtil.getMessage(MSG_TALK_BACK_BEGIN, ARG1_OPERATE_FAIL));
+                        ToastUtil.shortToast(CameraPanelActivity.this, "operation fail");
+
+                    }
+                });
+            } else {
+                Constants.requestPermission(CameraPanelActivity.this, Manifest.permission.RECORD_AUDIO, Constants.EXTERNAL_AUDIO_REQ_CODE, "open_recording");
+            }
 ```
-
-  ```java
-  ···
-  	@Override
-    public void onSpeakSuccessCallback(final boolean isTalking) {
-
-          this.isSpeaking = isTalking;
-          runOnUiThread(new Runnable() {
-              @Override
-              public void run() {
-                  if (isTalking)
-                      startSpeakBtn.setText("talk（open）");
-                  else
-                      startSpeakBtn.setText("talk（close）");
-              }
-          });
-      }
-      
-  	@Override
-    public void onSpeakFailueCallback(int errorCode) {
-          runOnUiThread(new Runnable() {
-              @Override
-              public void run() {
-                  startSpeakBtn.setText("talk（close）");
-              }
-          });
-      }
-  
-  ···
-  ```
 
 
 
@@ -176,59 +189,91 @@ video screen shot  needs to be divided by live mode and playback mode
 
 ### Stop intercom
 
- ```java
-   camera.stopAudioTalk();
- ```
+int stopAudioTalk(OperationDelegateCallBack callBack)
 
-  ```java
-  ···
-  	@Override
-      public void onStopSpeakSuccessCallback() {
-          runOnUiThread(new Runnable() {
-              @Override
-              public void run() {
-                  if (isTalking)
-                      startSpeakBtn.setText("talk（open）");
-                  else
-                      startSpeakBtn.setText("talk（close）");
-              }
-          });
-      }
-      
-      @Override
-      public void onStopSpeakFailueCallback(int errorCode) {
-  
-      }
-  ···
-  ```
+**parameter：**
+
+|parameter|Mandatory|Type|Description|
+|:----    |:---|:----- |-----   |
+| OperationDelegateCallBack ||| operation callback|
+
+
+ ```java
+   mCameraP2P.stopAudioTalk(new OperationDelegateCallBack() {
+                @Override
+                public void onSuccess(int sessionId, int requestId, String data) {
+                    isSpeaking = false;
+                    mHandler.sendMessage(MessageUtil.getMessage(MSG_TALK_BACK_OVER, ARG1_OPERATE_SUCCESS));
+                }
+
+                @Override
+                public void onFailure(int sessionId, int requestId, int errCode) {
+                    isSpeaking = false;
+                    mHandler.sendMessage(MessageUtil.getMessage(MSG_TALK_BACK_OVER, ARG1_OPERATE_FAIL));
+
+                }
+            });
+ ```
 
 > tip: intercom and recording are exclusive, intercom can be opened only during live view
 
 
 
-### resolution change
+### query clarity
+
+void getVideoClarity(OperationDelegateCallBack callBack);
+
+**parameter：**
+
+|parameter|Mandatory|Type|Description|
+|:----    |:---|:----- |-----   |
+| OperationDelegateCallBack ||| operation callback|
+
 
 ```java
-  	camera.getVideoClarity();
-   camera.setVideoClarity(ICameraP2P.HD);
+	mCameraP2P.getVideoClarity(new OperationDelegateCallBack() {
+            @Override
+            public void onSuccess(int sessionId, int requestId, String data) {
+                
+            }
+
+            @Override
+            public void onFailure(int sessionId, int requestId, int errCode) {
+
+            }
+        });
+```
+> Note: After the preview screen comes out, call the function
+
+
+### Change clarity
+
+void setVideoClarity(int clarity, OperationDelegateCallBack callback);
+
+**parameter：**
+
+|parameter|Mandatory|Type|Description|
+|:----    |:---|:----- |-----   |
+| mode ||| HD / STANDEND |
+| OperationDelegateCallBack ||| operation callback|
+
+
+```java
+
+     mCameraP2P.setVideoClarity(videoClarity == ICameraP2P.HD ? ICameraP2P.STANDEND : ICameraP2P.HD, new OperationDelegateCallBack() {
+            @Override
+            public void onSuccess(int sessionId, int requestId, String data) {
+                videoClarity = Integer.valueOf(data);
+                mHandler.sendMessage(MessageUtil.getMessage(MSG_GET_CLARITY, ARG1_OPERATE_SUCCESS));
+            }
+
+            @Override
+            public void onFailure(int sessionId, int requestId, int errCode) {
+                mHandler.sendMessage(MessageUtil.getMessage(MSG_GET_CLARITY, ARG1_OPERATE_FAIL));
+            }
+        });
 ```
 
-  ```java
-  ···
-  @Override
-  public void onDefinitionStatusCallback(boolean isQuery, int definition) {
-      if (definition != null) {
-          mDefinition = definition;
-          runOnUiThread(new Runnable() {
-              @Override
-              public void run() {
-                  enableHDBtn.setText(mDefinition == 4 ? "HD" : "SD");
-              }
-          });
-      }
-  }
-  ···
-  ```
 
   definition mode
 
@@ -247,210 +292,190 @@ video screen shot  needs to be divided by live mode and playback mode
       }
 
  ```
-  get definition
-
-```java
- camera.getVideoClarity();
-```
-
-
-the method of callback and set definition is the same
-
-
-
-### Set up playback channel
-
-
-only for p2pType=1 device type use
-
-  ```java
-   camera.connectPlayback();
-  ```
-
-  ```java
-  ···
-  	@Override
-      public void onChannel1StartSuccess() {
-          Log.d(TAG, "playback channel success");
-      }
-      
-   	@Override
-      public void onChannelOtherStatus(int errorCode) {
-          Log.d(TAG, "onChannelOtherStatus...errorCode " + errorCode);
-      }
-  
-  	@Override
-      public void onPlaybackEnterFail(String errorCode, String errorMsg) {
-          Log.d(TAG, "playback channel fail");
-      }
-  ···
-  ```
-
-  > tips: If you want to talk, you need to build a playback channel.
 
 
 
 ###  Get the dates that have playback video recording info
 
-Need to get playback video recording info before playback. First, get the dates that have playback video recording info.
+
+void queryRecordDaysByMonth(int year, int month, OperationDelegateCallBack callBack);
+
+**parameter：**
+
+|parameter|Mandatory|Type|Description|
+|:----    |:---|:----- |-----   |
+| year ||int| |
+| month ||int| |
+| OperationDelegateCallBack ||| operation callback|	
+
+
+> Need to get playback video recording info before playback. First, get the dates that have playback video recording info.
 
   ```java
-  camera.queryRecordDaysByMonth(2018, 7);
-  ```
-
-  ```java
-  ···
-     @Override
-      public void onQueryPlaybackDataSuccessByMonth(int year, int month, Object days) {
-          Log.d(TAG, "onQueryPlaybackDataSuccessByMonth ");
-          String yearMonth = String.valueOf(year) + String.valueOf(month);
-          mBackDataMonthCache.put(yearMonth, days);
-      }
-      
-      @Override
-      public void onQueryPlaybackDataFailureByMonth(int errorCode, String errorMsg) {
-          runOnUiThread(new Runnable() {
-              @Override
-              public void run() {
-                  Toast.makeText(MainActivity.this, "get date fail。。。", Toast.LENGTH_SHORT).show();
-              }
-          });
-      }
-  ···    
   
+  int year = Integer.parseInt(substring[0]);
+                    int mouth = Integer.parseInt(substring[1]);
+                    queryDay = Integer.parseInt(substring[2]);
+                    mCameraP2P.queryRecordDaysByMonth(year, mouth, new OperationDelegateCallBack() {
+                        @Override
+                        public void onSuccess(int sessionId, int requestId, String data) {
+                        //data: Obtain date data by year and month
+                            MonthDays monthDays = JSONObject.parseObject(data, MonthDays.class);
+                            mBackDataMonthCache.put(mCameraP2P.getMonthKey(), monthDays.getDataDays());
+                            mHandler.sendMessage(MessageUtil.getMessage(MSG_DATA_DATE, ARG1_OPERATE_SUCCESS, data));
+                        }
+
+                        @Override
+                        public void onFailure(int sessionId, int requestId, int errCode) {
+                            mHandler.sendMessage(MessageUtil.getMessage(MSG_DATA_DATE, ARG1_OPERATE_FAIL));
+                        }
+                    }); 
   ```
 
 
 
 ### Get the video playback info of someday
 
+void queryRecordTimeSliceByDay(int year, int month, int day, OperationDelegateCallBack callBack);
 
-After getting the dates that have playback recording, query playback data by day.
+**parameter：**
+
+|parameter|Mandatory|Type|Description|
+|:----    |:---|:----- |-----   |
+| year ||int| |
+| month ||int| |
+| day ||int| |
+| OperationDelegateCallBack ||| operation callback|	
+
+> After getting the dates that have playback recording, query playback data by day.
 
 ```java
-camera.queryRecordTimeSliceByDay(2018, 7, 8);
-```
+int year = Integer.parseInt(substring[0]);
+                int mouth = Integer.parseInt(substring[1]);
+                int day = Integer.parseInt(substring[2]);
+                mCameraP2P.queryRecordTimeSliceByDay(year, mouth, day, new OperationDelegateCallBack() {
+                    @Override
+                    public void onSuccess(int sessionId, int requestId, String data) {						    //data: Obtained date-time fragment data
+                        parsePlaybackData(data);
+                    }
 
-```java
-···
-	@Override
-    public void onQueryPlaybackDataSuccessByDay(String yearmonthday, Object timePieceBeanList) {
-        Log.d(TAG, "onQueryPlaybackDataSuccessByDay ");
-        mBackDataDayCache.put(yearmonthday, timePieceBeanList);
-    }
-
-    @Override
-    public void onQueryPlaybackDataFailureByDay(int errorCode, String errorMsg) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(MainActivity.this, "get timepieces`s data fail。。。", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-···    
+                    @Override
+                    public void onFailure(int sessionId, int requestId, int errCode) {
+                        mHandler.sendEmptyMessage(MSG_DATA_DATE_BY_DAY_FAIL);
+                    }
+                });
 ```
 
 ### Start playback
 
-  ```java
-	playmode = ICamerapP2P.PLAYMODE.PLAYBACK;
-	List<TimePieceBean> timePieceList = mBackDataDayCache.get("20180708");
-	TimePieceBean defaultPlayTime = timePieceList.get(0);
-	defaultPlayTime.setPlaytime(defaultPlayTime.getStarttime());
-	camera.startPlayBack(defaultPlayTime.getStartTime(), defaultPlayTime.getEndTime(), 	defaultPlayTime.getStartTime());
+void startPlayBack(int startTime, int stopTime,
+                       int playTime, OperationDelegateCallBack callBack, OperationDelegateCallBack finishcallBack);
+                       
+**parameter：**
+
+|parameter|Mandatory|Type|Description|
+|:----    |:---|:----- |-----   |
+| startTime ||int| time-slice of start Time|
+| stopTime ||int| time-slice of end Time|
+| playTime ||int| time-slice of play Time，play Time between start Time and End Time |
+| OperationDelegateCallBack ||| operation callback|	
+| OperationDelegateCallBack |||  finish playback operation callback|   
+                       
+
+  ``` java
+  mCameraP2P.startPlayBack(timePieceBean.getStartTime(),
+                        timePieceBean.getEndTime(),
+                        timePieceBean.getStartTime(), new OperationDelegateCallBack() {
+                            @Override
+                            public void onSuccess(int sessionId, int requestId, String data) {
+                                isPlayback = true;
+                            }
+
+                            @Override
+                            public void onFailure(int sessionId, int requestId, int errCode) {
+                                isPlayback = false;
+                            }
+                        }, new OperationDelegateCallBack() {
+                            @Override
+                            public void onSuccess(int sessionId, int requestId, String data) {
+                                isPlayback = false;
+                            }
+
+                            @Override
+                            public void onFailure(int sessionId, int requestId, int errCode) {
+                                isPlayback = false;
+                            }
+                        });
        
   ```
 
-  ```java
-  ···
-      @Override
-      public void onPlaybackStartSuccess() {
-          Log.d(TAG, "onPlaybackStartSuccess...");
-      }
-  
-      @Override
-      public void onPlaybackStartFail(String errorCode, String errorMsg) {
-          Log.d(TAG, "onPlaybackStartFail...");
-      }
-  ···
-  ```
-
  ### Pause playback
+ 
+ **parameter：**
+
+|parameter|Mandatory|Type|Description|
+|:----    |:---|:----- |-----   |
+| OperationDelegateCallBack ||| pause playback operation callback|
 
   ```java
-   camera.pausePlayback();
-  ```
+   mCameraP2P.pausePlayBack(new OperationDelegateCallBack() {
+            @Override
+            public void onSuccess(int sessionId, int requestId, String data) {
+                isPlayback = false;
+            }
 
-  ```java
-  ···
-      @Override
-      public void onPlaybackPauseSuccess() {
-          Log.d(TAG, "onPlaybackPauseSuccess...");
-      }
-  
-      @Override
-      public void onPlaybackPauseFail(String errorCode, String errorMsg) {
-          Log.d(TAG, "onPlaybackPauseFail...");
-      }
-  ···
+            @Override
+            public void onFailure(int sessionId, int requestId, int errCode) {
+
+            }
+        });
   ```
 
 ### Resume playback
+void resumePlayBack(OperationDelegateCallBack callBack)
+
+**parameter：**
+
+|parameter|Mandatory|Type|Description|
+|:----    |:---|:----- |-----   |
+| OperationDelegateCallBack ||| resume playback operation callback|
 
 ```java
-	camera.resumePlayback();
-```
+mCameraP2P.resumePlayBack(new OperationDelegateCallBack() {
+            @Override
+            public void onSuccess(int sessionId, int requestId, String data) {
+                isPlayback = true;
+            }
 
-```java
-···
-    @Override
-    public void onPlaybackResumeSuccess() {
-        Log.d(TAG, "onPlaybackResumeSuccess...");
-    }
+            @Override
+            public void onFailure(int sessionId, int requestId, int errCode) {
 
-    @Override
-    public void onPlaybackResumeFail(String errorCode, String errorMsg) {
-        Log.d(TAG, "onPlaybackResumeFail...");
-    }
-···
+            }
+        });
 ```
 
 ### Playback end callback
 
-```java
-···   
-	@Override
-    public void onPlaybackEnd() {
-        Log.d(TAG, "onPlaybackEnd ...");
-    }
-    
-    @Override
-    public void onPlaybackEndFail() {
+void stopPlayBack(OperationDelegateCallBack callBack);
 
-    }
-···    
-```
+**parameter：**
 
-
-
-###   get frame data for media code
-
-> tip: only for devices that p2pType =1 
+|parameter|Mandatory|Type|Description|
+|:----    |:---|:----- |-----   |
+| OperationDelegateCallBack ||| stop playback operation callback|
 
 ```java
-      @Override
-      public void receiveFrameDataForMediaCodec(Camera camera, int avChannel, byte[] buf, int length,
-                                                    int pFrmNo, byte[] pFrmInfoBuf, boolean isIframe, int codecId) {
-              Log.e(TAG, "receiveFrameDataForMediaCodec ==== Camera =" + camera
-                      + "  --avChannel =" + avChannel
-                      + "  --buf =" + Arrays.toString(buf)
-                      + "  --length =" + length
-                      + "  --pFrmNo =" + pFrmNo
-                      + "  --pFrmInfoBuf =" + Arrays.toString(pFrmInfoBuf)
-                      + "  --isIframe =" + isIframe
-                      + "  --codecId =" + codecId);
-          }
+	mCameraP2P.stopPlayBack(new OperationDelegateCallBack() {
+            @Override
+            public void onSuccess(int sessionId, int requestId, String data) {
+
+            }
+
+            @Override
+            public void onFailure(int sessionId, int requestId, int errCode) {
+
+            }
+        });
 ```
 
 
@@ -458,7 +483,6 @@ camera.queryRecordTimeSliceByDay(2018, 7, 8);
 ###  Get streaming video data
 
 
-> tip: only for devices that p2pType =2
 
   ```java
 
@@ -469,11 +493,26 @@ camera.queryRecordTimeSliceByDay(2018, 7, 8);
   	
   ```
 
+**parameter：**
+
+|parameter|Mandatory|Type|Description|
+|:----    |:---|:----- |-----   |
+| sessionId || int | |
+| y || ByteBuffer | Y Data|
+| u || ByteBuffer | U Data|
+| v || ByteBuffer | V Data|
+| width || int | video Frame width |
+| height || int | video Frame height |
+| nFrameRate || int | FrameRate|
+| nIsKeyFrame || int | |
+| timestamp || int | Frame TimeStamp|
+| nProgress || int | |
+| nDuration || int | |
+
 
 
 ###  Get p2p status
-
-> tip: only for devices that p2pType =2
+> passive disconnect callback 
 
 ```java
 
@@ -483,3 +522,10 @@ Log.d(TAG, "sessionId " + sessionId + "sessionStatus " + sessionStatus);
 }
 
 ```
+
+
+**parameter：**
+
+|parameter|Mandatory|Type|Description|
+|:----    |:---|:----- |-----   |
+| sessionId || int | |

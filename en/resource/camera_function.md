@@ -2,7 +2,7 @@
 
 ### 1.initialize
 
-Because android camera sdk is bound with TuyaMonitorView, the user need to create TuyaMonitorView, and bound it with TuyaSmartCameraSDK when you initialize it, in the meantime registor the OnDelegateCameraListener. please check below：
+Because android camera sdk is bound with TuyaMonitorView, the user need to create TuyaMonitorView, and bound it with TuyaSmartCameraSDK when you initialize it, in the meantime registor the OnP2PCameraListener. please check below：
 
 ```java
 	private static final int ASPECT_RATIO_WIDTH = 9;
@@ -10,31 +10,76 @@ Because android camera sdk is bound with TuyaMonitorView, the user need to creat
 @Override
     protected void onCreate(Bundle savedInstanceState) {
         ···
-        mVideoView = findViewById(camera_video_view);
-        // set player type
-        mIsRunSoft = getIntent().getBooleanExtra("isRunsoft", false);
-        p2pType = getIntent().getIntExtra("p2pType", 1);
-        mVideoView.createVideoView(p2pType, mIsRunSoft);
-		// player view set suggest to be 16:9
-       WindowManager windowManager = (WindowManager) this.getSystemService(WINDOW_SERVICE);
-       int width = windowManager.getDefaultDisplay().getWidth();
-       int height = width * ASPECT_RATIO_WIDTH / ASPECT_RATIO_HEIGHT;
-       findViewById(R.id.camera_tutk_video_view_ll).setLayoutParams(new RelativeLayout.LayoutParams(width, height));
+        initView();
+        initData();
+        initListener();
         ···
-       initCamera();  // initialization
 
     }
 ```
 
+ 
+```java      
+       private void initView() {
+        ...
+        mVideoView = findViewById(R.id.camera_video_view);
+        ...
+
+        WindowManager windowManager = (WindowManager) this.getSystemService(WINDOW_SERVICE);
+        int width = windowManager.getDefaultDisplay().getWidth();
+        int height = width * ASPECT_RATIO_WIDTH / ASPECT_RATIO_HEIGHT;
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(width, height);
+        layoutParams.addRule(RelativeLayout.BELOW, R.id.toolbar_view);
+        findViewById(R.id.camera_video_view_Rl).setLayoutParams(layoutParams);
+
+    }
+```
+
+```java   
+  private void initData() {
+        localKey = getIntent().getStringExtra(INTENT_LOCALKEY);
+        devId = getIntent().getStringExtra(INTENT_DEVID);
+        sdkProvider = getIntent().getIntExtra(INTENT_SDK_POROVIDER, -1);
+        mIsRunSoft = getIntent().getBooleanExtra("isRunsoft", true);
+        if (null != TuyaHomeSdk.getUserInstance().getUser()) {
+            mlocalId = TuyaHomeSdk.getUserInstance().getUser().getUid();
+        }
+        mCameraP2P = TuyaSmartCameraP2PFactory.generateTuyaSmartCamera(sdkProvider);
+        mDeviceControl = TuyaCameraDeviceControlSDK.getCameraDeviceInstance(devId);
+        getApi(); //get ipc config 
+    }
+
+```
+   
 ```java
-/**
- *  initialization
- */    
-private void initCamera(){
-        camera = TuyaSmartCameraFactory.generateTuyaSmartCamera(p2pType);
-        camera.createDevice(p2pId, mInitString, mIsRunSoft);
-        camera.registorOnDelegateCameraListener(this);
-        camera.generateCameraView(mVideoView.createdView());
+
+   	private void getApi() {
+        Map postData = new HashMap();
+        postData.put("devId", devId);
+        TuyaHomeSdk.getRequestInstance().requestWithApiName("tuya.m.ipc.config.get", "2.0",
+                postData, new IRequestCallback() {
+                    @Override
+                    public void onSuccess(Object o) {
+                        infoBean = JSONObject.parseObject(o.toString(), CameraInfoBean.class);
+                        Log.d("onSuccess", o.toString());
+                        mP2p3Id = infoBean.getId(); // not support yet
+                        p2pType = infoBean.getP2pSpecifiedType();
+                        p2pId = infoBean.getP2pId().split(",")[0];
+                        p2pWd = infoBean.getPassword();
+                        mInitStr = infoBean.getP2pConfig().getInitStr();
+                        mP2pKey = infoBean.getP2pConfig().getP2pKey();
+                        mInitStr += ":" + mP2pKey;
+                        if (null != infoBean.getP2pConfig().getIces()) {
+                            token = infoBean.getP2pConfig().getIces().toString();
+                        }
+                        initCameraView();
+                    }
+
+                    @Override
+                    public void onFailure(String s, String s1) {
+                        ToastUtil.shortToast(CameraPanelActivity.this, "get cameraInfo failed");
+                    }
+                });
     }
 ```
 
@@ -57,101 +102,99 @@ private void initCamera(){
 ```
  call initialization
 
-```java
-    @Override
-    public void onCreateDeviceSuccess() {
-        Log.d(TAG, "onCreateDeviceSuccess");
-    }
+ ```java
+   mCameraP2P.createDevice(new OperationDelegateCallBack() {
+            @Override
+            public void onSuccess(int sessionId, int requestId, String data) {
+                mHandler.sendMessage(MessageUtil.getMessage(MSG_CREATE_DEVICE, ARG1_OPERATE_SUCCESS));
+            }
 
-    @Override
-    public void onCreateDeviceFail(int ret) {
-        Log.d(TAG, "onCreateDeviceFail ret" + ret);
-    }
-    
-```
+            @Override
+            public void onFailure(int sessionId, int requestId, int errCode) {
+                mHandler.sendMessage(MessageUtil.getMessage(MSG_CREATE_DEVICE, ARG1_OPERATE_FAIL));
+            }
+        }, p2pType, devId, p2pId, mInitStr, "");
+ ```
 
 ### 2.connect 
 
    camera p2p operate and call method
 
-  ```java
-  	camera.connect(p2pId, p2pWd,localKey);
-  ```
+```java
+ mCameraP2P.connect(new OperationDelegateCallBack() {
+        @Override
+        public void onSuccess(int sessionId, int requestId, String data) {
+            mHandler.sendMessage(MessageUtil.getMessage(MSG_CONNECT, ARG1_OPERATE_SUCCESS));
+        }
 
-  ```java
-  	public interface OnDelegateCameraListener {
-  	···
-      @Override
-      public void connectFail(String errorCode, String errorMsg) {
-          Log.d(TAG,"p2p channel fail ： errorCode" + errorCode + "errorMsg " + errorMsg);
-      }
-      
-      @Override
-      public void onChannel0StartSuccess() {
-          //live channel success
-          Log.d(TAG, "live success");
-      }
-      
-      @Override
-      public void onChannelOtherStatus(int errorCode) {
-          //channel state
-          Log.d(TAG, "onChannelOtherStatus...errorCode " + errorCode);
-      }
-  ···    
-  }
-  ```
+        @Override
+        public void onFailure(int sessionId, int requestId, int errCode) {
+            mHandler.sendMessage(MessageUtil.getMessage(MSG_CONNECT, ARG1_OPERATE_FAIL, errCode));
+        }
+    }, p2pId, p2pWd, localKey, token);
+```
 
 ### 3.startPreview 
 
    camera play video operation and call method
 
-  ```java
-  playmode = ICamerapP2P.PLAYMODE.LIVE;
-  camera.startPreview();
-  ```
+```java
+mCameraP2P.startPreview(new OperationDelegateCallBack() {
+    @Override
+    public void onSuccess(int sessionId, int requestId, String data) {
+        Log.d(TAG, "start preview onSuccess");
+        isPlay = true;
+    }
 
-  ```java
-  public interface OnDelegateCameraListener {
-	  ···
-	  
-	@Override
-	public void onPreviewSuccess() {
-	    Log.d(TAG, "onPreviewSuccess");
-	}
-	
-	@Override
-	public void onPreviewFail(int errorCode) {
-	    Log.d(TAG, "onPreviewFail errorCode" + errorCode);
-	}
-	    
-	@Override
-	public void onreceiveFrameDataCallback() {
-	  Log.d(TAG, "get iFrame"); 
-	}
-  
-  ···    
-  }
-  ```
+    @Override
+    public void onFailure(int sessionId, int requestId, int errCode) {
+        Log.d(TAG, "start preview onFailure");
+        isPlay = false;
+    }
+});
+```
+
+> Note：After the successful callback of startPreview, the onReceive Frame YUVData callback starts to receive video data and throw it to the business layer.
 
 ### 4.stopPreview
 
    operation of stop preview
 
-  ```java
-  camera.stopPreview();
-  
-  ```
+```java
+ camera.stopPreview(new OperationDelegateCallBack() {
+            @Override
+            public void onSuccess(int sessionId, int requestId, String data) {
+                
+            }
+
+            @Override
+            public void onFailure(int sessionId, int requestId, int errCode) {
+
+            }
+        });
+```
   
 ### 5.disconnect
 
-   ```java
-  camera.disconnect();
-   ```
+```java
+ mCameraP2P.disconnect(new OperationDelegateCallBack() {
+            @Override
+            public void onSuccess(int sessionId, int requestId, String data) {
+                
+            }
+
+            @Override
+            public void onFailure(int sessionId, int requestId, int errCode) {
+
+            }
+        });
+```
 
 ### 6.destroy
+you must destroy instances,if you no longer use camera
 
- ```java
- camera.onDestroy();
- ```
+```java
+  TuyaSmartCameraP2PFactory.onDestroyTuyaSmartCamera();   
+```
 
 >  upon is the camera life cycle

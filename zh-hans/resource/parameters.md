@@ -15,6 +15,7 @@
 #### 调用方法：
 
 接入涂鸦全屋智能Android SDK，并初始化其SDK后，需要使用其通用的接口调用方法来获取摄像头配置参数。
+
 ```java 
 	TuyaHomeSdk.getRequestInstance().requestWithApiName(String apiName, String version, Map postData, final IRequestCallback callback)
 ```
@@ -25,13 +26,14 @@
 
   | api name              | version |      描述      |
   | -------------------- | ------------ | --------------- |
-  | tuya.m.ipc.config.get |   “1.0” | 摄像头配置信息 |
+  | tuya.m.ipc.config.get |   “2.0” | 摄像头配置信息 |
   
 - 请求参数
 
   | 名称  | 类型   | 描述               |
   | ----- | ------ | ------------------ |
   | devId | 字符串 | 摄像头对应的设备id |
+  
 
   ```java
   postData:(“devId”,devId)
@@ -51,6 +53,7 @@
   | success                  | 布尔值 | 是否成功                      |
   | result.p2pConfig.initStr | 字符串 | initStr                       |
   | result.p2pConfig.p2pKey  | 字符串 | p2pKey                        |
+  
 
   ```json
   {
@@ -68,4 +71,3 @@
   	status = "ok",
   }
   ```
-> 注意：如果p2ptype=1，initStr,p2pkey传NULL就行

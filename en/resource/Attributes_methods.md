@@ -5,113 +5,97 @@ property：
 |  property       |                      statement |
 | :----------------------- | -----------------------------------: |
 |  status code   |  ip camera related  operate status code |
-| MyCamera                 |  Iot camera provide related remote ip camera  function |
+| ICameraP2P                 |  Iot camera provide related remote ip camera  function |
 | TuyaMonitorView     |   video play controls |
-| isRunSoft                | whether start soft decode |
-| OnDelegateCameraListener | Method callbacks required by the business layer |
+| OnP2PCameraListener | Method callbacks required by the business layer |
 
 methods：
 
 ```java
 
-// initialization successed
-void onCreateDeviceSuccess();
+//Create ICameraP2P instance 
+public static ICameraP2P generateTuyaSmartCamera(int  p2pType)
 
-// initialization failed
-void onCreateDeviceFail(int ret);
+//register Callback
+public void registorOnP2PCameraListener(OnP2PCameraListener listener) 
 
-// connection failed
-public void connectFail(String errorCode, String errorMsg)
+//remove Callback
+public void removeOnP2PCameraListener()
 
-//live channel connection succeed
-public void onChannel0StartSuccess()
+//init cameraView
+public void generateCameraView(T view)
 
-// playback channel connection succeed (p2ptype = 2, no need to call)
-public void onChannel1StartSuccess()
+//delete cameraView
+public void destroyCameraView();
 
-// other connection status
-public void onChannelOtherStatus(int errorCode)
 
-//  call live succeed
-void onPreviewSuccess()
+//create Camera device
+public void createDevice(OperationDelegateCallBack callBack,int p2pType, String... args)
 
-// call live failed
-void onPreviewFail(int errorCode)
 
-// snapshot succeed
-void onSnapshotSuccessCallback()
-// snapshot failed
-void onSnapshotFailCallback()
+// establishing P2P connection
+public void connect(OperationDelegateCallBack callBack, String... args) 
 
-// voice control call back succeed
-void onMuteOperateSuccess(ICameraP2P.PLAYMODE playmode，int isMute)
-// voice control call back failed
-void onMuteOperateFail(ICameraP2P.PLAYMODE playmode)
+//disconnect p2p
+public void disconnect(OperationDelegateCallBack callBack) 
 
-// playback channel connection failed (p2ptype = 2, no need to call)
-public void onPlaybackEnterFail(String errorCode, String errorMsg)
+//  start live
+public void startPreview(OperationDelegateCallBack callBack)
 
-// playback succeed
-public void onPlaybackStartSuccess()
+// stop live
+public void stopPreview(OperationDelegateCallBack callBack)
 
-// playback failed
-public void onPlaybackStartFail(String errorCode, String errorMsg)
+// save the screenshot to the specified location
+public void snapshot(String absoluteFilePath, Context context, PLAYMODE playmode, OperationDelegateCallBack callBack)
 
-// playback pause succeed
-public void onPlaybackPauseSuccess()
+//start local video
+public int startRecordLocalMp4(String folderPath, String fileName, Context context, OperationDelegateCallBack callBack)
 
-// playback pause failed
-void onPlaybackPauseFail(String errorCode, String errorMsg)
+//stop local video
+ public int stopRecordLocalMp4(OperationDelegateCallBack callBack)
 
-// playback resume succeed
-public void onPlaybackResumeSuccess();
+//start audio Talk
+public void startAudioTalk(OperationDelegateCallBack callBack)
 
-// playback resume failed
-public void onPlaybackResumeFail(String errorCode, String errorMsg);
+//stop audio Talk
+public void stopAudioTalk(OperationDelegateCallBack callBack)
+ 
+//Obtain clarity values
+public void getVideoClarity(OperationDelegateCallBack callBack)
 
-// end playback 
-public void onPlaybackEnd();
+//Setting clarity
+public void setVideoClarity(int mode, OperationDelegateCallBack callBack)
 
-// end playback failed
-public void onPlaybackEndFail();
+//Mute function operation
+public void setMute(PLAYMODE playModel, int mute, OperationDelegateCallBack callBack)
 
-// definition status call back
-public void onDefinitionStatusCallback(boolean isQuery, int definition)
 
-// query playback data by month succeed 
-public  void onQueryPlaybackDataSuccessByMonth(int year, int month, Object days);
+//start playback video files of the device 
+public void startPlayback(int startTime, int stopTime,
+                       int playTime, OperationDelegateCallBack callBack, OperationDelegateCallBack finishcallBack)
+                       
 
-// query playback data by month failed 
-public  void onQueryPlaybackDataFailureByMonth(int errorCode, String errorMsg);
+//stop playback video files of the device
+public void stopplayback(OperationDelegateCallBack callBack)
 
-// query playback fragments data by day succeed
-public  void onQueryPlaybackDataSuccessByDay(String yearmonthday, Object timePieceBeanList);
+//pause playback video
+public void pausePlayback(OperationDelegateCallBack callBack)
 
-// query playback fragments data by day failed
-public  void onQueryPlaybackDataFailureByDay(int errorCode, String errorMsg);
+//resume playback video
+public void resumePlayback(OperationDelegateCallBack callBack)
 
-// get I frame (p2ptype = 2 not use)
-public  void onreceiveFrameDataCallback()
+//query the playback video data by month
+public void queryRecordDaysByMonth(int year, int month, OperationDelegateCallBack callBack)
 
-// intercom succeed
-public  void onSpeakSuccessCallback()
+//query the playback video of time-slice by day
+public void queryRecordTimeSliceByDay(int year, int month, int day, OperationDelegateCallBack callBack)
 
-// intercom failed
-public  void onSpeakFailueCallback(int errorCode)
 
-// stop intercom succeed
-void onStopSpeakSuccessCallback()
+public void destroyP2P();
 
-// stop intercom failed
-void onStopSpeakFailueCallback(int errorCode)
-
-//（p2ptype =2 not use）
-public void receiveFrameDataForMediaCodec(Camera var1, int var2, byte[] var3, int var4, int var5, byte[] var6, boolean var7, int var8)
-
-//（p2ptype=1 not use）
 void onReceiveFrameYUVData(int sessionId, ByteBuffer y, ByteBuffer u, ByteBuffer v, int width, int height, long timestamp, Object camera)
 
-//（p2ptype=1 not use）
+
 void onSessionStatusChanged(Object camera, int sessionId, int sessionStatus)
 ```
 
