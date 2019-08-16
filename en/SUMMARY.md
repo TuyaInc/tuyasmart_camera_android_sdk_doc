@@ -11,6 +11,9 @@
 	* [camera player controls](./resource/cameraView.md)
 * [Live Operation process](./resource/LiveProcess.md)
 * [Playback Operation process](./resource/PlaybackProcess.md)
+* Cloud Storage
+    * [Cloud Storage process](./resource/CloudStorageProcess.md)
+    * [Cloud Storage API](./resource/CloudStorageApi.md)
 * Specific Method Call and Life Cycle of Camera Function
  	* [Camera preview process call method](./resource/camera_function.md)
 	* [other camera functions](./resource/other_camera_functions.md) 

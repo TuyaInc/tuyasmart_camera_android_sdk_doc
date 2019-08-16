@@ -11,6 +11,9 @@
 	* [camera 播放器控件](./resource/cameraView.md)
 * [Live 运行流程](./resource/LiveProcess.md)
 * [Playback 运行流程](./resource/PlaybackProcess.md)
+* 云存储
+    * [云存储流程](./resource/CloudStorageProcess.md)
+    * [云存储调用api](./resource/CloudStorageApi.md)
 * 摄像机功能具体方法调用及生命周期
  	* [ 摄像机预览流程方法调用](./resource/camera_function.md)
 	* [其他方法调用](./resource/other_camera_functions.md) 
