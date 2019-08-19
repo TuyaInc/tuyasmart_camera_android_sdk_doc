@@ -75,10 +75,12 @@
      * 获取云存储 购买
      *
      * @param mContext
-     * @param devId    设备id
+     * @param deviceBean    设备id
      * @param homeId   家庭id
      */
-    public void buyCloudStorage(Context mContext, String devId, String homeId) 
+    public void buyCloudStorage(Context mContext, DeviceBean deviceBean, String homeId) {
+        CameraCloudManager.getInstance().getCloudStorageUrl(mContext, deviceBean, homeId);
+    }
 ```
 - API回收
 

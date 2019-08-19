@@ -75,10 +75,12 @@ Capturing APIs related to cloud storage
      * Purchase
      *
      * @param mContext
-     * @param devId    
+     * @param deviceBean    
      * @param homeId   
      */
-    public void buyCloudStorage(Context mContext, String devId, String homeId) 
+    public void buyCloudStorage(Context mContext, DeviceBean deviceBean, String homeId) {
+        CameraCloudManager.getInstance().getCloudStorageUrl(mContext, deviceBean, homeId);
+    }
 ```
 - destroy
 
