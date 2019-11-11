@@ -107,5 +107,7 @@ Arrange aliasing configuration in corresponding proguard-rules.pro files.
 
 -keep class com.tuya.**{*;}
 -dontwarn com.tuya.**
+-keep class com.tuyasmart.**{*;}
+-dontwarn com.tuyasmart.**
 ```
 
