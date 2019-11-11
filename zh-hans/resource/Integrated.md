@@ -135,5 +135,7 @@ android:value="应用密钥" />
 
 -keep class com.tuya.**{*;}
 -dontwarn com.tuya.**
+-keep class com.tuyasmart.**{*;}
+-dontwarn com.tuyasmart.**
 ```
 
