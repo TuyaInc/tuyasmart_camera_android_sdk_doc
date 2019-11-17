@@ -54,21 +54,20 @@ defaultConfig {
     dependencies {
         implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
         implementation 'com.alibaba:fastjson:1.1.67.android'
-        implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.6.0'
+        implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.12.3'
         implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
      
 	    // required tuya home sdk
-	    implementation 'com.tuya.smart:tuyasmart:3.9.6'
+	    implementation 'com.tuya.smart:tuyasmart:3.12.4'
 	     
-	    //required tuya camera module
-	    implementation 'com.tuya.smart:tuyasmart-ipc-camera-middleware:3.11.0r119'
-    	implementation 'com.tuya.smart:tuyasmart-ipc-camera-v2:3.11.0r119'
+	    // tuya camera module
+    	implementation 'com.tuya.smart:tuyasmart-ipc-camera-middleware:3.11.1r119.h2'
+    	implementation 'com.tuya.smart:tuyasmart-ipc-camera-v2:3.13.0r129'
     	implementation 'com.tuya.smart:tuyasmart-ipc-camera-utils:3.11.0r119'
-			// tuya ipc devicecontrol
+
+    	implementation 'com.tuya.smart:tuyasmart-tuyaHybridContainer:1.0.0'
+    	implementation 'com.github.wendux:DSBridge-Android:3.0-SNAPSHOT'
     	implementation 'com.tuya.smart:tuyasmart-ipc-devicecontrol:3.11.0r119'
-	    
-      //not required Compatible with older versions
-    	implementation "com.tuya.smart:tuyaCamera:3.11.0r119h2"
     }
 
 repositories {

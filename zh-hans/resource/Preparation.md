@@ -1,7 +1,16 @@
 ##  集成准备
 
-### 获取App ID和App Secret
+### 创建SDK应用
 
-开发平台上，在`应用管理`中新建一款应用，输入应用名称、应用包名、应用标示符等信息。创建成功后，即可获得App ID和Secret用于SDK开发。
+1. 在涂鸦iot平台中“App工作台”中点击App SDK,点击“获取SDK”
 
-![](./images/preparation_image.jpeg)
+![](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/images/getsdk.png)
+
+2. 根据需求选择合适的开发方案，点击“下一步”。
+![](./images/sdk_preparation_1.png)
+3. 根据提示输入创建的app信息，点击”下一步“。
+![](./images/sdk_preparation_3.png)
+4. 在安卓部分可以获取AppKey、AppSecret。点击"下载安全图片"，“Android 下载（Gradle）”下载所需要的安全图片和依赖包信息。
+![](./images/sdk_preparation_2.png)
+
+	

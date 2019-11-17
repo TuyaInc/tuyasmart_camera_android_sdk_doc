@@ -17,7 +17,7 @@
 * 摄像机功能具体方法调用及生命周期
  	* [ 摄像机预览流程方法调用](./resource/camera_function.md)
 	* [其他方法调用](./resource/other_camera_functions.md) 
-* [低功耗门铃唤醒](./resource/Doorbell_wakeup.md)
+* [低功耗门铃唤醒及推送](./resource/Doorbell_wakeup.md)
 * [获取相关参数](./resource/parameters.md)
 * [摄像头设备功能点](./resource/camera_device_points.md)
 * [摄像头配网](./resource/wifi_config.md)
