@@ -17,7 +17,7 @@
 * Specific Method Call and Life Cycle of Camera Function
  	* [Camera preview process call method](./resource/camera_function.md)
 	* [other camera functions](./resource/other_camera_functions.md) 
-* [Low power doorbell wakeUp](./resource/Doorbell_wakeup.md)
+* [Low power doorbell wakeUp & Push](./resource/Doorbell_wakeup.md)
 * [Obtain relevant parameters](./resource/parameters.md)
 * [Camera Device Data Points](./resource/camera_device_points.md)
 * [QRCode Network Configuration](./resource/wifi_config.md)

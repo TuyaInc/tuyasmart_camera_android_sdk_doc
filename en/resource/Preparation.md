@@ -1,8 +1,10 @@
 ##  Preparation for integration
 
-### Obtain App ID and App Secret
+1. Click "App Service" - "App SDK" - "Obtain SDK" in order on the iot platform.
 
-First, start creating a new App in App Management on the development platform. Enter the name, the package name and the logo of the App, etc.After the App is built, the App ID and Secret can be obtained and used for SDK development.
-
-
-![](./images/preparation_image.jpeg)
+2. Select the appropriate development plan according to your needs and click "Next".
+![](./images/sdk_preparation_1.png)
+3. Enter the created app information as prompted and click "Next."
+![](./images/sdk_preparation_3.png)
+4. AppKey, AppSecret can be obtained in the Android section. Click "Download" and " Download Android-based App SDK(Gradle)" to download the required security images and dependencies.
+![](./images/sdk_preparation_2.png)
