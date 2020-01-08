@@ -28,17 +28,24 @@ defaultConfig {
         implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.12.3'
         implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
 
-        // required tuya home sdk
-        implementation 'com.tuya.smart:tuyasmart:3.12.4'
+       // required tuya home sdk
+       implementation 'com.tuya.smart:tuyasmart:3.12.4'
 
-        // tuya camera module
-        implementation 'com.tuya.smart:tuyasmart-ipc-camera-middleware:3.11.1r119.h2'
-        implementation 'com.tuya.smart:tuyasmart-ipc-camera-v2:3.13.0r129'
-        implementation 'com.tuya.smart:tuyasmart-ipc-camera-utils:3.11.0r119'
+       // tuya camera module
+      implementation 'com.tuya.smart:tuyasmart-ipc-camera-middleware:3.14.3r133'
+	  implementation 'com.tuya.smart:tuyasmart-ipc-camera-v2:3.14.4r134'
+	  implementation 'com.tuya.smart:tuyasmart-ipc-camera-utils:3.13.0r128'
+      implementation 'com.tuya.smart:tuyasmart-ipc-camera-message:3.13.0r128'
+	  implementation 'com.tuya.smart:tuyasmart-ipc-devicecontrol:3.14.3r133'
 
-        implementation 'com.tuya.smart:tuyasmart-tuyaHybridContainer:1.0.0'
-        implementation 'com.github.wendux:DSBridge-Android:3.0-SNAPSHOT'
-        implementation 'com.tuya.smart:tuyasmart-ipc-devicecontrol:3.11.0r119'
+      //Mall components
+      implementation 'com.tuya.smart:tuyasmart-webcontainer:3.12.6r125'
+      implementation 'com.tuya.smart:tuyasmart-xplatformmanager:1.0.0'
+      implementation "com.tuya.smart:tuyasmart-base:3.13.0r127"
+      implementation 'com.tuya.smart:tuyasmart-appshell:3.10.0'
+      implementation "com.tuya.smart:tuyasmart-stencilwrapper:3.13.0r127"
+      implementation "com.tuya.smart:tuyasmart-framework:3.13.0r127-open-rc.1"
+      implementation 'com.tuya.smart:tuyasmart-uispecs:0.0.3'
     }
 
 repositories {
