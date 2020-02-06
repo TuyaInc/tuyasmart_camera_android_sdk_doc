@@ -1,4 +1,4 @@
-###### 云存储流程： 
-       购买服务 -> 获取云存储数据(有数据的日期) -> 根据日期（指定的时间片段）获取云存储数据 -> 加载到播放器播放
+###### Cloud storage process： 
+       Purchase service -> Get cloud storage data (date with data) -> Get cloud storage data based on date (specified time period) -> Load to player
 
 ![](./images/cloud_storage_process.png)
