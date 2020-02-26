@@ -9,10 +9,12 @@
 	* [属性和方法](./resource/Attributes_methods.md)
 	* [业务层回调](./resource/Callback.md)
 	* [camera 播放器控件](./resource/cameraView.md)
+	* [图片解密组件](./resource/decryptImageView.md)
 * [Live 运行流程](./resource/LiveProcess.md)
 * [Playback 运行流程](./resource/PlaybackProcess.md)
 * 云存储
     * [云存储流程](./resource/CloudStorageProcess.md)
+    * [云存储购买组件](./resource/CloudStorage_aar.md)
     * [云存储调用api](./resource/CloudStorageApi.md)
 * 摄像机功能具体方法调用及生命周期
  	* [ 摄像机预览流程方法调用](./resource/camera_function.md)
