@@ -1,12 +1,15 @@
 # 摄像头配网
 
+## 介绍
 摄像头配网功能分为三种：EZ、AP、Qrcode。
 
 其中前两种配网方式可以查看[**公版的SDK文档配网**](https://mimimumu.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/Activator_wifi.html), 这里主要讲解一下Qrcode的配网文档。
 
 
 
-首先确定您已经接入了[涂鸦全屋智能SDK](https://github.com/TuyaInc/tuyasmart_home_android_sdk)。
+首先确定您已经接入了[涂鸦Home SDK](https://github.com/TuyaInc/tuyasmart_home_android_sdk)。
+
+## 使用方法
 
 ### 获取当前的Wifi SSID
 
@@ -18,6 +21,17 @@ WiFiUtil.getCurrentSSID()
 
 Token的有效期为10分钟，且配置成功后就会失效（再次配网需要重新获取）,获取方法如下：
 
+```java
+void getActivatorToken(final long homeId, final ITuyaActivatorGetToken activatorGetToken);
+```
+#### 参数说明
+
+| 参数    | 说明                               |
+| ------- | ---------------------------------- |
+| homeid | 家庭id |
+| ITuyaActivatorGetToken | 获取token的回调 |
+
+#### 示例代码
 ```java//需要传入当前家庭的homeid
 TuyaHomeSdk.getActivatorInstance().getActivatorToken (homeid, new ITuyaActivatorGetToken() {
             @Override
@@ -32,6 +46,7 @@ TuyaHomeSdk.getActivatorInstance().getActivatorToken (homeid, new ITuyaActivator
         })
 ```
 
+
 ### TuyaCameraActivatorBuilder
 
 通过创建TuyaCameraActivatorBuilder对象来存储二维码url信息，及接口回调。方法如下：
@@ -43,6 +58,14 @@ TuyaCameraActivatorBuilder builder = new TuyaCameraActivatorBuilder()
     .setSsid(ssid)
     .setListener(listener); //传入ITuyaSmartCameraActivatorListener 监听对象
 ```
+#### 参数说明
+
+| 参数    | 说明                               |
+| ------- | ---------------------------------- |
+| token | active token |
+| password | wifi的password |
+| ssid | wifi的ssid |
+| ITuyaSmartCameraActivatorListener | 回调接口|
 
 ### ITuyaCameraDevActivator
 
@@ -52,7 +75,7 @@ TuyaCameraActivatorBuilder builder = new TuyaCameraActivatorBuilder()
 ITuyaCameraDevActivator mTuyaActivator = TuyaHomeSdk.getActivatorInstance().newCameraDevActivator(builder);
 ```
 
-### 通过二维码接口获取二维码url信息
+### 调用二维码接口获取二维码url信息
 
 ```java
 mTuyaActivator.createQRCode();
@@ -106,6 +129,14 @@ ITuyaSmartCameraActivatorListener() {
 };
 
 ```
+#### 方法说明
+
+| 方法    | 说明                               |
+| ------- | ---------------------------------- |
+| onQRCodeSuccess | 生成二维码URL成功回调，回调参数即为二维码url地址 |
+| onError | 错误信息 |
+| onActiveSuccess | 激活成功 |
+
 
 ### 回调销毁
 
@@ -114,7 +145,7 @@ ITuyaSmartCameraActivatorListener() {
 mTuyaActivator.onDestroy();
 ```
 
-### 具体配网参考流程
+### 二维码配网参考示例代码
 
 ```java
 //初始化回调接口
@@ -162,3 +193,7 @@ mTuyaActivator.stop();
 //回调销毁
 mTuyaActivator.onDestroy();
 ```
+
+
+### 时序图
+![](./images/qrcode_sequenceDiagram.jpg)

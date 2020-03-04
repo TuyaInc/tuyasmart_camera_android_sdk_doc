@@ -1,0 +1,2 @@
+# TuyaSmart Camera SDK FAQ
+

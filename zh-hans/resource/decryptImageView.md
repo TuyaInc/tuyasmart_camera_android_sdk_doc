@@ -6,7 +6,8 @@
 
 
 
-### 引用
+## 引用
+模块下的build.gradle的依赖添加：
 
 ```xml
 //消息中心图片解密组件
@@ -14,7 +15,32 @@ implementation 'com.tuya.smart:tuyasmart-imagepipeline-okhttp3:0.0.1'
 implementation 'com.facebook.fresco:fresco:1.3.0'
 ```
 
-### 开始使用
+
+
+## 方法
+
+### 初始化
+
+```java
+public static void initFresco(Context context);
+```
+
+### 加载图片
+
+```java
+public void setImageURI(String uriString, byte[] key)
+```
+
+#### 参数说明
+
+| 参数      | 说明                               |
+| --------- | ---------------------------------- |
+| uriString | p2p类型，对应匹配相应设备的p2p能力 |
+| key       | 秘钥数据                           |
+
+
+
+## 使用方法
 
   DecryptImageView是基于[Fresco](https://www.fresco-cn.org/docs/index.html)开发的图片加载组件
 
@@ -25,6 +51,23 @@ implementation 'com.facebook.fresco:fresco:1.3.0'
    ```
 
    > 注意：FrescoManager.initFresco(this)就不需要调用Fresco.initialize(this)，不然无法进行图片解密。
+
+   ```java
+   public class TuyaSmartApp extends MultiDexApplication {
+   
+       private static final String TAG = "TuyaSmartApp";
+   
+       @Override
+       public void onCreate() {
+           super.onCreate();
+           ...
+           FrescoManager.initFresco(this);
+           ...
+       }
+     ...
+   ```
+
+   
 
    做完上面的工作后，你需要在 `AndroidManifest.xml` 中指定你的 Application 类。为了下载网络图片，请确认你声明了网络请求的权限。
 
@@ -55,7 +98,7 @@ implementation 'com.facebook.fresco:fresco:1.3.0'
            fresco:roundedCornerRadius="@dimen/dp_4" />
    ```
 
-   开始加载加密图片，传入解密秘钥decryption，imageUrl，调用mSnapshot.setImageURI(imageUrl, decryption.getBytes())。
+   开始加载加密图片，传入解密秘钥**decryption**，**imageUrl**，调用mSnapshot.setImageURI(imageUrl, decryption.getBytes())。
 
    ```java
    String attachPics = cameraMessageBean.getAttachPics();

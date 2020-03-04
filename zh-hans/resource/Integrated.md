@@ -4,7 +4,7 @@
 
 ## 集成准备
 
-
+IPC Camera SDK 依赖于Home SDK，使用者在接入IPC Camera SDK之前，请先对接HomeSDK并[查阅Home SDK相关文档](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/)
 
 ###  一、创建工程
 
@@ -21,7 +21,10 @@
     repositories {
         ...
         maven {
-            url 'https://raw.githubusercontent.com/TuyaInc/mavenrepo/master/releases'
+            url 'https://maven-other.tuya.com/repository/maven-releases/'
+        }
+        maven {
+            url 'https://maven-other.tuya.com/repository/maven-snapshots/'
         }
     }
     dependencies {
@@ -36,7 +39,10 @@ allprojects {
     repositories {
         ...
         maven {
-            url 'https://raw.githubusercontent.com/TuyaInc/mavenrepo/master/releases'
+            url 'https://maven-other.tuya.com/repository/maven-releases/'
+        }
+        maven {
+            url 'https://maven-other.tuya.com/repository/maven-snapshots/'
         }
     }
 }
@@ -61,21 +67,12 @@ defaultConfig {
 	    implementation 'com.tuya.smart:tuyasmart:3.12.4'
 	     
 	    // tuya camera module
-    	
     	implementation 'com.tuya.smart:tuyasmart-ipc-camera-middleware:3.14.3r133'
 		implementation 'com.tuya.smart:tuyasmart-ipc-camera-v2:3.14.4r134'
 		implementation 'com.tuya.smart:tuyasmart-ipc-camera-utils:3.13.0r128'
 		implementation 'com.tuya.smart:tuyasmart-ipc-camera-message:3.13.0r128'
 		implementation 'com.tuya.smart:tuyasmart-ipc-devicecontrol:3.14.3r133'
 
-    	//商城组件
-      implementation 'com.tuya.smart:tuyasmart-webcontainer:3.12.6r125'
-      implementation 'com.tuya.smart:tuyasmart-xplatformmanager:1.0.0'
-      implementation "com.tuya.smart:tuyasmart-base:3.13.0r127"
-      implementation 'com.tuya.smart:tuyasmart-appshell:3.10.0'
-      implementation "com.tuya.smart:tuyasmart-stencilwrapper:3.13.0r127"
-      implementation "com.tuya.smart:tuyasmart-framework:3.13.0r127-open-rc.1"
-      implementation 'com.tuya.smart:tuyasmart-uispecs:0.0.3'
     }
 
 repositories {
@@ -144,5 +141,6 @@ android:value="应用密钥" />
 -dontwarn com.tuya.**
 -keep class com.tuyasmart.**{*;}
 -dontwarn com.tuyasmart.**
+
 ```
 
