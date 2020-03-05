@@ -17,7 +17,7 @@
     * [云存储流程](./resource/CloudStorageProcess.md)
     * [云存储购买组件](./resource/CloudStorage_aar.md)
     * [云存储ATOP调用api](./resource/CloudStorageApi.md)
-    * [云存储播放api](./resource/CloudStorageApi.md)
+    * [云存储播放api](./resource/CloudStorageVideoApi.md)
 * 摄像机功能具体方法调用及生命周期
 	* [获取相关参数](./resource/parameters.md) 
  	* [摄像机预览流程方法调用](./resource/camera_live_function.md)
