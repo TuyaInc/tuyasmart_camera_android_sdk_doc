@@ -11,6 +11,7 @@
 	* [camera 播放器控件](./resource/cameraView.md)
 	* [业务层回调](./resource/Callback.md)
 	* [图片解密组件](./resource/decryptImageView.md)
+	* [时间刻度尺组件](./resource/TimeBarView.md)
 * [Live 运行流程](./resource/LiveProcess.md)
 * [Playback 运行流程](./resource/PlaybackProcess.md)
 * 云存储
@@ -20,8 +21,8 @@
     * [云存储播放api](./resource/CloudStorageVideoApi.md)
 * 摄像机功能具体方法调用及生命周期
 	* [获取相关参数](./resource/parameters.md) 
- 	* [摄像机预览流程方法调用](./resource/camera_live_function.md)
- 	* [摄像机回放流程方法调用](./resource/camera_playback_function.md)
+	* [摄像机预览流程方法调用](./resource/camera_live_function.md)
+	* [摄像机回放流程方法调用](./resource/camera_playback_function.md)
 * [低功耗门铃唤醒](./resource/Doorbell_wakeup.md)
 * [消息推送](./resource/Doorbell_message_send.md)
 * [摄像头设备功能点](./resource/camera_device_points.md)
