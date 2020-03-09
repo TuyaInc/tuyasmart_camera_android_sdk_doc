@@ -1,13 +1,17 @@
-# 摄像头配网
+# 设备配网
 
 ## 介绍
-摄像头配网功能分为三种：EZ、AP、Qrcode。
+涂鸦 IPC 摄像机主要支持以下配网模式：
 
-其中前两种配网方式可以查看[**公版的SDK文档配网**](https://mimimumu.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/Activator_wifi.html), 这里主要讲解一下Qrcode的配网文档。
+-  快连模式(EZ 模式)
+-  热点模式(AP模式)
+-  二维码模式(Qrcode 模式)
+
+> 二维码模式配网比较简单，建议使用二维码陪我，如果设备扫描不了二维码，再尝试快连模式。
+
+**快连模式**和**热点模式**这两种配网方式和涂鸦其他设备的配网方式是一样的可以查看[**涂鸦全屋智能SDK文档配网**](https://mimimumu.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/Activator_wifi.html), 这里重点讲解一下Qrcode的配网文档。
 
 
-
-首先确定您已经接入了[涂鸦Home SDK](https://github.com/TuyaInc/tuyasmart_home_android_sdk)。
 
 ## 使用方法
 

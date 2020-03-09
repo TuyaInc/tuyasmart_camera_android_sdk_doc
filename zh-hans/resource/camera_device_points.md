@@ -1,11 +1,10 @@
 # 摄像头设备功能点
 
-涂鸦智能摄像头设备提供了丰富的功能点，并且通过标准化来实现设备与App之间的交互。设备相关的返回数据都采用异步消息方式通知APP。
+涂鸦智能设备通过设备功能点来控制设备，并且通过标准化的功能点实现设备与App之间的交互。涂鸦IPC Camera SDK 基于 [自定义设备控制](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/Device_standard.html) 封装了一套智能摄像机的扩展功能。
 
 
 
-## 摄像头设备标准化功能
-
+## 摄像机设备标准化功能
 
 
 ### 设备基本设置功能
@@ -64,7 +63,7 @@
 
 
 
-## 设备标准化功能方法调用
+## 设备标准化功能方法
 
 ITuyaCameraDevice提供与设备信息通信的能力，提供了控制指令下发、获取当前功能点的数据。
 
@@ -138,7 +137,9 @@ mTuyaCameraDevice.registorTuyaCameraDeviceControlCallback(DpBasicFlip.ID, new IT
 mTuyaCameraDevice.publishCameraDps(DpBasicFlip.ID, true);
 ```
 
-####  ITuyaCameraDeviceControlCallback 回调
+
+
+### ITuyaCameraDeviceControlCallback 回调
 
  ITuyaCameraDeviceControlCallback类提供监听设备信息数据接收，以及app端数据下发后，收到设备回传来的回调。如果功能点的数据类型是Boolean，回调可以设置Boolean；如果是枚举，回调设置String；如果是value，回调设置Integer。
 
@@ -271,137 +272,18 @@ boolean dpValue = mTuyaCameraDevice.queryBooleanCameraDps(DpBasicFlip.ID);
 
 
 
-### 其他类
+### 枚举型功能点
 
-#### 移动侦测报警的灵敏度的枚举类
+字符串枚举类型功能点的取值范围，在 SDK 中有定义相应的字符串枚举常量，如下表。
 
-```java
-public enum MotionSensitivityMode {
-    HIGH("2"),
-    MIDDLE("1"),
-    LOW("0");
-
-    private String dpValue;
-
-    private MotionSensitivityMode(String dpValue) {
-        this.dpValue = dpValue;
-    }
-
-    public String getDpValue() {
-        return this.dpValue;
-    }
-}
-```
-
-**示例代码**
-
-```java
-mTuyaCameraDevice.publishCameraDps(DpMotionSensitivity.ID, MotionSensitivityMode.HIGH.getDpValue(), null, new ITuyaCameraDeviceControlCallback<String>() {
-                    @Override
-                    public void onSuccess(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String o) {
-                        showPublishTxt.setText("LAN/Cloud query result: " + o);
-                    }
-
-                    @Override
-                    public void onFailure(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String s1, String s2) {
-
-                    }
-                });
-```
-
-#### 红外夜视的枚举类
-
-```java
-public enum NightStatusMode {
-    AUTO("0"),CLOSE("1"),OPEN("2");
-
-    private String dpValue;
-
-    NightStatusMode(String dpValue){
-        this.dpValue = dpValue;
-    }
-
-    public String getDpValue() {
-        return dpValue;
-    }
-}
-```
-
-#### PIR灵敏度的枚举类
-
-```java
-public enum PIRMode {
-    CLOSE("0"),LOW("1"),MID("2"),HIGH("3");
-
-    private String dpValue;
-
-    PIRMode(String dpValue) {
-        this.dpValue = dpValue;
-    }
-
-    public String getDpValue() {
-        return dpValue;
-    }
-}
-```
-
-#### 云台控制的枚举类
-
-```java
-
-public enum PTZDirection {
-    UP("0"),RIGHT("2"),
-    DOWN("4"),LEFT("6");
-
-    private String dpValue;
-
-    PTZDirection(String dpValue){
-        this.dpValue = dpValue;
-    }
-
-    public String getDpValue() {
-        return dpValue;
-    }
-}
-
-```
-
-#### 录像模式的枚举类
-
-```java
-
-public enum RecordMode {
-    EVENT("1"),CONTINUOUS_RECORD("2");
-
-    private String dpValue;
-
-    RecordMode(String dpValue) {
-        this.dpValue = dpValue;
-    }
-
-    public String getDpValue() {
-        return dpValue;
-    }
-}
-```
-
-#### 声音灵敏度的枚举类
-
-```java
-public enum SoundSensitivityMode {
-    LOW("0"),HIGH("1");
-
-    private String dpValue;
-
-    SoundSensitivityMode(String dpValue) {
-        this.dpValue = dpValue;
-    }
-
-    public String getDpValue() {
-        return dpValue;
-    }
-}
-```
+| **功能点**           | 枚举                  |
+| -------------------- | --------------------- |
+| DpMotionSensitivity  | MotionSensitivityMode |
+| DpBasicNightvision   | NightStatusMode       |
+| DpPIRSwitch          | PIRMode               |
+| DpRecordMode         | RecordMode            |
+| DpPTZControl         | PTZDirection          |
+| DpDecibelSensitivity | SoundSensitivityMode  |
 
 
 
@@ -409,11 +291,15 @@ public enum SoundSensitivityMode {
 
 **描述**
 
-sdcard的LAN/Cloud数据下发是不需要传其他参数的。
+在开始管理存储卡或者进行录像回放前，需要先获取存储卡的状态，如果设备未检测到存储卡，则无法进行下一步。如果存储卡异常，则需要先格式化存储卡。
+
+> sdcard的LAN/Cloud数据下发是不需要传其他参数的。
 
 
 
-#### DpSDStatus的数据下发
+#### 状态 
+
+DpSDStatus是控制sdcard状态的DP点。
 
 **示例代码**
 
@@ -432,7 +318,11 @@ mTuyaCameraDevice.registorTuyaCameraDeviceControlCallback(DpSDStatus.ID, new ITu
                 mTuyaCameraDevice.publishCameraDps(DpSDStatus.ID, null);
 ```
 
-#### DpSDStorge的数据下发
+
+
+#### 存储卡容量获取 
+
+DpSDStorge的数据下发可以获取到涂鸦IPC摄像机当前的存储卡容量。
 
 **示例代码**
 
@@ -451,7 +341,11 @@ mTuyaCameraDevice.registorTuyaCameraDeviceControlCallback(DpSDStorage.ID, new IT
 mTuyaCameraDevice.publishCameraDps(DpSDStorage.ID, null);
 ```
 
-#### DpSDFormat的数据下发
+> 存储卡容量值的字符串格式：总容量|已使用容量|空闲容量，单位`KB`
+
+#### 格式化 
+
+在格式化存储卡的时候，根据摄像机厂商的实现，有两种情况。有些厂商实现的固件中，会主动上报格式化的进度，格式化完成后也会主动上报当前的容量状态，但是有少部分厂商的固件，不会主动上报，所以需要定时主动去查询格式化的进度，当进度达到 100 时，再主动去查询当前的容量状态。DpSDFormat的数据下发可以启动格式化操作。
 
 **示例代码**
 
@@ -470,7 +364,9 @@ mTuyaCameraDevice.registorTuyaCameraDeviceControlCallback(DpSDFormat.ID, new ITu
 mTuyaCameraDevice.publishCameraDps(DpSDFormat.ID, true);
 ```
 
-#### DpSDFormatStatus的数据下发
+#### 格式化状态
+
+DpSDFormatStatus数据下发可以查询格式化进度，当进度达到100时，即格式化结束。可以再次去查询存储卡容量。
 
 **示例代码**
 
@@ -489,7 +385,9 @@ mTuyaCameraDevice.registorTuyaCameraDeviceControlCallback(DpSDFormatStatus.ID, n
 mTuyaCameraDevice.publishCameraDps(DpSDFormatStatus.ID, null);
 ```
 
-#### DpSDRecordSwitch的数据下发
+#### 录像开关
+
+DpSDRecordSwitch的数据下发来控制涂鸦智能摄像机是否开启录像功能。
 
 **示例代码**
 
@@ -508,7 +406,14 @@ mTuyaCameraDevice.registorTuyaCameraDeviceControlCallback(DpSDRecordSwitch.ID, n
 mTuyaCameraDevice.publishCameraDps(DpSDRecordSwitch.ID, true);
 ```
 
-#### DpSDRecordModel的数据下发
+#### 录像模式
+
+涂鸦摄像机在插入存储卡后，可以将采集的影像录制保存在存储卡中，可以通过 涂鸦IPC Camera SDK 设置视频录制开关和模式。录制模式分为以下两种：
+
+- **连续录制**：摄像机会将采集到的音视频连续不断的录制保存在存储卡中，存储卡的容量不足的时候，将会覆盖最早录制的视频数据。
+- **事件录制**：摄像机只会在触发侦测报警的时候才会开始录制视频，视频的长短会根据事件类型，和事件持续时间而变化。
+
+DpSDRecordModel的数据下发来设置录像模式。
 
 **示例代码**
 
@@ -530,8 +435,6 @@ mTuyaCameraDevice.registorTuyaCameraDeviceControlCallback(DpSDRecordModel.ID, ne
 
 
 ### 低功耗门铃功能
-
-
 
 #### 唤醒功能的数据下发
 
@@ -636,3 +539,32 @@ mTuyaCameraDevice.publishCameraDps(DpWirelessPowermode.ID, null);
 ```
 
 > 注意：DpWirelessPowermode数据下发不需要带参数，所以传null值即可。
+
+
+
+### 云台控制
+
+涂鸦云台摄像机可以通过涂鸦IPC Camera SDK 远程控制其向指定方向转动。
+
+> SDK 控制云台机转动时，并不是单位角度转动。SDK 下发开始转动的命令后，设备会朝着指定方向一致转动，直到无法转动，或者收到停止转动的命令。
+
+在开始控制云台摄像机转动前，需要先判断当前设备是否支持云台控制。
+
+#### 示例代码
+
+```java
+mTuyaCameraDevice.registorTuyaCameraDeviceControlCallback(DpPTZControl.ID, new ITuyaCameraDeviceControlCallback<String>() {
+                @Override
+                public void onSuccess(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String o) {
+                    showPublishTxt.setText("LAN/Cloud query result: " + o);
+                }
+
+                @Override
+                public void onFailure(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String s1, String s2) {
+
+                }
+            });
+            mTuyaCameraDevice.publishCameraDps(DpPTZControl.ID, PTZDirection.LEFT);//云台向左转动
+						mTuyaCameraDevice.publishCameraDps(DpPTZStop.ID, null); // 停止云台转动
+```
+

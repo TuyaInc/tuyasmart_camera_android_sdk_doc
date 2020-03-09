@@ -169,7 +169,7 @@
 
 5. 获取某日的视频回放信息
 
-   ```&gt; java
+   ```java
    int year = Integer.parseInt(substring[0]);
                    int mouth = Integer.parseInt(substring[1]);
                    int day = Integer.parseInt(substring[2]);

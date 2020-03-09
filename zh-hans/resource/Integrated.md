@@ -2,16 +2,14 @@
 
 
 
-## 集成准备
+涂鸦 IPC Camera SDK 依赖于**涂鸦全屋智能 APP SDK**，在接入涂鸦IPC Camera SDK之前，您可以先了解一下[涂鸦全屋智能 APP SDK](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/)。
 
-IPC Camera SDK 依赖于Home SDK，使用者在接入IPC Camera SDK之前，请先对接HomeSDK并[查阅Home SDK相关文档](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/)
-
-###  一、创建工程
+##  一、创建工程
 
 在Android Studio中建立你的工程。
 
 
-### 二、build.gradle配置
+## 二、build.gradle配置
 
 在工程根目录的build.gradle 文件里添加如下配置
 
@@ -86,7 +84,7 @@ repositories {
 
 
 
-### 三、AndroidManifest.xml 设置
+## 三、AndroidManifest.xml设置
 
 在AndroidManifest.xml文件里配置appkey和appSecret，在配置相应的权限等
 
@@ -113,7 +111,7 @@ android:value="应用密钥" />
 
 
 
-### 四、混淆配置
+## 四、混淆配置
 
 在proguard-rules.pro文件配置相应混淆配置
 

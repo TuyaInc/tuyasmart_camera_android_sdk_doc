@@ -1,5 +1,6 @@
 # 低功耗门铃唤醒
 
+低功耗门铃由电池供电，为了节省电量，在一定时间内没有 p2p 连接会休眠，休眠后无法直接连接p2p，需要通过设备功能点`wirelessWake`先唤醒设备，唤醒后再连接p2p通道。
 
 ##门铃的唤醒及链接的操作方法
 
@@ -8,6 +9,7 @@
 ```java
 void wirelessWake(String localkey, String devId); 
 ```
+
 #### 参数说明
 
 | 参数    | 说明                               |

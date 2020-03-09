@@ -24,7 +24,7 @@
 
 ## 效果图
 
-<img src="/Users/huangdaju/Desktop/Screenshot_1583483189.png" alt="Screenshot_1583483189" style="zoom:33%;" />
+<img src="./images/time_bar_view_show.png" alt="Screenshot_1583483189" style="zoom:33%;" />
 
 ## 使用
 
