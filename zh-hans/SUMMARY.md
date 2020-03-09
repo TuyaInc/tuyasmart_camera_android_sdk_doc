@@ -1,14 +1,14 @@
 # Summary
 
 * [前言](README.md)
-* 快速集成
+* [快速集成](./resource/Preparation.md)
 	* [集成准备](./resource/Preparation.md)
 	* [集成SDK](./resource/Integrated.md)
 * [架构说明](./resource/ProgramArchitecure.md)
 * [用户管理](./resource/User.md)
 * [家庭与设备](./resource/home_device.md)
 * [设备配网](./resource/wifi_config.md)
-* 摄像机功能
+* [摄像机功能](./resource/MainView.md)
 	* [主要物件](./resource/MainView.md)
 		* [ICameraP2P](./resource/icamerap2p.md)
 		* [Monitor](./resource/cameraView.md)
@@ -18,10 +18,10 @@
 		* [TimeBarView](./resource/TimeBarView.md)
 	* [视频直播](./resource/LiveProcess.md)
 	* [存储卡回放](./resource/PlaybackProcess.md)
-* 云存储
+* [云存储](./resource/CloudStorageProcess.md)
     * [云存储流程](./resource/CloudStorageProcess.md)
     * [云存储购买组件](./resource/CloudStorage_aar.md)
-    * [云存储ATOP调用api](./resource/CloudStorageApi.md)
+    * [云存储数据api](./resource/CloudStorageApi.md)
     * [云存储播放api](./resource/CloudStorageVideoApi.md)
 * [低功耗门铃唤醒](./resource/Doorbell_wakeup.md)
 * [消息推送](./resource/Doorbell_message_send.md)
@@ -31,7 +31,7 @@
 	* [存储卡管理](./resource/camera_device_points.md#存储卡及本地录像管理)
 	* [低功耗门铃功能](./resource/camera_device_points.md#低功耗门铃功能)
 	* [云台控制](./resource/camera_device_points.md#云台控制)
-* 消息中心
+* [消息中心](./resource/message_center_list.md)
 	* [消息列表](./resource/message_center_list.md)
 	* [消息视频播放](./resource/mesage_center_video.md)
 * [状态码](./resource/statusCode.md)
