@@ -1,6 +1,6 @@
 # 消息推送
 
-IPC Camera SDK消息推送使用的是Home SDK的消息推送配置和接收，具体请[参阅](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/MessagePush.html)
+**Tuya IPC Android SDK**消息推送使用的是**涂鸦智能全屋SDK**的消息推送配置和接收，具体请[参阅](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/MessagePush.html)
 
 
 
@@ -22,6 +22,8 @@ IPC Camera SDK消息推送使用的是Home SDK的消息推送配置和接收，�
 
 > 注意：前提是APP进程处于active状态
 
+
+
 ### 使用方法
 
 在登录tuya账号后，注册 registerCameraPushListener，调用方法：
@@ -36,6 +38,8 @@ IPC Camera SDK消息推送使用的是Home SDK的消息推送配置和接收，�
 | -------------------- | ------------------ |
 | ITuyaGetBeanCallback | 收到消息数据的回调 |
 
+
+
 ITuyaGetBeanCallback 消息回调接口
 
 #### 方法说明
@@ -43,6 +47,8 @@ ITuyaGetBeanCallback 消息回调接口
 | 方法     | 说明     |
 | -------- | -------- |
 | onResult | 回调结果 |
+
+
 
 CameraPushDataBean 消息体
 

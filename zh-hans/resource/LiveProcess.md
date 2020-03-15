@@ -75,6 +75,8 @@ private void initCameraView() {
 ...
 ```
 
+
+
 #### 2. 获取设备信息
 
 通过调用云端接口，获取设备配置相关信息。

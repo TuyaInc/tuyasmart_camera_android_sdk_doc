@@ -2,16 +2,21 @@
 
 
 
-涂鸦 IPC Camera SDK 依赖于**涂鸦全屋智能 APP SDK**，在接入涂鸦IPC Camera SDK之前，您可以先了解一下[涂鸦全屋智能 APP SDK](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/)。
+**Tuya IPC Android  SDK** 依赖于**涂鸦全屋智能 APP SDK**，在接入涂鸦**Tuya IPC Android  SDK**之前，您务必先了解一下[涂鸦全屋智能 APP SDK](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/)。
+
+
 
 ##  一、创建工程
 
 在Android Studio中建立你的工程。
 
 
+
 ## 二、build.gradle配置
 
-在工程根目录的build.gradle 文件里添加如下配置
+
+
+1. 在工程根目录的build.gradle 文件里添加如下配置
 
 ```groovy
 	buildscript {
@@ -47,7 +52,9 @@ allprojects {
 
 ```
 
-app目录下的build.gradle配置：
+
+
+2. app目录下的build.gradle配置：
 
 ```groovy
 defaultConfig {

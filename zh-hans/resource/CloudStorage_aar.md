@@ -1,11 +1,12 @@
 # 云存储购买H5组件接入
 
 
+
 ## 组件引入
 
-项目根目录的build.gradle：
+1. 项目根目录的build.gradle：
 
-```xml
+```gradle
 buildscript {
     ···
     dependencies {
@@ -16,15 +17,12 @@ buildscript {
 
 ```
 
-项目模块的build.gradle：
+2. 项目模块的build.gradle：
 
-```xml
+```gradle
 apply plugin: 'tymodule-config'
 
-// tuya camera module
-    implementation 'com.tuya.smart:tuyasmart-ipc-camera-middleware:3.13.1r129-SNAPSHOT'
-    implementation 'com.tuya.smart:tuyasmart-ipc-devicecontrol:3.13.1r129-SNAPSHOT'
-
+...
 //商城组件
     implementation 'com.tuya.smart:tuyasmart-webcontainer:3.12.6r125'
     implementation 'com.tuya.smart:tuyasmart-xplatformmanager:1.1.0'
@@ -41,39 +39,9 @@ apply plugin: 'tymodule-config'
 
 **示例代码**
 
-1. 跳转到云存储购买页面
+1. Styles.xml需要修改
 
-
-	```java
-	findViewById(R.id.buy_btn).setOnClickListener(new View.OnClickListener() {
-	            @Override
-	            public void onClick(View v) {
-	                //购买页面
-	                cameraCloudSDK.buyCloudStorage(CameraCloudStorageActivity.this,
-	                        TuyaHomeSdk.getDataInstance().getDeviceBean(devId),
-	                        String.valueOf(FamilyManager.getInstance().getCurrentHomeId()), new ICloudManagerCallback() {
-	                            @Override
-	                            public void onError(int i) {
-	
-	                            }
-	
-	                            @Override
-	                            public void onSuccess(Object o) {
-	                                String uri = (String) o;
-	                                Intent intent = new Intent(CameraCloudStorageActivity.this, WebViewActivity.class);
-	                                intent.putExtra("Uri",uri);
-	                                startActivity(intent);
-	                            }
-	                        });
-	            }
-	        });
-	```
-
-
-
-2. Styles.xml需要修改
-
-	```xml
+```xml
 	
 	    <!-- Base application theme. -->
 	    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
@@ -383,25 +351,52 @@ apply plugin: 'tymodule-config'
 	
 	
 	    <color name="color_ff5800">#ff5800</color>
-	
-	```
+```
 
-3. application初始化
+2. application初始化
 
-	```java
-		public class TuyaSmartApp extends MultiDexApplication {
+  ```java
+  	public class TuyaSmartApp extends MultiDexApplication {
+  
+   private static final String TAG = "TuyaSmartApp";
+  
+   @Override
+   public void onCreate() {
+       super.onCreate();
+       context=this;
+       L.d(TAG, "onCreate " + getProcessName(this));
+       L.setSendLogOn(true);
+       TuyaWrapper.init(this);
+       TuyaSdk.init(this);
+       ...
+   }
+  
+  ```
 
-    private static final String TAG = "TuyaSmartApp";
+3. 跳转到云存储购买页面
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        context=this;
-        L.d(TAG, "onCreate " + getProcessName(this));
-        L.setSendLogOn(true);
-        TuyaWrapper.init(this);
-        TuyaSdk.init(this);
-        ...
-    }
+```java
+findViewById(R.id.buy_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //购买页面
+                cameraCloudSDK.buyCloudStorage(CameraCloudStorageActivity.this,
+                        TuyaHomeSdk.getDataInstance().getDeviceBean(devId),
+                        String.valueOf(FamilyManager.getInstance().getCurrentHomeId()), new ICloudManagerCallback() {
+                            @Override
+                            public void onError(int i) {
 
-	```
+                            }
+
+                            @Override
+                            public void onSuccess(Object o) {
+                                String uri = (String) o;
+                                Intent intent = new Intent(CameraCloudStorageActivity.this, WebViewActivity.class);
+                                intent.putExtra("Uri",uri);
+                                startActivity(intent);
+                            }
+                        });
+            }
+        });
+```
+

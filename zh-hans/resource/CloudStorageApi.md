@@ -1,4 +1,6 @@
-#云存储数据调用API
+# 云存储数据获取API
+
+
 
 
 ## 集成准备 
@@ -12,15 +14,17 @@
 ```
 
 
-## 获取云存储ATOP接口方法
+
+## 获取云存储数据接口方法
+
 **描述**
 
 **CameraCloudSDK**是云存储ATOP的API接口调用的实体对象，提供了获取云存储购买，时间数据相关的API方法。
 
 ### 获取云存储 当前状态值（有无购买等）
 
-```
-getCameraCloudInfo(DeviceBean deviceBean, ICloudCacheManagerCallback callback)
+```java
+void getCameraCloudInfo(DeviceBean deviceBean, ICloudCacheManagerCallback callback)
 ```
 #### 参数说明
 
@@ -29,14 +33,19 @@ getCameraCloudInfo(DeviceBean deviceBean, ICloudCacheManagerCallback callback)
 | deviceBean | 设备信息 |
 | callback | 回调方法|
 
+
+
 #### 示例代码
+
 ```java
 cameraCloudSDK.getCameraCloudInfo(TuyaHomeSdk.getDataInstance().getDeviceBean(devId), CameraCloudStorageActivity.this);
 ```
-	
+
+
+
 ### 获取设备云存储相关的数据,Secret，Auth等参数
 
-```
+```java
 public void getCloudMediaCount(String devId, String timeZone, ICloudCacheManagerCallback callback)
 ```
 #### 参数说明
@@ -48,14 +57,18 @@ public void getCloudMediaCount(String devId, String timeZone, ICloudCacheManager
 | callback | 回调方法|
 
 
+
 #### 示例代码
+
 ```java
 cameraCloudSDK.getCloudMediaCount(devId, TimeZone.getDefault().getID(), CameraCloudStorageActivity.this);
 ```
 
+
+
 ### 获取指定时间的时间片
 
-```
+```java
 public void getTimeLineInfoByTimeSlice(String devId, String timeGT, String timeLT, ICloudCacheManagerCallback callback)
 ```
 #### 参数说明
@@ -68,10 +81,14 @@ public void getTimeLineInfoByTimeSlice(String devId, String timeGT, String timeL
 | callback | 回调方法|
 
 
+
 #### 示例代码
+
 ```java
 getTimeLineInfoByTimeSlice(devId, String.valueOf(dayBean.getCurrentStartDayTime()), String.valueOf(dayBean.getCurrentDayEndTime()));
 ```
+
+
 
 ### 根据时间片段始末获取相应的移动侦测数据
 
@@ -91,10 +108,13 @@ public void getMotionDetectionByTimeSlice(String devId, String timeGT, String ti
 | callback | 回调方法|
 
 
+
 #### 示例代码
+
 ```java
 cameraCloudSDK.getMotionDetectionByTimeSlice(devId, timeGT, timeLT, offset, limit, this);
 ```
+
 
 
 ### 云存储购买地址接口
@@ -113,6 +133,7 @@ public void buyCloudStorage(Context mContext, DeviceBean deviceBean, String home
 | deviceBean | 设备信息）|
 | homeId | 家庭id|
 | callback | 回调方法|
+
 
 
 #### 示例代码
@@ -137,6 +158,7 @@ public void buyCloudStorage(Context mContext, DeviceBean deviceBean, String home
 ```
 
 
+
 ### 销毁
 
 ```
@@ -151,11 +173,15 @@ if (null != cameraCloudSDK) {
     }
 ```
 
+
+
 ### ICloudCacheManagerCallback
 
 **描述**
 
 调用sdk之后的回调方法
+
+
 
 #### 返回有云存储数据日期
 
@@ -167,6 +193,7 @@ void getCloudDayList(List<CloudDayBean> cloudDayBeanList);
 | 参数    | 说明                               |
 | ------- | ---------------------------------- |
 | cloudDayBeanList | 云存储日期数据集 |
+
 
 
 #### 返回云存储encryKey
@@ -182,6 +209,7 @@ void getCloudSecret(String encryKey);
 | encryKey | 云存储秘钥 |
 
 
+
 #### 返回云存储authorityJson
 
 
@@ -193,6 +221,8 @@ void getAuthorityGet(String authorityJson);
 | 参数    | 说明                               |
 | ------- | ---------------------------------- |
 | authorityJson | 校验数据 |
+
+
 
 #### 返回云存储根据某一天时间段查询的数据
 
@@ -206,6 +236,8 @@ void getTimePieceInfoByTimeSlice(List<TimePieceBean> timePieceBeans);
 | ------- | ---------------------------------- |
 | timePieceBeans | 时间片段数据集 |
 
+
+
 #### 返回云存储移动侦测根据某一天时间段查询的数据
 
 
@@ -217,6 +249,8 @@ void getMotionDetectionByTimeSlice(List<TimeRangeBean> timeRangeBeans);
 | 参数    | 说明                               |
 | ------- | ---------------------------------- |
 | timeRangeBeans | 移动侦测时间片段数据集 |
+
+
 
 #### 返回云存储状态
 
@@ -231,6 +265,8 @@ void getCloudStatusSuccess(int code);
 | code | 购买状态 |
 > code值，参考文章底下的状态码
 
+
+
 #### 返回云存储配置信息，需要传入sdk验证
 
 
@@ -242,6 +278,8 @@ void getCloudConfigDataTags(String config);
 | 参数    | 说明                               |
 | ------- | ---------------------------------- |
 | config | 配置信息数据 |
+
+
 
 #### 错误回调
 

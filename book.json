@@ -1,0 +1,11 @@
+{
+    "title" : "Tuya IPC",
+    "author" : "Daju.huang",
+    "description" : "Tuya IPC SDK Docs",
+    "language" : "zh-hans",
+    "plugins": [
+        "expandable-chapters-small",
+        "back-to-top-button",
+        "prism"
+    ]
+}

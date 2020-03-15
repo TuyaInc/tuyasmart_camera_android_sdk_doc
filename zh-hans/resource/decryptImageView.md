@@ -2,7 +2,9 @@
 
 
 
-> 简介：图片解密组件DecryptImageView是基于Fresco开发的图片加载组件，因tuya安全机制，所以图片显示需要通过自定义imagepipeline-okhttp3进行数据解密。
+## 简介
+
+图片解密组件DecryptImageView是基于Fresco开发的图片加载组件，因tuya安全机制，所以图片显示需要通过自定义imagepipeline-okhttp3进行数据解密。
 
 
 
@@ -24,6 +26,8 @@ implementation 'com.facebook.fresco:fresco:1.3.0'
 ```java
 public static void initFresco(Context context);
 ```
+
+
 
 ### 加载图片
 
@@ -67,9 +71,9 @@ public void setImageURI(String uriString, byte[] key)
      ...
    ```
 
-   
-
    做完上面的工作后，你需要在 `AndroidManifest.xml` 中指定你的 Application 类。为了下载网络图片，请确认你声明了网络请求的权限。
+
+   
 
 2. 图片显示
 

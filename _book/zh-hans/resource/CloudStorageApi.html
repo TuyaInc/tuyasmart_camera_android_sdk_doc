@@ -1,0 +1,1158 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>云存储数据api · Tuya IPC</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Daju.huang">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="CloudStorageVideoApi.html" />
+    
+    
+    <link rel="prev" href="CloudStorage_aar.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Preparation.html">
+            
+                <a href="Preparation.html">
+            
+                    
+                    快速集成
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="Preparation.html">
+            
+                <a href="Preparation.html">
+            
+                    
+                    集成准备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="Integrated.html">
+            
+                <a href="Integrated.html">
+            
+                    
+                    集成SDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="ProgramArchitecure.html">
+            
+                <a href="ProgramArchitecure.html">
+            
+                    
+                    架构说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="User.html">
+            
+                <a href="User.html">
+            
+                    
+                    用户管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="home_device.html">
+            
+                <a href="home_device.html">
+            
+                    
+                    家庭与设备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="wifi_config.html">
+            
+                <a href="wifi_config.html">
+            
+                    
+                    设备配网
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="MainView.html">
+            
+                <a href="MainView.html">
+            
+                    
+                    摄像机功能
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="MainView.html">
+            
+                <a href="MainView.html">
+            
+                    
+                    主要物件
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1.1" data-path="icamerap2p.html">
+            
+                <a href="icamerap2p.html">
+            
+                    
+                    ICameraP2P
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.2" data-path="cameraView.html">
+            
+                <a href="cameraView.html">
+            
+                    
+                    Monitor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.3" data-path="parameters.html">
+            
+                <a href="parameters.html">
+            
+                    
+                    CameraBusiness
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.4" data-path="Callback.html">
+            
+                <a href="Callback.html">
+            
+                    
+                    业务层回调
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.5" data-path="decryptImageView.html">
+            
+                <a href="decryptImageView.html">
+            
+                    
+                    DecryptImageView
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.6" data-path="TimeBarView.html">
+            
+                <a href="TimeBarView.html">
+            
+                    
+                    TimeBarView
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="LiveProcess.html">
+            
+                <a href="LiveProcess.html">
+            
+                    
+                    视频直播
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="PlaybackProcess.html">
+            
+                <a href="PlaybackProcess.html">
+            
+                    
+                    存储卡回放
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="CloudStorageProcess.html">
+            
+                <a href="CloudStorageProcess.html">
+            
+                    
+                    云存储
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="CloudStorageProcess.html">
+            
+                <a href="CloudStorageProcess.html">
+            
+                    
+                    云存储流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="CloudStorage_aar.html">
+            
+                <a href="CloudStorage_aar.html">
+            
+                    
+                    云存储购买组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8.3" data-path="CloudStorageApi.html">
+            
+                <a href="CloudStorageApi.html">
+            
+                    
+                    云存储数据api
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="CloudStorageVideoApi.html">
+            
+                <a href="CloudStorageVideoApi.html">
+            
+                    
+                    云存储播放api
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="Doorbell_wakeup.html">
+            
+                <a href="Doorbell_wakeup.html">
+            
+                    
+                    低功耗门铃唤醒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="Doorbell_message_send.html">
+            
+                <a href="Doorbell_message_send.html">
+            
+                    
+                    消息推送
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html">
+            
+                    
+                    摄像头设备功能点
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html#摄像头设备标准化功能">
+            
+                    
+                    摄像头设备标准化功能介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html#设备标准化功能方法">
+            
+                    
+                    设备标准化功能方法介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html#存储卡及本地录像管理">
+            
+                    
+                    存储卡管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html#低功耗门铃功能">
+            
+                    
+                    低功耗门铃功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html#云台控制">
+            
+                    
+                    云台控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="message_center_list.html">
+            
+                <a href="message_center_list.html">
+            
+                    
+                    消息中心
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="message_center_list.html">
+            
+                <a href="message_center_list.html">
+            
+                    
+                    消息列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="mesage_center_video.html">
+            
+                <a href="mesage_center_video.html">
+            
+                    
+                    消息视频播放
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="statusCode.html">
+            
+                <a href="statusCode.html">
+            
+                    
+                    状态码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="FAQ.html">
+            
+                <a href="FAQ.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="doc_update_log.html">
+            
+                <a href="doc_update_log.html">
+            
+                    
+                    版本记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >云存储数据api</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x4E91;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x8C03;&#x7528;api">&#x4E91;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x8C03;&#x7528;API</h1>
+<h2 id="&#x96C6;&#x6210;&#x51C6;&#x5907;">&#x96C6;&#x6210;&#x51C6;&#x5907;</h2>
+<p>&#x9879;&#x76EE;&#x6A21;&#x5757;&#x7684;build.gradle&#xFF1A;</p>
+<pre class="language-"><code>    ...
+    implementation &apos;com.tuya.smart:tuyasmart-ipc-camera-middleware:3.14.3r133&apos;
+    ...
+</code></pre><h2 id="&#x83B7;&#x53D6;&#x4E91;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;">&#x83B7;&#x53D6;&#x4E91;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;</h2>
+<p><strong>&#x63CF;&#x8FF0;</strong></p>
+<p><strong>CameraCloudSDK</strong>&#x662F;&#x4E91;&#x5B58;&#x50A8;ATOP&#x7684;API&#x63A5;&#x53E3;&#x8C03;&#x7528;&#x7684;&#x5B9E;&#x4F53;&#x5BF9;&#x8C61;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x83B7;&#x53D6;&#x4E91;&#x5B58;&#x50A8;&#x8D2D;&#x4E70;&#xFF0C;&#x65F6;&#x95F4;&#x6570;&#x636E;&#x76F8;&#x5173;&#x7684;API&#x65B9;&#x6CD5;&#x3002;</p>
+<h3 id="&#x83B7;&#x53D6;&#x4E91;&#x5B58;&#x50A8;-&#x5F53;&#x524D;&#x72B6;&#x6001;&#x503C;&#xFF08;&#x6709;&#x65E0;&#x8D2D;&#x4E70;&#x7B49;&#xFF09;">&#x83B7;&#x53D6;&#x4E91;&#x5B58;&#x50A8; &#x5F53;&#x524D;&#x72B6;&#x6001;&#x503C;&#xFF08;&#x6709;&#x65E0;&#x8D2D;&#x4E70;&#x7B49;&#xFF09;</h3>
+<pre class="language-"><code>getCameraCloudInfo(DeviceBean deviceBean, ICloudCacheManagerCallback callback)
+</code></pre><h4 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>deviceBean</td>
+<td>&#x8BBE;&#x5907;&#x4FE1;&#x606F;</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>&#x56DE;&#x8C03;&#x65B9;&#x6CD5;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<pre class="language-"><code class="lang-java">cameraCloudSDK<span class="token punctuation">.</span><span class="token function">getCameraCloudInfo</span><span class="token punctuation">(</span><span class="token class-name">TuyaHomeSdk</span><span class="token punctuation">.</span><span class="token function">getDataInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getDeviceBean</span><span class="token punctuation">(</span>devId<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">CameraCloudStorageActivity</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x4E91;&#x5B58;&#x50A8;&#x76F8;&#x5173;&#x7684;&#x6570;&#x636E;secret&#xFF0C;auth&#x7B49;&#x53C2;&#x6570;">&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x4E91;&#x5B58;&#x50A8;&#x76F8;&#x5173;&#x7684;&#x6570;&#x636E;,Secret&#xFF0C;Auth&#x7B49;&#x53C2;&#x6570;</h3>
+<pre class="language-"><code>public void getCloudMediaCount(String devId, String timeZone, ICloudCacheManagerCallback callback)
+</code></pre><h4 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>devId</td>
+<td>&#x8BBE;&#x5907;id</td>
+</tr>
+<tr>
+<td>timeZone</td>
+<td>&#x65F6;&#x533A;</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>&#x56DE;&#x8C03;&#x65B9;&#x6CD5;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<pre class="language-"><code class="lang-java">cameraCloudSDK<span class="token punctuation">.</span><span class="token function">getCloudMediaCount</span><span class="token punctuation">(</span>devId<span class="token punctuation">,</span> <span class="token class-name">TimeZone</span><span class="token punctuation">.</span><span class="token function">getDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">CameraCloudStorageActivity</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#x7684;&#x65F6;&#x95F4;&#x7247;">&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#x7684;&#x65F6;&#x95F4;&#x7247;</h3>
+<pre class="language-"><code>public void getTimeLineInfoByTimeSlice(String devId, String timeGT, String timeLT, ICloudCacheManagerCallback callback)
+</code></pre><h4 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>devId</td>
+<td>&#x8BBE;&#x5907;id</td>
+</tr>
+<tr>
+<td>timeGT</td>
+<td>&#x5F00;&#x59CB;&#x65F6;&#x95F4;&#xFF08;13&#x4F4D;&#x65F6;&#x95F4;&#x6233;&#xFF09;</td>
+</tr>
+<tr>
+<td>timeLT</td>
+<td>&#x7ED3;&#x675F;&#x65F6;&#x95F4;</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>&#x56DE;&#x8C03;&#x65B9;&#x6CD5;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<pre class="language-"><code class="lang-java"><span class="token function">getTimeLineInfoByTimeSlice</span><span class="token punctuation">(</span>devId<span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>dayBean<span class="token punctuation">.</span><span class="token function">getCurrentStartDayTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>dayBean<span class="token punctuation">.</span><span class="token function">getCurrentDayEndTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="&#x6839;&#x636E;&#x65F6;&#x95F4;&#x7247;&#x6BB5;&#x59CB;&#x672B;&#x83B7;&#x53D6;&#x76F8;&#x5E94;&#x7684;&#x79FB;&#x52A8;&#x4FA6;&#x6D4B;&#x6570;&#x636E;">&#x6839;&#x636E;&#x65F6;&#x95F4;&#x7247;&#x6BB5;&#x59CB;&#x672B;&#x83B7;&#x53D6;&#x76F8;&#x5E94;&#x7684;&#x79FB;&#x52A8;&#x4FA6;&#x6D4B;&#x6570;&#x636E;</h3>
+<pre class="language-"><code>public void getMotionDetectionByTimeSlice(String devId, String timeGT, String timeLT, int offset, int limit, ICloudCacheManagerCallback callback)
+</code></pre><h4 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>devId</td>
+<td>&#x8BBE;&#x5907;id</td>
+</tr>
+<tr>
+<td>timeGT</td>
+<td>&#x5F00;&#x59CB;&#x65F6;&#x95F4;&#xFF08;13&#x4F4D;&#x65F6;&#x95F4;&#x6233;&#xFF09;</td>
+</tr>
+<tr>
+<td>timeLT</td>
+<td>&#x7ED3;&#x675F;&#x65F6;&#x95F4;</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>&#x7B2C;&#x51E0;&#x9875;&#xFF0C;&#x9ED8;&#x8BA4;0</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>&#x6BCF;&#x6B21;&#x62C9;&#x53D6;&#x6761;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;-1&#xFF0C;&#x8868;&#x793A;&#x6240;&#x6709;&#x6570;&#x636E;</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>&#x56DE;&#x8C03;&#x65B9;&#x6CD5;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<pre class="language-"><code class="lang-java">cameraCloudSDK<span class="token punctuation">.</span><span class="token function">getMotionDetectionByTimeSlice</span><span class="token punctuation">(</span>devId<span class="token punctuation">,</span> timeGT<span class="token punctuation">,</span> timeLT<span class="token punctuation">,</span> offset<span class="token punctuation">,</span> limit<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="&#x4E91;&#x5B58;&#x50A8;&#x8D2D;&#x4E70;&#x5730;&#x5740;&#x63A5;&#x53E3;">&#x4E91;&#x5B58;&#x50A8;&#x8D2D;&#x4E70;&#x5730;&#x5740;&#x63A5;&#x53E3;</h3>
+<pre class="language-"><code>public void buyCloudStorage(Context mContext, DeviceBean deviceBean, String homeId, ICloudManagerCallback callback) {
+        CameraCloudManager.getInstance().getCloudStorageUrl(mContext, deviceBean, homeId);
+    }
+</code></pre><h4 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mContext</td>
+<td>&#x4E0A;&#x4E0B;&#x6587;</td>
+</tr>
+<tr>
+<td>deviceBean</td>
+<td>&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#xFF09;</td>
+</tr>
+<tr>
+<td>homeId</td>
+<td>&#x5BB6;&#x5EAD;id</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>&#x56DE;&#x8C03;&#x65B9;&#x6CD5;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<pre class="language-"><code class="lang-java">    cameraCloudSDK<span class="token punctuation">.</span><span class="token function">buyCloudStorage</span><span class="token punctuation">(</span><span class="token class-name">CameraCloudStorageActivity</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">,</span>
+                        <span class="token class-name">TuyaHomeSdk</span><span class="token punctuation">.</span><span class="token function">getDataInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getDeviceBean</span><span class="token punctuation">(</span>devId<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                        <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token class-name">FamilyManager</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getCurrentHomeId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ICloudManagerCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                            <span class="token annotation punctuation">@Override</span>
+                            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+                            <span class="token punctuation">}</span>
+
+                            <span class="token annotation punctuation">@Override</span>
+                            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token class-name">Object</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                <span class="token class-name">String</span> uri <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> o<span class="token punctuation">;</span>
+                                <span class="token class-name">Intent</span> intent <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Intent</span><span class="token punctuation">(</span><span class="token class-name">CameraCloudStorageActivity</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token class-name">WebViewActivity</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                intent<span class="token punctuation">.</span><span class="token function">putExtra</span><span class="token punctuation">(</span><span class="token string">&quot;Uri&quot;</span><span class="token punctuation">,</span>uri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                <span class="token function">startActivity</span><span class="token punctuation">(</span>intent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token punctuation">}</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="&#x9500;&#x6BC1;">&#x9500;&#x6BC1;</h3>
+<pre class="language-"><code>public void onDestroy()
+</code></pre><h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<pre class="language-"><code class="lang-java"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">null</span> <span class="token operator">!=</span> cameraCloudSDK<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cameraCloudSDK<span class="token punctuation">.</span><span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<h3 id="icloudcachemanagercallback">ICloudCacheManagerCallback</h3>
+<p><strong>&#x63CF;&#x8FF0;</strong></p>
+<p>&#x8C03;&#x7528;sdk&#x4E4B;&#x540E;&#x7684;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;</p>
+<h4 id="&#x8FD4;&#x56DE;&#x6709;&#x4E91;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x65E5;&#x671F;">&#x8FD4;&#x56DE;&#x6709;&#x4E91;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x65E5;&#x671F;</h4>
+<pre class="language-"><code class="lang-java"><span class="token keyword">void</span> <span class="token function">getCloudDayList</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">CloudDayBean</span><span class="token punctuation">&gt;</span></span> cloudDayBeanList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h5 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h5>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cloudDayBeanList</td>
+<td>&#x4E91;&#x5B58;&#x50A8;&#x65E5;&#x671F;&#x6570;&#x636E;&#x96C6;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x8FD4;&#x56DE;&#x4E91;&#x5B58;&#x50A8;encrykey">&#x8FD4;&#x56DE;&#x4E91;&#x5B58;&#x50A8;encryKey</h4>
+<pre class="language-"><code class="lang-java"><span class="token keyword">void</span> <span class="token function">getCloudSecret</span><span class="token punctuation">(</span><span class="token class-name">String</span> encryKey<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h5 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h5>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>encryKey</td>
+<td>&#x4E91;&#x5B58;&#x50A8;&#x79D8;&#x94A5;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x8FD4;&#x56DE;&#x4E91;&#x5B58;&#x50A8;authorityjson">&#x8FD4;&#x56DE;&#x4E91;&#x5B58;&#x50A8;authorityJson</h4>
+<pre class="language-"><code class="lang-java"><span class="token keyword">void</span> <span class="token function">getAuthorityGet</span><span class="token punctuation">(</span><span class="token class-name">String</span> authorityJson<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h5 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h5>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>authorityJson</td>
+<td>&#x6821;&#x9A8C;&#x6570;&#x636E;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x8FD4;&#x56DE;&#x4E91;&#x5B58;&#x50A8;&#x6839;&#x636E;&#x67D0;&#x4E00;&#x5929;&#x65F6;&#x95F4;&#x6BB5;&#x67E5;&#x8BE2;&#x7684;&#x6570;&#x636E;">&#x8FD4;&#x56DE;&#x4E91;&#x5B58;&#x50A8;&#x6839;&#x636E;&#x67D0;&#x4E00;&#x5929;&#x65F6;&#x95F4;&#x6BB5;&#x67E5;&#x8BE2;&#x7684;&#x6570;&#x636E;</h4>
+<pre class="language-"><code class="lang-java"><span class="token keyword">void</span> <span class="token function">getTimePieceInfoByTimeSlice</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">TimePieceBean</span><span class="token punctuation">&gt;</span></span> timePieceBeans<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h5 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h5>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>timePieceBeans</td>
+<td>&#x65F6;&#x95F4;&#x7247;&#x6BB5;&#x6570;&#x636E;&#x96C6;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x8FD4;&#x56DE;&#x4E91;&#x5B58;&#x50A8;&#x79FB;&#x52A8;&#x4FA6;&#x6D4B;&#x6839;&#x636E;&#x67D0;&#x4E00;&#x5929;&#x65F6;&#x95F4;&#x6BB5;&#x67E5;&#x8BE2;&#x7684;&#x6570;&#x636E;">&#x8FD4;&#x56DE;&#x4E91;&#x5B58;&#x50A8;&#x79FB;&#x52A8;&#x4FA6;&#x6D4B;&#x6839;&#x636E;&#x67D0;&#x4E00;&#x5929;&#x65F6;&#x95F4;&#x6BB5;&#x67E5;&#x8BE2;&#x7684;&#x6570;&#x636E;</h4>
+<pre class="language-"><code class="lang-java"><span class="token keyword">void</span> <span class="token function">getMotionDetectionByTimeSlice</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">TimeRangeBean</span><span class="token punctuation">&gt;</span></span> timeRangeBeans<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h5 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h5>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>timeRangeBeans</td>
+<td>&#x79FB;&#x52A8;&#x4FA6;&#x6D4B;&#x65F6;&#x95F4;&#x7247;&#x6BB5;&#x6570;&#x636E;&#x96C6;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x8FD4;&#x56DE;&#x4E91;&#x5B58;&#x50A8;&#x72B6;&#x6001;">&#x8FD4;&#x56DE;&#x4E91;&#x5B58;&#x50A8;&#x72B6;&#x6001;</h4>
+<pre class="language-"><code class="lang-java"><span class="token keyword">void</span> <span class="token function">getCloudStatusSuccess</span><span class="token punctuation">(</span><span class="token keyword">int</span> code<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h5 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h5>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>&#x8D2D;&#x4E70;&#x72B6;&#x6001;</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>code&#x503C;&#xFF0C;&#x53C2;&#x8003;&#x6587;&#x7AE0;&#x5E95;&#x4E0B;&#x7684;&#x72B6;&#x6001;&#x7801;</p>
+</blockquote>
+<h4 id="&#x8FD4;&#x56DE;&#x4E91;&#x5B58;&#x50A8;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#xFF0C;&#x9700;&#x8981;&#x4F20;&#x5165;sdk&#x9A8C;&#x8BC1;">&#x8FD4;&#x56DE;&#x4E91;&#x5B58;&#x50A8;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#xFF0C;&#x9700;&#x8981;&#x4F20;&#x5165;sdk&#x9A8C;&#x8BC1;</h4>
+<pre class="language-"><code class="lang-java"><span class="token keyword">void</span> <span class="token function">getCloudConfigDataTags</span><span class="token punctuation">(</span><span class="token class-name">String</span> config<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h5 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h5>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>config</td>
+<td>&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x6570;&#x636E;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x9519;&#x8BEF;&#x56DE;&#x8C03;">&#x9519;&#x8BEF;&#x56DE;&#x8C03;</h4>
+<pre class="language-"><code class="lang-java"><span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span><span class="token keyword">int</span> errorCode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h5 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h5>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>errorCode</td>
+<td>&#x9519;&#x8BEF;&#x7801;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x72B6;&#x6001;&#x503C;">&#x72B6;&#x6001;&#x503C;</h4>
+<table>
+<thead>
+<tr>
+<th>&#x72B6;&#x6001;&#x503C;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10001</td>
+<td>&#x672A;&#x5F00;&#x901A;&#x670D;&#x52A1;</td>
+</tr>
+<tr>
+<td>10002</td>
+<td>&#x5DF2;&#x5F00;&#x901A;&#x670D;&#x52A1;&#xFF0C;&#x65E0;&#x6570;&#x636E;</td>
+</tr>
+<tr>
+<td>10003</td>
+<td>&#x5DF2;&#x5F00;&#x901A;&#x670D;&#x52A1;&#xFF0C;&#x6709;&#x6570;&#x636E;</td>
+</tr>
+<tr>
+<td>10004</td>
+<td>&#x670D;&#x52A1;&#x5DF2;&#x8FC7;&#x671F;&#xFF0C;&#x6709;&#x6570;&#x636E;</td>
+</tr>
+<tr>
+<td>10005</td>
+<td>&#x670D;&#x52A1;&#x5DF2;&#x8FC7;&#x671F;&#xFF0C;&#x65E0;&#x6570;&#x636E;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x9519;&#x8BEF;&#x7801;">&#x9519;&#x8BEF;&#x7801;</h4>
+<table>
+<thead>
+<tr>
+<th>&#x9519;&#x8BEF;&#x7801;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10100</td>
+<td>&#x83B7;&#x53D6;SECRET &#x5931;&#x8D25;</td>
+</tr>
+<tr>
+<td>10101</td>
+<td>&#x83B7;&#x53D6;AUTH &#x5931;&#x8D25;</td>
+</tr>
+<tr>
+<td>10110</td>
+<td>&#x5176;&#x4ED6;&#x5F02;&#x5E38;</td>
+</tr>
+<tr>
+<td>10010</td>
+<td>&#x83B7;&#x53D6;&#x8BA4;&#x8BC1;&#x4FE1;&#x606F;&#x5931;&#x8D25;</td>
+</tr>
+<tr>
+<td>10011</td>
+<td>&#x83B7;&#x53D6;&#x67D0;&#x5929;&#x7684;&#x65F6;&#x95F4;&#x7247;&#xFF08;&#x9274;&#x6743;&#x4FE1;&#x606F;&#xFF09;&#x5931;&#x8D25;</td>
+</tr>
+</tbody>
+</table>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="CloudStorage_aar.html" class="navigation navigation-prev " aria-label="Previous page: 云存储购买组件">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="CloudStorageVideoApi.html" class="navigation navigation-next " aria-label="Next page: 云存储播放api">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"云存储数据api","level":"1.8.3","depth":2,"next":{"title":"云存储播放api","level":"1.8.4","depth":2,"path":"resource/CloudStorageVideoApi.md","ref":"./resource/CloudStorageVideoApi.md","articles":[]},"previous":{"title":"云存储购买组件","level":"1.8.2","depth":2,"path":"resource/CloudStorage_aar.md","ref":"./resource/CloudStorage_aar.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","prism"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Daju.huang","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tuya IPC","language":"zh-hans","gitbook":"*","description":"Tuya IPC SDK Docs"},"file":{"path":"resource/CloudStorageApi.md","mtime":"2020-03-11T06:50:42.324Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-15T15:56:36.819Z"},"basePath":"..","book":{"language":"zh-hans"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -5,7 +5,7 @@
 
 1. 在涂鸦iot平台中“App工作台”中点击App SDK,点击“获取SDK”
 
-![](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/images/getsdk.png)
+<img src="https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/images/getsdk.png" style="zoom:67%;" />
 
 2. 根据需求选择合适的开发方案，点击“下一步”。
 ![](./images/sdk_preparation_1.png)

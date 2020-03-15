@@ -2,13 +2,15 @@
 
 
 
-**描述**
+## 描述
 
 **ITYCloudCamera**提供了云存储播放相关的API接口
 
 
 
 ## 使用方法
+
+
 
 ### 初始化，创建设备对象
 
@@ -23,15 +25,19 @@ void createCloudDevice(String cachePath, String devId)
 | cachePath | 缓存路径 |
 | devId | 设备id |
 
+
+
 #### 示例代码
+
 ```java
 cloudCamera.createCloudDevice(cachePath, devId);
-
 ```
+
+
 
 ### 注册p2p监听
 
-```
+```java
 void registorOnP2PCameraListener(OnP2PCameraListener listener);
 ```
 #### 参数说明
@@ -40,13 +46,18 @@ void registorOnP2PCameraListener(OnP2PCameraListener listener);
 | -------------------- | ------------------ |
 | listener | p2p回调 |
 
+
+
 #### 示例代码
+
 ```java
 cloudCamera.registorOnP2PCameraListener(this);
 ```
 
 
+
 ### 反注册p2p监听
+
 ```java
 void removeOnP2PCameraListener();
 ```
@@ -57,9 +68,9 @@ cloudCamera.removeOnP2PCameraListener();
 
 
 
-### 联播放器与播放组件view
+### 绑定播放组件view
 
-```
+```java
 void generateCloudCameraView(IRegistorIOTCListener view);
 ```
 #### 参数说明
@@ -72,6 +83,7 @@ void generateCloudCameraView(IRegistorIOTCListener view);
 ```java
 cloudCamera.generateCloudCameraView(mVideoView);
 ```
+
 
 
 ### 配置云存储数据tags(开始播放云存前需要先进行配置)
@@ -107,9 +119,10 @@ cloudCamera.configCloudDataTagsV1(config, new OperationDelegateCallBack() {
 ```
 
 
+
 ### 云存储播放
 
-```
+```java
     void playCloudDataWithStartTime(long mStartTime, long mEndTime, boolean isEvent, String jsonAuthParams, String encryptKey, OperationCallBack callback, OperationCallBack playFinishedCallBack);
 ```
 #### 参数说明
@@ -151,6 +164,7 @@ cloudCamera.playCloudDataWithStartTime(startTime, endTime, isEvent,
 ```
 
 
+
 ### 暂停播放
 
 ```java
@@ -176,10 +190,12 @@ cloudCamera.pausePlayCloudVideo(new OperationDelegateCallBack() {
         });
 ```
 
+
+
 ### 继续播放
 
 ```java
-    int resumePlayCloudVideo(OperationDelegateCallBack callBack);
+int resumePlayCloudVideo(OperationDelegateCallBack callBack);
 ```
 #### 参数说明
 
@@ -200,6 +216,8 @@ cloudCamera.resumePlayCloudVideo(new OperationDelegateCallBack() {
             }
         });
 ```
+
+
 
 ### 停止播放
 
@@ -226,6 +244,8 @@ cloudCamera.stopPlayCloudVideo(new OperationDelegateCallBack() {
         });
 ```
 
+
+
 ### 获取声音状态（是否静音）
 
 ```java
@@ -236,7 +256,10 @@ int getCloudMute();
 cloudCamera.getCloudMute()
 ```
 
+
+
 ### 设置声音状态
+
 ``` java
 void setCloudMute(final int mute, OperationDelegateCallBack callBack);
 ```
@@ -261,9 +284,11 @@ cloudCamera.setCloudMute(mute, new OperationDelegateCallBack() {
         });
 ```
 
+
+
 ### 截图
 
-```
+```java
 int snapshot(String absoluteFilePath, OperationDelegateCallBack callBack);
 ```
 #### 参数说明
@@ -287,7 +312,10 @@ cloudCamera.snapshot(IPCCameraUtils.recordSnapshotPath(devId), new OperationDele
         });
 ```
 
+
+
 ### 开始录制
+
 ```java
 int startRecordLocalMp4(String folderPath, String fileName, OperationDelegateCallBack callBack);
 ```
@@ -311,6 +339,8 @@ cloudCamera.startRecordLocalMp4(IPCCameraUtils.recordPath(devId), String.valueOf
             }
         });
 ```
+
+
 ### 结束录制
 
 ```
@@ -334,9 +364,11 @@ cloudCamera.stopRecordLocalMp4(new OperationDelegateCallBack() {
             }
         });
 ```
+
+
 ### 反初始化
 
-```
+```java
 void deinitCloudCamera();
 ```
 
