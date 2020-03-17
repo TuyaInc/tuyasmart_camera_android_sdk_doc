@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>摄像头设备功能点 · Tuya IPC</title>
+        <title>摄像机设备功能点 · Tuya IPC</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -25,11 +25,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
-                
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
                 
             
                 
@@ -398,7 +394,7 @@
                 <a href="CloudStorageApi.html">
             
                     
-                    云存储数据api
+                    云存储数据获取api
             
                 </a>
             
@@ -455,7 +451,7 @@
                 <a href="camera_device_points.html">
             
                     
-                    摄像头设备功能点
+                    摄像机设备功能点
             
                 </a>
             
@@ -466,10 +462,10 @@
     
         <li class="chapter " data-level="1.11.1" data-path="camera_device_points.html">
             
-                <a href="camera_device_points.html#摄像头设备标准化功能">
+                <a href="camera_device_points.html#摄像机设备标准化功能">
             
                     
-                    摄像头设备标准化功能介绍
+                    摄像机设备标准化功能
             
                 </a>
             
@@ -482,7 +478,7 @@
                 <a href="camera_device_points.html#设备标准化功能方法">
             
                     
-                    设备标准化功能方法介绍
+                    设备标准化功能方法
             
                 </a>
             
@@ -550,7 +546,7 @@
     
         <li class="chapter " data-level="1.12.1" data-path="message_center_list.html">
             
-                <a href="message_center_list.html">
+                <a href="message_center_list.html#">
             
                     
                     消息列表
@@ -648,7 +644,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >摄像头设备功能点</a>
+        <a href=".." >摄像机设备功能点</a>
     </h1>
 </div>
 
@@ -664,7 +660,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x6444;&#x50CF;&#x5934;&#x8BBE;&#x5907;&#x529F;&#x80FD;&#x70B9;">&#x6444;&#x50CF;&#x5934;&#x8BBE;&#x5907;&#x529F;&#x80FD;&#x70B9;</h1>
-<p>&#x6D82;&#x9E26;&#x667A;&#x80FD;&#x8BBE;&#x5907;&#x901A;&#x8FC7;&#x8BBE;&#x5907;&#x529F;&#x80FD;&#x70B9;&#x6765;&#x63A7;&#x5236;&#x8BBE;&#x5907;&#xFF0C;&#x5E76;&#x4E14;&#x901A;&#x8FC7;&#x6807;&#x51C6;&#x5316;&#x7684;&#x529F;&#x80FD;&#x70B9;&#x5B9E;&#x73B0;&#x8BBE;&#x5907;&#x4E0E;App&#x4E4B;&#x95F4;&#x7684;&#x4EA4;&#x4E92;&#x3002;&#x6D82;&#x9E26;IPC Camera SDK &#x57FA;&#x4E8E; <a href="https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/Device_standard.html" target="_blank">&#x81EA;&#x5B9A;&#x4E49;&#x8BBE;&#x5907;&#x63A7;&#x5236;</a> &#x5C01;&#x88C5;&#x4E86;&#x4E00;&#x5957;&#x667A;&#x80FD;&#x6444;&#x50CF;&#x673A;&#x7684;&#x6269;&#x5C55;&#x529F;&#x80FD;&#x3002;</p>
+<p>&#x6D82;&#x9E26;&#x667A;&#x80FD;&#x8BBE;&#x5907;&#x901A;&#x8FC7;&#x8BBE;&#x5907;&#x529F;&#x80FD;&#x70B9;&#x6765;&#x63A7;&#x5236;&#x8BBE;&#x5907;&#xFF0C;&#x5E76;&#x4E14;&#x901A;&#x8FC7;&#x6807;&#x51C6;&#x5316;&#x7684;&#x529F;&#x80FD;&#x70B9;&#x5B9E;&#x73B0;&#x8BBE;&#x5907;&#x4E0E;App&#x4E4B;&#x95F4;&#x7684;&#x4EA4;&#x4E92;&#x3002;<strong>Tuya Smart Camera Android SDK</strong> &#x57FA;&#x4E8E; <a href="https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/Device_standard.html" target="_blank">&#x81EA;&#x5B9A;&#x4E49;&#x8BBE;&#x5907;&#x63A7;&#x5236;</a> &#x5C01;&#x88C5;&#x4E86;&#x4E00;&#x5957;&#x667A;&#x80FD;&#x6444;&#x50CF;&#x673A;&#x7684;&#x6269;&#x5C55;&#x529F;&#x80FD;&#x3002;</p>
 <h2 id="&#x6444;&#x50CF;&#x673A;&#x8BBE;&#x5907;&#x6807;&#x51C6;&#x5316;&#x529F;&#x80FD;">&#x6444;&#x50CF;&#x673A;&#x8BBE;&#x5907;&#x6807;&#x51C6;&#x5316;&#x529F;&#x80FD;</h2>
 <h3 id="&#x8BBE;&#x5907;&#x57FA;&#x672C;&#x8BBE;&#x7F6E;&#x529F;&#x80FD;">&#x8BBE;&#x5907;&#x57FA;&#x672C;&#x8BBE;&#x7F6E;&#x529F;&#x80FD;</h3>
 <table>
@@ -930,16 +926,16 @@
 <p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java"><span class="token comment">//&#x5982;&#x679C;&#x529F;&#x80FD;&#x70B9;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x662F;Boolean&#xFF0C;&#x56DE;&#x8C03;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;Boolean&#xFF1B;&#x5982;&#x679C;&#x662F;enum/String&#xFF0C;&#x56DE;&#x8C03;&#x8BBE;&#x7F6E;String&#xFF1B;&#x5982;&#x679C;&#x662F;value&#xFF0C;&#x56DE;&#x8C03;&#x8BBE;&#x7F6E;Integer</span>
 mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">registorTuyaCameraDeviceControlCallback</span><span class="token punctuation">(</span><span class="token class-name">DpBasicFlip</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ITuyaCameraDeviceControlCallback</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Boolean</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    <span class="token annotation punctuation">@Override</span>
-                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">Boolean</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                        showPublishTxt<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">&quot;LAN/Cloud query result: &quot;</span> <span class="token operator">+</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">Boolean</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    showPublishTxt<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">&quot;LAN/Cloud query result: &quot;</span> <span class="token operator">+</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-                    <span class="token annotation punctuation">@Override</span>
-                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">String</span> s1<span class="token punctuation">,</span> <span class="token class-name">String</span> s2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">String</span> s1<span class="token punctuation">,</span> <span class="token class-name">String</span> s2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-                    <span class="token punctuation">}</span>
-                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">publishCameraDps</span><span class="token punctuation">(</span><span class="token class-name">DpBasicFlip</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="ituyacameradevicecontrolcallback-&#x56DE;&#x8C03;">ITuyaCameraDeviceControlCallback &#x56DE;&#x8C03;</h3>
@@ -974,28 +970,6 @@ mTuyaCameraDevice<span class="token punctuation">.</span><span class="token func
 </tr>
 </tbody>
 </table>
-<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">ITuyaCameraDevice</span> <span class="token punctuation">{</span>
-    <span class="token comment">//&#x529F;&#x80FD;&#x70B9;&#x662F;&#x5426;&#x652F;&#x6301;</span>
-
-    <span class="token comment">//&#x67E5;&#x8BE2;Object&#x7684;&#x529F;&#x80FD;&#x70B9;&#x6570;&#x636E;</span>
-    <span class="token class-name">Object</span> <span class="token function">queryObjectCameraDps</span><span class="token punctuation">(</span><span class="token class-name">String</span> dpCode<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//&#x67E5;&#x8BE2;boolean&#x7684;&#x529F;&#x80FD;&#x70B9;&#x6570;&#x636E;</span>
-    <span class="token keyword">boolean</span> <span class="token function">queryBooleanCameraDps</span><span class="token punctuation">(</span><span class="token class-name">String</span> dpCode<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//&#x67E5;&#x8BE2;String&#x3001;enum&#x7684;&#x529F;&#x80FD;&#x70B9;&#x6570;&#x636E;</span>
-    <span class="token class-name">String</span> <span class="token function">queryStringCurrentCameraDps</span><span class="token punctuation">(</span><span class="token class-name">String</span> dpCode<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//&#x67E5;&#x8BE2;value&#x7684;&#x529F;&#x80FD;&#x70B9;&#x6570;&#x636E;</span>
-    <span class="token keyword">int</span> <span class="token function">queryIntegerCurrentCameraDps</span><span class="token punctuation">(</span><span class="token class-name">String</span> dpCode<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//&#x6CE8;&#x518C;&#x529F;&#x80FD;&#x70B9;&#x56DE;&#x8C03;&#x76D1;&#x542C;</span>
-    <span class="token keyword">void</span> <span class="token function">registorTuyaCameraDeviceControlCallback</span><span class="token punctuation">(</span><span class="token class-name">String</span> dpCode<span class="token punctuation">,</span> <span class="token class-name">ITuyaCameraDeviceControlCallback</span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//&#x53D6;&#x6D88;&#x529F;&#x80FD;&#x70B9;&#x56DE;&#x8C03;&#x76D1;&#x542C;</span>
-    <span class="token keyword">void</span> <span class="token function">unRegistorTuyaCameraDeviceControlCallback</span><span class="token punctuation">(</span><span class="token class-name">String</span> dpCode<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//&#x4F4E;&#x529F;&#x8017;&#x95E8;&#x94C3;&#x5524;&#x9192;</span>
-    <span class="token keyword">void</span> <span class="token function">wirelessWake</span><span class="token punctuation">(</span><span class="token class-name">String</span> localKey<span class="token punctuation">,</span> <span class="token class-name">String</span> devId<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token comment">//&#x6E05;&#x9664;&#x8D44;&#x6E90;</span>
-    <span class="token keyword">void</span> <span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
 <h4 id="value&#x6570;&#x636E;&#x67E5;&#x8BE2;">Value&#x6570;&#x636E;&#x67E5;&#x8BE2;</h4>
 <p><strong>&#x3010;&#x63CF;&#x8FF0;&#x3011;</strong></p>
 <p>&#x901A;&#x8FC7;&#x7F13;&#x5B58;&#x83B7;&#x53D6;&#x5BF9;&#x5E94;&#x529F;&#x80FD;&#x70B9;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x6839;&#x636E;Value&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x53EF;&#x4EE5;&#x5206;&#x522B;&#x7528;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;&#x67E5;&#x8BE2;</p>
@@ -1015,13 +989,6 @@ mTuyaCameraDevice<span class="token punctuation">.</span><span class="token func
 <blockquote>
 <p>&#x5982;&#x679C;&#x4F7F;&#x7528;&#xFF1A;queryObjectCameraDps&#x8FDB;&#x884C;&#x67E5;&#x8BE2;&#xFF0C;&#x9700;&#x8981;&#x5F00;&#x53D1;&#x8005;&#x5BF9;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x8FDB;&#x884C;&#x5355;&#x72EC;&#x533A;&#x5206;</p>
 </blockquote>
-<pre class="language-"><code class="lang-java">
-    <span class="token comment">//&#x53EA;&#x652F;&#x6301;boolean</span>
-    <span class="token keyword">boolean</span> <span class="token function">queryBooleanCameraDps</span><span class="token punctuation">(</span><span class="token class-name">String</span> dpCodeID<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//&#x53EA;&#x652F;&#x6301;enum&#x3001;String    </span>
-    <span class="token class-name">String</span> <span class="token function">queryStringCurrentCameraDps</span><span class="token punctuation">(</span><span class="token class-name">String</span> dpCodeID<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//&#x53EA;&#x652F;&#x6301;value</span>
-</code></pre>
 <h4 id="stringenum&#x6570;&#x636E;&#x67E5;&#x8BE2;">String/Enum&#x6570;&#x636E;&#x67E5;&#x8BE2;</h4>
 <p><strong>&#x3010;&#x63CF;&#x8FF0;&#x3011;</strong></p>
 <p>&#x901A;&#x8FC7;&#x7F13;&#x5B58;&#x83B7;&#x53D6;&#x5BF9;&#x5E94;&#x529F;&#x80FD;&#x70B9;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x6839;&#x636E;String/Enum&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x53EF;&#x4EE5;&#x5206;&#x522B;&#x7528;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;&#x67E5;&#x8BE2;</p>
@@ -1074,13 +1041,13 @@ mTuyaCameraDevice<span class="token punctuation">.</span><span class="token func
 </tr>
 </tbody>
 </table>
-<h3 id="&#x5B58;&#x50A8;&#x5361;&#x53CA;&#x672C;&#x5730;&#x5F55;&#x50CF;&#x7BA1;&#x7406;">&#x5B58;&#x50A8;&#x5361;&#x53CA;&#x672C;&#x5730;&#x5F55;&#x50CF;&#x7BA1;&#x7406;</h3>
+<h2 id="&#x5B58;&#x50A8;&#x5361;&#x53CA;&#x672C;&#x5730;&#x5F55;&#x50CF;&#x7BA1;&#x7406;">&#x5B58;&#x50A8;&#x5361;&#x53CA;&#x672C;&#x5730;&#x5F55;&#x50CF;&#x7BA1;&#x7406;</h2>
 <p><strong>&#x63CF;&#x8FF0;</strong></p>
 <p>&#x5728;&#x5F00;&#x59CB;&#x7BA1;&#x7406;&#x5B58;&#x50A8;&#x5361;&#x6216;&#x8005;&#x8FDB;&#x884C;&#x5F55;&#x50CF;&#x56DE;&#x653E;&#x524D;&#xFF0C;&#x9700;&#x8981;&#x5148;&#x83B7;&#x53D6;&#x5B58;&#x50A8;&#x5361;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x5907;&#x672A;&#x68C0;&#x6D4B;&#x5230;&#x5B58;&#x50A8;&#x5361;&#xFF0C;&#x5219;&#x65E0;&#x6CD5;&#x8FDB;&#x884C;&#x4E0B;&#x4E00;&#x6B65;&#x3002;&#x5982;&#x679C;&#x5B58;&#x50A8;&#x5361;&#x5F02;&#x5E38;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x5148;&#x683C;&#x5F0F;&#x5316;&#x5B58;&#x50A8;&#x5361;&#x3002;</p>
 <blockquote>
 <p>sdcard&#x7684;LAN/Cloud&#x6570;&#x636E;&#x4E0B;&#x53D1;&#x662F;&#x4E0D;&#x9700;&#x8981;&#x4F20;&#x5176;&#x4ED6;&#x53C2;&#x6570;&#x7684;&#x3002;</p>
 </blockquote>
-<h4 id="&#x72B6;&#x6001;">&#x72B6;&#x6001;</h4>
+<h3 id="&#x72B6;&#x6001;">&#x72B6;&#x6001;</h3>
 <p>DpSDStatus&#x662F;&#x63A7;&#x5236;sdcard&#x72B6;&#x6001;&#x7684;DP&#x70B9;&#x3002;</p>
 <p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">registorTuyaCameraDeviceControlCallback</span><span class="token punctuation">(</span><span class="token class-name">DpSDStatus</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ITuyaCameraDeviceControlCallback</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -1096,74 +1063,74 @@ mTuyaCameraDevice<span class="token punctuation">.</span><span class="token func
                 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                 mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">publishCameraDps</span><span class="token punctuation">(</span><span class="token class-name">DpSDStatus</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h4 id="&#x5B58;&#x50A8;&#x5361;&#x5BB9;&#x91CF;&#x83B7;&#x53D6;">&#x5B58;&#x50A8;&#x5361;&#x5BB9;&#x91CF;&#x83B7;&#x53D6;</h4>
+<h3 id="&#x5B58;&#x50A8;&#x5361;&#x5BB9;&#x91CF;&#x83B7;&#x53D6;">&#x5B58;&#x50A8;&#x5361;&#x5BB9;&#x91CF;&#x83B7;&#x53D6;</h3>
 <p>DpSDStorge&#x7684;&#x6570;&#x636E;&#x4E0B;&#x53D1;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;&#x6D82;&#x9E26;IPC&#x6444;&#x50CF;&#x673A;&#x5F53;&#x524D;&#x7684;&#x5B58;&#x50A8;&#x5361;&#x5BB9;&#x91CF;&#x3002;</p>
 <p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">registorTuyaCameraDeviceControlCallback</span><span class="token punctuation">(</span><span class="token class-name">DpSDStorage</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ITuyaCameraDeviceControlCallback</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    <span class="token annotation punctuation">@Override</span>
-                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">String</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                        showPublishTxt<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">&quot;LAN/Cloud query result: &quot;</span> <span class="token operator">+</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">String</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    showPublishTxt<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">&quot;LAN/Cloud query result: &quot;</span> <span class="token operator">+</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-                    <span class="token annotation punctuation">@Override</span>
-                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">String</span> s1<span class="token punctuation">,</span> <span class="token class-name">String</span> s2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">String</span> s1<span class="token punctuation">,</span> <span class="token class-name">String</span> s2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-                    <span class="token punctuation">}</span>
-                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">publishCameraDps</span><span class="token punctuation">(</span><span class="token class-name">DpSDStorage</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <blockquote>
 <p>&#x5B58;&#x50A8;&#x5361;&#x5BB9;&#x91CF;&#x503C;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x683C;&#x5F0F;&#xFF1A;&#x603B;&#x5BB9;&#x91CF;|&#x5DF2;&#x4F7F;&#x7528;&#x5BB9;&#x91CF;|&#x7A7A;&#x95F2;&#x5BB9;&#x91CF;&#xFF0C;&#x5355;&#x4F4D;<code>KB</code></p>
 </blockquote>
-<h4 id="&#x683C;&#x5F0F;&#x5316;">&#x683C;&#x5F0F;&#x5316;</h4>
+<h3 id="&#x683C;&#x5F0F;&#x5316;">&#x683C;&#x5F0F;&#x5316;</h3>
 <p>&#x5728;&#x683C;&#x5F0F;&#x5316;&#x5B58;&#x50A8;&#x5361;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6839;&#x636E;&#x6444;&#x50CF;&#x673A;&#x5382;&#x5546;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x6709;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#x3002;&#x6709;&#x4E9B;&#x5382;&#x5546;&#x5B9E;&#x73B0;&#x7684;&#x56FA;&#x4EF6;&#x4E2D;&#xFF0C;&#x4F1A;&#x4E3B;&#x52A8;&#x4E0A;&#x62A5;&#x683C;&#x5F0F;&#x5316;&#x7684;&#x8FDB;&#x5EA6;&#xFF0C;&#x683C;&#x5F0F;&#x5316;&#x5B8C;&#x6210;&#x540E;&#x4E5F;&#x4F1A;&#x4E3B;&#x52A8;&#x4E0A;&#x62A5;&#x5F53;&#x524D;&#x7684;&#x5BB9;&#x91CF;&#x72B6;&#x6001;&#xFF0C;&#x4F46;&#x662F;&#x6709;&#x5C11;&#x90E8;&#x5206;&#x5382;&#x5546;&#x7684;&#x56FA;&#x4EF6;&#xFF0C;&#x4E0D;&#x4F1A;&#x4E3B;&#x52A8;&#x4E0A;&#x62A5;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x5B9A;&#x65F6;&#x4E3B;&#x52A8;&#x53BB;&#x67E5;&#x8BE2;&#x683C;&#x5F0F;&#x5316;&#x7684;&#x8FDB;&#x5EA6;&#xFF0C;&#x5F53;&#x8FDB;&#x5EA6;&#x8FBE;&#x5230; 100 &#x65F6;&#xFF0C;&#x518D;&#x4E3B;&#x52A8;&#x53BB;&#x67E5;&#x8BE2;&#x5F53;&#x524D;&#x7684;&#x5BB9;&#x91CF;&#x72B6;&#x6001;&#x3002;DpSDFormat&#x7684;&#x6570;&#x636E;&#x4E0B;&#x53D1;&#x53EF;&#x4EE5;&#x542F;&#x52A8;&#x683C;&#x5F0F;&#x5316;&#x64CD;&#x4F5C;&#x3002;</p>
 <p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">registorTuyaCameraDeviceControlCallback</span><span class="token punctuation">(</span><span class="token class-name">DpSDFormat</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ITuyaCameraDeviceControlCallback</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Boolean</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    <span class="token annotation punctuation">@Override</span>
-                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">Boolean</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                        showPublishTxt<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">&quot;LAN/Cloud query result: &quot;</span> <span class="token operator">+</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">Boolean</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    showPublishTxt<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">&quot;LAN/Cloud query result: &quot;</span> <span class="token operator">+</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-                    <span class="token annotation punctuation">@Override</span>
-                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">String</span> s1<span class="token punctuation">,</span> <span class="token class-name">String</span> s2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">String</span> s1<span class="token punctuation">,</span> <span class="token class-name">String</span> s2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-                    <span class="token punctuation">}</span>
-                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">publishCameraDps</span><span class="token punctuation">(</span><span class="token class-name">DpSDFormat</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h4 id="&#x683C;&#x5F0F;&#x5316;&#x72B6;&#x6001;">&#x683C;&#x5F0F;&#x5316;&#x72B6;&#x6001;</h4>
+<h3 id="&#x683C;&#x5F0F;&#x5316;&#x72B6;&#x6001;">&#x683C;&#x5F0F;&#x5316;&#x72B6;&#x6001;</h3>
 <p>DpSDFormatStatus&#x6570;&#x636E;&#x4E0B;&#x53D1;&#x53EF;&#x4EE5;&#x67E5;&#x8BE2;&#x683C;&#x5F0F;&#x5316;&#x8FDB;&#x5EA6;&#xFF0C;&#x5F53;&#x8FDB;&#x5EA6;&#x8FBE;&#x5230;100&#x65F6;&#xFF0C;&#x5373;&#x683C;&#x5F0F;&#x5316;&#x7ED3;&#x675F;&#x3002;&#x53EF;&#x4EE5;&#x518D;&#x6B21;&#x53BB;&#x67E5;&#x8BE2;&#x5B58;&#x50A8;&#x5361;&#x5BB9;&#x91CF;&#x3002;</p>
 <p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">registorTuyaCameraDeviceControlCallback</span><span class="token punctuation">(</span><span class="token class-name">DpSDFormatStatus</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ITuyaCameraDeviceControlCallback</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    <span class="token annotation punctuation">@Override</span>
-                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">Integer</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                        showPublishTxt<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">&quot;LAN/Cloud query result: &quot;</span> <span class="token operator">+</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">Integer</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    showPublishTxt<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">&quot;LAN/Cloud query result: &quot;</span> <span class="token operator">+</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-                    <span class="token annotation punctuation">@Override</span>
-                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">String</span> s1<span class="token punctuation">,</span> <span class="token class-name">String</span> s2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">String</span> s1<span class="token punctuation">,</span> <span class="token class-name">String</span> s2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-                    <span class="token punctuation">}</span>
-                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">publishCameraDps</span><span class="token punctuation">(</span><span class="token class-name">DpSDFormatStatus</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h4 id="&#x5F55;&#x50CF;&#x5F00;&#x5173;">&#x5F55;&#x50CF;&#x5F00;&#x5173;</h4>
+<h3 id="&#x5F55;&#x50CF;&#x5F00;&#x5173;">&#x5F55;&#x50CF;&#x5F00;&#x5173;</h3>
 <p>DpSDRecordSwitch&#x7684;&#x6570;&#x636E;&#x4E0B;&#x53D1;&#x6765;&#x63A7;&#x5236;&#x6D82;&#x9E26;&#x667A;&#x80FD;&#x6444;&#x50CF;&#x673A;&#x662F;&#x5426;&#x5F00;&#x542F;&#x5F55;&#x50CF;&#x529F;&#x80FD;&#x3002;</p>
 <p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">registorTuyaCameraDeviceControlCallback</span><span class="token punctuation">(</span><span class="token class-name">DpSDRecordSwitch</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ITuyaCameraDeviceControlCallback</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Boolean</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    <span class="token annotation punctuation">@Override</span>
-                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">Boolean</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                        showPublishTxt<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">&quot;LAN/Cloud query result: &quot;</span> <span class="token operator">+</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">Boolean</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    showPublishTxt<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">&quot;LAN/Cloud query result: &quot;</span> <span class="token operator">+</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-                    <span class="token annotation punctuation">@Override</span>
-                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">String</span> s1<span class="token punctuation">,</span> <span class="token class-name">String</span> s2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">String</span> s1<span class="token punctuation">,</span> <span class="token class-name">String</span> s2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-                    <span class="token punctuation">}</span>
-                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">publishCameraDps</span><span class="token punctuation">(</span><span class="token class-name">DpSDRecordSwitch</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h4 id="&#x5F55;&#x50CF;&#x6A21;&#x5F0F;">&#x5F55;&#x50CF;&#x6A21;&#x5F0F;</h4>
+<h3 id="&#x5F55;&#x50CF;&#x6A21;&#x5F0F;">&#x5F55;&#x50CF;&#x6A21;&#x5F0F;</h3>
 <p>&#x6D82;&#x9E26;&#x6444;&#x50CF;&#x673A;&#x5728;&#x63D2;&#x5165;&#x5B58;&#x50A8;&#x5361;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x91C7;&#x96C6;&#x7684;&#x5F71;&#x50CF;&#x5F55;&#x5236;&#x4FDD;&#x5B58;&#x5728;&#x5B58;&#x50A8;&#x5361;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; &#x6D82;&#x9E26;IPC Camera SDK &#x8BBE;&#x7F6E;&#x89C6;&#x9891;&#x5F55;&#x5236;&#x5F00;&#x5173;&#x548C;&#x6A21;&#x5F0F;&#x3002;&#x5F55;&#x5236;&#x6A21;&#x5F0F;&#x5206;&#x4E3A;&#x4EE5;&#x4E0B;&#x4E24;&#x79CD;&#xFF1A;</p>
 <ul>
 <li><strong>&#x8FDE;&#x7EED;&#x5F55;&#x5236;</strong>&#xFF1A;&#x6444;&#x50CF;&#x673A;&#x4F1A;&#x5C06;&#x91C7;&#x96C6;&#x5230;&#x7684;&#x97F3;&#x89C6;&#x9891;&#x8FDE;&#x7EED;&#x4E0D;&#x65AD;&#x7684;&#x5F55;&#x5236;&#x4FDD;&#x5B58;&#x5728;&#x5B58;&#x50A8;&#x5361;&#x4E2D;&#xFF0C;&#x5B58;&#x50A8;&#x5361;&#x7684;&#x5BB9;&#x91CF;&#x4E0D;&#x8DB3;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C06;&#x4F1A;&#x8986;&#x76D6;&#x6700;&#x65E9;&#x5F55;&#x5236;&#x7684;&#x89C6;&#x9891;&#x6570;&#x636E;&#x3002;</li>
@@ -1172,20 +1139,20 @@ mTuyaCameraDevice<span class="token punctuation">.</span><span class="token func
 <p>DpSDRecordModel&#x7684;&#x6570;&#x636E;&#x4E0B;&#x53D1;&#x6765;&#x8BBE;&#x7F6E;&#x5F55;&#x50CF;&#x6A21;&#x5F0F;&#x3002;</p>
 <p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">registorTuyaCameraDeviceControlCallback</span><span class="token punctuation">(</span><span class="token class-name">DpSDRecordModel</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ITuyaCameraDeviceControlCallback</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    <span class="token annotation punctuation">@Override</span>
-                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">String</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                        showPublishTxt<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">&quot;LAN/Cloud query result: &quot;</span> <span class="token operator">+</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">String</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    showPublishTxt<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">&quot;LAN/Cloud query result: &quot;</span> <span class="token operator">+</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-                    <span class="token annotation punctuation">@Override</span>
-                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">String</span> s1<span class="token punctuation">,</span> <span class="token class-name">String</span> s2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">String</span> s1<span class="token punctuation">,</span> <span class="token class-name">String</span> s2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-                    <span class="token punctuation">}</span>
-                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">publishCameraDps</span><span class="token punctuation">(</span><span class="token class-name">DpSDRecordModel</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token class-name">RecordMode</span><span class="token punctuation">.</span>EVENT<span class="token punctuation">.</span><span class="token function">getDpValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">publishCameraDps</span><span class="token punctuation">(</span><span class="token class-name">DpSDRecordModel</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token class-name">RecordMode</span><span class="token punctuation">.</span>EVENT<span class="token punctuation">.</span><span class="token function">getDpValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h3 id="&#x4F4E;&#x529F;&#x8017;&#x95E8;&#x94C3;&#x529F;&#x80FD;">&#x4F4E;&#x529F;&#x8017;&#x95E8;&#x94C3;&#x529F;&#x80FD;</h3>
-<h4 id="&#x5524;&#x9192;&#x529F;&#x80FD;&#x7684;&#x6570;&#x636E;&#x4E0B;&#x53D1;">&#x5524;&#x9192;&#x529F;&#x80FD;&#x7684;&#x6570;&#x636E;&#x4E0B;&#x53D1;</h4>
+<h2 id="&#x4F4E;&#x529F;&#x8017;&#x95E8;&#x94C3;&#x529F;&#x80FD;">&#x4F4E;&#x529F;&#x8017;&#x95E8;&#x94C3;&#x529F;&#x80FD;</h2>
+<h3 id="&#x5524;&#x9192;&#x529F;&#x80FD;&#x7684;&#x6570;&#x636E;&#x4E0B;&#x53D1;">&#x5524;&#x9192;&#x529F;&#x80FD;&#x7684;&#x6570;&#x636E;&#x4E0B;&#x53D1;</h3>
 <pre class="language-"><code class="lang-java"><span class="token keyword">void</span> <span class="token function">wirelessWake</span><span class="token punctuation">(</span><span class="token class-name">String</span> localKey<span class="token punctuation">,</span> <span class="token class-name">String</span> devId<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
@@ -1193,40 +1160,40 @@ mTuyaCameraDevice<span class="token punctuation">.</span><span class="token func
 <span class="token class-name">String</span> mLocalkey <span class="token operator">=</span> devBean<span class="token punctuation">.</span><span class="token function">getLocalKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 mTuyaCameraDevice<span class="token punctuation">.</span>wirelessWake&#xFF08;mDevId<span class="token punctuation">,</span>mLocalkey&#xFF09;<span class="token punctuation">;</span>
 </code></pre>
-<h4 id="&#x7535;&#x6C60;&#x9501;&#x7684;&#x6570;&#x636E;&#x4E0B;&#x53D1;">&#x7535;&#x6C60;&#x9501;&#x7684;&#x6570;&#x636E;&#x4E0B;&#x53D1;</h4>
+<h3 id="&#x7535;&#x6C60;&#x9501;&#x7684;&#x6570;&#x636E;&#x4E0B;&#x53D1;">&#x7535;&#x6C60;&#x9501;&#x7684;&#x6570;&#x636E;&#x4E0B;&#x53D1;</h3>
 <p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">registorTuyaCameraDeviceControlCallback</span><span class="token punctuation">(</span><span class="token class-name">DpWirelessBatterylock</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ITuyaCameraDeviceControlCallback</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Boolean</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token annotation punctuation">@Override</span>
-                <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">Boolean</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    showPublishTxt<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">&quot;LAN/Cloud query result: &quot;</span> <span class="token operator">+</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">Boolean</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    showPublishTxt<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">&quot;LAN/Cloud query result: &quot;</span> <span class="token operator">+</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-                <span class="token annotation punctuation">@Override</span>
-                <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">String</span> s1<span class="token punctuation">,</span> <span class="token class-name">String</span> s2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">String</span> s1<span class="token punctuation">,</span> <span class="token class-name">String</span> s2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">publishCameraDps</span><span class="token punctuation">(</span><span class="token class-name">DpWirelessBatterylock</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h4 id="&#x7535;&#x6C60;&#x53CA;&#x8BBE;&#x5907;&#x72B6;&#x6001;&#x4FE1;&#x606F;&#x7684;&#x6570;&#x636E;&#x4E0B;&#x53D1;">&#x7535;&#x6C60;&#x53CA;&#x8BBE;&#x5907;&#x72B6;&#x6001;&#x4FE1;&#x606F;&#x7684;&#x6570;&#x636E;&#x4E0B;&#x53D1;</h4>
+<h3 id="&#x7535;&#x6C60;&#x53CA;&#x8BBE;&#x5907;&#x72B6;&#x6001;&#x4FE1;&#x606F;&#x7684;&#x6570;&#x636E;&#x4E0B;&#x53D1;">&#x7535;&#x6C60;&#x53CA;&#x8BBE;&#x5907;&#x72B6;&#x6001;&#x4FE1;&#x606F;&#x7684;&#x6570;&#x636E;&#x4E0B;&#x53D1;</h3>
 <p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">registorTuyaCameraDeviceControlCallback</span><span class="token punctuation">(</span><span class="token class-name">DpWirelessElectricity</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ITuyaCameraDeviceControlCallback</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token annotation punctuation">@Override</span>
-                <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">Integer</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    showPublishTxt<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">&quot;LAN/Cloud query result: &quot;</span> <span class="token operator">+</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">Integer</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    showPublishTxt<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">&quot;LAN/Cloud query result: &quot;</span> <span class="token operator">+</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-                <span class="token annotation punctuation">@Override</span>
-                <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">String</span> s1<span class="token punctuation">,</span> <span class="token class-name">String</span> s2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">String</span> s1<span class="token punctuation">,</span> <span class="token class-name">String</span> s2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">publishCameraDps</span><span class="token punctuation">(</span><span class="token class-name">DpWirelessElectricity</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <blockquote>
 <p>&#x6CE8;&#x610F;&#xFF1A;DpWirelessElectricity&#x6570;&#x636E;&#x4E0B;&#x53D1;&#x4E0D;&#x9700;&#x8981;&#x5E26;&#x53C2;&#x6570;&#xFF0C;&#x6240;&#x4EE5;&#x4F20;null&#x503C;&#x5373;&#x53EF;&#x3002;</p>
 </blockquote>
-<h4 id="&#x4F4E;&#x7535;&#x91CF;&#x62A5;&#x8B66;&#x9608;&#x503C;&#x7684;&#x6570;&#x636E;&#x4E0B;&#x53D1;">&#x4F4E;&#x7535;&#x91CF;&#x62A5;&#x8B66;&#x9608;&#x503C;&#x7684;&#x6570;&#x636E;&#x4E0B;&#x53D1;</h4>
+<h3 id="&#x4F4E;&#x7535;&#x91CF;&#x62A5;&#x8B66;&#x9608;&#x503C;&#x7684;&#x6570;&#x636E;&#x4E0B;&#x53D1;">&#x4F4E;&#x7535;&#x91CF;&#x62A5;&#x8B66;&#x9608;&#x503C;&#x7684;&#x6570;&#x636E;&#x4E0B;&#x53D1;</h3>
 <p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">registorTuyaCameraDeviceControlCallback</span><span class="token punctuation">(</span><span class="token class-name">DpWirelessLowpower</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ITuyaCameraDeviceControlCallback</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 <span class="token annotation punctuation">@Override</span>
@@ -1241,7 +1208,7 @@ mTuyaCameraDevice<span class="token punctuation">.</span><span class="token func
             <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">publishCameraDps</span><span class="token punctuation">(</span><span class="token class-name">DpWirelessLowpower</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h4 id="&#x8BBE;&#x5907;&#x4F9B;&#x7535;&#x65B9;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x4E0B;&#x53D1;">&#x8BBE;&#x5907;&#x4F9B;&#x7535;&#x65B9;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x4E0B;&#x53D1;</h4>
+<h3 id="&#x8BBE;&#x5907;&#x4F9B;&#x7535;&#x65B9;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x4E0B;&#x53D1;">&#x8BBE;&#x5907;&#x4F9B;&#x7535;&#x65B9;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x4E0B;&#x53D1;</h3>
 <p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">registorTuyaCameraDeviceControlCallback</span><span class="token punctuation">(</span><span class="token class-name">DpWirelessPowermode</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ITuyaCameraDeviceControlCallback</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 <span class="token annotation punctuation">@Override</span>
@@ -1259,26 +1226,26 @@ mTuyaCameraDevice<span class="token punctuation">.</span><span class="token func
 <blockquote>
 <p>&#x6CE8;&#x610F;&#xFF1A;DpWirelessPowermode&#x6570;&#x636E;&#x4E0B;&#x53D1;&#x4E0D;&#x9700;&#x8981;&#x5E26;&#x53C2;&#x6570;&#xFF0C;&#x6240;&#x4EE5;&#x4F20;null&#x503C;&#x5373;&#x53EF;&#x3002;</p>
 </blockquote>
-<h3 id="&#x4E91;&#x53F0;&#x63A7;&#x5236;">&#x4E91;&#x53F0;&#x63A7;&#x5236;</h3>
-<p>&#x6D82;&#x9E26;&#x4E91;&#x53F0;&#x6444;&#x50CF;&#x673A;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6D82;&#x9E26;IPC Camera SDK &#x8FDC;&#x7A0B;&#x63A7;&#x5236;&#x5176;&#x5411;&#x6307;&#x5B9A;&#x65B9;&#x5411;&#x8F6C;&#x52A8;&#x3002;</p>
+<h2 id="&#x4E91;&#x53F0;&#x63A7;&#x5236;">&#x4E91;&#x53F0;&#x63A7;&#x5236;</h2>
+<p>&#x6D82;&#x9E26;&#x4E91;&#x53F0;&#x6444;&#x50CF;&#x673A;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<strong>Tuya Smart Camera Android SDK</strong> &#x8FDC;&#x7A0B;&#x63A7;&#x5236;&#x5176;&#x5411;&#x6307;&#x5B9A;&#x65B9;&#x5411;&#x8F6C;&#x52A8;&#x3002;</p>
 <blockquote>
 <p>SDK &#x63A7;&#x5236;&#x4E91;&#x53F0;&#x673A;&#x8F6C;&#x52A8;&#x65F6;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x5355;&#x4F4D;&#x89D2;&#x5EA6;&#x8F6C;&#x52A8;&#x3002;SDK &#x4E0B;&#x53D1;&#x5F00;&#x59CB;&#x8F6C;&#x52A8;&#x7684;&#x547D;&#x4EE4;&#x540E;&#xFF0C;&#x8BBE;&#x5907;&#x4F1A;&#x671D;&#x7740;&#x6307;&#x5B9A;&#x65B9;&#x5411;&#x4E00;&#x81F4;&#x8F6C;&#x52A8;&#xFF0C;&#x76F4;&#x5230;&#x65E0;&#x6CD5;&#x8F6C;&#x52A8;&#xFF0C;&#x6216;&#x8005;&#x6536;&#x5230;&#x505C;&#x6B62;&#x8F6C;&#x52A8;&#x7684;&#x547D;&#x4EE4;&#x3002;</p>
 </blockquote>
 <p>&#x5728;&#x5F00;&#x59CB;&#x63A7;&#x5236;&#x4E91;&#x53F0;&#x6444;&#x50CF;&#x673A;&#x8F6C;&#x52A8;&#x524D;&#xFF0C;&#x9700;&#x8981;&#x5148;&#x5224;&#x65AD;&#x5F53;&#x524D;&#x8BBE;&#x5907;&#x662F;&#x5426;&#x652F;&#x6301;&#x4E91;&#x53F0;&#x63A7;&#x5236;&#x3002;</p>
 <h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
 <pre class="language-"><code class="lang-java">mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">registorTuyaCameraDeviceControlCallback</span><span class="token punctuation">(</span><span class="token class-name">DpPTZControl</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ITuyaCameraDeviceControlCallback</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token annotation punctuation">@Override</span>
-                <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">String</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    showPublishTxt<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">&quot;LAN/Cloud query result: &quot;</span> <span class="token operator">+</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">String</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    showPublishTxt<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">&quot;LAN/Cloud query result: &quot;</span> <span class="token operator">+</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-                <span class="token annotation punctuation">@Override</span>
-                <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">String</span> s1<span class="token punctuation">,</span> <span class="token class-name">String</span> s2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">ACTION</span> action<span class="token punctuation">,</span> <span class="token class-name">DpNotifyModel</span><span class="token punctuation">.</span><span class="token class-name">SUB_ACTION</span> sub_action<span class="token punctuation">,</span> <span class="token class-name">String</span> s1<span class="token punctuation">,</span> <span class="token class-name">String</span> s2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">publishCameraDps</span><span class="token punctuation">(</span><span class="token class-name">DpPTZControl</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token class-name">PTZDirection</span><span class="token punctuation">.</span>LEFT<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//&#x4E91;&#x53F0;&#x5411;&#x5DE6;&#x8F6C;&#x52A8;</span>
-                        mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">publishCameraDps</span><span class="token punctuation">(</span><span class="token class-name">DpPTZStop</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#x505C;&#x6B62;&#x4E91;&#x53F0;&#x8F6C;&#x52A8;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">publishCameraDps</span><span class="token punctuation">(</span><span class="token class-name">DpPTZControl</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token class-name">PTZDirection</span><span class="token punctuation">.</span>LEFT<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//&#x4E91;&#x53F0;&#x5411;&#x5DE6;&#x8F6C;&#x52A8;</span>
+mTuyaCameraDevice<span class="token punctuation">.</span><span class="token function">publishCameraDps</span><span class="token punctuation">(</span><span class="token class-name">DpPTZStop</span><span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#x505C;&#x6B62;&#x4E91;&#x53F0;&#x8F6C;&#x52A8;</span>
 </code></pre>
 
                                 
@@ -1312,7 +1279,7 @@ mTuyaCameraDevice<span class="token punctuation">.</span><span class="token func
                 </a>
                 
                 
-                <a href="camera_device_points.html#摄像头设备标准化功能" class="navigation navigation-next " aria-label="Next page: 摄像头设备标准化功能介绍">
+                <a href="camera_device_points.html#摄像机设备标准化功能" class="navigation navigation-next " aria-label="Next page: 摄像机设备标准化功能">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1323,7 +1290,7 @@ mTuyaCameraDevice<span class="token punctuation">.</span><span class="token func
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"摄像头设备功能点","level":"1.11","depth":1,"next":{"title":"摄像头设备标准化功能介绍","level":"1.11.1","depth":2,"anchor":"#摄像头设备标准化功能","path":"resource/camera_device_points.md","ref":"./resource/camera_device_points.md#摄像头设备标准化功能","articles":[]},"previous":{"title":"消息推送","level":"1.10","depth":1,"path":"resource/Doorbell_message_send.md","ref":"./resource/Doorbell_message_send.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","prism"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Daju.huang","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tuya IPC","language":"zh-hans","gitbook":"*","description":"Tuya IPC SDK Docs"},"file":{"path":"resource/camera_device_points.md","mtime":"2020-03-09T09:00:27.312Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-15T15:56:36.819Z"},"basePath":"..","book":{"language":"zh-hans"}});
+            gitbook.page.hasChanged({"page":{"title":"摄像机设备功能点","level":"1.11","depth":1,"next":{"title":"摄像机设备标准化功能","level":"1.11.1","depth":2,"anchor":"#摄像机设备标准化功能","path":"resource/camera_device_points.md","ref":"./resource/camera_device_points.md#摄像机设备标准化功能","articles":[]},"previous":{"title":"消息推送","level":"1.10","depth":1,"path":"resource/Doorbell_message_send.md","ref":"./resource/Doorbell_message_send.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","prism","-highlight"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Daju.huang","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tuya IPC","language":"zh-hans","gitbook":"*","description":"Tuya IPC SDK Docs"},"file":{"path":"resource/camera_device_points.md","mtime":"2020-03-17T04:41:21.057Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-17T04:42:19.788Z"},"basePath":"..","book":{"language":"zh-hans"}});
         });
     </script>
 </div>

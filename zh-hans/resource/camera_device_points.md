@@ -1,6 +1,6 @@
 # 摄像头设备功能点
 
-涂鸦智能设备通过设备功能点来控制设备，并且通过标准化的功能点实现设备与App之间的交互。**Tuya IPC Android SDK** 基于 [自定义设备控制](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/Device_standard.html) 封装了一套智能摄像机的扩展功能。
+涂鸦智能设备通过设备功能点来控制设备，并且通过标准化的功能点实现设备与App之间的交互。**Tuya Smart Camera Android SDK** 基于 [自定义设备控制](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/Device_standard.html) 封装了一套智能摄像机的扩展功能。
 
 
 
@@ -17,6 +17,8 @@
 | DpBasicPrivate.ID | boolean | true为开启隐私模式，false为关闭隐私模式 | 隐私模式 | 开启/关闭隐私模式，休眠时设备的音视频采集不工作，即设备无法直播也无法保存录像 |
 | DpBasicNightvision.ID | enum | 0：自动, 1：关, 2：开 | 红外夜视功能 | 调整红外夜视功能的开/关/自动状态 |
 
+
+
 ### 移动侦测报警
 
 | 功能点                 | 数据类型 | value                                           | 描述                   | 功能定义                                                     |
@@ -25,12 +27,16 @@
 | DpMotionSwitch.ID      | boolean  | true为开启移动侦测报警，false为关闭移动侦测报警 | 移动侦测报警开关       | 开启/关闭移动侦测报警，开启后，设备需要在适当的条件下每次检测到移动均上报消息到服务器 |
 | DpMotionSensitivity.ID | enum     | 0：低,1：中, 2：高                              | 移动侦测报警灵敏度设置 | 设置移动侦测报警的灵敏度                                     |
 
+
+
 ### 声音侦测报警
 
 | 功能点                  | 数据类 型 | value                                           | 描述                   | 功能定义                                                     |
 | ----------------------- | --------- | ----------------------------------------------- | ---------------------- | ------------------------------------------------------------ |
 | DpDecibelSwitch.ID      | boolean   | true为打开声音侦测报警，false为关闭声音侦测报警 | 声音侦测报警开关       | 开启/关闭声音侦测报警，开启后，设备需要在适当的条件下每次检测到声音均上报消息到服务器 |
 | DpDecibelSensitivity.ID | enum      | 0：低灵敏度,1：高灵敏度                         | 声音侦测报警灵敏度设置 | 设置声音侦测报警的灵敏度                                     |
+
+
 
 ### 存储卡管理
 
@@ -43,12 +49,16 @@
 | DpSDRecordSwitch.ID | boolean  | true为打开本地录像，false为关闭本地录像                      | 本地录像开关                 | 开启/关闭SD卡录像，关闭后设备不会将实时录像记录在SD卡        |
 | DpRecordMode.ID     | enum     | 1：事件录像（检测到移动再录像到SD卡）2：连续录像             | 本地录像模式选择             | 在本地录像开启的状态下，选择录像的模式，支持“事件录像”和“连续录像” |
 
+
+
 ### PTZ(云台方向控制)功能
 
 | 功能点          | 数据类型 | value                          | 描述             | 功能定义                             |
 | --------------- | -------- | ------------------------------ | ---------------- | ------------------------------------ |
 | DpPTZControl.ID | enum     | 0：上,2：右,4：下,6：左        | 云台方向控制     | 用于控制云台开始转动以及转动的方向。 |
 | DpPTZStop.ID    | boolean  | bool(云台停止转动命令，无参数) | 控制云台停止转动 | 云台停止转动命令，无参数             |
+
+
 
 ### 电池供电产品功能
 
@@ -78,8 +88,6 @@ ITuyaCameraDevice提供与设备信息通信的能力，提供了控制指令下
 ```java
 ITuyaCameraDevice getCameraDeviceInstance(String devId) 
 ```
-
-
 
 **示例代码**
 
@@ -124,16 +132,16 @@ void publishCameraDps(String dpCode, Object value);
 ```java
 //如果功能点的返回值是Boolean，回调可以设置Boolean；如果是enum/String，回调设置String；如果是value，回调设置Integer
 mTuyaCameraDevice.registorTuyaCameraDeviceControlCallback(DpBasicFlip.ID, new ITuyaCameraDeviceControlCallback<Boolean>() {
-                    @Override
-                    public void onSuccess(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, Boolean o) {
-                        showPublishTxt.setText("LAN/Cloud query result: " + o);
-                    }
+  @Override
+  public void onSuccess(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, Boolean o) {
+    showPublishTxt.setText("LAN/Cloud query result: " + o);
+  }
 
-                    @Override
-                    public void onFailure(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String s1, String s2) {
+  @Override
+  public void onFailure(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String s1, String s2) {
 
-                    }
-                });
+  }
+});
 mTuyaCameraDevice.publishCameraDps(DpBasicFlip.ID, true);
 ```
 
@@ -161,30 +169,6 @@ public interface ITuyaCameraDeviceControlCallback<E> {
 | Value    | 数值型         |
 
 
-
-```java
-public interface ITuyaCameraDevice {
-	//功能点是否支持
-    
-	//查询Object的功能点数据
-    Object queryObjectCameraDps(String dpCode);
-	//查询boolean的功能点数据
-    boolean queryBooleanCameraDps(String dpCode);
-	//查询String、enum的功能点数据
-    String queryStringCurrentCameraDps(String dpCode);
-	//查询value的功能点数据
-    int queryIntegerCurrentCameraDps(String dpCode);
-    //注册功能点回调监听
-    void registorTuyaCameraDeviceControlCallback(String dpCode, ITuyaCameraDeviceControlCallback callback);
-    //取消功能点回调监听
-    void unRegistorTuyaCameraDeviceControlCallback(String dpCode);
-	//低功耗门铃唤醒
-    void wirelessWake(String localKey, String devId);
-	
-	//清除资源
-    void onDestroy();
-}
-```
 
 
 
@@ -223,16 +207,6 @@ Object dpValue = mTuyaCameraDevice.queryObjectCameraDps(DpBasicFlip.ID);
 ```
 
 > 如果使用：queryObjectCameraDps进行查询，需要开发者对数据类型进行单独区分
-
-```java
- 
-	//只支持boolean
-    boolean queryBooleanCameraDps(String dpCodeID);
-	//只支持enum、String	
-    String queryStringCurrentCameraDps(String dpCodeID);
-	//只支持value
-   
-```
 
 
 
@@ -287,7 +261,7 @@ boolean dpValue = mTuyaCameraDevice.queryBooleanCameraDps(DpBasicFlip.ID);
 
 
 
-### 存储卡及本地录像管理
+## 存储卡及本地录像管理
 
 **描述**
 
@@ -297,7 +271,7 @@ boolean dpValue = mTuyaCameraDevice.queryBooleanCameraDps(DpBasicFlip.ID);
 
 
 
-#### 状态 
+### 状态 
 
 DpSDStatus是控制sdcard状态的DP点。
 
@@ -320,7 +294,7 @@ mTuyaCameraDevice.registorTuyaCameraDeviceControlCallback(DpSDStatus.ID, new ITu
 
 
 
-#### 存储卡容量获取 
+### 存储卡容量获取 
 
 DpSDStorge的数据下发可以获取到涂鸦IPC摄像机当前的存储卡容量。
 
@@ -328,22 +302,24 @@ DpSDStorge的数据下发可以获取到涂鸦IPC摄像机当前的存储卡容�
 
 ```java
 mTuyaCameraDevice.registorTuyaCameraDeviceControlCallback(DpSDStorage.ID, new ITuyaCameraDeviceControlCallback<String>() {
-                    @Override
-                    public void onSuccess(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String o) {
-                        showPublishTxt.setText("LAN/Cloud query result: " + o);
-                    }
+  @Override
+  public void onSuccess(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String o) {
+    showPublishTxt.setText("LAN/Cloud query result: " + o);
+  }
 
-                    @Override
-                    public void onFailure(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String s1, String s2) {
+  @Override
+  public void onFailure(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String s1, String s2) {
 
-                    }
-                });
+  }
+});
 mTuyaCameraDevice.publishCameraDps(DpSDStorage.ID, null);
 ```
 
 > 存储卡容量值的字符串格式：总容量|已使用容量|空闲容量，单位`KB`
 
-#### 格式化 
+
+
+### 格式化 
 
 在格式化存储卡的时候，根据摄像机厂商的实现，有两种情况。有些厂商实现的固件中，会主动上报格式化的进度，格式化完成后也会主动上报当前的容量状态，但是有少部分厂商的固件，不会主动上报，所以需要定时主动去查询格式化的进度，当进度达到 100 时，再主动去查询当前的容量状态。DpSDFormat的数据下发可以启动格式化操作。
 
@@ -351,20 +327,22 @@ mTuyaCameraDevice.publishCameraDps(DpSDStorage.ID, null);
 
 ```java
 mTuyaCameraDevice.registorTuyaCameraDeviceControlCallback(DpSDFormat.ID, new ITuyaCameraDeviceControlCallback<Boolean>() {
-                    @Override
-                    public void onSuccess(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, Boolean o) {
-                        showPublishTxt.setText("LAN/Cloud query result: " + o);
-                    }
+  @Override
+  public void onSuccess(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, Boolean o) {
+    showPublishTxt.setText("LAN/Cloud query result: " + o);
+  }
 
-                    @Override
-                    public void onFailure(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String s1, String s2) {
+  @Override
+  public void onFailure(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String s1, String s2) {
 
-                    }
-                });
+  }
+});
 mTuyaCameraDevice.publishCameraDps(DpSDFormat.ID, true);
 ```
 
-#### 格式化状态
+
+
+### 格式化状态
 
 DpSDFormatStatus数据下发可以查询格式化进度，当进度达到100时，即格式化结束。可以再次去查询存储卡容量。
 
@@ -372,20 +350,22 @@ DpSDFormatStatus数据下发可以查询格式化进度，当进度达到100时�
 
 ```java
 mTuyaCameraDevice.registorTuyaCameraDeviceControlCallback(DpSDFormatStatus.ID, new ITuyaCameraDeviceControlCallback<Integer>() {
-                    @Override
-                    public void onSuccess(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, Integer o) {
-                        showPublishTxt.setText("LAN/Cloud query result: " + o);
-                    }
+  @Override
+  public void onSuccess(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, Integer o) {
+    showPublishTxt.setText("LAN/Cloud query result: " + o);
+  }
 
-                    @Override
-                    public void onFailure(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String s1, String s2) {
+  @Override
+  public void onFailure(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String s1, String s2) {
 
-                    }
-                });
+  }
+});
 mTuyaCameraDevice.publishCameraDps(DpSDFormatStatus.ID, null);
 ```
 
-#### 录像开关
+
+
+### 录像开关
 
 DpSDRecordSwitch的数据下发来控制涂鸦智能摄像机是否开启录像功能。
 
@@ -393,20 +373,22 @@ DpSDRecordSwitch的数据下发来控制涂鸦智能摄像机是否开启录像�
 
 ```java
 mTuyaCameraDevice.registorTuyaCameraDeviceControlCallback(DpSDRecordSwitch.ID, new ITuyaCameraDeviceControlCallback<Boolean>() {
-                    @Override
-                    public void onSuccess(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, Boolean o) {
-                        showPublishTxt.setText("LAN/Cloud query result: " + o);
-                    }
+  @Override
+  public void onSuccess(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, Boolean o) {
+    showPublishTxt.setText("LAN/Cloud query result: " + o);
+  }
 
-                    @Override
-                    public void onFailure(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String s1, String s2) {
+  @Override
+  public void onFailure(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String s1, String s2) {
 
-                    }
-                });
+  }
+});
 mTuyaCameraDevice.publishCameraDps(DpSDRecordSwitch.ID, true);
 ```
 
-#### 录像模式
+
+
+### 录像模式
 
 涂鸦摄像机在插入存储卡后，可以将采集的影像录制保存在存储卡中，可以通过 涂鸦IPC Camera SDK 设置视频录制开关和模式。录制模式分为以下两种：
 
@@ -419,30 +401,28 @@ DpSDRecordModel的数据下发来设置录像模式。
 
 ```java
 mTuyaCameraDevice.registorTuyaCameraDeviceControlCallback(DpSDRecordModel.ID, new ITuyaCameraDeviceControlCallback<String>() {
-                    @Override
-                    public void onSuccess(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String o) {
-                        showPublishTxt.setText("LAN/Cloud query result: " + o);
-                    }
+  @Override
+  public void onSuccess(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String o) {
+    showPublishTxt.setText("LAN/Cloud query result: " + o);
+  }
 
-                    @Override
-                    public void onFailure(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String s1, String s2) {
+  @Override
+  public void onFailure(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String s1, String s2) {
 
-                    }
-                });
-                mTuyaCameraDevice.publishCameraDps(DpSDRecordModel.ID, RecordMode.EVENT.getDpValue());
+  }
+});
+mTuyaCameraDevice.publishCameraDps(DpSDRecordModel.ID, RecordMode.EVENT.getDpValue());
 ```
 
 
 
-### 低功耗门铃功能
+## 低功耗门铃功能
 
-#### 唤醒功能的数据下发
+### 唤醒功能的数据下发
 
 ```java
 void wirelessWake(String localKey, String devId);
 ```
-
-
 
 **示例代码**
 
@@ -454,43 +434,43 @@ mTuyaCameraDevice.wirelessWake（mDevId,mLocalkey）;
 
 
 
-#### 电池锁的数据下发
+### 电池锁的数据下发
 
 **示例代码**
 
 ```java
 mTuyaCameraDevice.registorTuyaCameraDeviceControlCallback(DpWirelessBatterylock.ID, new ITuyaCameraDeviceControlCallback<Boolean>() {
-                @Override
-                public void onSuccess(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, Boolean o) {
-                    showPublishTxt.setText("LAN/Cloud query result: " + o);
-                }
+  @Override
+  public void onSuccess(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, Boolean o) {
+    showPublishTxt.setText("LAN/Cloud query result: " + o);
+  }
 
-                @Override
-                public void onFailure(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String s1, String s2) {
+  @Override
+  public void onFailure(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String s1, String s2) {
 
-                }
-            });
+  }
+});
 mTuyaCameraDevice.publishCameraDps(DpWirelessBatterylock.ID, true);
 ```
 
 
 
-#### 电池及设备状态信息的数据下发
+### 电池及设备状态信息的数据下发
 
 **示例代码**
 
 ```java
 mTuyaCameraDevice.registorTuyaCameraDeviceControlCallback(DpWirelessElectricity.ID, new ITuyaCameraDeviceControlCallback<Integer>() {
-                @Override
-                public void onSuccess(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, Integer o) {
-                    showPublishTxt.setText("LAN/Cloud query result: " + o);
-                }
+  @Override
+  public void onSuccess(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, Integer o) {
+    showPublishTxt.setText("LAN/Cloud query result: " + o);
+  }
 
-                @Override
-                public void onFailure(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String s1, String s2) {
+  @Override
+  public void onFailure(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String s1, String s2) {
 
-                }
-            });
+  }
+});
 mTuyaCameraDevice.publishCameraDps(DpWirelessElectricity.ID, null);
 ```
 
@@ -498,7 +478,7 @@ mTuyaCameraDevice.publishCameraDps(DpWirelessElectricity.ID, null);
 
 
 
-#### 低电量报警阈值的数据下发
+### 低电量报警阈值的数据下发
 
 **示例代码**
 
@@ -519,7 +499,7 @@ mTuyaCameraDevice.publishCameraDps(DpWirelessLowpower.ID, 20);
 
 
 
-#### 设备供电方式的数据下发
+### 设备供电方式的数据下发
 
 **示例代码**
 
@@ -542,9 +522,9 @@ mTuyaCameraDevice.publishCameraDps(DpWirelessPowermode.ID, null);
 
 
 
-### 云台控制
+## 云台控制
 
-涂鸦云台摄像机可以通过涂鸦IPC Camera SDK 远程控制其向指定方向转动。
+涂鸦云台摄像机可以通过**Tuya Smart Camera Android SDK** 远程控制其向指定方向转动。
 
 > SDK 控制云台机转动时，并不是单位角度转动。SDK 下发开始转动的命令后，设备会朝着指定方向一致转动，直到无法转动，或者收到停止转动的命令。
 
@@ -554,17 +534,17 @@ mTuyaCameraDevice.publishCameraDps(DpWirelessPowermode.ID, null);
 
 ```java
 mTuyaCameraDevice.registorTuyaCameraDeviceControlCallback(DpPTZControl.ID, new ITuyaCameraDeviceControlCallback<String>() {
-                @Override
-                public void onSuccess(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String o) {
-                    showPublishTxt.setText("LAN/Cloud query result: " + o);
-                }
+  @Override
+  public void onSuccess(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String o) {
+    showPublishTxt.setText("LAN/Cloud query result: " + o);
+  }
 
-                @Override
-                public void onFailure(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String s1, String s2) {
+  @Override
+  public void onFailure(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String s1, String s2) {
 
-                }
-            });
-            mTuyaCameraDevice.publishCameraDps(DpPTZControl.ID, PTZDirection.LEFT);//云台向左转动
-						mTuyaCameraDevice.publishCameraDps(DpPTZStop.ID, null); // 停止云台转动
+  }
+});
+mTuyaCameraDevice.publishCameraDps(DpPTZControl.ID, PTZDirection.LEFT);//云台向左转动
+mTuyaCameraDevice.publishCameraDps(DpPTZStop.ID, null); // 停止云台转动
 ```
 

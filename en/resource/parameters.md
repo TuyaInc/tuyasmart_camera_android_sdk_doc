@@ -1,64 +1,91 @@
-# Obtain relevant parameters
+# CameraBusiness
 
 
 
-> The parameters p2pID, pwd, localkey, initStr, p2pkey are necessary for the initialization of TuyaCamera SDK. Without the corresponding success of these parameters, the construction of P2P channel can not be successful.
+## Introduction
 
-should have the ability to access to tuya public SDK API to get  p2pid, pwd, localkey, initStr, p2pkey.
-
-
-
-####  TuyaSmartHomeSDK introduction
-
-TuyaSmartHomeSDK encapsulates Tuya cloud HTTP API interface encapsulation, so TuyaSmartCameraSDK acquisition API needs to use TuyaSmartHomeSDK method, see for details
-[TuyaSmartHomeSDK](https://mimimumu.github.io/tuyasmart_home_android_sdk_doc/zh-hans/)
+Implementation class for getting IPC Config data
 
 
-#### method：
 
+### Get IPC Config data method
 
-access tuya home smart android sdk, initialize sdk，need to use general interface call methords to get camera configurration parameter 
-
-```java 
-	TuyaHomeSdk.getRequestInstance().requestWithApiName(String apiName, String version, Map postData, final IRequestCallback callback)
+```java
+void requestCameraInfo(String devId, ResultListener<CameraInfoBean> listener)
 ```
 
- get the api interface which is for p2pid、pwd，localkey,initStr,p2pkey:
- 
-- interface introduction	
+**Parameter Description**
 
-  | api name              | version |      Description      |
-  | -------------------- | ------------ | --------------- |
-  | tuya.m.ipc.config.get |   “2.0” | camera configurations information |
-	
--  call parameter
-  
-  | Name  | Type   | Description               |
-  | ----- | ------ | ------------------ |
-  | devId | String | camera device Id (devId) |
+| Parameter | Description   |
+| --------- | ------------- |
+| devId     | device Id     |
+| listener  | data callback |
 
-  ```java
-  postData:(“devId”,devId)
-  ```
+CameraInfoBean
 
--  response
+| Name             | Description |
+| ---------------- | ----------- |
+| password         | password    |
+| p2pId            | p2p Id      |
+| p2pSpecifiedType | p2p type    |
+| P2pConfig        | p2p config  |
 
-![](./images/response_image.png)
+P2pConfig
+
+| 名称    | 描述      |
+| ------- | --------- |
+| initStr | initStr   |
+| p2pKey  | p2p Id    |
+| ices    | ices data |
+
+> The p2pId, pwd, localkey, initStr, and p2pkey parameters are required for TuyaCameraSDK initialization. If these parameters do not correspond to success, the p2p build channel cannot be successful.
 
 
-  ```json
-  {
-  	result = 	{
-  		password = "xxxxxx",
-  		id = "xxxxxxxxxxxxxxxxxx",
-  		p2pConfig = 	{
-       		initStr= "xxxxxxxxxxxxxxxxxx",
-              p2pKey= "xxxxxxxxxxxxxxxxxx"
-  		},
-  		p2pId = "XXXXXXXXXXXXXXXXXXX",
-  		timeZoneId = "Asia/Shanghai",
-  	},
-  	success = 1,
-  	status = "ok",
-  }
-  ```
+
+### Sample Code 
+
+```java
+private void getApi() {
+        Map postData = new HashMap();
+        postData.put("devId", devId);
+        CameraBusiness cameraBusiness = new CameraBusiness();
+        cameraBusiness.requestCameraInfo(devId, new Business.ResultListener<CameraInfoBean>() {
+            @Override
+            public void onFailure(BusinessResponse businessResponse, CameraInfoBean cameraInfoBean, String s) {
+                ToastUtil.shortToast(CameraPanelActivity.this, "get cameraInfo failed");
+            }
+
+            @Override
+            public void onSuccess(BusinessResponse businessResponse, CameraInfoBean cameraInfoBean, String s) {
+                configCameraBean = new ConfigCameraBean();
+
+                infoBean = cameraInfoBean;
+
+                mP2p3Id = infoBean.getId();
+                p2pType = infoBean.getP2pSpecifiedType();
+                p2pId = infoBean.getP2pId().split(",")[0];
+                p2pWd = infoBean.getPassword();
+                mInitStr = infoBean.getP2pConfig().getInitStr();
+                mP2pKey = infoBean.getP2pConfig().getP2pKey();
+                mInitStr += ":" + mP2pKey;
+                if (null != infoBean.getP2pConfig().getIces()) {
+                    token = infoBean.getP2pConfig().getIces().toString();
+                }
+                configCameraBean.setDevId(devId);
+                configCameraBean.setLocalKey(localKey);
+                configCameraBean.setInitString(mInitStr);
+                configCameraBean.setToken(token);
+                configCameraBean.setP2pType(p2pType);
+                configCameraBean.setLocalId(mlocalId);
+                configCameraBean.setPassword(p2pWd);
+                if (P2P_2 == p2pType) {
+                    configCameraBean.setP2pId(p2pId);
+                }else if (P2P_4 == p2pType){
+                    configCameraBean.setP2pId(mP2p3Id);
+                }
+                initCameraView();
+            }
+        });
+    }	
+```
+

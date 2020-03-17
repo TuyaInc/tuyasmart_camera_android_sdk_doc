@@ -1,21 +1,18 @@
-# View main thing
+# Tuya Smart Camera Android SDK Main View
 
 
-## TuyaCameraSDK
 
-Tuya Camera SDK contains four modules:
+## Introduction
 
-- tuyasmart-ipc-camera-middleware：Tuya IPC SDK and Business Layer Associated Middleware
-- tuyasmart-ipc-camera-v2：The P2P function of Tuya IPC
-- tuyasmart-ipc-camera-utils：auxiliary classes and functions of Tuya IPC
-- tuyasmart-ipc-devicecontrol：Control instructions for sending and receiving device
+**Tuya Smart Camera Android SDK **provides the basic capabilities of smart camera real-time video playback, device memory card video playback, screenshots of the video being played, recorded video, real-time talking with the camera, and provides YUV data after video frame decoding. Secondary processing of video data is possible.
 
+The main objects of **Tuya Smart Camera Android SDK** are as follows:
 
-### Accessor knowledge:
-
-
-- Realize camera basic function 
-- Below are property and method 
-- Business layer callback
-- camera Monitor
-
+| Object                    |                                                 Description |
+| :------------------------ | ----------------------------------------------------------: |
+| ICameraP2P                | IOTCamera provides the function of related remote IP Camera |
+| Monitor                   |                                     Video playback controls |
+| OnP2PCameraListener       |                  Method callback required by business layer |
+| OperationDelegateCallBack |                     p2p signaling operation method callback |
+| DecryptImageView          |                                  Image decryption component |
+| TimeBarView               |                                        Time scale component |

@@ -8,7 +8,7 @@
 
 ### 简介
 
-**Tuya IPC Android SDK**基于**涂鸦全屋智能SDK**封装了智能摄像机的相关功能。整个SDK架构组成分为三个层级：涂鸦全屋智能SDK、IPC网络通信层、摄像机业务层。
+**Tuya Smart Camera SDK**基于**涂鸦全屋智能SDK**封装了智能摄像机的相关功能。整个SDK架构组成分为三个层级：涂鸦全屋智能SDK、IPC网络通信层、摄像机业务层。
 
 - 涂鸦全屋智能SDK提供了以家庭为单位，对硬件设备、涂鸦云通讯等接口封装。
 - IPC网络通信层提供了P2P网络通道实现。
@@ -39,10 +39,10 @@
 
 #### 模块说明
 
-| 模块                            | 说明                                 |
-| ------------------------------- | ------------------------------------ |
-| tuyasmart-ipc-camera-middleware | Tuya IPC SDK与业务层关联的中间件     |
-| tuyasmart-ipc-camera-v1         | 提供了Tuya IPC的P2P 1.0的功能 (废弃) |
-| tuyasmart-ipc-camera-v2         | 提供了Tuya IPC的P2P网络通信功能      |
-| tuyasmart-ipc-devicecontrol     | 提供下发与接收设备控制指令           |
-| tuyasmart-ipc-camera-utils      | 提供了一些辅助类和函数               |
+| 模块                            | 说明                                |
+| ------------------------------- | ----------------------------------- |
+| tuyasmart-ipc-camera-middleware | Tuya IPC SDK与业务层关联的中间件    |
+| tuyasmart-ipc-camera-message    | 提供业务所需的IPC设备告警消息功能。 |
+| tuyasmart-ipc-camera-v2         | 提供了Tuya IPC的P2P网络通信功能     |
+| tuyasmart-ipc-devicecontrol     | 提供下发与接收设备控制指令          |
+| tuyasmart-ipc-camera-utils      | 提供了一些辅助类和函数              |

@@ -15,16 +15,16 @@ Monitor是一个播放器控件
 #### 方向操作
 
 ```java
-    public void setOnRenderDirectionCallback(OnRenderDirectionCallback var1) {
-        this.onRenderDirectionCallback = var1;
-    }
+public void setOnRenderDirectionCallback(OnRenderDirectionCallback var1) {
+  this.onRenderDirectionCallback = var1;
+}
 ```
 
 ##### 参数说明
 
-| 参数                      | 说明                               |
-| ------------------------- | ---------------------------------- |
-| OnRenderDirectionCallback | p2p类型，对应匹配相应设备的p2p能力 |
+| 参数                      | 说明         |
+| ------------------------- | ------------ |
+| OnRenderDirectionCallback | 方向操作回调 |
 
 > OnRenderDirectionCallback操作回调方法，参考如下：
 
@@ -41,16 +41,16 @@ Monitor是一个播放器控件
 xml布局文件：
 
 ```xml
-        <com.tuya.smart.camera.ipccamerasdk.monitor.Monitor
-            android:id="@+id/camera_video_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-             />
-  
+<com.tuya.smart.camera.ipccamerasdk.monitor.Monitor
+                                                    android:id="@+id/camera_video_view"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    />
+
 ```
 
 ```java
-··· 
+···
 mVideoView = findViewById(R.id.camera_video_view);
 mCameraP2P.generateCameraView(mVideoView);
 mVideoView.setOnRenderDirectionCallback(new OnRenderDirectionCallback() {

@@ -1,0 +1,959 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Message push · Tuya IPC</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Daju.huang">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Doorbell_wakeup.html" />
+    
+    
+    <link rel="prev" href="DoorBell_Wake_up.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Preparation.html">
+            
+                <a href="Preparation.html">
+            
+                    
+                    Fast integration
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="Preparation.html">
+            
+                <a href="Preparation.html">
+            
+                    
+                    Ready for integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="Integrated.html">
+            
+                <a href="Integrated.html">
+            
+                    
+                    Integrate SDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="ProgramArchitecure.html">
+            
+                <a href="ProgramArchitecure.html">
+            
+                    
+                    Architecture description
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="User.html">
+            
+                <a href="User.html">
+            
+                    
+                    User Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="home_device.html">
+            
+                <a href="home_device.html">
+            
+                    
+                    Home & Equipment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="wifi_config.html">
+            
+                <a href="wifi_config.html">
+            
+                    
+                    Camera network configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="MainView.html">
+            
+                <a href="MainView.html">
+            
+                    
+                    Camera function
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="MainView.html">
+            
+                <a href="MainView.html">
+            
+                    
+                    Main View
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1.1" data-path="ICameraP2P.html">
+            
+                <a href="ICameraP2P.html">
+            
+                    
+                    ICameraP2P
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.2" data-path="Monitor.html">
+            
+                <a href="Monitor.html">
+            
+                    
+                    Monitor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.3" data-path="parameters.html">
+            
+                <a href="parameters.html">
+            
+                    
+                    CameraBusiness
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.4" data-path="Callback.html">
+            
+                <a href="Callback.html">
+            
+                    
+                    Business layer Callback
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.5" data-path="DecryptImageView.html">
+            
+                <a href="DecryptImageView.html">
+            
+                    
+                    DecryptImageView
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.6" data-path="TimeBarView.html">
+            
+                <a href="TimeBarView.html">
+            
+                    
+                    TimeBarView
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="LiveProcess.html">
+            
+                <a href="LiveProcess.html">
+            
+                    
+                    Live video
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="PlaybackProcess.html">
+            
+                <a href="PlaybackProcess.html">
+            
+                    
+                    Memory card playback
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="CloudStorageProcess.html">
+            
+                <a href="CloudStorageProcess.html">
+            
+                    
+                    Cloud Storage
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="CloudStorageProcess.html">
+            
+                <a href="CloudStorageProcess.html">
+            
+                    
+                    Cloud Storage process
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="CloudStorage_aar.html">
+            
+                <a href="CloudStorage_aar.html">
+            
+                    
+                    Cloud storage purchase components
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="CloudStorageApi.html">
+            
+                <a href="CloudStorageApi.html">
+            
+                    
+                    Cloud Storage Get Data API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="Cloud_storage_video.html">
+            
+                <a href="Cloud_storage_video.html">
+            
+                    
+                    Cloud Storage Play API
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="DoorBell_Wake_up.html">
+            
+                <a href="DoorBell_Wake_up.html">
+            
+                    
+                    DoorBell Wake up
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.10" data-path="Message_push.html">
+            
+                <a href="Message_push.html">
+            
+                    
+                    Message push
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="Doorbell_wakeup.html">
+            
+                <a href="Doorbell_wakeup.html">
+            
+                    
+                    Low power doorbell wakeUp & Push
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html">
+            
+                    
+                    Camera function points
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html#Camera device standardized features">
+            
+                    
+                    Camera standardization function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html#Device standardized feature method">
+            
+                    
+                    Equipment standardization method
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html#Memory card and local video recording management">
+            
+                    
+                    Memory card management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html#Low-power doorbell features">
+            
+                    
+                    Low power doorbell function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html#PTZ Controll">
+            
+                    
+                    PTZ control
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="Camera_Message_Center.html">
+            
+                <a href="Camera_Message_Center.html">
+            
+                    
+                    Message Center
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="Camera_Message_Center.html">
+            
+                <a href="Camera_Message_Center.html">
+            
+                    
+                    Message List
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="mesage_center_video.html">
+            
+                <a href="mesage_center_video.html">
+            
+                    
+                    Message video play
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="statusCode.html">
+            
+                <a href="statusCode.html">
+            
+                    
+                    StatusCode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="FAQ.md">
+            
+                <span>
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="doc_update_log.html">
+            
+                <a href="doc_update_log.html">
+            
+                    
+                    Version Record
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Message push</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="message-push">Message push</h1>
+<h2 id="introduction">Introduction</h2>
+<p><strong>Tuya Smart Camera Android SDK</strong> message push uses <strong>Tuya Smart Home SDK</strong> for message push configuration and reception. For details, please <a href="https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/en/resource/MessagePush.html" target="_blank">refer to</a>.</p>
+<h2 id="press-the-doorbell-to-receive--messages">Press the doorbell to receive  messages</h2>
+<p>When the device doorbell is pressed, the device will push a message to the App.It can be obtained from the system&apos;s push information. If the message body carries <code>&quot;type&quot;</code>: <code>&quot;doorbell&quot;</code>, it can be determined as a doorbell message. The reference is as follows:</p>
+<pre class="language-"><code class="lang-json">    <span class="token punctuation">{</span><span class="token property">&quot;a&quot;</span><span class="token operator">:</span><span class="token string">&quot;view&quot;</span><span class="token punctuation">,</span><span class="token property">&quot;c&quot;</span><span class="token operator">:</span><span class="token string">&quot;action&quot;</span><span class="token punctuation">,</span><span class="token property">&quot;cc&quot;</span><span class="token operator">:</span><span class="token string">&quot;someone is ringing the bell.&quot;</span><span class="token punctuation">,</span><span class="token property">&quot;ct&quot;</span><span class="token operator">:</span><span class="token string">&quot;fcm You have a visitor&quot;</span><span class="token punctuation">,</span><span class="token property">&quot;devId&quot;</span><span class="token operator">:</span><span class="token string">&quot;6cfaf335a8d6e752e0wrpy&quot;</span><span class="token punctuation">,</span><span class="token property">&quot;msgId&quot;</span><span class="token operator">:</span><span class="token string">&quot;4da4dcf61573555995&quot;</span><span class="token punctuation">,</span><span class="token property">&quot;p&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span><span class="token property">&quot;media&quot;</span><span class="token operator">:</span><span class="token number">13</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token property">&quot;specialChannel&quot;</span><span class="token operator">:</span><span class="token boolean">false</span><span class="token punctuation">,</span><span class="token property">&quot;ts&quot;</span><span class="token operator">:</span><span class="token string">&quot;1573555995000&quot;</span><span class="token punctuation">,</span><span class="token property">&quot;type&quot;</span><span class="token operator">:</span><span class="token string">&quot;doorbell&quot;</span><span class="token punctuation">}</span>
+</code></pre>
+<h2 id="message-push-assistant-protocol">Message Push Assistant Protocol</h2>
+<p>Message push auxiliary protocol can improve message arrival rate and timeliness.</p>
+<blockquote>
+<p>Note: The premise is that the APP process is active.</p>
+</blockquote>
+<h3 id="use">Use</h3>
+<p>After logging in to your tuya account, register registerCameraPushListener.</p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">void</span> <span class="token function">registerCameraPushListener</span><span class="token punctuation">(</span><span class="token class-name">ITuyaGetBeanCallback</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">CameraPushDataBean</span><span class="token punctuation">&gt;</span></span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ITuyaGetBeanCallback</td>
+<td>get data callback</td>
+</tr>
+</tbody>
+</table>
+<h4 id="ituyagetbeancallback">ITuyaGetBeanCallback</h4>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onResult</td>
+<td>result</td>
+</tr>
+</tbody>
+</table>
+<h4 id="camerapushdatabean">CameraPushDataBean</h4>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>timestamp</td>
+<td>message time stamp</td>
+</tr>
+<tr>
+<td>devid</td>
+<td>device Id</td>
+</tr>
+<tr>
+<td>msgid</td>
+<td>message Id</td>
+</tr>
+<tr>
+<td>etype</td>
+<td>message Type</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Note: etype = doorbell for doorbell  message</p>
+</blockquote>
+<h4 id="unregistercamerapushlistener">unRegisterCameraPushListener</h4>
+<p>After logging out of the tuya account, unregister and call unRegisterCameraPushListener</p>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ITuyaGetBeanCallback</td>
+<td>get data callback</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>The callback of the anti-register method parameter is the same as the registered callback</p>
+</blockquote>
+<h3 id="sample-code">Sample Code</h3>
+<pre class="language-"><code class="lang-java"> <span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>tuya<span class="token punctuation">.</span>smart<span class="token punctuation">.</span>android<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>base<span class="token punctuation">.</span>utils</span><span class="token punctuation">;</span>
+
+   <span class="token keyword">import</span> <span class="token namespace">android<span class="token punctuation">.</span>app</span><span class="token punctuation">.</span><span class="token class-name">Activity</span><span class="token punctuation">;</span>
+   <span class="token keyword">import</span> <span class="token namespace">android<span class="token punctuation">.</span>content</span><span class="token punctuation">.</span><span class="token class-name">Context</span><span class="token punctuation">;</span>
+   <span class="token keyword">import</span> <span class="token namespace">android<span class="token punctuation">.</span>content</span><span class="token punctuation">.</span><span class="token class-name">Intent</span><span class="token punctuation">;</span>
+   <span class="token keyword">import</span> <span class="token namespace">android<span class="token punctuation">.</span>os</span><span class="token punctuation">.</span><span class="token class-name">Bundle</span><span class="token punctuation">;</span>
+
+   <span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>tuya<span class="token punctuation">.</span>smart<span class="token punctuation">.</span>android<span class="token punctuation">.</span>camera<span class="token punctuation">.</span>api</span><span class="token punctuation">.</span><span class="token class-name">ITuyaHomeCamera</span><span class="token punctuation">;</span>
+   <span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>tuya<span class="token punctuation">.</span>smart<span class="token punctuation">.</span>android<span class="token punctuation">.</span>camera<span class="token punctuation">.</span>api<span class="token punctuation">.</span>bean</span><span class="token punctuation">.</span><span class="token class-name">CameraPushDataBean</span><span class="token punctuation">;</span>
+   <span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>tuya<span class="token punctuation">.</span>smart<span class="token punctuation">.</span>android<span class="token punctuation">.</span>common<span class="token punctuation">.</span>utils</span><span class="token punctuation">.</span><span class="token class-name">L</span><span class="token punctuation">;</span>
+   <span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>tuya<span class="token punctuation">.</span>smart<span class="token punctuation">.</span>android<span class="token punctuation">.</span>demo</span><span class="token punctuation">.</span><span class="token class-name">R</span><span class="token punctuation">;</span>
+   <span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>tuya<span class="token punctuation">.</span>smart<span class="token punctuation">.</span>android<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>login<span class="token punctuation">.</span>activity</span><span class="token punctuation">.</span><span class="token class-name">LoginActivity</span><span class="token punctuation">;</span>
+   <span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>tuya<span class="token punctuation">.</span>smart<span class="token punctuation">.</span>android<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>base<span class="token punctuation">.</span>app</span><span class="token punctuation">.</span><span class="token class-name">Constant</span><span class="token punctuation">;</span>
+   <span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>tuya<span class="token punctuation">.</span>smart<span class="token punctuation">.</span>api</span><span class="token punctuation">.</span><span class="token class-name">MicroContext</span><span class="token punctuation">;</span>
+   <span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>tuya<span class="token punctuation">.</span>smart<span class="token punctuation">.</span>home<span class="token punctuation">.</span>sdk</span><span class="token punctuation">.</span><span class="token class-name">TuyaHomeSdk</span><span class="token punctuation">;</span>
+   <span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>tuya<span class="token punctuation">.</span>smart<span class="token punctuation">.</span>sdk<span class="token punctuation">.</span>api</span><span class="token punctuation">.</span><span class="token class-name">ITuyaGetBeanCallback</span><span class="token punctuation">;</span>
+   <span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>tuyasmart<span class="token punctuation">.</span>stencil<span class="token punctuation">.</span>utils</span><span class="token punctuation">.</span><span class="token class-name">BaseActivityUtils</span><span class="token punctuation">;</span>
+
+   <span class="token keyword">import</span> <span class="token keyword">static</span> <span class="token namespace">com<span class="token punctuation">.</span>tuya<span class="token punctuation">.</span>smart<span class="token punctuation">.</span>camera<span class="token punctuation">.</span>utils</span><span class="token punctuation">.</span><span class="token class-name">IntentUtils</span><span class="token punctuation">.</span>INTENT_CONTENT<span class="token punctuation">;</span>
+   <span class="token keyword">import</span> <span class="token keyword">static</span> <span class="token namespace">com<span class="token punctuation">.</span>tuya<span class="token punctuation">.</span>smart<span class="token punctuation">.</span>camera<span class="token punctuation">.</span>utils</span><span class="token punctuation">.</span><span class="token class-name">IntentUtils</span><span class="token punctuation">.</span>INTENT_DEVID<span class="token punctuation">;</span>
+   <span class="token keyword">import</span> <span class="token keyword">static</span> <span class="token namespace">com<span class="token punctuation">.</span>tuya<span class="token punctuation">.</span>smart<span class="token punctuation">.</span>camera<span class="token punctuation">.</span>utils</span><span class="token punctuation">.</span><span class="token class-name">IntentUtils</span><span class="token punctuation">.</span>INTENT_MSGID<span class="token punctuation">;</span>
+   <span class="token keyword">import</span> <span class="token keyword">static</span> <span class="token namespace">com<span class="token punctuation">.</span>tuya<span class="token punctuation">.</span>smart<span class="token punctuation">.</span>camera<span class="token punctuation">.</span>utils</span><span class="token punctuation">.</span><span class="token class-name">IntentUtils</span><span class="token punctuation">.</span>INTENT_TITLE<span class="token punctuation">;</span>
+
+
+   <span class="token comment">/**
+    */</span>
+   <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LoginHelper</span> <span class="token punctuation">{</span>
+       <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> TAG <span class="token operator">=</span> <span class="token string">&quot;LoginHelper&quot;</span><span class="token punctuation">;</span>
+       <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">ITuyaHomeCamera</span> homeCamera<span class="token punctuation">;</span>
+
+       <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">ITuyaGetBeanCallback</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">CameraPushDataBean</span><span class="token punctuation">&gt;</span></span> mTuyaGetBeanCallback <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ITuyaGetBeanCallback</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">CameraPushDataBean</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+           <span class="token annotation punctuation">@Override</span>
+           <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onResult</span><span class="token punctuation">(</span><span class="token class-name">CameraPushDataBean</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+               <span class="token class-name">L</span><span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;onMqtt_43_Result on callback&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+               <span class="token class-name">L</span><span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;timestamp=&quot;</span> <span class="token operator">+</span> o<span class="token punctuation">.</span><span class="token function">getTimestamp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+               <span class="token class-name">L</span><span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;devid=&quot;</span> <span class="token operator">+</span> o<span class="token punctuation">.</span><span class="token function">getDevId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+               <span class="token class-name">L</span><span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;msgid=&quot;</span> <span class="token operator">+</span> o<span class="token punctuation">.</span><span class="token function">getEdata</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+               <span class="token class-name">L</span><span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;etype=&quot;</span> <span class="token operator">+</span> o<span class="token punctuation">.</span><span class="token function">getEtype</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+           <span class="token punctuation">}</span>
+       <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+       <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">afterLogin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+           <span class="token comment">//there is the somethings that need to set.For example the lat and lon;</span>
+           <span class="token comment">//   TuyaSdk.setLatAndLong();</span>
+           homeCamera <span class="token operator">=</span> <span class="token class-name">TuyaHomeSdk</span><span class="token punctuation">.</span><span class="token function">getCameraInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+           <span class="token keyword">if</span> <span class="token punctuation">(</span>homeCamera <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+               homeCamera<span class="token punctuation">.</span><span class="token function">registerCameraPushListener</span><span class="token punctuation">(</span>mTuyaGetBeanCallback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+           <span class="token punctuation">}</span>
+       <span class="token punctuation">}</span>
+
+       <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">afterLogout</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+           <span class="token class-name">L</span><span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;afterLogout unregister thread &quot;</span> <span class="token operator">+</span> <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+           <span class="token keyword">if</span> <span class="token punctuation">(</span>homeCamera <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+               homeCamera<span class="token punctuation">.</span><span class="token function">unRegisterCameraPushListener</span><span class="token punctuation">(</span>mTuyaGetBeanCallback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+           <span class="token punctuation">}</span>
+           homeCamera <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+       <span class="token punctuation">}</span>
+
+       <span class="token comment">/**
+        *
+        * @param context
+        */</span>
+       <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">reLogin</span><span class="token punctuation">(</span><span class="token class-name">Context</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+           <span class="token function">reLogin</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token punctuation">}</span>
+
+       <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">reLogin</span><span class="token punctuation">(</span><span class="token class-name">Context</span> context<span class="token punctuation">,</span> <span class="token keyword">boolean</span> tip<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+           <span class="token function">onLogout</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+           <span class="token keyword">if</span> <span class="token punctuation">(</span>tip<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+               <span class="token class-name">ToastUtil</span><span class="token punctuation">.</span><span class="token function">shortToast</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> <span class="token class-name">R</span><span class="token punctuation">.</span>string<span class="token punctuation">.</span>login_session_expired<span class="token punctuation">)</span><span class="token punctuation">;</span>
+           <span class="token punctuation">}</span>
+           <span class="token class-name">ActivityUtils</span><span class="token punctuation">.</span><span class="token function">gotoActivity</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">Activity</span><span class="token punctuation">)</span> context<span class="token punctuation">,</span> <span class="token class-name">LoginActivity</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> <span class="token class-name">ActivityUtils</span><span class="token punctuation">.</span>ANIMATE_FORWARD<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token punctuation">}</span>
+
+       <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">onLogout</span><span class="token punctuation">(</span><span class="token class-name">Context</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+           <span class="token function">afterLogout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+           <span class="token function">exit</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token punctuation">}</span>
+
+       <span class="token comment">/**
+        *
+        * @param context
+        */</span>
+       <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">exit</span><span class="token punctuation">(</span><span class="token class-name">Context</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+           <span class="token class-name">Constant</span><span class="token punctuation">.</span><span class="token function">finishActivity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+           <span class="token class-name">TuyaHomeSdk</span><span class="token punctuation">.</span><span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p>Note: When the app process is killed, the listener is invalid. When the app logs in successfully, register for monitoring; when the app logs out, cancel the monitoring.</p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="DoorBell_Wake_up.html" class="navigation navigation-prev " aria-label="Previous page: DoorBell Wake up">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Doorbell_wakeup.html" class="navigation navigation-next " aria-label="Next page: Low power doorbell wakeUp & Push">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Message push","level":"1.10","depth":1,"next":{"title":"Low power doorbell wakeUp & Push","level":"1.11","depth":1,"path":"resource/Doorbell_wakeup.md","ref":"./resource/Doorbell_wakeup.md","articles":[]},"previous":{"title":"DoorBell Wake up","level":"1.9","depth":1,"path":"resource/DoorBell_Wake_up.md","ref":"./resource/DoorBell_Wake_up.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","prism","-highlight"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Daju.huang","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tuya IPC","language":"en","gitbook":"*","description":"Tuya IPC SDK Docs"},"file":{"path":"resource/Message_push.md","mtime":"2020-03-16T22:40:00.568Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-17T04:42:19.788Z"},"basePath":"..","book":{"language":"en"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -6,6 +6,20 @@
     "plugins": [
         "expandable-chapters-small",
         "back-to-top-button",
-        "prism"
-    ]
+        "prism",
+        "-highlight"
+    ],
+    "pluginsConfig": {
+        "prism": {
+          "css": [
+            "prismjs/themes/prism-okaidia.css"
+          ],
+          "lang": {
+            "java": "java"
+          },
+          "ignore": [
+            "sequence"
+          ]
+        }
+    }
 }

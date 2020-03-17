@@ -25,11 +25,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
-                
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
                 
             
                 
@@ -398,7 +394,7 @@
                 <a href="CloudStorageApi.html">
             
                     
-                    云存储数据api
+                    云存储数据获取api
             
                 </a>
             
@@ -455,7 +451,7 @@
                 <a href="camera_device_points.html">
             
                     
-                    摄像头设备功能点
+                    摄像机设备功能点
             
                 </a>
             
@@ -466,10 +462,10 @@
     
         <li class="chapter " data-level="1.11.1" data-path="camera_device_points.html">
             
-                <a href="camera_device_points.html#摄像头设备标准化功能">
+                <a href="camera_device_points.html#摄像机设备标准化功能">
             
                     
-                    摄像头设备标准化功能介绍
+                    摄像机设备标准化功能
             
                 </a>
             
@@ -482,7 +478,7 @@
                 <a href="camera_device_points.html#设备标准化功能方法">
             
                     
-                    设备标准化功能方法介绍
+                    设备标准化功能方法
             
                 </a>
             
@@ -550,7 +546,7 @@
     
         <li class="chapter " data-level="1.12.1" data-path="message_center_list.html">
             
-                <a href="message_center_list.html">
+                <a href="message_center_list.html#">
             
                     
                     消息列表
@@ -668,9 +664,9 @@
 <p>Monitor&#x662F;&#x4E00;&#x4E2A;&#x64AD;&#x653E;&#x5668;&#x63A7;&#x4EF6;</p>
 <h2 id="&#x65B9;&#x6CD5;">&#x65B9;&#x6CD5;</h2>
 <h4 id="&#x65B9;&#x5411;&#x64CD;&#x4F5C;">&#x65B9;&#x5411;&#x64CD;&#x4F5C;</h4>
-<pre class="language-"><code class="lang-java">    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setOnRenderDirectionCallback</span><span class="token punctuation">(</span><span class="token class-name">OnRenderDirectionCallback</span> var1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>onRenderDirectionCallback <span class="token operator">=</span> var1<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setOnRenderDirectionCallback</span><span class="token punctuation">(</span><span class="token class-name">OnRenderDirectionCallback</span> var1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>onRenderDirectionCallback <span class="token operator">=</span> var1<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h5 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h5>
 <table>
@@ -683,7 +679,7 @@
 <tbody>
 <tr>
 <td>OnRenderDirectionCallback</td>
-<td>p2p&#x7C7B;&#x578B;&#xFF0C;&#x5BF9;&#x5E94;&#x5339;&#x914D;&#x76F8;&#x5E94;&#x8BBE;&#x5907;&#x7684;p2p&#x80FD;&#x529B;</td>
+<td>&#x65B9;&#x5411;&#x64CD;&#x4F5C;&#x56DE;&#x8C03;</td>
 </tr>
 </tbody>
 </table>
@@ -722,13 +718,13 @@
 </table>
 <h3 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#xFF1A;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#xFF1A;</h3>
 <p>xml&#x5E03;&#x5C40;&#x6587;&#x4EF6;&#xFF1A;</p>
-<pre class="language-"><code class="lang-xml">        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>com.tuya.smart.camera.ipccamerasdk.monitor.Monitor</span>
-            <span class="token attr-name"><span class="token namespace">android:</span>id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>@+id/camera_video_view<span class="token punctuation">&quot;</span></span>
-            <span class="token attr-name"><span class="token namespace">android:</span>layout_width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>match_parent<span class="token punctuation">&quot;</span></span>
-            <span class="token attr-name"><span class="token namespace">android:</span>layout_height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>match_parent<span class="token punctuation">&quot;</span></span>
-             <span class="token punctuation">/&gt;</span></span>
+<pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>com.tuya.smart.camera.ipccamerasdk.monitor.Monitor</span>
+                                                    <span class="token attr-name"><span class="token namespace">android:</span>id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>@+id/camera_video_view<span class="token punctuation">&quot;</span></span>
+                                                    <span class="token attr-name"><span class="token namespace">android:</span>layout_width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>match_parent<span class="token punctuation">&quot;</span></span>
+                                                    <span class="token attr-name"><span class="token namespace">android:</span>layout_height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>match_parent<span class="token punctuation">&quot;</span></span>
+                                                    <span class="token punctuation">/&gt;</span></span>
 </code></pre>
-<pre class="language-"><code class="lang-java">&#xB7;&#xB7;&#xB7; 
+<pre class="language-"><code class="lang-java">&#xB7;&#xB7;&#xB7;
 mVideoView <span class="token operator">=</span> <span class="token function">findViewById</span><span class="token punctuation">(</span><span class="token class-name">R</span><span class="token punctuation">.</span>id<span class="token punctuation">.</span>camera_video_view<span class="token punctuation">)</span><span class="token punctuation">;</span>
 mCameraP2P<span class="token punctuation">.</span><span class="token function">generateCameraView</span><span class="token punctuation">(</span>mVideoView<span class="token punctuation">)</span><span class="token punctuation">;</span>
 mVideoView<span class="token punctuation">.</span><span class="token function">setOnRenderDirectionCallback</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">OnRenderDirectionCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -807,7 +803,7 @@ mVideoView<span class="token punctuation">.</span><span class="token function">s
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Monitor","level":"1.7.1.2","depth":3,"next":{"title":"CameraBusiness","level":"1.7.1.3","depth":3,"path":"resource/parameters.md","ref":"./resource/parameters.md","articles":[]},"previous":{"title":"ICameraP2P","level":"1.7.1.1","depth":3,"path":"resource/icamerap2p.md","ref":"./resource/icamerap2p.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","prism"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Daju.huang","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tuya IPC","language":"zh-hans","gitbook":"*","description":"Tuya IPC SDK Docs"},"file":{"path":"resource/cameraView.md","mtime":"2020-03-15T16:18:47.742Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-15T15:56:36.819Z"},"basePath":"..","book":{"language":"zh-hans"}});
+            gitbook.page.hasChanged({"page":{"title":"Monitor","level":"1.7.1.2","depth":3,"next":{"title":"CameraBusiness","level":"1.7.1.3","depth":3,"path":"resource/parameters.md","ref":"./resource/parameters.md","articles":[]},"previous":{"title":"ICameraP2P","level":"1.7.1.1","depth":3,"path":"resource/icamerap2p.md","ref":"./resource/icamerap2p.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","prism","-highlight"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Daju.huang","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tuya IPC","language":"zh-hans","gitbook":"*","description":"Tuya IPC SDK Docs"},"file":{"path":"resource/cameraView.md","mtime":"2020-03-16T09:52:30.243Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-17T04:42:19.788Z"},"basePath":"..","book":{"language":"zh-hans"}});
         });
     </script>
 </div>

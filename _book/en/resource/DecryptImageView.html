@@ -1,0 +1,871 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>DecryptImageView · Tuya IPC</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Daju.huang">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="TimeBarView.html" />
+    
+    
+    <link rel="prev" href="Callback.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Preparation.html">
+            
+                <a href="Preparation.html">
+            
+                    
+                    Fast integration
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="Preparation.html">
+            
+                <a href="Preparation.html">
+            
+                    
+                    Ready for integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="Integrated.html">
+            
+                <a href="Integrated.html">
+            
+                    
+                    Integrate SDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="ProgramArchitecure.html">
+            
+                <a href="ProgramArchitecure.html">
+            
+                    
+                    Architecture description
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="User.html">
+            
+                <a href="User.html">
+            
+                    
+                    User Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="home_device.html">
+            
+                <a href="home_device.html">
+            
+                    
+                    Home & Equipment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="wifi_config.html">
+            
+                <a href="wifi_config.html">
+            
+                    
+                    Camera network configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="MainView.html">
+            
+                <a href="MainView.html">
+            
+                    
+                    Camera function
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="MainView.html">
+            
+                <a href="MainView.html">
+            
+                    
+                    Main View
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1.1" data-path="ICameraP2P.html">
+            
+                <a href="ICameraP2P.html">
+            
+                    
+                    ICameraP2P
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.2" data-path="Monitor.html">
+            
+                <a href="Monitor.html">
+            
+                    
+                    Monitor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.3" data-path="parameters.html">
+            
+                <a href="parameters.html">
+            
+                    
+                    CameraBusiness
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.4" data-path="Callback.html">
+            
+                <a href="Callback.html">
+            
+                    
+                    Business layer Callback
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.1.5" data-path="DecryptImageView.html">
+            
+                <a href="DecryptImageView.html">
+            
+                    
+                    DecryptImageView
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.6" data-path="TimeBarView.html">
+            
+                <a href="TimeBarView.html">
+            
+                    
+                    TimeBarView
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="LiveProcess.html">
+            
+                <a href="LiveProcess.html">
+            
+                    
+                    Live video
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="PlaybackProcess.html">
+            
+                <a href="PlaybackProcess.html">
+            
+                    
+                    Memory card playback
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="CloudStorageProcess.html">
+            
+                <a href="CloudStorageProcess.html">
+            
+                    
+                    Cloud Storage
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="CloudStorageProcess.html">
+            
+                <a href="CloudStorageProcess.html">
+            
+                    
+                    Cloud Storage process
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="CloudStorage_aar.html">
+            
+                <a href="CloudStorage_aar.html">
+            
+                    
+                    Cloud storage purchase components
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="CloudStorageApi.html">
+            
+                <a href="CloudStorageApi.html">
+            
+                    
+                    Cloud Storage Get Data API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="Cloud_storage_video.html">
+            
+                <a href="Cloud_storage_video.html">
+            
+                    
+                    Cloud Storage Play API
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="DoorBell_Wake_up.html">
+            
+                <a href="DoorBell_Wake_up.html">
+            
+                    
+                    DoorBell Wake up
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="Message_push.html">
+            
+                <a href="Message_push.html">
+            
+                    
+                    Message push
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="Doorbell_wakeup.html">
+            
+                <a href="Doorbell_wakeup.html">
+            
+                    
+                    Low power doorbell wakeUp & Push
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html">
+            
+                    
+                    Camera function points
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html#Camera device standardized features">
+            
+                    
+                    Camera standardization function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html#Device standardized feature method">
+            
+                    
+                    Equipment standardization method
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html#Memory card and local video recording management">
+            
+                    
+                    Memory card management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html#Low-power doorbell features">
+            
+                    
+                    Low power doorbell function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html#PTZ Controll">
+            
+                    
+                    PTZ control
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="Camera_Message_Center.html">
+            
+                <a href="Camera_Message_Center.html">
+            
+                    
+                    Message Center
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="Camera_Message_Center.html">
+            
+                <a href="Camera_Message_Center.html">
+            
+                    
+                    Message List
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="mesage_center_video.html">
+            
+                <a href="mesage_center_video.html">
+            
+                    
+                    Message video play
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="statusCode.html">
+            
+                <a href="statusCode.html">
+            
+                    
+                    StatusCode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="FAQ.md">
+            
+                <span>
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="doc_update_log.html">
+            
+                <a href="doc_update_log.html">
+            
+                    
+                    Version Record
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >DecryptImageView</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="decryptimageview">DecryptImageView</h1>
+<h2 id="introduction">Introduction</h2>
+<p>The image decryption component DecryptImageView is an image loading component developed based on Fresco. Due to the tuya security mechanism, the image display requires data decryption through a custom imagepipeline-okhttp3.</p>
+<h2 id="import">Import</h2>
+<p>Add dependencies of build.gradle under the module:</p>
+<pre class="language-"><code class="lang-groovy">implementation <span class="token string">&apos;com.tuya.smart:tuyasmart-imagepipeline-okhttp3:0.0.1&apos;</span>
+implementation <span class="token string">&apos;com.facebook.fresco:fresco:1.3.0&apos;</span>
+</code></pre>
+<h2 id="method">Method</h2>
+<h3 id="init">init</h3>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">initFresco</span><span class="token punctuation">(</span><span class="token class-name">Context</span> context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="load-image">load Image</h3>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setImageURI</span><span class="token punctuation">(</span><span class="token class-name">String</span> uriString<span class="token punctuation">,</span> <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> key<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uriString</td>
+<td>corresponding to the p2p capability of the corresponding device</td>
+</tr>
+<tr>
+<td>key</td>
+<td>Key data</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sample-code">Sample Code</h3>
+<p>DecryptImageView is an image loading component based on <a href="https://www.fresco-cn.org/docs/index.html" target="_blank">Fresco</a>.</p>
+<ol>
+<li><p>Before the image is loaded, it is first initialized. It only needs to be loaded once by FrescoManager.initFresco (this), which is most suitable for application.</p>
+<pre class="language-"><code class="lang-java"><span class="token class-name">FrescoManager</span><span class="token punctuation">.</span><span class="token function">initFresco</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<blockquote>
+<p>Note: FrescoManager.initFresco (this) does not need to call Fresco.initialize (this), otherwise the picture cannot be decrypted.</p>
+</blockquote>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TuyaSmartApp</span> <span class="token keyword">extends</span> <span class="token class-name">MultiDexApplication</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> TAG <span class="token operator">=</span> <span class="token string">&quot;TuyaSmartApp&quot;</span><span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+        <span class="token class-name">FrescoManager</span><span class="token punctuation">.</span><span class="token function">initFresco</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre>
+<p>After doing the above, you need to specify your Application class in AndroidManifest.xml. In order to download network images, please confirm that you have declared the permissions requested by the network.</p>
+</li>
+<li><p>show Image</p>
+<p>In the xml layout file, add the namespace:</p>
+<pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>LinearLayout</span>
+    <span class="token attr-name"><span class="token namespace">xmlns:</span>android</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>http://schemas.android.com/apk/res/android<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name"><span class="token namespace">xmlns:</span>fresco</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>http://schemas.android.com/apk/res-auto<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name"><span class="token namespace">android:</span>layout_height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>match_parent<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name"><span class="token namespace">android:</span>layout_width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>match_parent<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>add DecryptImageView:</p>
+<pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>com.tuya.drawee.view.DecryptImageView</span>
+        <span class="token attr-name"><span class="token namespace">android:</span>id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>@+id/iv_time_range_snapshot<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name"><span class="token namespace">android:</span>layout_below</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>@+id/rv_lv_oval<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name"><span class="token namespace">android:</span>layout_width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>match_parent<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name"><span class="token namespace">android:</span>layout_height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>@dimen/dp_159<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name"><span class="token namespace">android:</span>layout_marginLeft</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>@dimen/dp_48<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name"><span class="token namespace">android:</span>layout_marginTop</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>@dimen/dp_15<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name"><span class="token namespace">android:</span>layout_marginRight</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>@dimen/dp_45<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name"><span class="token namespace">fresco:</span>actualImageScaleType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>fitXY<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name"><span class="token namespace">fresco:</span>roundedCornerRadius</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>@dimen/dp_4<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+</code></pre>
+</li>
+<li><p>Load image</p>
+<p>Start loading encrypted images, pass in the decryption key decryption, imageUrl, and call mSnapshot.setImageURI (imageUrl, decryption.getBytes ()).</p>
+<pre class="language-"><code class="lang-java"><span class="token class-name">String</span> attachPics <span class="token operator">=</span> cameraMessageBean<span class="token punctuation">.</span><span class="token function">getAttachPics</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            mSnapshot<span class="token punctuation">.</span><span class="token function">setVisibility</span><span class="token punctuation">(</span><span class="token class-name">View</span><span class="token punctuation">.</span>VISIBLE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>attachPics<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">&quot;@&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">int</span> index <span class="token operator">=</span> attachPics<span class="token punctuation">.</span><span class="token function">lastIndexOf</span><span class="token punctuation">(</span><span class="token string">&quot;@&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">String</span> decryption <span class="token operator">=</span> attachPics<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token class-name">String</span> imageUrl <span class="token operator">=</span> attachPics<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    mSnapshot<span class="token punctuation">.</span><span class="token function">setImageURI</span><span class="token punctuation">(</span>imageUrl<span class="token punctuation">,</span> decryption<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token class-name">Uri</span> uri <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+                <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                    uri <span class="token operator">=</span> <span class="token class-name">Uri</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>attachPics<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token class-name">DraweeController</span> controller <span class="token operator">=</span> <span class="token class-name">Fresco</span><span class="token punctuation">.</span><span class="token function">newDraweeControllerBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setUri</span><span class="token punctuation">(</span>uri<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                mSnapshot<span class="token punctuation">.</span><span class="token function">setController</span><span class="token punctuation">(</span>controller<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+</code></pre>
+</li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Callback.html" class="navigation navigation-prev " aria-label="Previous page: Business layer Callback">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="TimeBarView.html" class="navigation navigation-next " aria-label="Next page: TimeBarView">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"DecryptImageView","level":"1.7.1.5","depth":3,"next":{"title":"TimeBarView","level":"1.7.1.6","depth":3,"path":"resource/TimeBarView.md","ref":"./resource/TimeBarView.md","articles":[]},"previous":{"title":"Business layer Callback","level":"1.7.1.4","depth":3,"path":"resource/Callback.md","ref":"./resource/Callback.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","prism","-highlight"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Daju.huang","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tuya IPC","language":"en","gitbook":"*","description":"Tuya IPC SDK Docs"},"file":{"path":"resource/DecryptImageView.md","mtime":"2020-03-16T10:55:02.790Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-17T04:42:19.788Z"},"basePath":"..","book":{"language":"en"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

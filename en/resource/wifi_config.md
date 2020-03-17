@@ -1,11 +1,22 @@
 # Camera network configuration
- 
-camera network configuration methods：EZ、AP、QRcode
-
-two of then can be checked  through [**public SDK network configuration document**](https://mimimumu.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/Activator_wifi.html), This document focuses on Qrcode configuration.
 
 
-First of all, please confirm that you have already done with [Tuya SmartHome SDK](https://github.com/TuyaInc/tuyasmart_home_android_sdk)
+
+## Introduction
+
+Tuya IPC cameras mainly support the following configuration methods：
+
+- EZ mode 
+- AP mode
+- QRcode mode
+
+> The QR code mode is relatively simple. It is recommended to use a QR code to configure the network. If the device cannot scan the QR code, try EZ mode.
+
+**EZ** mode & **AP** mode  can be checked  through [**Tuya Smart Android SDK network configuration document**](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/en/resource/Activator.html), This document focuses on Qrcode configuration.
+
+
+
+## Use
 
 
 ###  Get current WIFI SSID
@@ -14,9 +25,24 @@ First of all, please confirm that you have already done with [Tuya SmartHome SDK
 WiFiUtil.getCurrentSSID()
 ```
 
+
+
 ### Get activator token
 
 Token is valid in 10min, and become invalid once completely set（need to get Token again for next configuration） . Get Token as follows:
+
+```java
+void getActivatorToken(final long homeId, final ITuyaActivatorGetToken activatorGetToken);
+```
+
+**Parameter Description**
+
+| Parameter              | Description        |
+| ---------------------- | ------------------ |
+| homeid                 | Home Id            |
+| ITuyaActivatorGetToken | Get token callback |
+
+**Sample code**
 
 ```java
 //need homeid
@@ -33,6 +59,8 @@ TuyaHomeSdk.getActivatorInstance().getActivatorToken (homeid, new ITuyaActivator
         })
 ```
 
+
+
 ### TuyaCameraActivatorBuilder
 
 Create TuyaCameraActivatorBuilder to save  Qrcode url information and callback interface. The method is shown below.
@@ -45,6 +73,17 @@ TuyaCameraActivatorBuilder builder = new TuyaCameraActivatorBuilder()
     .setListener(listener);
 ```
 
+**Parameter Description**
+
+| Parameter                         | Description   |
+| --------------------------------- | ------------- |
+| token                             | active token  |
+| password                          | wifi password |
+| ssid                              | wifi ssId     |
+| ITuyaSmartCameraActivatorListener | Callback      |
+
+
+
 ### ITuyaCameraDevActivator
 
 Network configuration interface implementation
@@ -54,11 +93,14 @@ ITuyaCameraDevActivator mTuyaActivator = TuyaHomeSdk.getActivatorInstance().newC
 ```
 
 
+
 ### Get Qrcode url information through Qrcode interface
 
 ```java
 mTuyaActivator.createQRCode();
 ```
+
+
 
 ### start network configuration 
 
@@ -70,6 +112,8 @@ Use the url to generate Qrcode, and confirm the device is in network configurati
 mTuyaActivator.start();
 ```
 
+
+
 ### stop network configuration
 
 
@@ -79,6 +123,8 @@ The method is shown below:
 //Stop configuration
 mTuyaActivator.stop();
 ```
+
+
 
 ### Network configuration result callback
 
@@ -112,6 +158,16 @@ ITuyaSmartCameraActivatorListener() {
 
 ```
 
+**Method description**
+
+| Method          | Description                                                  |
+| --------------- | ------------------------------------------------------------ |
+| onQRCodeSuccess | Generate QR code URL successfully callback, callback parameter is QR code URL address |
+| onError         | Error message                                                |
+| onActiveSuccess | Activated successfully                                       |
+
+
+
 ### Callback destroy
 
 ```java
@@ -119,7 +175,9 @@ ITuyaSmartCameraActivatorListener() {
 mTuyaActivator.onDestroy();
 ```
 
-### Specific reference flow for network configuration 
+### 
+
+### Sample code
 
 ```java
 //initialization callback interface
@@ -167,3 +225,9 @@ mTuyaActivator.stop();
 mTuyaActivator.onDestroy();
 
 ```
+
+
+
+## Timing diagram
+
+![](./images/qrcode_sequenceDiagram.jpg)

@@ -2,9 +2,9 @@
 
 # 存储卡回放
 
-涂鸦IPC 摄像机支持SD卡录制功能。智能摄像机插入存储卡后，可以查看存储卡的信息和状态，并设置录像开关和模式。详情可以参考[存储卡管理功能]()。
+涂鸦IPC 摄像机支持SD卡录制功能。智能摄像机插入存储卡后，可以查看存储卡的信息和状态，并设置录像开关和模式。详情可以参考[存储卡管理功能](./camera_device_points.md#存储卡及本地录像管理)。
 
-存储卡回放是**Tuya IPC Android SDK**通过云端服务器信息，接着创建`ICameraP2P`对象，然后进行P2P连接后，就可以播放摄像机SD卡录制下来的视频了。
+存储卡回放是**Tuya Smart Camera Android SDK**通过云端服务器信息，接着创建`ICameraP2P`对象，然后进行P2P连接后，就可以播放摄像机SD卡录制下来的视频了。
 
 
 
@@ -19,58 +19,58 @@
 `ICameraP2P`需要绑定`Monitor`，使用者要创建`ICameraP2P`和`Monitor`,同时也需要注册`OnP2PCameraListener`。如下所示：
 
    ```java
-   private static final int ASPECT_RATIO_WIDTH = 9;
-   private static final int ASPECT_RATIO_HEIGHT = 16;
-   @Override
-       protected void onCreate(Bundle savedInstanceState) {
-           ···
-        initView();
-        initData();
-        initListener();
-   		...
-       }
-   private void initView() {
-           ...
-           mVideoView = findViewById(R.id.camera_video_view);
-           ...
-   
-           //播放器view最好宽高比设置16:9
-           WindowManager windowManager = (WindowManager) this.getSystemService(WINDOW_SERVICE);
-           int width = windowManager.getDefaultDisplay().getWidth();
-           int height = width * ASPECT_RATIO_WIDTH / ASPECT_RATIO_HEIGHT;
-           RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(width, height);
-           layoutParams.addRule(RelativeLayout.BELOW, R.id.toolbar_view);
-           findViewById(R.id.camera_video_view_Rl).setLayoutParams(layoutParams);
-   
-   }
+private static final int ASPECT_RATIO_WIDTH = 9;
+private static final int ASPECT_RATIO_HEIGHT = 16;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+  ···
+    initView();
+  initData();
+  initListener();
+  ...
+}
+private void initView() {
+  ...
+    mVideoView = findViewById(R.id.camera_video_view);
+  ...
 
-     private void initData() {
-           localKey = getIntent().getStringExtra(INTENT_LOCALKEY);
-           devId = getIntent().getStringExtra(INTENT_DEVID);
-           sdkProvider = getIntent().getIntExtra(INTENT_SDK_POROVIDER, -1);
-           mIsRunSoft = getIntent().getBooleanExtra("isRunsoft", true);
-           if (null != TuyaHomeSdk.getUserInstance().getUser()) {
-               mlocalId = TuyaHomeSdk.getUserInstance().getUser().getUid();
-           }
-           mCameraP2P = TuyaSmartCameraP2PFactory.generateTuyaSmartCamera(sdkProvider);
-           mDeviceControl = TuyaCameraDeviceControlSDK.getCameraDeviceInstance(devId);
-       		mCameraP2P.generateCameraView(mVideoView); //绑定 monitor
-           getApi(); //获取设备信息
-       }
+    //播放器view最好宽高比设置16:9
+    WindowManager windowManager = (WindowManager) this.getSystemService(WINDOW_SERVICE);
+  int width = windowManager.getDefaultDisplay().getWidth();
+  int height = width * ASPECT_RATIO_WIDTH / ASPECT_RATIO_HEIGHT;
+  RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(width, height);
+  layoutParams.addRule(RelativeLayout.BELOW, R.id.toolbar_view);
+  findViewById(R.id.camera_video_view_Rl).setLayoutParams(layoutParams);
 
-       private void initCameraView() {
-           mCameraP2P.createDevice(new OperationDelegateCallBack() {
-               @Override
-               public void onSuccess(int sessionId, int requestId, String data) {
-                   mHandler.sendMessage(MessageUtil.getMessage(MSG_CREATE_DEVICE, ARG1_OPERATE_SUCCESS));
-               }
-   
-               @Override
-               public void onFailure(int sessionId, int requestId, int errCode) {
-                   mHandler.sendMessage(MessageUtil.getMessage(MSG_CREATE_DEVICE, ARG1_OPERATE_FAIL));
-               }
-           },configCameraBean);
-       }
+}
+
+private void initData() {
+  localKey = getIntent().getStringExtra(INTENT_LOCALKEY);
+  devId = getIntent().getStringExtra(INTENT_DEVID);
+  sdkProvider = getIntent().getIntExtra(INTENT_SDK_POROVIDER, -1);
+  mIsRunSoft = getIntent().getBooleanExtra("isRunsoft", true);
+  if (null != TuyaHomeSdk.getUserInstance().getUser()) {
+    mlocalId = TuyaHomeSdk.getUserInstance().getUser().getUid();
+  }
+  mCameraP2P = TuyaSmartCameraP2PFactory.generateTuyaSmartCamera(sdkProvider);
+  mDeviceControl = TuyaCameraDeviceControlSDK.getCameraDeviceInstance(devId);
+  mCameraP2P.generateCameraView(mVideoView); //绑定 monitor
+  getApi(); //获取设备信息
+}
+
+private void initCameraView() {
+  mCameraP2P.createDevice(new OperationDelegateCallBack() {
+    @Override
+    public void onSuccess(int sessionId, int requestId, String data) {
+      mHandler.sendMessage(MessageUtil.getMessage(MSG_CREATE_DEVICE, ARG1_OPERATE_SUCCESS));
+    }
+
+    @Override
+    public void onFailure(int sessionId, int requestId, int errCode) {
+      mHandler.sendMessage(MessageUtil.getMessage(MSG_CREATE_DEVICE, ARG1_OPERATE_FAIL));
+    }
+  },configCameraBean);
+}
 ...
    ```
 
@@ -82,47 +82,47 @@
 
 ```java
 private void getApi() {
-        Map postData = new HashMap();
-        postData.put("devId", devId);
-        CameraBusiness cameraBusiness = new CameraBusiness();
-        cameraBusiness.requestCameraInfo(devId, new Business.ResultListener<CameraInfoBean>() {
-            @Override
-            public void onFailure(BusinessResponse businessResponse, CameraInfoBean cameraInfoBean, String s) {
-                ToastUtil.shortToast(CameraPanelActivity.this, "get cameraInfo failed");
-            }
+  Map postData = new HashMap();
+  postData.put("devId", devId);
+  CameraBusiness cameraBusiness = new CameraBusiness();
+  cameraBusiness.requestCameraInfo(devId, new Business.ResultListener<CameraInfoBean>() {
+    @Override
+    public void onFailure(BusinessResponse businessResponse, CameraInfoBean cameraInfoBean, String s) {
+      ToastUtil.shortToast(CameraPanelActivity.this, "get cameraInfo failed");
+    }
 
-            @Override
-            public void onSuccess(BusinessResponse businessResponse, CameraInfoBean cameraInfoBean, String s) {
-                configCameraBean = new ConfigCameraBean();
+    @Override
+    public void onSuccess(BusinessResponse businessResponse, CameraInfoBean cameraInfoBean, String s) {
+      configCameraBean = new ConfigCameraBean();
 
-                infoBean = cameraInfoBean;
+      infoBean = cameraInfoBean;
 
-                mP2p3Id = infoBean.getId();
-                p2pType = infoBean.getP2pSpecifiedType();
-                p2pId = infoBean.getP2pId().split(",")[0];
-                p2pWd = infoBean.getPassword();
-                mInitStr = infoBean.getP2pConfig().getInitStr();
-                mP2pKey = infoBean.getP2pConfig().getP2pKey();
-                mInitStr += ":" + mP2pKey;
-                if (null != infoBean.getP2pConfig().getIces()) {
-                    token = infoBean.getP2pConfig().getIces().toString();
-                }
-                configCameraBean.setDevId(devId);
-                configCameraBean.setLocalKey(localKey);
-                configCameraBean.setInitString(mInitStr);
-                configCameraBean.setToken(token);
-                configCameraBean.setP2pType(p2pType);
-                configCameraBean.setLocalId(mlocalId);
-                configCameraBean.setPassword(p2pWd);
-                if (P2P_2 == p2pType) {
-                    configCameraBean.setP2pId(p2pId);
-                }else if (P2P_4 == p2pType){
-                    configCameraBean.setP2pId(mP2p3Id);
-                }
-                initCameraView();
-            }
-        });
-    }   
+      mP2p3Id = infoBean.getId();
+      p2pType = infoBean.getP2pSpecifiedType();
+      p2pId = infoBean.getP2pId().split(",")[0];
+      p2pWd = infoBean.getPassword();
+      mInitStr = infoBean.getP2pConfig().getInitStr();
+      mP2pKey = infoBean.getP2pConfig().getP2pKey();
+      mInitStr += ":" + mP2pKey;
+      if (null != infoBean.getP2pConfig().getIces()) {
+        token = infoBean.getP2pConfig().getIces().toString();
+      }
+      configCameraBean.setDevId(devId);
+      configCameraBean.setLocalKey(localKey);
+      configCameraBean.setInitString(mInitStr);
+      configCameraBean.setToken(token);
+      configCameraBean.setP2pType(p2pType);
+      configCameraBean.setLocalId(mlocalId);
+      configCameraBean.setPassword(p2pWd);
+      if (P2P_2 == p2pType) {
+        configCameraBean.setP2pId(p2pId);
+      }else if (P2P_4 == p2pType){
+        configCameraBean.setP2pId(mP2p3Id);
+      }
+      initCameraView();
+    }
+  });
+}   
 ```
 
 
@@ -133,15 +133,15 @@ private void getApi() {
 
 ```java
 mCameraP2P.connect(new OperationDelegateCallBack() {
-            @Override
-            public void onSuccess(int sessionId, int requestId, String data) {
-                mHandler.sendMessage(MessageUtil.getMessage(MSG_CONNECT, ARG1_OPERATE_SUCCESS));
-            }
+  @Override
+  public void onSuccess(int sessionId, int requestId, String data) {
+    mHandler.sendMessage(MessageUtil.getMessage(MSG_CONNECT, ARG1_OPERATE_SUCCESS));
+  }
 
-            @Override
-            public void onFailure(int sessionId, int requestId, int errCode) {
-                mHandler.sendMessage(MessageUtil.getMessage(MSG_CONNECT, ARG1_OPERATE_FAIL, errCode));
-            }
+  @Override
+  public void onFailure(int sessionId, int requestId, int errCode) {
+    mHandler.sendMessage(MessageUtil.getMessage(MSG_CONNECT, ARG1_OPERATE_FAIL, errCode));
+  }
 });
 ```
 
@@ -152,23 +152,23 @@ mCameraP2P.connect(new OperationDelegateCallBack() {
 调用queryRecordDaysByMonth方法
 
 ```java
-   int year = Integer.parseInt(substring[0]);
-                       int mouth = Integer.parseInt(substring[1]);
-                       queryDay = Integer.parseInt(substring[2]);
-                       mCameraP2P.queryRecordDaysByMonth(year, mouth, new OperationDelegateCallBack() {
-                           @Override
-                           public void onSuccess(int sessionId, int requestId, String data) {
-                           //data是获取到的月份数据
-                               MonthDays monthDays = JSONObject.parseObject(data, MonthDays.class);
-                               mBackDataMonthCache.put(mCameraP2P.getMonthKey(), monthDays.getDataDays());
-                               mHandler.sendMessage(MessageUtil.getMessage(MSG_DATA_DATE, ARG1_OPERATE_SUCCESS, data));
-                           }
-   
-                           @Override
-                           public void onFailure(int sessionId, int requestId, int errCode) {
-                               mHandler.sendMessage(MessageUtil.getMessage(MSG_DATA_DATE, ARG1_OPERATE_FAIL));
-                           }
-                       }); 
+int year = Integer.parseInt(substring[0]);
+int mouth = Integer.parseInt(substring[1]);
+queryDay = Integer.parseInt(substring[2]);
+mCameraP2P.queryRecordDaysByMonth(year, mouth, new OperationDelegateCallBack() {
+  @Override
+  public void onSuccess(int sessionId, int requestId, String data) {
+    //data是获取到的月份数据
+    MonthDays monthDays = JSONObject.parseObject(data, MonthDays.class);
+    mBackDataMonthCache.put(mCameraP2P.getMonthKey(), monthDays.getDataDays());
+    mHandler.sendMessage(MessageUtil.getMessage(MSG_DATA_DATE, ARG1_OPERATE_SUCCESS, data));
+  }
+
+  @Override
+  public void onFailure(int sessionId, int requestId, int errCode) {
+    mHandler.sendMessage(MessageUtil.getMessage(MSG_DATA_DATE, ARG1_OPERATE_FAIL));
+  }
+}); 
 ```
 
    > 在开始回放前，需要获取到回放视频记录的信息。首先获取有回放视频记录的日期
@@ -178,82 +178,88 @@ mCameraP2P.connect(new OperationDelegateCallBack() {
 #### 5. 获取某日的视频回放信息
 
 ```java
-   int year = Integer.parseInt(substring[0]);
-                   int mouth = Integer.parseInt(substring[1]);
-                   int day = Integer.parseInt(substring[2]);
-                   mCameraP2P.queryRecordTimeSliceByDay(year, mouth, day, new OperationDelegateCallBack() {
-                       @Override
-                       public void onSuccess(int sessionId, int requestId, String data) {					//data是获取到的日期时间片段数据
-                           parsePlaybackData(data);
-                       }
-   
-                       @Override
-                       public void onFailure(int sessionId, int requestId, int errCode) {
-                           mHandler.sendEmptyMessage(MSG_DATA_DATE_BY_DAY_FAIL);
-                       }
-                   });
+int year = Integer.parseInt(substring[0]);
+int mouth = Integer.parseInt(substring[1]);
+int day = Integer.parseInt(substring[2]);
+mCameraP2P.queryRecordTimeSliceByDay(year, mouth, day, new OperationDelegateCallBack() {
+  @Override
+  public void onSuccess(int sessionId, int requestId, String data) {					//data是获取到的日期时间片段数据
+    parsePlaybackData(data);
+  }
+
+  @Override
+  public void onFailure(int sessionId, int requestId, int errCode) {
+    mHandler.sendEmptyMessage(MSG_DATA_DATE_BY_DAY_FAIL);
+  }
+});
 ```
 
    > 获取到有用回放记录的日期后，根据日期获取当日的视频回放记录
 
+
+
 #### 6. 开启回放
 
 ```java
-   mCameraP2P.startPlayBack(timePieceBean.getStartTime(),
-                           timePieceBean.getEndTime(),
-                           timePieceBean.getStartTime(), new OperationDelegateCallBack() {
-                               @Override
-                               public void onSuccess(int sessionId, int requestId, String data) {
-                                   isPlayback = true;
-                               }
-   
-                               @Override
-                               public void onFailure(int sessionId, int requestId, int errCode) {
-                                   isPlayback = false;
-                               }
-                           }, new OperationDelegateCallBack() {
-                               @Override
-                               public void onSuccess(int sessionId, int requestId, String data) {
-                                   isPlayback = false;
-                               }
-   
-                               @Override
-                               public void onFailure(int sessionId, int requestId, int errCode) {
-                                   isPlayback = false;
-                               }
-                           });
+mCameraP2P.startPlayBack(timePieceBean.getStartTime(),
+                         timePieceBean.getEndTime(),
+                         timePieceBean.getStartTime(), new OperationDelegateCallBack() {
+                           @Override
+                           public void onSuccess(int sessionId, int requestId, String data){
+                             isPlayback = true;
+                           }
+
+                           @Override
+                           public void onFailure(int sessionId, int requestId, int errCode){
+                             isPlayback = false;
+                           }
+                         }, new OperationDelegateCallBack() {
+                           @Override
+                           public void onSuccess(int sessionId, int requestId, String data){
+                             isPlayback = false;
+                           }
+
+                           @Override
+                           public void onFailure(int sessionId, int requestId, int errCode){
+                             isPlayback = false;
+                           }
+                         });
 ```
+
+
 
 #### 7. 暂停回放
 
 ```java
-   mCameraP2P.pausePlayBack(new OperationDelegateCallBack() {
-            @Override
-            public void onSuccess(int sessionId, int requestId, String data) {
-                isPlayback = false;
-            }
+mCameraP2P.pausePlayBack(new OperationDelegateCallBack() {
+  @Override
+  public void onSuccess(int sessionId, int requestId, String data) {
+    isPlayback = false;
+  }
 
-            @Override
-            public void onFailure(int sessionId, int requestId, int errCode) {
+  @Override
+  public void onFailure(int sessionId, int requestId, int errCode) {
 
-            }
-        });
+  }
+});
 ```
+
+
 
 #### 8. 恢复回放
 
    ```java
-   mCameraP2P.resumePlayBack(new OperationDelegateCallBack() {
-               @Override
-               public void onSuccess(int sessionId, int requestId, String data) {
-                   isPlayback = true;
-               }
-   
-               @Override
-               public void onFailure(int sessionId, int requestId, int errCode) {
-   
-               }
-           });
+mCameraP2P.resumePlayBack(new OperationDelegateCallBack() {
+  @Override
+  public void onSuccess(int sessionId, int requestId, String data) {
+    isPlayback = true;
+  }
+
+  @Override
+  public void onFailure(int sessionId, int requestId, int errCode) {
+
+  }
+});
    ```
 
  
@@ -261,17 +267,17 @@ mCameraP2P.connect(new OperationDelegateCallBack() {
 #### 9. 结束回放
 
    ```java
-   	mCameraP2P.stopPlayBack(new OperationDelegateCallBack() {
-               @Override
-               public void onSuccess(int sessionId, int requestId, String data) {
-   
-               }
-   
-               @Override
-               public void onFailure(int sessionId, int requestId, int errCode) {
-   
-               }
-           });
+mCameraP2P.stopPlayBack(new OperationDelegateCallBack() {
+  @Override
+  public void onSuccess(int sessionId, int requestId, String data) {
+
+  }
+
+  @Override
+  public void onFailure(int sessionId, int requestId, int errCode) {
+
+  }
+});
    ```
 
 
@@ -308,13 +314,15 @@ TuyaSmartCameraP2PFactory.onDestroyTuyaSmartCamera();
 
 
 
-## 时序图
+## 流程图
 
 <img src="./images/playback_process.jpg" style="zoom:50%;" />
 
 
 
 ## 开启回放成功后，可调用信令
+
+
 
 #### 开启视频录制
 
@@ -352,6 +360,8 @@ if (Constants.hasStoragePermission()) {
 
 > 注：录制视频需要写存储卡权限
 
+
+
 #### 停止视频录制
 
 调用stopRecordLocalMp4方法。
@@ -374,6 +384,8 @@ mCameraP2P.stopRecordLocalMp4(new OperationDelegateCallBack() {
                 }
             });
 ```
+
+
 
 #### 视频截图
 
@@ -404,6 +416,8 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
         });
 ```
 
+
+
 #### 设置拾音器状态
 
 设置设备传过来的声音开关
@@ -428,7 +442,7 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
         });
 ```
 
-#### 
+
 
 
 

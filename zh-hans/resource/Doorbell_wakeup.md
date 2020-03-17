@@ -25,8 +25,6 @@ void wirelessWake(String localkey, String devId);
 | localkey | 设备 localkey |
 | devId | 设备id |
 
-
-
 #### 示例代码
 
 ```java

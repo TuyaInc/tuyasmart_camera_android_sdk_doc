@@ -1,4 +1,4 @@
-# 消息中心视频播放指南
+# 消息中心视频播放
 
 
 
@@ -29,7 +29,7 @@ void registorOnP2PCameraListener(OnP2PCameraListener listener);
 | ------------------- | ---------------- |
 | OnP2PCameraListener | 视频播放回调数据 |
 
-#### 注入播放器对象
+#### 绑定播放器对象
 
 注入播放器View，用来渲染视频画面
 
@@ -39,9 +39,9 @@ void generateCloudCameraView(IRegistorIOTCListener view);
 
 ##### 参数说明
 
-| **参数**              | 说明             |
-| --------------------- | ---------------- |
-| IRegistorIOTCListener | 视频播放回调数据 |
+| **参数**              | 说明       |
+| --------------------- | ---------- |
+| IRegistorIOTCListener | 播放器组件 |
 
 #### 创建云视频播放设备
 
@@ -61,14 +61,14 @@ void createCloudDevice(String cachePath, String devId, OperationDelegateCallBack
 
 ```kotlin
 cloudVideo?.createCloudDevice(cachePath, devId, object : OperationDelegateCallBack {
-            override fun onSuccess(sessionId: Int, requestId: Int, data: String) {
-                mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_MEDIA_DEVICE, ICameraVideoPlayModel.OPERATE_SUCCESS, data))
-            }
+  override fun onSuccess(sessionId: Int, requestId: Int, data: String) {
+    mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_MEDIA_DEVICE, ICameraVideoPlayModel.OPERATE_SUCCESS, data))
+  }
 
-            override fun onFailure(sessionId: Int, requestId: Int, errCode: Int) {
-                mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_MEDIA_DEVICE, ICameraVideoPlayModel.OPERATE_FAIL, errCode))
-            }
-        })
+  override fun onFailure(sessionId: Int, requestId: Int, errCode: Int) {
+    mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_MEDIA_DEVICE, ICameraVideoPlayModel.OPERATE_FAIL, errCode))
+  }
+})
 ```
 
 #### 开始播放视频
@@ -91,30 +91,30 @@ void playVideo(String videoUrl, int startTime, String encryptKey, OperationCallB
 
 ```kotlin
 override fun playVideo(videoUrl: String, startTime: Int, encryptKey: String) {
-        if (cloudVideo == null) {
-            return
-        }
-        cloudVideo!!.playVideo(videoUrl, startTime, encryptKey, object : OperationCallBack {
-            override fun onSuccess(sessionId: Int, requestId: Int, data: String, camera: Any) {
-                playState = CloudPlayState.STATE_PLAYING
-                mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_PLAY, ICameraVideoPlayModel.OPERATE_SUCCESS))
-            }
-
-            override fun onFailure(sessionId: Int, requestId: Int, errCode: Int, camera: Any) {
-                playState = CloudPlayState.STATE_ERROR
-                mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_PLAY, ICameraVideoPlayModel.OPERATE_FAIL))
-            }
-        }, object : OperationCallBack {
-            override fun onSuccess(sessionId: Int, requestId: Int, data: String, camera: Any) {
-                playState = CloudPlayState.STATE_COMPLETED
-                mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_STOP, ICameraVideoPlayModel.OPERATE_SUCCESS))
-            }
-
-            override fun onFailure(sessionId: Int, requestId: Int, errCode: Int, camera: Any) {
-                mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_STOP, ICameraVideoPlayModel.OPERATE_FAIL))
-            }
-        })
+  if (cloudVideo == null) {
+    return
+  }
+  cloudVideo!!.playVideo(videoUrl, startTime, encryptKey, object : OperationCallBack {
+    override fun onSuccess(sessionId: Int, requestId: Int, data: String, camera: Any) {
+      playState = CloudPlayState.STATE_PLAYING
+      mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_PLAY, ICameraVideoPlayModel.OPERATE_SUCCESS))
     }
+
+    override fun onFailure(sessionId: Int, requestId: Int, errCode: Int, camera: Any) {
+      playState = CloudPlayState.STATE_ERROR
+      mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_PLAY, ICameraVideoPlayModel.OPERATE_FAIL))
+    }
+  }, object : OperationCallBack {
+    override fun onSuccess(sessionId: Int, requestId: Int, data: String, camera: Any) {
+      playState = CloudPlayState.STATE_COMPLETED
+      mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_STOP, ICameraVideoPlayModel.OPERATE_SUCCESS))
+    }
+
+    override fun onFailure(sessionId: Int, requestId: Int, errCode: Int, camera: Any) {
+      mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_STOP, ICameraVideoPlayModel.OPERATE_FAIL))
+    }
+  })
+}
 ```
 
 #### 暂停播放
@@ -133,20 +133,20 @@ void pauseVideo(OperationCallBack callback);
 
 ```kotlin
 override fun pauseVideo() {
-        if (cloudVideo == null) {
-            return
-        }
-        cloudVideo!!.pauseVideo(object : OperationCallBack {
-            override fun onSuccess(sessionId: Int, requestId: Int, data: String, camera: Any) {
-                playState = CloudPlayState.STATE_PAUSED
-                mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_PAUSE, ICameraVideoPlayModel.OPERATE_SUCCESS))
-            }
-
-            override fun onFailure(sessionId: Int, requestId: Int, errCode: Int, camera: Any) {
-                mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_PAUSE, ICameraVideoPlayModel.OPERATE_FAIL))
-            }
-        })
+  if (cloudVideo == null) {
+    return
+  }
+  cloudVideo!!.pauseVideo(object : OperationCallBack {
+    override fun onSuccess(sessionId: Int, requestId: Int, data: String, camera: Any) {
+      playState = CloudPlayState.STATE_PAUSED
+      mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_PAUSE, ICameraVideoPlayModel.OPERATE_SUCCESS))
     }
+
+    override fun onFailure(sessionId: Int, requestId: Int, errCode: Int, camera: Any) {
+      mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_PAUSE, ICameraVideoPlayModel.OPERATE_FAIL))
+    }
+  })
+}
 ```
 
 #### 设置视频播放的声音开关
@@ -165,21 +165,21 @@ void setCloudVideoMute(int mute, OperationDelegateCallBack callBack);
 ##### 示例代码：
 
 ```kotlin
-    private fun setCloudVideoMute(voiceMode: Int) {
-        if (cloudVideo == null) {
-            return
-        }
-        cloudVideo!!.setCloudVideoMute(voiceMode, object : OperationDelegateCallBack {
+private fun setCloudVideoMute(voiceMode: Int) {
+  if (cloudVideo == null) {
+    return
+  }
+  cloudVideo!!.setCloudVideoMute(voiceMode, object : OperationDelegateCallBack {
 
-            override fun onSuccess(sessionId: Int, requestId: Int, data: String) {
-                mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_MUTE, IPanelModel.ARG1_OPERATE_SUCCESS, data))
-            }
-
-            override fun onFailure(sessionId: Int, requestId: Int, errCode: Int) {
-                mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_MUTE, IPanelModel.ARG1_OPERATE_FAIL))
-            }
-        })
+    override fun onSuccess(sessionId: Int, requestId: Int, data: String) {
+      mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_MUTE, IPanelModel.ARG1_OPERATE_SUCCESS, data))
     }
+
+    override fun onFailure(sessionId: Int, requestId: Int, errCode: Int) {
+      mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_MUTE, IPanelModel.ARG1_OPERATE_FAIL))
+    }
+  })
+}
 ```
 
 
@@ -199,21 +199,21 @@ void resumeVideo(OperationCallBack callback);
 ##### 示例代码：
 
 ```kotlin
-    override fun resumeVideo() {
-        if (cloudVideo == null) {
-            return
-        }
-        cloudVideo!!.resumeVideo(object : OperationCallBack {
-            override fun onSuccess(sessionId: Int, requestId: Int, data: String, camera: Any) {
-                playState = CloudPlayState.STATE_PLAYING
-                mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_RESUME, ICameraVideoPlayModel.OPERATE_SUCCESS))
-            }
-
-            override fun onFailure(sessionId: Int, requestId: Int, errCode: Int, camera: Any) {
-                mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_RESUME, ICameraVideoPlayModel.OPERATE_FAIL))
-            }
-        })
+override fun resumeVideo() {
+  if (cloudVideo == null) {
+    return
+  }
+  cloudVideo!!.resumeVideo(object : OperationCallBack {
+    override fun onSuccess(sessionId: Int, requestId: Int, data: String, camera: Any) {
+      playState = CloudPlayState.STATE_PLAYING
+      mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_RESUME, ICameraVideoPlayModel.OPERATE_SUCCESS))
     }
+
+    override fun onFailure(sessionId: Int, requestId: Int, errCode: Int, camera: Any) {
+      mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_RESUME, ICameraVideoPlayModel.OPERATE_FAIL))
+    }
+  })
+}
 ```
 
 #### 停止播放
@@ -231,24 +231,26 @@ void stopVideo(OperationCallBack callback);
 ##### 示例代码：
 
 ```kotlin
-    override fun stopVideo() {
-        if (cloudVideo == null) {
-            return
-        }
-        cloudVideo!!.stopVideo(object : OperationCallBack {
-            override fun onSuccess(sessionId: Int, requestId: Int, data: String, camera: Any) {
-                playState = CloudPlayState.STATE_STOP
-                mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_STOP, ICameraVideoPlayModel.OPERATE_SUCCESS))
-            }
-
-            override fun onFailure(sessionId: Int, requestId: Int, errCode: Int, camera: Any) {
-                mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_STOP, ICameraVideoPlayModel.OPERATE_FAIL))
-            }
-        })
+override fun stopVideo() {
+  if (cloudVideo == null) {
+    return
+  }
+  cloudVideo!!.stopVideo(object : OperationCallBack {
+    override fun onSuccess(sessionId: Int, requestId: Int, data: String, camera: Any) {
+      playState = CloudPlayState.STATE_STOP
+      mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_STOP, ICameraVideoPlayModel.OPERATE_SUCCESS))
     }
+
+    override fun onFailure(sessionId: Int, requestId: Int, errCode: Int, camera: Any) {
+      mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_STOP, ICameraVideoPlayModel.OPERATE_FAIL))
+    }
+  })
+}
 ```
 
 #### 销毁云视频播放设备
+
+当云视频不再使用的时候，做销毁处理
 
 ```java
 void deinitCloudVideo();
@@ -282,12 +284,12 @@ override fun onReceiveFrameYUVData(sessionId: Int, y: ByteBuffer, u: ByteBuffer,
 ##### 示例代码：
 
   ```kotlin
-      override fun onReceiveFrameYUVData(sessionId: Int, y: ByteBuffer, u: ByteBuffer, v: ByteBuffer, width: Int, height: Int, nFrameRate: Int, nIsKeyFrame: Int, timestamp: Long, nProgress: Long, nDuration: Long, camera: Any) {
-          val map = HashMap<String, Long>(2)
-          map["progress"] = nProgress
-          map["duration"] = nDuration
-          mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_INFO, ICameraVideoPlayModel.OPERATE_SUCCESS, map))
-      }
+override fun onReceiveFrameYUVData(sessionId: Int, y: ByteBuffer, u: ByteBuffer, v: ByteBuffer, width: Int, height: Int, nFrameRate: Int, nIsKeyFrame: Int, timestamp: Long, nProgress: Long, nDuration: Long, camera: Any) {
+  val map = HashMap<String, Long>(2)
+  map["progress"] = nProgress
+  map["duration"] = nDuration
+  mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_INFO, ICameraVideoPlayModel.OPERATE_SUCCESS, map))
+}
   
   ```
 

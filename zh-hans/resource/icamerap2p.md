@@ -1,10 +1,10 @@
-# ICameraP2P主要使用的方法
+# ICameraP2P
 
 
 
 ## 描述
 
-ICameraP2P是**Tuya IPC Android SDK**核心功能接口，主要提供了音视频通信和指令集交互接口。
+ICameraP2P是**Tuya Smart Camera Android SDK**核心功能接口，主要提供了音视频通信和指令集交互接口。
 
 
 
@@ -17,7 +17,7 @@ ICameraP2P是**Tuya IPC Android SDK**核心功能接口，主要提供了音视�
 ```java
 public static ICameraP2P generateTuyaSmartCamera(int  p2pType)
 ```
-#### 参数说明
+**参数说明**
 
 | 参数    | 说明                               |
 | ------- | ---------------------------------- |
@@ -31,7 +31,7 @@ public static ICameraP2P generateTuyaSmartCamera(int  p2pType)
 public void registorOnP2PCameraListener(OnP2PCameraListener listener) 
 ```
 
-#### 参数说明
+**参数说明**
 
 | 参数                | 说明        |
 | ------------------- | ----------- |
@@ -49,11 +49,13 @@ public void removeOnP2PCameraListener()
 
 
 
-### 初始化播放器
+### 绑定播放器
 
 ```java
 public void generateCameraView(T view)
 ```
+
+**参数说明**
 
 | 参数 | 说明           |
 | ---- | -------------- |
@@ -70,11 +72,15 @@ public void destroyCameraView();
 
 ### 创建设备
 
+**描述**
+
+建立关联与底层库p2p对象设备
+
 ```java
 public void createDevice(OperationDelegateCallBack callback, ConfigCameraBean config)
 ```
 
-#### 参数说明
+**参数说明**
 
 | 参数                      | 说明         |
 | ------------------------- | ------------ |
@@ -85,17 +91,17 @@ public void createDevice(OperationDelegateCallBack callback, ConfigCameraBean co
 
 > ConfigCameraBean:为配置参数对象，参数如下:
 
-| 参数          | 说明    |
-| ------------- | ------- |
-| p2pType       | p2p类型 |
-| initString    | /       |
-| p2pId         | /       |
-| password      | p2p秘钥 |
-| devId         | 设备id  |
-| localId       | /       |
-| localKey      | /       |
-| token         | /       |
-| clientTraceId | /       |
+| 参数          | 说明         |
+| ------------- | ------------ |
+| p2pType       | p2p类型      |
+| initString    | 关键配置数据 |
+| p2pId         | p2p Id       |
+| password      | p2p秘钥      |
+| devId         | 设备id       |
+| localId       | /            |
+| localKey      | /            |
+| token         | /            |
+| clientTraceId | /            |
 
 
 
@@ -105,6 +111,12 @@ public void createDevice(OperationDelegateCallBack callback, ConfigCameraBean co
 public void connect(OperationDelegateCallBack callback);
 ```
 
+**参数说明**
+
+| 参数                      | 说明     |
+| ------------------------- | -------- |
+| OperationDelegateCallBack | 操作回调 |
+
 
 
 ### 断开连线
@@ -112,6 +124,12 @@ public void connect(OperationDelegateCallBack callback);
 ```java
 public void disconnect(OperationDelegateCallBack callBack);
 ```
+
+**参数说明**
+
+| 参数                      | 说明     |
+| ------------------------- | -------- |
+| OperationDelegateCallBack | 操作回调 |
 
 
 
@@ -121,6 +139,12 @@ public void disconnect(OperationDelegateCallBack callBack);
 public void startPreview(OperationDelegateCallBack callBack);
 ```
 
+**参数说明**
+
+| 参数                      | 说明     |
+| ------------------------- | -------- |
+| OperationDelegateCallBack | 操作回调 |
+
 
 
 ### 停止live
@@ -128,6 +152,12 @@ public void startPreview(OperationDelegateCallBack callBack);
 ```java
 public void stopPreview(OperationDelegateCallBack callBack);
 ```
+
+**参数说明**
+
+| 参数                      | 说明     |
+| ------------------------- | -------- |
+| OperationDelegateCallBack | 操作回调 |
 
 
 
@@ -137,7 +167,7 @@ public void stopPreview(OperationDelegateCallBack callBack);
 public void snapshot(String absoluteFilePath, Context context, PLAYMODE playmode, OperationDelegateCallBack callBack)
 ```
 
-#### 参数说明
+**参数说明**
 
 | 参数                      | 说明         |
 | ------------------------- | ------------ |
@@ -155,7 +185,7 @@ public void snapshot(String absoluteFilePath, Context context, PLAYMODE playmode
 public int startRecordLocalMp4(String folderPath, String fileName, Context context, OperationDelegateCallBack callBack)
 ```
 
-#### 参数说明
+**参数说明**
 
 | 参数                      | 说明               |
 | ------------------------- | ------------------ |
@@ -163,8 +193,6 @@ public int startRecordLocalMp4(String folderPath, String fileName, Context conte
 | fileName                  | 上下文             |
 | Context                   | 播放模式           |
 | OperationDelegateCallBack | 操作回调           |
-
-> 此方法是同步方法，需要在线程中处理
 
 
 
@@ -174,7 +202,7 @@ public int startRecordLocalMp4(String folderPath, String fileName, Context conte
 public int stopRecordLocalMp4(OperationDelegateCallBack callBack);
 ```
 
-#### 参数说明
+**参数说明**
 
 | 参数                      | 说明     |
 | ------------------------- | -------- |
@@ -202,7 +230,7 @@ public void startAudioTalk(OperationDelegateCallBack callBack);
 public void stopAudioTalk(OperationDelegateCallBack callBack);
 ```
 
-#### 参数说明
+**参数说明**
 
 | 参数                      | 说明     |
 | ------------------------- | -------- |
@@ -216,7 +244,7 @@ public void stopAudioTalk(OperationDelegateCallBack callBack);
 public void getVideoClarity(OperationDelegateCallBack callBack);
 ```
 
-#### 参数说明
+**参数说明**
 
 | 参数                      | 说明     |
 | ------------------------- | -------- |
@@ -230,7 +258,7 @@ public void getVideoClarity(OperationDelegateCallBack callBack);
 public void setVideoClarity(int mode, OperationDelegateCallBack callBack)
 ```
 
-#### 参数说明
+**参数说明**
 
 | 参数                      | 说明                      |
 | ------------------------- | ------------------------- |
@@ -245,9 +273,7 @@ public void setVideoClarity(int mode, OperationDelegateCallBack callBack)
 public void setMute(PLAYMODE playModel, int mute, OperationDelegateCallBack callBack)
 ```
 
-
-
-#### 参数说明
+**参数说明**
 
 | 参数                      | 说明                  |
 | ------------------------- | --------------------- |
@@ -263,9 +289,7 @@ public void setMute(PLAYMODE playModel, int mute, OperationDelegateCallBack call
 public void startPlayback(int startTime, int stopTime,int playTime, OperationDelegateCallBack callBack, OperationDelegateCallBack finishcallBack)
 ```
 
-
-
-#### 参数说明
+**参数说明**
 
 | 参数                      | 说明                 |
 | ------------------------- | -------------------- |
@@ -285,7 +309,7 @@ public void startPlayback(int startTime, int stopTime,int playTime, OperationDel
 public void stopplayback(OperationDelegateCallBack callBack)
 ```
 
-#### 参数说明
+**参数说明**
 
 | 参数                      | 说明     |
 | ------------------------- | -------- |
@@ -299,7 +323,7 @@ public void stopplayback(OperationDelegateCallBack callBack)
 public void pausePlayback(OperationDelegateCallBack callBack)
 ```
 
-#### 参数说明
+**参数说明**
 
 | 参数                      | 说明     |
 | ------------------------- | -------- |
@@ -313,7 +337,7 @@ public void pausePlayback(OperationDelegateCallBack callBack)
 public void resumePlayback(OperationDelegateCallBack callBack)
 ```
 
-#### 参数说明
+**参数说明**
 
 | 参数                      | 说明     |
 | ------------------------- | -------- |
@@ -327,7 +351,7 @@ public void resumePlayback(OperationDelegateCallBack callBack)
 public void queryRecordDaysByMonth(int year, int month, OperationDelegateCallBack callBack)
 ```
 
-#### 参数说明
+**参数说明**
 
 | 参数                      | 说明     |
 | ------------------------- | -------- |
@@ -343,7 +367,7 @@ public void queryRecordDaysByMonth(int year, int month, OperationDelegateCallBac
 public void queryRecordTimeSliceByDay(int year, int month, int day, OperationDelegateCallBack callBack)
 ```
 
-#### 参数说明
+**参数说明**
 
 | 参数                      | 说明     |
 | ------------------------- | -------- |

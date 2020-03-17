@@ -1,0 +1,1325 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>ICameraP2P · Tuya IPC</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Daju.huang">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Monitor.html" />
+    
+    
+    <link rel="prev" href="MainView.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Preparation.html">
+            
+                <a href="Preparation.html">
+            
+                    
+                    Fast integration
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="Preparation.html">
+            
+                <a href="Preparation.html">
+            
+                    
+                    Ready for integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="Integrated.html">
+            
+                <a href="Integrated.html">
+            
+                    
+                    Integrate SDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="ProgramArchitecure.html">
+            
+                <a href="ProgramArchitecure.html">
+            
+                    
+                    Architecture description
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="User.html">
+            
+                <a href="User.html">
+            
+                    
+                    User Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="home_device.html">
+            
+                <a href="home_device.html">
+            
+                    
+                    Home & Equipment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="wifi_config.html">
+            
+                <a href="wifi_config.html">
+            
+                    
+                    Camera network configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="MainView.html">
+            
+                <a href="MainView.html">
+            
+                    
+                    Camera function
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="MainView.html">
+            
+                <a href="MainView.html">
+            
+                    
+                    Main View
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.7.1.1" data-path="ICameraP2P.html">
+            
+                <a href="ICameraP2P.html">
+            
+                    
+                    ICameraP2P
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.2" data-path="Monitor.html">
+            
+                <a href="Monitor.html">
+            
+                    
+                    Monitor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.3" data-path="parameters.html">
+            
+                <a href="parameters.html">
+            
+                    
+                    CameraBusiness
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.4" data-path="Callback.html">
+            
+                <a href="Callback.html">
+            
+                    
+                    Business layer Callback
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.5" data-path="DecryptImageView.html">
+            
+                <a href="DecryptImageView.html">
+            
+                    
+                    DecryptImageView
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.6" data-path="TimeBarView.html">
+            
+                <a href="TimeBarView.html">
+            
+                    
+                    TimeBarView
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="LiveProcess.html">
+            
+                <a href="LiveProcess.html">
+            
+                    
+                    Live video
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="PlaybackProcess.html">
+            
+                <a href="PlaybackProcess.html">
+            
+                    
+                    Memory card playback
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="CloudStorageProcess.html">
+            
+                <a href="CloudStorageProcess.html">
+            
+                    
+                    Cloud Storage
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="CloudStorageProcess.html">
+            
+                <a href="CloudStorageProcess.html">
+            
+                    
+                    Cloud Storage process
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="CloudStorage_aar.html">
+            
+                <a href="CloudStorage_aar.html">
+            
+                    
+                    Cloud storage purchase components
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="CloudStorageApi.html">
+            
+                <a href="CloudStorageApi.html">
+            
+                    
+                    Cloud Storage Get Data API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="Cloud_storage_video.html">
+            
+                <a href="Cloud_storage_video.html">
+            
+                    
+                    Cloud Storage Play API
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="DoorBell_Wake_up.html">
+            
+                <a href="DoorBell_Wake_up.html">
+            
+                    
+                    DoorBell Wake up
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="Message_push.html">
+            
+                <a href="Message_push.html">
+            
+                    
+                    Message push
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="Doorbell_wakeup.html">
+            
+                <a href="Doorbell_wakeup.html">
+            
+                    
+                    Low power doorbell wakeUp & Push
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html">
+            
+                    
+                    Camera function points
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html#Camera device standardized features">
+            
+                    
+                    Camera standardization function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html#Device standardized feature method">
+            
+                    
+                    Equipment standardization method
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html#Memory card and local video recording management">
+            
+                    
+                    Memory card management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html#Low-power doorbell features">
+            
+                    
+                    Low power doorbell function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="camera_device_points.html">
+            
+                <a href="camera_device_points.html#PTZ Controll">
+            
+                    
+                    PTZ control
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="Camera_Message_Center.html">
+            
+                <a href="Camera_Message_Center.html">
+            
+                    
+                    Message Center
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="Camera_Message_Center.html">
+            
+                <a href="Camera_Message_Center.html">
+            
+                    
+                    Message List
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="mesage_center_video.html">
+            
+                <a href="mesage_center_video.html">
+            
+                    
+                    Message video play
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="statusCode.html">
+            
+                <a href="statusCode.html">
+            
+                    
+                    StatusCode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="FAQ.md">
+            
+                <span>
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="doc_update_log.html">
+            
+                <a href="doc_update_log.html">
+            
+                    
+                    Version Record
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >ICameraP2P</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="icamerap2p">ICameraP2P</h1>
+<h2 id="introduction">Introduction</h2>
+<p>ICameraP2P is the core functional interface of <strong>Tuya Smart Camera Android SDK</strong>, which mainly provides audio and video communication and instruction set interaction interface.</p>
+<h2 id="method">Method</h2>
+<h3 id="tuyacamera-initialization">TuyaCamera initialization</h3>
+<p><strong>description</strong></p>
+<p>create ICameraP2P object </p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">ICameraP2P</span> <span class="token function">generateTuyaSmartCamera</span><span class="token punctuation">(</span><span class="token keyword">int</span>  p2pType<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p2pType</td>
+<td>corresponding to the p2p capability of the corresponding device</td>
+</tr>
+</tbody>
+</table>
+<h3 id="register--listener">Register  listener</h3>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">registorOnP2PCameraListener</span><span class="token punctuation">(</span><span class="token class-name">OnP2PCameraListener</span> listener<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OnP2PCameraListener</td>
+<td>p2p operation callback</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>OnP2PCameraListener: please refer to <a href="Callback.html">callback</a></p>
+</blockquote>
+<h3 id="unregister--listener">Unregister  listener</h3>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">removeOnP2PCameraListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="generate-camera-view">Generate Camera View</h3>
+<p><strong>description</strong></p>
+<p>Bind monitor view with ICameraP2P </p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">generateCameraView</span><span class="token punctuation">(</span><span class="token class-name">T</span> view<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>View</td>
+<td>Monitor View</td>
+</tr>
+</tbody>
+</table>
+<h3 id="destroy-camera-view">Destroy Camera View</h3>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">destroyCameraView</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="create-device">Create Device</h3>
+<p><strong>description</strong></p>
+<p>Associate with the underlying library p2p object device</p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">createDevice</span><span class="token punctuation">(</span><span class="token class-name">OperationDelegateCallBack</span> callback<span class="token punctuation">,</span> <span class="token class-name">ConfigCameraBean</span> config<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OperationDelegateCallBack</td>
+<td>Operation callback</td>
+</tr>
+<tr>
+<td>ConfigCameraBean</td>
+<td>Configuration parameter</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>OperationDelegateCallBack: please refer to<a href="Callback.html">Callback</a></p>
+<p>ConfigCameraBean:&#x4E3A;&#x914D;&#x7F6E;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#xFF0C;&#x53C2;&#x6570;&#x5982;&#x4E0B;:</p>
+</blockquote>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p2pType</td>
+<td>P2p Type</td>
+</tr>
+<tr>
+<td>initString</td>
+<td>Key configuration data</td>
+</tr>
+<tr>
+<td>password</td>
+<td>p2p password</td>
+</tr>
+<tr>
+<td>devId</td>
+<td>device Id</td>
+</tr>
+<tr>
+<td>localId</td>
+<td>device local Id</td>
+</tr>
+<tr>
+<td>localKey</td>
+<td>device local Key</td>
+</tr>
+<tr>
+<td>token</td>
+<td>user token</td>
+</tr>
+<tr>
+<td>clientTraceId</td>
+<td>connect traceId</td>
+</tr>
+<tr>
+<td>p2pId</td>
+<td>p2p Id</td>
+</tr>
+</tbody>
+</table>
+<h3 id="establish-connection">establish connection</h3>
+<p><strong>description</strong></p>
+<p>build p2p connect</p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">connect</span><span class="token punctuation">(</span><span class="token class-name">OperationDelegateCallBack</span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OperationDelegateCallBack</td>
+<td>Operation callback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="disconnect">Disconnect</h3>
+<p><strong>description</strong></p>
+<p>disconnect  p2p</p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">disconnect</span><span class="token punctuation">(</span><span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OperationDelegateCallBack</td>
+<td>Operation callback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="start-live">Start live</h3>
+<p><strong>description</strong></p>
+<p>start live video </p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">startPreview</span><span class="token punctuation">(</span><span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OperationDelegateCallBack</td>
+<td>Operation callback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="stop-live">Stop live</h3>
+<p><strong>description</strong></p>
+<p>Stop live video </p>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OperationDelegateCallBack</td>
+<td>Operation callback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="snapshot">Snapshot</h3>
+<p><strong>description</strong></p>
+<p>Stop live video </p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">snapshot</span><span class="token punctuation">(</span><span class="token class-name">String</span> absoluteFilePath<span class="token punctuation">,</span> <span class="token class-name">Context</span> context<span class="token punctuation">,</span> <span class="token class-name">PLAYMODE</span> playmode<span class="token punctuation">,</span> <span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>absoluteFilePath</td>
+<td>Picture address path</td>
+</tr>
+<tr>
+<td>context</td>
+<td>/</td>
+</tr>
+<tr>
+<td>playmode</td>
+<td>Play mode</td>
+</tr>
+<tr>
+<td>OperationDelegateCallBack</td>
+<td>Operation callback</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>playmodel: LIVE / PLAYBACK</p>
+</blockquote>
+<h3 id="start-record-local-mp4">Start Record Local Mp4</h3>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">startRecordLocalMp4</span><span class="token punctuation">(</span><span class="token class-name">String</span> folderPath<span class="token punctuation">,</span> <span class="token class-name">String</span> fileName<span class="token punctuation">,</span> <span class="token class-name">Context</span> context<span class="token punctuation">,</span> <span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>folderPath</td>
+<td>dir path</td>
+</tr>
+<tr>
+<td>fileName</td>
+<td>file name</td>
+</tr>
+<tr>
+<td>Context</td>
+<td>/</td>
+</tr>
+<tr>
+<td>OperationDelegateCallBack</td>
+<td>Operation callback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="stop-record-local-mp4">Stop Record Local MP4</h3>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">stopRecordLocalMp4</span><span class="token punctuation">(</span><span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OperationDelegateCallBack</td>
+<td>Operation callback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="start-audio-talk">Start Audio Talk</h3>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">startAudioTalk</span><span class="token punctuation">(</span><span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OperationDelegateCallBack</td>
+<td>Operation callback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="stop-audio-talk">Stop Audio Talk</h3>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">stopAudioTalk</span><span class="token punctuation">(</span><span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OperationDelegateCallBack</td>
+<td>Operation callback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-video-clarity">Get Video Clarity</h3>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">getVideoClarity</span><span class="token punctuation">(</span><span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OperationDelegateCallBack</td>
+<td>Operation callback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="set-video-clarity">Set Video Clarity</h3>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setVideoClarity</span><span class="token punctuation">(</span><span class="token keyword">int</span> mode<span class="token punctuation">,</span> <span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mode</td>
+<td>clarity parameter: HD / STANDEND</td>
+</tr>
+<tr>
+<td>OperationDelegateCallBack</td>
+<td>Operation callback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="device-mute-function-operation">Device Mute Function Operation</h3>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setMute</span><span class="token punctuation">(</span><span class="token class-name">PLAYMODE</span> playModel<span class="token punctuation">,</span> <span class="token keyword">int</span> mute<span class="token punctuation">,</span> <span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>playModel</td>
+<td>Play mode</td>
+</tr>
+<tr>
+<td>Mute</td>
+<td>Mute parameter&#xFF1A;UNMUTE/MUTE</td>
+</tr>
+<tr>
+<td>OperationDelegateCallBack</td>
+<td>Operation callback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="start-play-back">Start Play back</h3>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">startPlayback</span><span class="token punctuation">(</span><span class="token keyword">int</span> startTime<span class="token punctuation">,</span> <span class="token keyword">int</span> stopTime<span class="token punctuation">,</span><span class="token keyword">int</span> playTime<span class="token punctuation">,</span> <span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">,</span> <span class="token class-name">OperationDelegateCallBack</span> finishcallBack<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>startTime</td>
+<td>timePiece start Time</td>
+</tr>
+<tr>
+<td>stopTime</td>
+<td>timePiece stop Time</td>
+</tr>
+<tr>
+<td>playTime</td>
+<td>play time</td>
+</tr>
+<tr>
+<td>callBack</td>
+<td>start playback success</td>
+</tr>
+<tr>
+<td>finishcallBack</td>
+<td>finish playback</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>playTime must be between startTime and stopTime, otherwise playback will fail.</p>
+</blockquote>
+<h3 id="stop-play-back">Stop Play back</h3>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">stopplayback</span><span class="token punctuation">(</span><span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OperationDelegateCallBack</td>
+<td>Operation callback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pause-play-back">Pause Play back</h3>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">pausePlayback</span><span class="token punctuation">(</span><span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OperationDelegateCallBack</td>
+<td>Operation callback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="resume-play-back">Resume Play back</h3>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">resumePlayback</span><span class="token punctuation">(</span><span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OperationDelegateCallBack</td>
+<td>Operation callback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-the-dates-that-have-playback-video-recording-info">Get the dates that have playback video recording info</h3>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">queryRecordDaysByMonth</span><span class="token punctuation">(</span><span class="token keyword">int</span> year<span class="token punctuation">,</span> <span class="token keyword">int</span> month<span class="token punctuation">,</span> <span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>year</td>
+<td>Ex: 2020</td>
+</tr>
+<tr>
+<td>month</td>
+<td>Ex: 03</td>
+</tr>
+<tr>
+<td>OperationDelegateCallBack</td>
+<td>Operation callback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-the-video-playback-info-of-someday">Get the video playback info of someday</h3>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">queryRecordTimeSliceByDay</span><span class="token punctuation">(</span><span class="token keyword">int</span> year<span class="token punctuation">,</span> <span class="token keyword">int</span> month<span class="token punctuation">,</span> <span class="token keyword">int</span> day<span class="token punctuation">,</span> <span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>Parameter Description</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>year</td>
+<td>Ex: 2020</td>
+</tr>
+<tr>
+<td>month</td>
+<td>Ex: 03</td>
+</tr>
+<tr>
+<td>day</td>
+<td>Ex: 05</td>
+</tr>
+<tr>
+<td>OperationDelegateCallBack</td>
+<td>Operation callback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="destroy">Destroy</h3>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">destroyP2P</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="MainView.html" class="navigation navigation-prev " aria-label="Previous page: Main View">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Monitor.html" class="navigation navigation-next " aria-label="Next page: Monitor">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"ICameraP2P","level":"1.7.1.1","depth":3,"next":{"title":"Monitor","level":"1.7.1.2","depth":3,"path":"resource/Monitor.md","ref":"./resource/Monitor.md","articles":[]},"previous":{"title":"Main View","level":"1.7.1","depth":2,"path":"resource/MainView.md","ref":"./resource/MainView.md","articles":[{"title":"ICameraP2P","level":"1.7.1.1","depth":3,"path":"resource/ICameraP2P.md","ref":"./resource/ICameraP2P.md","articles":[]},{"title":"Monitor","level":"1.7.1.2","depth":3,"path":"resource/Monitor.md","ref":"./resource/Monitor.md","articles":[]},{"title":"CameraBusiness","level":"1.7.1.3","depth":3,"path":"resource/parameters.md","ref":"./resource/parameters.md","articles":[]},{"title":"Business layer Callback","level":"1.7.1.4","depth":3,"path":"resource/Callback.md","ref":"./resource/Callback.md","articles":[]},{"title":"DecryptImageView","level":"1.7.1.5","depth":3,"path":"resource/DecryptImageView.md","ref":"./resource/DecryptImageView.md","articles":[]},{"title":"TimeBarView","level":"1.7.1.6","depth":3,"path":"resource/TimeBarView.md","ref":"./resource/TimeBarView.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","prism","-highlight"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Daju.huang","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tuya IPC","language":"en","gitbook":"*","description":"Tuya IPC SDK Docs"},"file":{"path":"resource/ICameraP2P.md","mtime":"2020-03-16T09:42:58.950Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-17T04:42:19.788Z"},"basePath":"..","book":{"language":"en"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,329 +1,339 @@
-#### This document explains the operation interface of cloud storage SDK and provides reference for developers.
-#### Integration preparation 
-[tuyasmart_camera_android_sdk](https://github.com/TuyaInc/tuyasmart_camera_android_sdk/tree/release/v3.11.1r119) 3.11.1r119 must be integrated first
+# Cloud storage data API
 
-```
-    1.add the address to root repositories：
-    ...
-    maven { url 'https://jitpack.io' }
-    ...
-    2.adding dependencies under app module：
-    ...
-    implementation 'com.tuya.smart:tuyasmart-ipc-camera-middleware:3.11.1r119'
-    ...
-    implementation 'com.tuya.smart:tuyasmart-tuyaHybridContainer:1.0.0'
-    implementation 'com.github.wendux:DSBridge-Android:3.0-SNAPSHOT'
-    ...
+
+
+## Integration preparation 
+
+Build.gradle of the project module:
+
+```groovy
+...
+    implementation 'com.tuya.smart:tuyasmart-ipc-camera-middleware:3.14.3r133'
+...
 ```
 
 
-#### 1.CameraCloudSDK          
-```
-Capturing APIs related to cloud storage
-```
-- Get the current status value of cloud storage (with or without purchase, etc.)
-```
-    /**
-     * the current status value of cloud storage
-     *
-     * @param deviceBean    device info
-     * @param callback  
-     */
-    getCameraCloudInfo(DeviceBean deviceBean, ICloudCacheManagerCallback callback)
-```
-- Get cloud storage related data, Secret, Auth and other parameters
-```
-    /**
-     * Get cloud storage related data, Secret, Auth and other parameters
-     *
-     * @param devId    
-     * @param timeZone 
-     * @param callback
-     */
-    public void getCloudMediaCount(String devId, String timeZone, ICloudCacheManagerCallback callback)
-```
-- Get the time slice for the specified time
 
-```
-    /**
-     * Get the time slice for the specified time
-     *
-     * @param devId  
-     * @param timeGT Start time (13 bit timestamp)
-     * @param timeLT End time (13 bit timestamp)
-     */
-    public void getTimeLineInfoByTimeSlice(String devId, String timeGT, String timeLT, ICloudCacheManagerCallback callback)
-```
-- Acquisition of corresponding mobile detection data based on the beginning and end of time segment
+## Get cloud storage data interface method
 
-```
-    /**
-     * Acquisition of corresponding mobile detection data based on the beginning and end of time segment
-     *
-     * @param devId  
-     * @param timeGT Start time (13 bit timestamp)
-     * @param timeLT End time (13 bit timestamp)
-     * @param offset default 0
-     * @param limit  Limitation of number(default - 1,representing all data)
-     */
-    public void getMotionDetectionByTimeSlice(String devId, String timeGT, String timeLT, int offset, int limit, ICloudCacheManagerCallback callback) 
-```
-- Purchase Cloud Storage 
+CameraCloudSDK is an entity object called by the API interface of cloud storage ATOP, and provides API methods related to obtaining cloud storage purchase and time data.
 
-```
-    /**
-     * Purchase
-     *
-     * @param mContext
-     * @param deviceBean    
-     * @param homeId   
-     */
-    public void buyCloudStorage(Context mContext, DeviceBean deviceBean, String homeId) {
-        CameraCloudManager.getInstance().getCloudStorageUrl(mContext, deviceBean, homeId);
-    }
-```
-- destroy
 
-```
-    /**
-     * Called on exit
-     */
-    public void onDestroy()
+
+### getCameraCloudInfo
+
+Get cloud storage current status value (with or without purchase, etc.).
+
+```java
+void getCameraCloudInfo(DeviceBean deviceBean, ICloudCacheManagerCallback callback)
 ```
 
-#### 2.ICloudCacheManagerCallback
+**Parameter Description**
 
+| Parameter  | Description |
+| ---------- | ----------- |
+| deviceBean | device info |
+| callback   | Callback    |
+
+**Sample Code**
+
+```java
+cameraCloudSDK.getCameraCloudInfo(TuyaHomeSdk.getDataInstance().getDeviceBean(devId), CameraCloudStorageActivity.this);
 ```
+
+
+
+### getCloudMediaCount
+
+Get device cloud storage related data, Secret, Auth and other parameters.
+
+```java
+public void getCloudMediaCount(String devId, String timeZone, ICloudCacheManagerCallback callback)
+```
+
+**Parameter Description**
+
+| Parameter | Description |
+| --------- | ----------- |
+| devId     | device Id   |
+| timeZone  | time Zone   |
+| callback  | Callback    |
+
+**Sample Code**
+
+```java
+cameraCloudSDK.getCloudMediaCount(devId, TimeZone.getDefault().getID(), CameraCloudStorageActivity.this);
+```
+
+
+
+### getTimeLineInfoByTimeSlice
+
+Get time slice at specified time.
+
+```java
+public void getTimeLineInfoByTimeSlice(String devId, String timeGT, String timeLT, ICloudCacheManagerCallback callback)
+```
+
+**Parameter Description**
+
+| Parameter | Description                   |
+| --------- | ----------------------------- |
+| devId     | device Id                     |
+| timeGT    | Start time (13-bit timestamp) |
+| timeLT    | End Time                      |
+| callback  | Callback                      |
+
+**Sample Code**
+
+```java
+getTimeLineInfoByTimeSlice(devId, String.valueOf(dayBean.getCurrentStartDayTime()), String.valueOf(dayBean.getCurrentDayEndTime()));
+```
+
+
+
+### getMotionDetectionByTimeSlice
+
+Get the corresponding motion detection data according to the beginning and end of the time segment.
+
+```java
+public void getMotionDetectionByTimeSlice(String devId, String timeGT, String timeLT, int offset, int limit, ICloudCacheManagerCallback callback) 
+```
+
+**Parameter Description**
+
+| Parameter | Description                                                 |
+| --------- | ----------------------------------------------------------- |
+| devId     | device Id                                                   |
+| timeGT    | Start time (13-bit timestamp)                               |
+| timeLT    | End Time                                                    |
+| offset    | Page number, default 0                                      |
+| limit     | Number of pulls at a time, default -1, which means all data |
+| callback  | callback                                                    |
+
+**Sample Code**
+
+```java
+cameraCloudSDK.getMotionDetectionByTimeSlice(devId, timeGT, timeLT, offset, limit, this);
+```
+
+
+
+### buyCloudStorage
+
+Cloud storage purchase address interface
+
+```java
+public void buyCloudStorage(Context mContext, DeviceBean deviceBean, String homeId, ICloudManagerCallback callback) {
+  CameraCloudManager.getInstance().getCloudStorageUrl(mContext, deviceBean, homeId);
+}
+```
+
+**Parameter Description**
+
+| Parameter  | Description |
+| ---------- | ----------- |
+| mContext   | /           |
+| deviceBean | device Info |
+| homeId     | home Id     |
+| callback   | callback    |
+
+**Sample Code**
+
+```java
+cameraCloudSDK.buyCloudStorage(CameraCloudStorageActivity.this,
+                               TuyaHomeSdk.getDataInstance().getDeviceBean(devId),
+                               String.valueOf(FamilyManager.getInstance().getCurrentHomeId()), new ICloudManagerCallback() {
+                                 @Override
+                                 public void onError(int i) {
+
+                                 }
+
+                                 @Override
+                                 public void onSuccess(Object o) {
+                                   String uri = (String) o;
+                                   Intent intent = new Intent(CameraCloudStorageActivity.this, WebViewActivity.class);
+                                   intent.putExtra("Uri",uri);
+                                   startActivity(intent);
+                                 }
+                               });
+```
+
+
+
+### Destroy
+
+```java
+public void onDestroy()
+```
+
+**Sample Code**
+
+```java
+if (null != cameraCloudSDK) {
+  cameraCloudSDK.onDestroy();
+}
+```
+
+
+
+
+
+### ICloudCacheManagerCallback
+
+**description**
+
 Callback method after calling SDK
+
+
+
+#### getCloudDayList
+
+Returns date with cloud storage data.
+
+```java
+void getCloudDayList(List<CloudDayBean> cloudDayBeanList);
 ```
 
-```
-    /**
-     * Return the date of cloud storage data
-     *
-     * @param cloudDayBeanList
-     */
-    void getCloudDayList(List<CloudDayBean> cloudDayBeanList);
+**Parameter Description**
 
-    /**
-     * Return the encryKey of cloud storage data 
-     *
-     * @param encryKey
-     */
-    void getCloudSecret(String encryKey);
+| Parameter        | Description             |
+| ---------------- | ----------------------- |
+| cloudDayBeanList | Cloud storage date List |
 
-    /**
-     * Return the authorityJson of cloud storage data  
-     *
-     * @param authorityJson
-     */
-    void getAuthorityGet(String authorityJson);
 
-    /**
-     * Return cloud storage data queried according to a certain period of time
-     *
-     * @param timePieceBeans
-     */
-    void getTimePieceInfoByTimeSlice(List<TimePieceBean> timePieceBeans);
 
-    /**
-     * Return cloud storage motion detection data queried according to a certain period of time
-     *
-     * @param timeRangeBeans
-     */
-    void getMotionDetectionByTimeSlice(List<TimeRangeBean> timeRangeBeans);
+#### getCloudSecret
 
-    /**
-     * Return cloud storage status
-     *
-     * @param code
-     */
-    void getCloudStatusSuccess(int code);
-
-    /**
-     * Return cloud storage config info，for the SDK validation
-     *
-     * @param config
-     */
-    void getCloudConfigDataTags(String config);
-    
-    /**
-     * @param errorCode
-     */
-    void onError(int errorCode);
-
+```java
+void getCloudSecret(String encryKey);
 ```
 
-#### 3.State values and error codes
-- State values
-```
-    //Unopened Services
-    public static final int NO_SERVES = 10001;
-    //Services have been opened, but no data
-    public static final int SERVES_NO_CLOUD_DATA = 10002;
-    //Services have been opened, data available
-    public static final int SERVES_DATA = 10003;
-    //service has expired and data is available
-    public static final int EXPIRED_SERVES_DATA = 10004;
-    //Service has expired without data
-    public static final int EXPIRED_SERVES_NO_CLOUD_DATA = 10005;
-```
-- Error codes
+**Parameter Description**
 
-```
-    //get SECRET failed
-    public static final int ERROR_QUERY_SECRET_CODE = 10100;
-    //get AUTH failed
-    public static final int ERROR_QUERY_AUTH_CODE = 10101;
-    //other exception
-    public static final int ERROR_QUERY_CODE = 10110;
-    
-    //get auth info failed
-    public static final int ERROR_GET_CLOUD_DAY_COUNT = 10010;
-    //Failure to obtain time slice of a day (authentication information)
-    public static final int ERROR_GET_MEDIA_PREFIXS = 10011;
-```
----------------------------------------------------
+| Parameter | Description       |
+| --------- | ----------------- |
+| encryKey  | Cloud storage key |
 
-##### 4.ITYCloudCamera
 
-```
-Cloud Storage Plays SDK
-```
-- Initialize, create device object
 
-```
-     /**
-     * Initialize, create device object
-     *
-     * @param cachePath 
-     * @param devId     
-     */
-    void createCloudDevice(String cachePath, String devId)
-```
-- Registration/anti-registration P2P monitoring
+#### getAuthorityGet
 
-```
-     /**
-     * registration P2P monitoring
-     *
-     * @param listener
-     */
-    void registorOnP2PCameraListener(OnP2PCameraListener listener);
+Cloud storage authorityJson
 
-    /**
-     * anti-registration P2P monitoring
-     */
-    void removeOnP2PCameraListener();
+```java
+void getAuthorityGet(String authorityJson);
 ```
-- Associate Player with Player Component
 
-```
-    /**
-     * Associate view
-     * @param view
-     */
-    void generateCloudCameraView(IRegistorIOTCListener view);
+**Parameter Description**
 
-```
-- Configure cloud storage tags(must configure before start playing.)
+| Parameter     | Description |
+| ------------- | ----------- |
+| authorityJson | Check data  |
 
-```
-     /**
-     * Configure cloud storage tags
-     * @param jsonStr
-     * @param callBack
-     * @return
-     */
-    int configCloudDataTags(String jsonStr, OperationDelegateCallBack callBack);
-```
-- Cloud Storage Play API
 
-```
-     /**
-     * play
-     * @param mStartTime           UNIX second timestamp
-     * @param mEndTime             UNIX second timestamp
-     * @param isEvent              Is it a mobile detection event?
-     * @param jsonAuthParams       Authentication Information
-     * @param encryptKey           
-     * @param callback             
-     * @param playFinishedCallBack 
-     */
-    void playCloudDataWithStartTime(long mStartTime, long mEndTime, boolean isEvent, String jsonAuthParams, String encryptKey, OperationCallBack callback, OperationCallBack playFinishedCallBack);
-    /**
-     * pause
-     * @param callBack
-     * @return
-     */
-    int pausePlayCloudVideo(OperationDelegateCallBack callBack);
 
-    /**
-     * resume
-     * @param callBack
-     * @return
-     */
-    int resumePlayCloudVideo(OperationDelegateCallBack callBack);
+#### getTimePieceInfoByTimeSlice
 
-    /**
-     * stop
-     * @param callBack
-     * @return
-     */
-    int stopPlayCloudVideo(OperationDelegateCallBack callBack);
-```
-- enable sound
+Returns data queried by cloud storage based on a certain time period.
 
+```java
+void getTimePieceInfoByTimeSlice(List<TimePieceBean> timePieceBeans);
 ```
-    /**
-     * is mute or not
-     * @return
-     */
-    int getCloudMute();
 
-    /**
-     * set mute
-     * @param mute
-     * @param callBack
-     */
-    void setCloudMute(final int mute, OperationDelegateCallBack callBack);
-```
-- snapshot
+**Parameter Description**
 
-```
-    /**
-     * 
-     * @param absoluteFilePath 
-     * @param callBack
-     * @return
-     */
-    int snapshot(String absoluteFilePath, OperationDelegateCallBack callBack);
-```
-- record
+| Parameter      | Description          |
+| -------------- | -------------------- |
+| timePieceBeans | Time-slice data list |
 
-```
-    /**
-     * record
-     * @param folderPath    save path
-     * @param fileName  save file 
-     * @param callBack
-     * @return
-     */
-    int startRecordLocalMp4(String folderPath, String fileName, OperationDelegateCallBack callBack);
 
-    /**
-     * stop
-     * @param callBack
-     * @return
-     */
-    int stopRecordLocalMp4(OperationDelegateCallBack callBack);
-```
-- Anti-initialization
 
-```
-    /**
-     * Anti-initialization
-     */
-    void deinitCloudCamera();
+#### getMotionDetectionByTimeSlice
 
+Returns data from cloud storage motion detection queries based on a certain time period.
+
+```java
+void getMotionDetectionByTimeSlice(List<TimeRangeBean> timeRangeBeans);
 ```
+
+**Parameter Description**
+
+| Parameter      | Description                             |
+| -------------- | --------------------------------------- |
+| timeRangeBeans | Motion detection time segment data list |
+
+
+
+#### getCloudStatusSuccess
+
+Back to cloud storage status.
+
+```java
+void getCloudStatusSuccess(int code);
+```
+
+**Parameter Description**
+
+| Parameter | Description       |
+| --------- | ----------------- |
+| code      | Cloud status code |
+
+> code value, refer to the status code at the bottom of the article.
+
+
+
+#### getCloudConfigDataTags
+
+Return cloud storage configuration information, need to pass in SDK verification.
+
+```java
+void getCloudConfigDataTags(String config);
+```
+
+**Parameter Description**
+
+| Parameter | Description                    |
+| --------- | ------------------------------ |
+| config    | Configuration information data |
+
+
+
+#### onError
+
+Error callback
+
+```java
+void onError(int errorCode);
+```
+
+**Parameter Description**
+
+| Parameter | Description |
+| --------- | ----------- |
+| errorCode | Error code  |
+
+
+
+#### Status value
+
+| Status value | Description                             |
+| ------------ | --------------------------------------- |
+| 10001        | Not Opened                              |
+| 10002        | Service opened, no data                 |
+| 10003        | Service is available, data is available |
+| 10004        | Service expired with data               |
+| 10005        | Service expired, no data                |
+
+
+
+#### Error code
+
+| error code | Description                                                  |
+| ---------- | ------------------------------------------------------------ |
+| 10100      | Get SECRET failed                                            |
+| 10101      | Failed to get AUTH                                           |
+| 10110      | Other exceptions                                             |
+| 10010      | Failed to obtain authentication information                  |
+| 10011      | Failed to get time slice (authentication information) for a certain day |
+

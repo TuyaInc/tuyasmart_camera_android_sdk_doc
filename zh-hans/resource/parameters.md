@@ -15,27 +15,29 @@ void requestCameraInfo(String devId, ResultListener<CameraInfoBean> listener)
 | devId  | 设备Id |
 | listener  | 数据回调 |
 
-  
-- CameraInfoBean
+CameraInfoBean
 
-  | 名称                     | 描述   | 
-  | ------------------------ | ------ | 
-  | password                   | 秘钥   |
-  | p2pId               | p2p Id | 
-  | p2pSpecifiedType         | p2p的类型   | 
-  | P2pConfig             | p2p配置信息 | 
+| 名称                     | 描述   |
+| ------------------------ | ------ |
+| password                   | 秘钥   |
+| p2pId               | p2p Id |
+| p2pSpecifiedType         | p2p的类型   |
+| P2pConfig             | p2p配置信息 |
 
-- P2pConfig
+P2pConfig
 
-  | 名称                     | 描述   | 
-  | ------------------------ | ------ | 
-  | initStr                   | initStr   |
-  | p2pKey               | p2p Id | 
-  | ices         | ices数据   | 
+| 名称                     | 描述   |
+| ------------------------ | ------ |
+| initStr                   | initStr   |
+| p2pKey               | p2p Id |
+| ices         | ices数据   |
+
 > p2pId，pwd, localkey,initStr,p2pkey这几个参数是TuyaCameraSDK初始化所必须有的，这几个参数没有对应成功，p2p的构建通道就不可能成功。
-  
+
+
 
 ### 示例代码：
+
 ```java
 private void getApi() {
         Map postData = new HashMap();

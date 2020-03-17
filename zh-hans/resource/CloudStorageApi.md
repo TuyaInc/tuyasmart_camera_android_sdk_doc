@@ -7,17 +7,15 @@
 
 项目模块的build.gradle：
 
-```
-    ...
-    implementation 'com.tuya.smart:tuyasmart-ipc-camera-middleware:3.14.3r133'
-    ...
+```groovy
+...
+  implementation 'com.tuya.smart:tuyasmart-ipc-camera-middleware:3.14.3r133'
+...
 ```
 
 
 
 ## 获取云存储数据接口方法
-
-**描述**
 
 **CameraCloudSDK**是云存储ATOP的API接口调用的实体对象，提供了获取云存储购买，时间数据相关的API方法。
 
@@ -26,16 +24,14 @@
 ```java
 void getCameraCloudInfo(DeviceBean deviceBean, ICloudCacheManagerCallback callback)
 ```
-#### 参数说明
+**参数说明**
 
 | 参数    | 说明                               |
 | ------- | ---------------------------------- |
 | deviceBean | 设备信息 |
 | callback | 回调方法|
 
-
-
-#### 示例代码
+**示例代码**
 
 ```java
 cameraCloudSDK.getCameraCloudInfo(TuyaHomeSdk.getDataInstance().getDeviceBean(devId), CameraCloudStorageActivity.this);
@@ -48,7 +44,7 @@ cameraCloudSDK.getCameraCloudInfo(TuyaHomeSdk.getDataInstance().getDeviceBean(de
 ```java
 public void getCloudMediaCount(String devId, String timeZone, ICloudCacheManagerCallback callback)
 ```
-#### 参数说明
+**参数说明**
 
 | 参数    | 说明                               |
 | ------- | ---------------------------------- |
@@ -56,9 +52,7 @@ public void getCloudMediaCount(String devId, String timeZone, ICloudCacheManager
 | timeZone | 时区|
 | callback | 回调方法|
 
-
-
-#### 示例代码
+**示例代码**
 
 ```java
 cameraCloudSDK.getCloudMediaCount(devId, TimeZone.getDefault().getID(), CameraCloudStorageActivity.this);
@@ -71,7 +65,7 @@ cameraCloudSDK.getCloudMediaCount(devId, TimeZone.getDefault().getID(), CameraCl
 ```java
 public void getTimeLineInfoByTimeSlice(String devId, String timeGT, String timeLT, ICloudCacheManagerCallback callback)
 ```
-#### 参数说明
+**参数说明**
 
 | 参数    | 说明                               |
 | ------- | ---------------------------------- |
@@ -80,9 +74,7 @@ public void getTimeLineInfoByTimeSlice(String devId, String timeGT, String timeL
 | timeLT | 结束时间|
 | callback | 回调方法|
 
-
-
-#### 示例代码
+**示例代码**
 
 ```java
 getTimeLineInfoByTimeSlice(devId, String.valueOf(dayBean.getCurrentStartDayTime()), String.valueOf(dayBean.getCurrentDayEndTime()));
@@ -92,11 +84,11 @@ getTimeLineInfoByTimeSlice(devId, String.valueOf(dayBean.getCurrentStartDayTime(
 
 ### 根据时间片段始末获取相应的移动侦测数据
 
-```
+```java
 public void getMotionDetectionByTimeSlice(String devId, String timeGT, String timeLT, int offset, int limit, ICloudCacheManagerCallback callback) 
 ```
 
-#### 参数说明
+**参数说明**
 
 | 参数    | 说明                               |
 | ------- | ---------------------------------- |
@@ -107,9 +99,7 @@ public void getMotionDetectionByTimeSlice(String devId, String timeGT, String ti
 | limit | 每次拉取条数，默认-1，表示所有数据|
 | callback | 回调方法|
 
-
-
-#### 示例代码
+**示例代码**
 
 ```java
 cameraCloudSDK.getMotionDetectionByTimeSlice(devId, timeGT, timeLT, offset, limit, this);
@@ -119,13 +109,13 @@ cameraCloudSDK.getMotionDetectionByTimeSlice(devId, timeGT, timeLT, offset, limi
 
 ### 云存储购买地址接口
 
-```
+```java
 public void buyCloudStorage(Context mContext, DeviceBean deviceBean, String homeId, ICloudManagerCallback callback) {
         CameraCloudManager.getInstance().getCloudStorageUrl(mContext, deviceBean, homeId);
     }
 ```
 
-#### 参数说明
+**参数说明**
 
 | 参数    | 说明                               |
 | ------- | ---------------------------------- |
@@ -134,43 +124,41 @@ public void buyCloudStorage(Context mContext, DeviceBean deviceBean, String home
 | homeId | 家庭id|
 | callback | 回调方法|
 
-
-
-#### 示例代码
+**示例代码**
 
 ```java
-	cameraCloudSDK.buyCloudStorage(CameraCloudStorageActivity.this,
-                        TuyaHomeSdk.getDataInstance().getDeviceBean(devId),
-                        String.valueOf(FamilyManager.getInstance().getCurrentHomeId()), new ICloudManagerCallback() {
-                            @Override
-                            public void onError(int i) {
+cameraCloudSDK.buyCloudStorage(CameraCloudStorageActivity.this,
+                               TuyaHomeSdk.getDataInstance().getDeviceBean(devId),
+                               String.valueOf(FamilyManager.getInstance().getCurrentHomeId()), new ICloudManagerCallback() {
+                                 @Override
+                                 public void onError(int i) {
 
-                            }
+                                 }
 
-                            @Override
-                            public void onSuccess(Object o) {
-                                String uri = (String) o;
-                                Intent intent = new Intent(CameraCloudStorageActivity.this, WebViewActivity.class);
-                                intent.putExtra("Uri",uri);
-                                startActivity(intent);
-                            }
-                        });
+                                 @Override
+                                 public void onSuccess(Object o) {
+                                   String uri = (String) o;
+                                   Intent intent = new Intent(CameraCloudStorageActivity.this, WebViewActivity.class);
+                                   intent.putExtra("Uri",uri);
+                                   startActivity(intent);
+                                 }
+                               });
 ```
 
 
 
 ### 销毁
 
-```
+```java
 public void onDestroy()
 ```
 
-#### 示例代码
+**示例代码**
 
 ```java
 if (null != cameraCloudSDK) {
-        cameraCloudSDK.onDestroy();
-    }
+  cameraCloudSDK.onDestroy();
+}
 ```
 
 

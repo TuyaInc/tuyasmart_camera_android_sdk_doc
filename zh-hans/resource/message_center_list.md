@@ -1,24 +1,34 @@
-# 摄像机消息中心列表
+# 摄像机消息中心
+
+
+
+## 简介
+
+摄像机消息中心记录了摄像机侦测报警的图片数据、视频数据及有人来访的数据。
 
 
 
 ## 模块引用
 
-```gradle
+```groovy
 implementation 'com.tuya.smart:tuyasmart-ipc-camera-message:3.13.0r128'
 ```
 
 
 
-## API说明
+## 消息中心列表获取数据API说明
 
-### 一、获取摄像机消息中心指定月含有消息的具体日期列表
+
+
+### queryAlarmDetectionDaysByMonth 
+
+获取摄像机消息中心指定月含有消息的具体日期列表
 
 ```java
 void queryAlarmDetectionDaysByMonth(String jsonParams, ResultListener<JSONArray> listener)
 ```
 
-#### 参数说明
+**参数说明**
 
 | 参数名称 | 类型   | 参数要求 | 描述                            |
 | :------: | ------ | -------- | ------------------------------- |
@@ -65,13 +75,15 @@ JSONObject object = new JSONObject();
 
 
 
-### 二、获取消息类型接口：
+### queryAlarmDetectionClassify
+
+获取消息类型
 
 ```java
 void queryAlarmDetectionClassify(String devId, ResultListener<ArrayList<CameraMessageClassifyBean>> listener)
 ```
 
-#### 参数说明
+**参数说明**
 
 | 参数名称 | 类型   | 出现要求 | 描述           |
 | :------: | ------ | -------- | -------------- |
@@ -130,7 +142,9 @@ public void queryCameraMessageClassify(String devId) {
 
 
 
-### 三、获取消息中心具体数据
+### getAlarmDetectionMessageList
+
+获取消息中心具体数据
 
 ```java
 void getAlarmDetectionMessageList(String json, ResultListener<JSONObject> listener)
@@ -241,7 +255,9 @@ if (null != messageBusiness){
 
 
 
-### 四、消息删除接口
+### deleteAlarmDetectionMessageList
+
+消息删除接口
 
 ```java
 void deleteAlarmDetectionMessageList(String ids, ResultListener<Boolean> listener)
@@ -289,3 +305,6 @@ messageBusiness.deleteAlarmDetectionMessageList(ids.toString(), new Business.Res
 	"status" : "ok"
 }
 ```
+
+
+

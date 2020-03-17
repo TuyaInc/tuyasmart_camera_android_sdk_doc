@@ -4,7 +4,6 @@
 
 ## 简介
 
-
 OnP2PCameraListener: 实现业务层所需的回调
 OperationDelegateCallBack: p2p信令操作方法回调
 
@@ -19,21 +18,24 @@ OperationDelegateCallBack: p2p信令操作方法回调
 ### 回调视频YUV数据
 
 ```java
-  void onReceiveFrameYUVData(int sessionId, ByteBuffer y, ByteBuffer u, ByteBuffer v, int width, int height, long timestamp, Object camera)
+void onReceiveFrameYUVData(int sessionId, ByteBuffer y, ByteBuffer u, ByteBuffer v, int width, int height, int nFrameRate, int nIsKeyFrame, long timestamp, long nProgress, long nDuration, Object camera);
 ```
-#### 参数说明
-| 参数          | 说明    |
-| ------------- | ------- |
-| sessionId       | p2p session Id |
-| y    | 视频Y数据       |
-| u         | 视频U数据       |
-| v      | 视频V数据 |
-| width         | 视频宽度  |
-| height       | 视频高度      |
-| timestamp      | 时间戳     |
-| camera         | /       |
+**参数说明**
 
-
+| 参数        | 说明                             |
+| ----------- | -------------------------------- |
+| sessionId   | \                                |
+| Y           | 视频Y数据                        |
+| u           | 视频U数据                        |
+| v           | 视频V数据                        |
+| width       | 视频画面的宽                     |
+| height      | 视频画面的高                     |
+| nFrameRate  | 帧率                             |
+| nIsKeyFrame | 是否I帧                          |
+| timestamp   | 时间戳                           |
+| nProgress   | 时间进度(消息中心视频播放的进度) |
+| nDuration   | 时长(消息中心视频播放时长)       |
+| camera      | \                                |
 
 ### p2p的链接状态回调
 
@@ -61,7 +63,7 @@ OperationDelegateCallBack: p2p信令操作方法回调
 void onSuccess(int sessionId, int requestId, String data)
 ```
 
-#### 参数说明
+**参数说明**
 
 | 参数      | 说明             |
 | --------- | ---------------- |
@@ -69,13 +71,15 @@ void onSuccess(int sessionId, int requestId, String data)
 | requestId | /                |
 | data      | 可携带回来的数据 |
 
+
+
 ### p2p指令操作失败
 
 ```java
 void onFailure(int sessionId, int requestId, int errCode)
 ```
 
-#### 参数说明
+**参数说明**
 
 | 参数      | 说明       |
 | --------- | ---------- |

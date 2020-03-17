@@ -1,8 +1,6 @@
 # 视频直播
 
-视频直播需要获取云端服务器信息，接着创建`ICameraP2P`对象，然后进行P2P连接后，就可以播放实时视频，
-
-截图、录制视频和实时对讲数据传输。
+视频直播需要获取云端服务器信息，接着创建`ICameraP2P`对象，然后进行P2P连接后，就可以播放实时视频，截图、录制视频和实时对讲数据传输。
 
 
 
@@ -272,6 +270,8 @@ if (Constants.hasStoragePermission()) {
 
 > 注：录制视频需要写存储卡权限
 
+
+
 #### 停止视频录制
 
 调用stopRecordLocalMp4方法。
@@ -295,9 +295,13 @@ mCameraP2P.stopRecordLocalMp4(new OperationDelegateCallBack() {
             });
 ```
 
+
+
 #### 视频截图
 
 截取实时视频的影像图片存储到手机SD卡上。
+
+**示例代码**
 
 ```java
 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -322,6 +326,8 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
         });
 ```
 
+
+
 #### 设置拾音器状态
 
 设置设备传过来的声音开关
@@ -329,22 +335,24 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 **示例代码**
 
 ```java
-        int mute;
-        mute = previewMute == ICameraP2P.MUTE ? ICameraP2P.UNMUTE : ICameraP2P.MUTE;
-        mCameraP2P.setMute(ICameraP2P.PLAYMODE.LIVE, mute, new OperationDelegateCallBack() {
-            @Override
-            public void onSuccess(int sessionId, int requestId, String data) {
-            		//data返回的是对应操作之后的结果值
-                previewMute = Integer.valueOf(data);
-                mHandler.sendMessage(MessageUtil.getMessage(MSG_MUTE, ARG1_OPERATE_SUCCESS));
-            }
+int mute;
+mute = previewMute == ICameraP2P.MUTE ? ICameraP2P.UNMUTE : ICameraP2P.MUTE;
+mCameraP2P.setMute(ICameraP2P.PLAYMODE.LIVE, mute, new OperationDelegateCallBack() {
+  @Override
+  public void onSuccess(int sessionId, int requestId, String data) {
+    //data返回的是对应操作之后的结果值
+    previewMute = Integer.valueOf(data);
+    mHandler.sendMessage(MessageUtil.getMessage(MSG_MUTE, ARG1_OPERATE_SUCCESS));
+  }
 
-            @Override
-            public void onFailure(int sessionId, int requestId, int errCode) {
-                mHandler.sendMessage(MessageUtil.getMessage(MSG_MUTE, ARG1_OPERATE_FAIL));
-            }
-        });
+  @Override
+  public void onFailure(int sessionId, int requestId, int errCode) {
+    mHandler.sendMessage(MessageUtil.getMessage(MSG_MUTE, ARG1_OPERATE_FAIL));
+  }
+});
 ```
+
+
 
 #### 开启对讲
 

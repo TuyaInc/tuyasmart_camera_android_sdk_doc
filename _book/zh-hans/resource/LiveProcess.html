@@ -25,11 +25,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
-                
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
                 
             
                 
@@ -398,7 +394,7 @@
                 <a href="CloudStorageApi.html">
             
                     
-                    云存储数据api
+                    云存储数据获取api
             
                 </a>
             
@@ -455,7 +451,7 @@
                 <a href="camera_device_points.html">
             
                     
-                    摄像头设备功能点
+                    摄像机设备功能点
             
                 </a>
             
@@ -466,10 +462,10 @@
     
         <li class="chapter " data-level="1.11.1" data-path="camera_device_points.html">
             
-                <a href="camera_device_points.html#摄像头设备标准化功能">
+                <a href="camera_device_points.html#摄像机设备标准化功能">
             
                     
-                    摄像头设备标准化功能介绍
+                    摄像机设备标准化功能
             
                 </a>
             
@@ -482,7 +478,7 @@
                 <a href="camera_device_points.html#设备标准化功能方法">
             
                     
-                    设备标准化功能方法介绍
+                    设备标准化功能方法
             
                 </a>
             
@@ -550,7 +546,7 @@
     
         <li class="chapter " data-level="1.12.1" data-path="message_center_list.html">
             
-                <a href="message_center_list.html">
+                <a href="message_center_list.html#">
             
                     
                     消息列表
@@ -664,8 +660,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x89C6;&#x9891;&#x76F4;&#x64AD;">&#x89C6;&#x9891;&#x76F4;&#x64AD;</h1>
-<p>&#x89C6;&#x9891;&#x76F4;&#x64AD;&#x9700;&#x8981;&#x83B7;&#x53D6;&#x4E91;&#x7AEF;&#x670D;&#x52A1;&#x5668;&#x4FE1;&#x606F;&#xFF0C;&#x63A5;&#x7740;&#x521B;&#x5EFA;<code>ICameraP2P</code>&#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x884C;P2P&#x8FDE;&#x63A5;&#x540E;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x64AD;&#x653E;&#x5B9E;&#x65F6;&#x89C6;&#x9891;&#xFF0C;</p>
-<p>&#x622A;&#x56FE;&#x3001;&#x5F55;&#x5236;&#x89C6;&#x9891;&#x548C;&#x5B9E;&#x65F6;&#x5BF9;&#x8BB2;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x3002;</p>
+<p>&#x89C6;&#x9891;&#x76F4;&#x64AD;&#x9700;&#x8981;&#x83B7;&#x53D6;&#x4E91;&#x7AEF;&#x670D;&#x52A1;&#x5668;&#x4FE1;&#x606F;&#xFF0C;&#x63A5;&#x7740;&#x521B;&#x5EFA;<code>ICameraP2P</code>&#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x884C;P2P&#x8FDE;&#x63A5;&#x540E;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x64AD;&#x653E;&#x5B9E;&#x65F6;&#x89C6;&#x9891;&#xFF0C;&#x622A;&#x56FE;&#x3001;&#x5F55;&#x5236;&#x89C6;&#x9891;&#x548C;&#x5B9E;&#x65F6;&#x5BF9;&#x8BB2;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x3002;</p>
 <h2 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h2>
 <h3 id="&#x4E3B;&#x8981;&#x94FE;&#x8DEF;&#x4EE3;&#x7801;">&#x4E3B;&#x8981;&#x94FE;&#x8DEF;&#x4EE3;&#x7801;</h3>
 <h4 id="1-&#x521D;&#x59CB;&#x5316;">1. &#x521D;&#x59CB;&#x5316;</h4>
@@ -895,6 +890,7 @@
 </code></pre>
 <h4 id="&#x89C6;&#x9891;&#x622A;&#x56FE;">&#x89C6;&#x9891;&#x622A;&#x56FE;</h4>
 <p>&#x622A;&#x53D6;&#x5B9E;&#x65F6;&#x89C6;&#x9891;&#x7684;&#x5F71;&#x50CF;&#x56FE;&#x7247;&#x5B58;&#x50A8;&#x5230;&#x624B;&#x673A;SD&#x5361;&#x4E0A;&#x3002;</p>
+<p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">Build</span><span class="token punctuation">.</span>VERSION<span class="token punctuation">.</span>SDK_INT <span class="token operator">&gt;=</span> <span class="token class-name">Build</span><span class="token punctuation">.</span>VERSION_CODES<span class="token punctuation">.</span>KITKAT<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token class-name">String</span> path <span class="token operator">=</span> <span class="token class-name">Environment</span><span class="token punctuation">.</span><span class="token function">getExternalStorageDirectory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getAbsolutePath</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;/Camera/&quot;</span><span class="token punctuation">;</span>
             <span class="token class-name">File</span> file <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -919,21 +915,21 @@
 <h4 id="&#x8BBE;&#x7F6E;&#x62FE;&#x97F3;&#x5668;&#x72B6;&#x6001;">&#x8BBE;&#x7F6E;&#x62FE;&#x97F3;&#x5668;&#x72B6;&#x6001;</h4>
 <p>&#x8BBE;&#x7F6E;&#x8BBE;&#x5907;&#x4F20;&#x8FC7;&#x6765;&#x7684;&#x58F0;&#x97F3;&#x5F00;&#x5173;</p>
 <p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
-<pre class="language-"><code class="lang-java">        <span class="token keyword">int</span> mute<span class="token punctuation">;</span>
-        mute <span class="token operator">=</span> previewMute <span class="token operator">==</span> <span class="token class-name">ICameraP2P</span><span class="token punctuation">.</span>MUTE <span class="token operator">?</span> <span class="token class-name">ICameraP2P</span><span class="token punctuation">.</span>UNMUTE <span class="token operator">:</span> <span class="token class-name">ICameraP2P</span><span class="token punctuation">.</span>MUTE<span class="token punctuation">;</span>
-        mCameraP2P<span class="token punctuation">.</span><span class="token function">setMute</span><span class="token punctuation">(</span><span class="token class-name">ICameraP2P</span><span class="token punctuation">.</span>PLAYMODE<span class="token punctuation">.</span>LIVE<span class="token punctuation">,</span> mute<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">OperationDelegateCallBack</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token class-name">String</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    <span class="token comment">//data&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x5BF9;&#x5E94;&#x64CD;&#x4F5C;&#x4E4B;&#x540E;&#x7684;&#x7ED3;&#x679C;&#x503C;</span>
-                previewMute <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                mHandler<span class="token punctuation">.</span><span class="token function">sendMessage</span><span class="token punctuation">(</span><span class="token class-name">MessageUtil</span><span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span>MSG_MUTE<span class="token punctuation">,</span> ARG1_OPERATE_SUCCESS<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
+<pre class="language-"><code class="lang-java"><span class="token keyword">int</span> mute<span class="token punctuation">;</span>
+mute <span class="token operator">=</span> previewMute <span class="token operator">==</span> <span class="token class-name">ICameraP2P</span><span class="token punctuation">.</span>MUTE <span class="token operator">?</span> <span class="token class-name">ICameraP2P</span><span class="token punctuation">.</span>UNMUTE <span class="token operator">:</span> <span class="token class-name">ICameraP2P</span><span class="token punctuation">.</span>MUTE<span class="token punctuation">;</span>
+mCameraP2P<span class="token punctuation">.</span><span class="token function">setMute</span><span class="token punctuation">(</span><span class="token class-name">ICameraP2P</span><span class="token punctuation">.</span>PLAYMODE<span class="token punctuation">.</span>LIVE<span class="token punctuation">,</span> mute<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">OperationDelegateCallBack</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token class-name">String</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//data&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x5BF9;&#x5E94;&#x64CD;&#x4F5C;&#x4E4B;&#x540E;&#x7684;&#x7ED3;&#x679C;&#x503C;</span>
+    previewMute <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    mHandler<span class="token punctuation">.</span><span class="token function">sendMessage</span><span class="token punctuation">(</span><span class="token class-name">MessageUtil</span><span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span>MSG_MUTE<span class="token punctuation">,</span> ARG1_OPERATE_SUCCESS<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token keyword">int</span> errCode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                mHandler<span class="token punctuation">.</span><span class="token function">sendMessage</span><span class="token punctuation">(</span><span class="token class-name">MessageUtil</span><span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span>MSG_MUTE<span class="token punctuation">,</span> ARG1_OPERATE_FAIL<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token keyword">int</span> errCode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mHandler<span class="token punctuation">.</span><span class="token function">sendMessage</span><span class="token punctuation">(</span><span class="token class-name">MessageUtil</span><span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span>MSG_MUTE<span class="token punctuation">,</span> ARG1_OPERATE_FAIL<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="&#x5F00;&#x542F;&#x5BF9;&#x8BB2;">&#x5F00;&#x542F;&#x5BF9;&#x8BB2;</h4>
 <p>&#x6253;&#x5F00;&#x624B;&#x673A;&#x58F0;&#x97F3;&#x4F20;&#x8F93;&#x7ED9;&#x6444;&#x50CF;&#x673A;&#x64CD;&#x4F5C;&#x3002;</p>
@@ -1071,7 +1067,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"视频直播","level":"1.7.2","depth":2,"next":{"title":"存储卡回放","level":"1.7.3","depth":2,"path":"resource/PlaybackProcess.md","ref":"./resource/PlaybackProcess.md","articles":[]},"previous":{"title":"TimeBarView","level":"1.7.1.6","depth":3,"path":"resource/TimeBarView.md","ref":"./resource/TimeBarView.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","prism"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Daju.huang","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tuya IPC","language":"zh-hans","gitbook":"*","description":"Tuya IPC SDK Docs"},"file":{"path":"resource/LiveProcess.md","mtime":"2020-03-09T06:59:24.612Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-15T15:56:36.819Z"},"basePath":"..","book":{"language":"zh-hans"}});
+            gitbook.page.hasChanged({"page":{"title":"视频直播","level":"1.7.2","depth":2,"next":{"title":"存储卡回放","level":"1.7.3","depth":2,"path":"resource/PlaybackProcess.md","ref":"./resource/PlaybackProcess.md","articles":[]},"previous":{"title":"TimeBarView","level":"1.7.1.6","depth":3,"path":"resource/TimeBarView.md","ref":"./resource/TimeBarView.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","prism","-highlight"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Daju.huang","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tuya IPC","language":"zh-hans","gitbook":"*","description":"Tuya IPC SDK Docs"},"file":{"path":"resource/LiveProcess.md","mtime":"2020-03-17T04:52:55.301Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-17T04:42:19.788Z"},"basePath":"..","book":{"language":"zh-hans"}});
         });
     </script>
 </div>

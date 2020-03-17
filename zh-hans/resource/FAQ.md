@@ -1,2 +1,2 @@
-# TuyaSmart Camera SDK FAQ
+# Tuya Smart Camera SDK FAQ
 

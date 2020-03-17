@@ -25,11 +25,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
-                
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
                 
             
                 
@@ -398,7 +394,7 @@
                 <a href="CloudStorageApi.html">
             
                     
-                    云存储数据api
+                    云存储数据获取api
             
                 </a>
             
@@ -455,7 +451,7 @@
                 <a href="camera_device_points.html">
             
                     
-                    摄像头设备功能点
+                    摄像机设备功能点
             
                 </a>
             
@@ -466,10 +462,10 @@
     
         <li class="chapter " data-level="1.11.1" data-path="camera_device_points.html">
             
-                <a href="camera_device_points.html#摄像头设备标准化功能">
+                <a href="camera_device_points.html#摄像机设备标准化功能">
             
                     
-                    摄像头设备标准化功能介绍
+                    摄像机设备标准化功能
             
                 </a>
             
@@ -482,7 +478,7 @@
                 <a href="camera_device_points.html#设备标准化功能方法">
             
                     
-                    设备标准化功能方法介绍
+                    设备标准化功能方法
             
                 </a>
             
@@ -550,7 +546,7 @@
     
         <li class="chapter " data-level="1.12.1" data-path="message_center_list.html">
             
-                <a href="message_center_list.html">
+                <a href="message_center_list.html#">
             
                     
                     消息列表
@@ -664,12 +660,13 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x4E91;&#x5B58;&#x50A8;&#x89C6;&#x9891;&#x64AD;&#x653E;">&#x4E91;&#x5B58;&#x50A8;&#x89C6;&#x9891;&#x64AD;&#x653E;</h1>
-<p><strong>&#x63CF;&#x8FF0;</strong></p>
+<h2 id="&#x63CF;&#x8FF0;">&#x63CF;&#x8FF0;</h2>
 <p><strong>ITYCloudCamera</strong>&#x63D0;&#x4F9B;&#x4E86;&#x4E91;&#x5B58;&#x50A8;&#x64AD;&#x653E;&#x76F8;&#x5173;&#x7684;API&#x63A5;&#x53E3;</p>
 <h2 id="&#x4F7F;&#x7528;&#x65B9;&#x6CD5;">&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</h2>
 <h3 id="&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x521B;&#x5EFA;&#x8BBE;&#x5907;&#x5BF9;&#x8C61;">&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x521B;&#x5EFA;&#x8BBE;&#x5907;&#x5BF9;&#x8C61;</h3>
-<pre class="language-"><code>void createCloudDevice(String cachePath, String devId)
-</code></pre><h4 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<pre class="language-"><code class="lang-java"><span class="token keyword">void</span> <span class="token function">createCloudDevice</span><span class="token punctuation">(</span><span class="token class-name">String</span> cachePath<span class="token punctuation">,</span> <span class="token class-name">String</span> devId<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
@@ -688,12 +685,13 @@
 </tr>
 </tbody>
 </table>
-<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">cloudCamera<span class="token punctuation">.</span><span class="token function">createCloudDevice</span><span class="token punctuation">(</span>cachePath<span class="token punctuation">,</span> devId<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h3 id="&#x6CE8;&#x518C;p2p&#x76D1;&#x542C;">&#x6CE8;&#x518C;p2p&#x76D1;&#x542C;</h3>
-<pre class="language-"><code>void registorOnP2PCameraListener(OnP2PCameraListener listener);
-</code></pre><h4 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<h3 id="&#x6CE8;&#x518C;&#x4E91;&#x5B58;&#x50A8;&#x76D1;&#x542C;">&#x6CE8;&#x518C;&#x4E91;&#x5B58;&#x50A8;&#x76D1;&#x542C;</h3>
+<pre class="language-"><code class="lang-java"><span class="token keyword">void</span> <span class="token function">registorOnP2PCameraListener</span><span class="token punctuation">(</span><span class="token class-name">OnP2PCameraListener</span> listener<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
@@ -708,18 +706,19 @@
 </tr>
 </tbody>
 </table>
-<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">cloudCamera<span class="token punctuation">.</span><span class="token function">registorOnP2PCameraListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h3 id="&#x53CD;&#x6CE8;&#x518C;p2p&#x76D1;&#x542C;">&#x53CD;&#x6CE8;&#x518C;p2p&#x76D1;&#x542C;</h3>
+<h3 id="&#x53CD;&#x6CE8;&#x518C;&#x4E91;&#x5B58;&#x50A8;&#x76D1;&#x542C;">&#x53CD;&#x6CE8;&#x518C;&#x4E91;&#x5B58;&#x50A8;&#x76D1;&#x542C;</h3>
 <pre class="language-"><code class="lang-java"><span class="token keyword">void</span> <span class="token function">removeOnP2PCameraListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">cloudCamera<span class="token punctuation">.</span><span class="token function">removeOnP2PCameraListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h3 id="&#x8054;&#x64AD;&#x653E;&#x5668;&#x4E0E;&#x64AD;&#x653E;&#x7EC4;&#x4EF6;view">&#x8054;&#x64AD;&#x653E;&#x5668;&#x4E0E;&#x64AD;&#x653E;&#x7EC4;&#x4EF6;view</h3>
-<pre class="language-"><code>void generateCloudCameraView(IRegistorIOTCListener view);
-</code></pre><h4 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<h3 id="&#x7ED1;&#x5B9A;&#x64AD;&#x653E;&#x7EC4;&#x4EF6;view">&#x7ED1;&#x5B9A;&#x64AD;&#x653E;&#x7EC4;&#x4EF6;view</h3>
+<pre class="language-"><code class="lang-java"><span class="token keyword">void</span> <span class="token function">generateCloudCameraView</span><span class="token punctuation">(</span><span class="token class-name">IRegistorIOTCListener</span> view<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
@@ -734,12 +733,13 @@
 </tr>
 </tbody>
 </table>
-<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">cloudCamera<span class="token punctuation">.</span><span class="token function">generateCloudCameraView</span><span class="token punctuation">(</span>mVideoView<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="&#x914D;&#x7F6E;&#x4E91;&#x5B58;&#x50A8;&#x6570;&#x636E;tags&#x5F00;&#x59CB;&#x64AD;&#x653E;&#x4E91;&#x5B58;&#x524D;&#x9700;&#x8981;&#x5148;&#x8FDB;&#x884C;&#x914D;&#x7F6E;">&#x914D;&#x7F6E;&#x4E91;&#x5B58;&#x50A8;&#x6570;&#x636E;tags(&#x5F00;&#x59CB;&#x64AD;&#x653E;&#x4E91;&#x5B58;&#x524D;&#x9700;&#x8981;&#x5148;&#x8FDB;&#x884C;&#x914D;&#x7F6E;)</h3>
-<pre class="language-"><code>int configCloudDataTagsV1(String jsonStr, OperationDelegateCallBack callBack);
-</code></pre><h4 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<pre class="language-"><code class="lang-java"><span class="token keyword">int</span> <span class="token function">configCloudDataTagsV1</span><span class="token punctuation">(</span><span class="token class-name">String</span> jsonStr<span class="token punctuation">,</span> <span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
@@ -758,27 +758,28 @@
 </tr>
 </tbody>
 </table>
-<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">cloudCamera<span class="token punctuation">.</span><span class="token function">configCloudDataTagsV1</span><span class="token punctuation">(</span>config<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">OperationDelegateCallBack</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> i1<span class="token punctuation">,</span> <span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token comment">//&#x6210;&#x529F;&#x4E4B;&#x540E;&#x5F00;&#x59CB;&#x64AD;&#x653E;</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span>timePieceBeans<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    <span class="token keyword">int</span> startTime <span class="token operator">=</span> timePieceBeans<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getStartTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token function">playCloudDataWithStartTime</span><span class="token punctuation">(</span>startTime<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token function">getTodayEnd</span><span class="token punctuation">(</span>startTime <span class="token operator">*</span> <span class="token number">1000L</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1000</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> i1<span class="token punctuation">,</span> <span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//&#x6210;&#x529F;&#x4E4B;&#x540E;&#x5F00;&#x59CB;&#x64AD;&#x653E;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>timePieceBeans<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">int</span> startTime <span class="token operator">=</span> timePieceBeans<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getStartTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">playCloudDataWithStartTime</span><span class="token punctuation">(</span>startTime<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token function">getTodayEnd</span><span class="token punctuation">(</span>startTime <span class="token operator">*</span> <span class="token number">1000L</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1000</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
 
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> i1<span class="token punctuation">,</span> <span class="token keyword">int</span> i2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> i1<span class="token punctuation">,</span> <span class="token keyword">int</span> i2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="&#x4E91;&#x5B58;&#x50A8;&#x64AD;&#x653E;">&#x4E91;&#x5B58;&#x50A8;&#x64AD;&#x653E;</h3>
-<pre class="language-"><code>    void playCloudDataWithStartTime(long mStartTime, long mEndTime, boolean isEvent, String jsonAuthParams, String encryptKey, OperationCallBack callback, OperationCallBack playFinishedCallBack);
-</code></pre><h4 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<pre class="language-"><code class="lang-java"><span class="token keyword">void</span> <span class="token function">playCloudDataWithStartTime</span><span class="token punctuation">(</span><span class="token keyword">long</span> mStartTime<span class="token punctuation">,</span> <span class="token keyword">long</span> mEndTime<span class="token punctuation">,</span> <span class="token keyword">boolean</span> isEvent<span class="token punctuation">,</span> <span class="token class-name">String</span> jsonAuthParams<span class="token punctuation">,</span> <span class="token class-name">String</span> encryptKey<span class="token punctuation">,</span> <span class="token class-name">OperationCallBack</span> callback<span class="token punctuation">,</span> <span class="token class-name">OperationCallBack</span> playFinishedCallBack<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
@@ -817,34 +818,34 @@
 </tr>
 </tbody>
 </table>
-<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">cloudCamera<span class="token punctuation">.</span><span class="token function">playCloudDataWithStartTime</span><span class="token punctuation">(</span>startTime<span class="token punctuation">,</span> endTime<span class="token punctuation">,</span> isEvent<span class="token punctuation">,</span>
-                mAuthorityJson<span class="token punctuation">,</span> mEncryptKey<span class="token punctuation">,</span>
-                <span class="token keyword">new</span> <span class="token class-name">OperationCallBack</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    <span class="token annotation punctuation">@Override</span>
-                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token class-name">String</span> data<span class="token punctuation">,</span> <span class="token class-name">Object</span> camera<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                        <span class="token comment">// &#x64AD;&#x653E;&#x4E2D;&#x7684;&#x56DE;&#x8C03;, playing</span>
-                    <span class="token punctuation">}</span>
+                                       mAuthorityJson<span class="token punctuation">,</span> mEncryptKey<span class="token punctuation">,</span>
+                                       <span class="token keyword">new</span> <span class="token class-name">OperationCallBack</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                         <span class="token annotation punctuation">@Override</span>
+                                         <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token class-name">String</span> data<span class="token punctuation">,</span> <span class="token class-name">Object</span> camera<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                           <span class="token comment">// &#x64AD;&#x653E;&#x4E2D;&#x7684;&#x56DE;&#x8C03;, playing</span>
+                                         <span class="token punctuation">}</span>
 
-                    <span class="token annotation punctuation">@Override</span>
-                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token keyword">int</span> errCode<span class="token punctuation">,</span> <span class="token class-name">Object</span> camera<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                         <span class="token annotation punctuation">@Override</span>
+                                         <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token keyword">int</span> errCode<span class="token punctuation">,</span> <span class="token class-name">Object</span> camera<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-                    <span class="token punctuation">}</span>
-                <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">OperationCallBack</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    <span class="token annotation punctuation">@Override</span>
-                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token class-name">String</span> data<span class="token punctuation">,</span> <span class="token class-name">Object</span> camera<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                        <span class="token comment">//&#x64AD;&#x653E;&#x5B8C;&#x6210;&#x7684;&#x56DE;&#x8C03;, playCompleted</span>
-                    <span class="token punctuation">}</span>
+                                         <span class="token punctuation">}</span>
+                                       <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">OperationCallBack</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                         <span class="token annotation punctuation">@Override</span>
+                                         <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token class-name">String</span> data<span class="token punctuation">,</span> <span class="token class-name">Object</span> camera<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                           <span class="token comment">//&#x64AD;&#x653E;&#x5B8C;&#x6210;&#x7684;&#x56DE;&#x8C03;, playCompleted</span>
+                                         <span class="token punctuation">}</span>
 
-                    <span class="token annotation punctuation">@Override</span>
-                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token keyword">int</span> errCode<span class="token punctuation">,</span> <span class="token class-name">Object</span> camera<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    <span class="token punctuation">}</span>
-                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                         <span class="token annotation punctuation">@Override</span>
+                                         <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token keyword">int</span> errCode<span class="token punctuation">,</span> <span class="token class-name">Object</span> camera<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                         <span class="token punctuation">}</span>
+                                       <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="&#x6682;&#x505C;&#x64AD;&#x653E;">&#x6682;&#x505C;&#x64AD;&#x653E;</h3>
 <pre class="language-"><code class="lang-java"><span class="token keyword">int</span> <span class="token function">pausePlayCloudVideo</span><span class="token punctuation">(</span><span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h4 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
@@ -859,22 +860,22 @@
 </tr>
 </tbody>
 </table>
-<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">cloudCamera<span class="token punctuation">.</span><span class="token function">pausePlayCloudVideo</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">OperationDelegateCallBack</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token class-name">String</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token punctuation">}</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token class-name">String</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">}</span>
 
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token keyword">int</span> errCode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token keyword">int</span> errCode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="&#x7EE7;&#x7EED;&#x64AD;&#x653E;">&#x7EE7;&#x7EED;&#x64AD;&#x653E;</h3>
-<pre class="language-"><code class="lang-java">    <span class="token keyword">int</span> <span class="token function">resumePlayCloudVideo</span><span class="token punctuation">(</span><span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="language-"><code class="lang-java"><span class="token keyword">int</span> <span class="token function">resumePlayCloudVideo</span><span class="token punctuation">(</span><span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h4 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
@@ -889,22 +890,22 @@
 </tr>
 </tbody>
 </table>
-<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">cloudCamera<span class="token punctuation">.</span><span class="token function">resumePlayCloudVideo</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">OperationDelegateCallBack</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token class-name">String</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token punctuation">}</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token class-name">String</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">}</span>
 
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token keyword">int</span> errCode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token keyword">int</span> errCode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="&#x505C;&#x6B62;&#x64AD;&#x653E;">&#x505C;&#x6B62;&#x64AD;&#x653E;</h3>
 <pre class="language-"><code class="lang-java"><span class="token keyword">int</span> <span class="token function">stopPlayCloudVideo</span><span class="token punctuation">(</span><span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h4 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
@@ -919,28 +920,28 @@
 </tr>
 </tbody>
 </table>
-<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">cloudCamera<span class="token punctuation">.</span><span class="token function">stopPlayCloudVideo</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">OperationDelegateCallBack</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token class-name">String</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token punctuation">}</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token class-name">String</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">}</span>
 
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token keyword">int</span> errCode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token keyword">int</span> errCode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="&#x83B7;&#x53D6;&#x58F0;&#x97F3;&#x72B6;&#x6001;&#xFF08;&#x662F;&#x5426;&#x9759;&#x97F3;&#xFF09;">&#x83B7;&#x53D6;&#x58F0;&#x97F3;&#x72B6;&#x6001;&#xFF08;&#x662F;&#x5426;&#x9759;&#x97F3;&#xFF09;</h3>
 <pre class="language-"><code class="lang-java"><span class="token keyword">int</span> <span class="token function">getCloudMute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">cloudCamera<span class="token punctuation">.</span><span class="token function">getCloudMute</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <h3 id="&#x8BBE;&#x7F6E;&#x58F0;&#x97F3;&#x72B6;&#x6001;">&#x8BBE;&#x7F6E;&#x58F0;&#x97F3;&#x72B6;&#x6001;</h3>
 <pre class="language-"><code class="lang-java"><span class="token keyword">void</span> <span class="token function">setCloudMute</span><span class="token punctuation">(</span><span class="token keyword">final</span> <span class="token keyword">int</span> mute<span class="token punctuation">,</span> <span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h4 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
@@ -959,7 +960,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">cloudCamera<span class="token punctuation">.</span><span class="token function">setCloudMute</span><span class="token punctuation">(</span>mute<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">OperationDelegateCallBack</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token annotation punctuation">@Override</span>
             <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token class-name">String</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -972,8 +973,9 @@
         <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="&#x622A;&#x56FE;">&#x622A;&#x56FE;</h3>
-<pre class="language-"><code>int snapshot(String absoluteFilePath, OperationDelegateCallBack callBack);
-</code></pre><h4 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<pre class="language-"><code class="lang-java"><span class="token keyword">int</span> <span class="token function">snapshot</span><span class="token punctuation">(</span><span class="token class-name">String</span> absoluteFilePath<span class="token punctuation">,</span> <span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
@@ -992,22 +994,22 @@
 </tr>
 </tbody>
 </table>
-<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">cloudCamera<span class="token punctuation">.</span><span class="token function">snapshot</span><span class="token punctuation">(</span><span class="token class-name">IPCCameraUtils</span><span class="token punctuation">.</span><span class="token function">recordSnapshotPath</span><span class="token punctuation">(</span>devId<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">OperationDelegateCallBack</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token class-name">String</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token class-name">Toast</span><span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span><span class="token class-name">CameraCloudStorageActivity</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token string">&quot;snapshot success&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Toast</span><span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token class-name">String</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Toast</span><span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span><span class="token class-name">CameraCloudStorageActivity</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token string">&quot;snapshot success&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Toast</span><span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token keyword">int</span> errCode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token keyword">int</span> errCode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="&#x5F00;&#x59CB;&#x5F55;&#x5236;">&#x5F00;&#x59CB;&#x5F55;&#x5236;</h3>
 <pre class="language-"><code class="lang-java"><span class="token keyword">int</span> <span class="token function">startRecordLocalMp4</span><span class="token punctuation">(</span><span class="token class-name">String</span> folderPath<span class="token punctuation">,</span> <span class="token class-name">String</span> fileName<span class="token punctuation">,</span> <span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h4 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
@@ -1030,21 +1032,22 @@
 </tr>
 </tbody>
 </table>
-<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">cloudCamera<span class="token punctuation">.</span><span class="token function">startRecordLocalMp4</span><span class="token punctuation">(</span><span class="token class-name">IPCCameraUtils</span><span class="token punctuation">.</span><span class="token function">recordPath</span><span class="token punctuation">(</span>devId<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">OperationDelegateCallBack</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token class-name">String</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token class-name">Toast</span><span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span><span class="token class-name">CameraCloudStorageActivity</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token string">&quot;record start success&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Toast</span><span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token class-name">String</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Toast</span><span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span><span class="token class-name">CameraCloudStorageActivity</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token string">&quot;record start success&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Toast</span><span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token keyword">int</span> errCode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token keyword">int</span> errCode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="&#x7ED3;&#x675F;&#x5F55;&#x5236;">&#x7ED3;&#x675F;&#x5F55;&#x5236;</h3>
-<pre class="language-"><code>int stopRecordLocalMp4(OperationDelegateCallBack callBack);
-</code></pre><h4 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<pre class="language-"><code class="lang-java"><span class="token keyword">int</span> <span class="token function">stopRecordLocalMp4</span><span class="token punctuation">(</span><span class="token class-name">OperationDelegateCallBack</span> callBack<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
@@ -1059,21 +1062,22 @@
 </tr>
 </tbody>
 </table>
-<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">cloudCamera<span class="token punctuation">.</span><span class="token function">stopRecordLocalMp4</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">OperationDelegateCallBack</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token class-name">String</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token class-name">Toast</span><span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span><span class="token class-name">CameraCloudStorageActivity</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token string">&quot;record end success&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Toast</span><span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token class-name">String</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Toast</span><span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span><span class="token class-name">CameraCloudStorageActivity</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token string">&quot;record end success&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Toast</span><span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token keyword">int</span> errCode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token keyword">int</span> sessionId<span class="token punctuation">,</span> <span class="token keyword">int</span> requestId<span class="token punctuation">,</span> <span class="token keyword">int</span> errCode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="&#x53CD;&#x521D;&#x59CB;&#x5316;">&#x53CD;&#x521D;&#x59CB;&#x5316;</h3>
-<pre class="language-"><code>void deinitCloudCamera();
-</code></pre><h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<pre class="language-"><code class="lang-java"><span class="token keyword">void</span> <span class="token function">deinitCloudCamera</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">cloudCamera<span class="token punctuation">.</span><span class="token function">deinitCloudCamera</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
@@ -1103,7 +1107,7 @@
 
             
                 
-                <a href="CloudStorageApi.html" class="navigation navigation-prev " aria-label="Previous page: 云存储数据api">
+                <a href="CloudStorageApi.html" class="navigation navigation-prev " aria-label="Previous page: 云存储数据获取api">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -1119,7 +1123,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"云存储播放api","level":"1.8.4","depth":2,"next":{"title":"低功耗门铃唤醒","level":"1.9","depth":1,"path":"resource/Doorbell_wakeup.md","ref":"./resource/Doorbell_wakeup.md","articles":[]},"previous":{"title":"云存储数据api","level":"1.8.3","depth":2,"path":"resource/CloudStorageApi.md","ref":"./resource/CloudStorageApi.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","prism"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Daju.huang","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tuya IPC","language":"zh-hans","gitbook":"*","description":"Tuya IPC SDK Docs"},"file":{"path":"resource/CloudStorageVideoApi.md","mtime":"2020-03-03T11:00:09.932Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-15T15:56:36.819Z"},"basePath":"..","book":{"language":"zh-hans"}});
+            gitbook.page.hasChanged({"page":{"title":"云存储播放api","level":"1.8.4","depth":2,"next":{"title":"低功耗门铃唤醒","level":"1.9","depth":1,"path":"resource/Doorbell_wakeup.md","ref":"./resource/Doorbell_wakeup.md","articles":[]},"previous":{"title":"云存储数据获取api","level":"1.8.3","depth":2,"path":"resource/CloudStorageApi.md","ref":"./resource/CloudStorageApi.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","prism","-highlight"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Daju.huang","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tuya IPC","language":"zh-hans","gitbook":"*","description":"Tuya IPC SDK Docs"},"file":{"path":"resource/CloudStorageVideoApi.md","mtime":"2020-03-17T03:48:51.100Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-17T04:42:19.788Z"},"basePath":"..","book":{"language":"zh-hans"}});
         });
     </script>
 </div>

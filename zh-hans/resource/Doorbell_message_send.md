@@ -1,6 +1,10 @@
 # 消息推送
 
-**Tuya IPC Android SDK**消息推送使用的是**涂鸦智能全屋SDK**的消息推送配置和接收，具体请[参阅](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/MessagePush.html)
+
+
+## 简介
+
+**Tuya Smart Camera Android SDK**消息推送使用的是**涂鸦智能全屋SDK**的消息推送配置和接收，具体请[参阅](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/MessagePush.html)
 
 
 
@@ -8,13 +12,13 @@
 
 当按下设备门铃时，设备端会推送消息至App。推送目前的信息:
 
-1. 可以从[系统的推送信息](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/MessagePush.html)中获取，其中如果消息体中携带有**"type"："doorbell"**，即可判断为门铃推送消息。参考如下：
+可以从[系统的推送信息](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/MessagePush.html)中获取，其中如果消息体中携带有**"type"："doorbell"**，即可判断为门铃推送消息。参考如下：
 
-   ```json
-   	{"a":"view","c":"action","cc":"低功耗智能摄像机 ,someone is ringing the bell.","ct":"fcm You have a visitor","devId":"6cfaf335a8d6e752e0wrpy","msgId":"4da4dcf61573555995","p":{"media":13},"specialChannel":false,"ts":"1573555995000","type":"doorbell"}
-   ```
+```json
+	{"a":"view","c":"action","cc":"低功耗智能摄像机 ,someone is ringing the bell.","ct":"fcm You have a visitor","devId":"6cfaf335a8d6e752e0wrpy","msgId":"4da4dcf61573555995","p":{"media":13},"specialChannel":false,"ts":"1573555995000","type":"doorbell"}
+```
 
-   
+
 
 ## 消息推送辅助协议
 
@@ -25,6 +29,10 @@
 
 
 ### 使用方法
+
+
+
+#### registerCameraPushListener
 
 在登录tuya账号后，注册 registerCameraPushListener，调用方法：
 
@@ -40,7 +48,9 @@
 
 
 
-ITuyaGetBeanCallback 消息回调接口
+#### ITuyaGetBeanCallback 
+
+消息回调接口
 
 #### 方法说明
 
@@ -50,7 +60,9 @@ ITuyaGetBeanCallback 消息回调接口
 
 
 
-CameraPushDataBean 消息体
+#### CameraPushDataBean
+
+ 消息体
 
 #### 参数说明
 
@@ -64,6 +76,8 @@ CameraPushDataBean 消息体
 > Note: 门铃来电消息的etype=doorbell 
 
 
+
+#### unRegisterCameraPushListener
 
 在退出tuya账号后，反注册，调用unRegisterCameraPushListener
 

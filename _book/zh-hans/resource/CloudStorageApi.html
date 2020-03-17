@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>云存储数据api · Tuya IPC</title>
+        <title>云存储数据获取api · Tuya IPC</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -25,11 +25,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
-                
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
                 
             
                 
@@ -398,7 +394,7 @@
                 <a href="CloudStorageApi.html">
             
                     
-                    云存储数据api
+                    云存储数据获取api
             
                 </a>
             
@@ -455,7 +451,7 @@
                 <a href="camera_device_points.html">
             
                     
-                    摄像头设备功能点
+                    摄像机设备功能点
             
                 </a>
             
@@ -466,10 +462,10 @@
     
         <li class="chapter " data-level="1.11.1" data-path="camera_device_points.html">
             
-                <a href="camera_device_points.html#摄像头设备标准化功能">
+                <a href="camera_device_points.html#摄像机设备标准化功能">
             
                     
-                    摄像头设备标准化功能介绍
+                    摄像机设备标准化功能
             
                 </a>
             
@@ -482,7 +478,7 @@
                 <a href="camera_device_points.html#设备标准化功能方法">
             
                     
-                    设备标准化功能方法介绍
+                    设备标准化功能方法
             
                 </a>
             
@@ -550,7 +546,7 @@
     
         <li class="chapter " data-level="1.12.1" data-path="message_center_list.html">
             
-                <a href="message_center_list.html">
+                <a href="message_center_list.html#">
             
                     
                     消息列表
@@ -648,7 +644,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >云存储数据api</a>
+        <a href=".." >云存储数据获取api</a>
     </h1>
 </div>
 
@@ -663,18 +659,19 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x4E91;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x8C03;&#x7528;api">&#x4E91;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x8C03;&#x7528;API</h1>
+                                <h1 id="&#x4E91;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x83B7;&#x53D6;api">&#x4E91;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x83B7;&#x53D6;API</h1>
 <h2 id="&#x96C6;&#x6210;&#x51C6;&#x5907;">&#x96C6;&#x6210;&#x51C6;&#x5907;</h2>
 <p>&#x9879;&#x76EE;&#x6A21;&#x5757;&#x7684;build.gradle&#xFF1A;</p>
-<pre class="language-"><code>    ...
-    implementation &apos;com.tuya.smart:tuyasmart-ipc-camera-middleware:3.14.3r133&apos;
-    ...
-</code></pre><h2 id="&#x83B7;&#x53D6;&#x4E91;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;">&#x83B7;&#x53D6;&#x4E91;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;</h2>
-<p><strong>&#x63CF;&#x8FF0;</strong></p>
+<pre class="language-"><code class="lang-groovy"><span class="token punctuation">...</span>
+  implementation <span class="token string">&apos;com.tuya.smart:tuyasmart-ipc-camera-middleware:3.14.3r133&apos;</span>
+<span class="token punctuation">...</span>
+</code></pre>
+<h2 id="&#x83B7;&#x53D6;&#x4E91;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;">&#x83B7;&#x53D6;&#x4E91;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;</h2>
 <p><strong>CameraCloudSDK</strong>&#x662F;&#x4E91;&#x5B58;&#x50A8;ATOP&#x7684;API&#x63A5;&#x53E3;&#x8C03;&#x7528;&#x7684;&#x5B9E;&#x4F53;&#x5BF9;&#x8C61;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x83B7;&#x53D6;&#x4E91;&#x5B58;&#x50A8;&#x8D2D;&#x4E70;&#xFF0C;&#x65F6;&#x95F4;&#x6570;&#x636E;&#x76F8;&#x5173;&#x7684;API&#x65B9;&#x6CD5;&#x3002;</p>
 <h3 id="&#x83B7;&#x53D6;&#x4E91;&#x5B58;&#x50A8;-&#x5F53;&#x524D;&#x72B6;&#x6001;&#x503C;&#xFF08;&#x6709;&#x65E0;&#x8D2D;&#x4E70;&#x7B49;&#xFF09;">&#x83B7;&#x53D6;&#x4E91;&#x5B58;&#x50A8; &#x5F53;&#x524D;&#x72B6;&#x6001;&#x503C;&#xFF08;&#x6709;&#x65E0;&#x8D2D;&#x4E70;&#x7B49;&#xFF09;</h3>
-<pre class="language-"><code>getCameraCloudInfo(DeviceBean deviceBean, ICloudCacheManagerCallback callback)
-</code></pre><h4 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<pre class="language-"><code class="lang-java"><span class="token keyword">void</span> <span class="token function">getCameraCloudInfo</span><span class="token punctuation">(</span><span class="token class-name">DeviceBean</span> deviceBean<span class="token punctuation">,</span> <span class="token class-name">ICloudCacheManagerCallback</span> callback<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
@@ -693,12 +690,13 @@
 </tr>
 </tbody>
 </table>
-<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">cameraCloudSDK<span class="token punctuation">.</span><span class="token function">getCameraCloudInfo</span><span class="token punctuation">(</span><span class="token class-name">TuyaHomeSdk</span><span class="token punctuation">.</span><span class="token function">getDataInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getDeviceBean</span><span class="token punctuation">(</span>devId<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">CameraCloudStorageActivity</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x4E91;&#x5B58;&#x50A8;&#x76F8;&#x5173;&#x7684;&#x6570;&#x636E;secret&#xFF0C;auth&#x7B49;&#x53C2;&#x6570;">&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x4E91;&#x5B58;&#x50A8;&#x76F8;&#x5173;&#x7684;&#x6570;&#x636E;,Secret&#xFF0C;Auth&#x7B49;&#x53C2;&#x6570;</h3>
-<pre class="language-"><code>public void getCloudMediaCount(String devId, String timeZone, ICloudCacheManagerCallback callback)
-</code></pre><h4 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">getCloudMediaCount</span><span class="token punctuation">(</span><span class="token class-name">String</span> devId<span class="token punctuation">,</span> <span class="token class-name">String</span> timeZone<span class="token punctuation">,</span> <span class="token class-name">ICloudCacheManagerCallback</span> callback<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
@@ -721,12 +719,13 @@
 </tr>
 </tbody>
 </table>
-<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">cameraCloudSDK<span class="token punctuation">.</span><span class="token function">getCloudMediaCount</span><span class="token punctuation">(</span>devId<span class="token punctuation">,</span> <span class="token class-name">TimeZone</span><span class="token punctuation">.</span><span class="token function">getDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">CameraCloudStorageActivity</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#x7684;&#x65F6;&#x95F4;&#x7247;">&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#x7684;&#x65F6;&#x95F4;&#x7247;</h3>
-<pre class="language-"><code>public void getTimeLineInfoByTimeSlice(String devId, String timeGT, String timeLT, ICloudCacheManagerCallback callback)
-</code></pre><h4 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">getTimeLineInfoByTimeSlice</span><span class="token punctuation">(</span><span class="token class-name">String</span> devId<span class="token punctuation">,</span> <span class="token class-name">String</span> timeGT<span class="token punctuation">,</span> <span class="token class-name">String</span> timeLT<span class="token punctuation">,</span> <span class="token class-name">ICloudCacheManagerCallback</span> callback<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
@@ -753,12 +752,13 @@
 </tr>
 </tbody>
 </table>
-<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java"><span class="token function">getTimeLineInfoByTimeSlice</span><span class="token punctuation">(</span>devId<span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>dayBean<span class="token punctuation">.</span><span class="token function">getCurrentStartDayTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>dayBean<span class="token punctuation">.</span><span class="token function">getCurrentDayEndTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="&#x6839;&#x636E;&#x65F6;&#x95F4;&#x7247;&#x6BB5;&#x59CB;&#x672B;&#x83B7;&#x53D6;&#x76F8;&#x5E94;&#x7684;&#x79FB;&#x52A8;&#x4FA6;&#x6D4B;&#x6570;&#x636E;">&#x6839;&#x636E;&#x65F6;&#x95F4;&#x7247;&#x6BB5;&#x59CB;&#x672B;&#x83B7;&#x53D6;&#x76F8;&#x5E94;&#x7684;&#x79FB;&#x52A8;&#x4FA6;&#x6D4B;&#x6570;&#x636E;</h3>
-<pre class="language-"><code>public void getMotionDetectionByTimeSlice(String devId, String timeGT, String timeLT, int offset, int limit, ICloudCacheManagerCallback callback)
-</code></pre><h4 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">getMotionDetectionByTimeSlice</span><span class="token punctuation">(</span><span class="token class-name">String</span> devId<span class="token punctuation">,</span> <span class="token class-name">String</span> timeGT<span class="token punctuation">,</span> <span class="token class-name">String</span> timeLT<span class="token punctuation">,</span> <span class="token keyword">int</span> offset<span class="token punctuation">,</span> <span class="token keyword">int</span> limit<span class="token punctuation">,</span> <span class="token class-name">ICloudCacheManagerCallback</span> callback<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
@@ -793,14 +793,15 @@
 </tr>
 </tbody>
 </table>
-<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java">cameraCloudSDK<span class="token punctuation">.</span><span class="token function">getMotionDetectionByTimeSlice</span><span class="token punctuation">(</span>devId<span class="token punctuation">,</span> timeGT<span class="token punctuation">,</span> timeLT<span class="token punctuation">,</span> offset<span class="token punctuation">,</span> limit<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="&#x4E91;&#x5B58;&#x50A8;&#x8D2D;&#x4E70;&#x5730;&#x5740;&#x63A5;&#x53E3;">&#x4E91;&#x5B58;&#x50A8;&#x8D2D;&#x4E70;&#x5730;&#x5740;&#x63A5;&#x53E3;</h3>
-<pre class="language-"><code>public void buyCloudStorage(Context mContext, DeviceBean deviceBean, String homeId, ICloudManagerCallback callback) {
-        CameraCloudManager.getInstance().getCloudStorageUrl(mContext, deviceBean, homeId);
-    }
-</code></pre><h4 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buyCloudStorage</span><span class="token punctuation">(</span><span class="token class-name">Context</span> mContext<span class="token punctuation">,</span> <span class="token class-name">DeviceBean</span> deviceBean<span class="token punctuation">,</span> <span class="token class-name">String</span> homeId<span class="token punctuation">,</span> <span class="token class-name">ICloudManagerCallback</span> callback<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">CameraCloudManager</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getCloudStorageUrl</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> deviceBean<span class="token punctuation">,</span> homeId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
@@ -827,30 +828,31 @@
 </tr>
 </tbody>
 </table>
-<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
-<pre class="language-"><code class="lang-java">    cameraCloudSDK<span class="token punctuation">.</span><span class="token function">buyCloudStorage</span><span class="token punctuation">(</span><span class="token class-name">CameraCloudStorageActivity</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">,</span>
-                        <span class="token class-name">TuyaHomeSdk</span><span class="token punctuation">.</span><span class="token function">getDataInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getDeviceBean</span><span class="token punctuation">(</span>devId<span class="token punctuation">)</span><span class="token punctuation">,</span>
-                        <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token class-name">FamilyManager</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getCurrentHomeId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ICloudManagerCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                            <span class="token annotation punctuation">@Override</span>
-                            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
+<pre class="language-"><code class="lang-java">cameraCloudSDK<span class="token punctuation">.</span><span class="token function">buyCloudStorage</span><span class="token punctuation">(</span><span class="token class-name">CameraCloudStorageActivity</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">,</span>
+                               <span class="token class-name">TuyaHomeSdk</span><span class="token punctuation">.</span><span class="token function">getDataInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getDeviceBean</span><span class="token punctuation">(</span>devId<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                               <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token class-name">FamilyManager</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getCurrentHomeId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ICloudManagerCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                 <span class="token annotation punctuation">@Override</span>
+                                 <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-                            <span class="token punctuation">}</span>
+                                 <span class="token punctuation">}</span>
 
-                            <span class="token annotation punctuation">@Override</span>
-                            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token class-name">Object</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                                <span class="token class-name">String</span> uri <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> o<span class="token punctuation">;</span>
-                                <span class="token class-name">Intent</span> intent <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Intent</span><span class="token punctuation">(</span><span class="token class-name">CameraCloudStorageActivity</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token class-name">WebViewActivity</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                                intent<span class="token punctuation">.</span><span class="token function">putExtra</span><span class="token punctuation">(</span><span class="token string">&quot;Uri&quot;</span><span class="token punctuation">,</span>uri<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                                <span class="token function">startActivity</span><span class="token punctuation">(</span>intent<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                            <span class="token punctuation">}</span>
-                        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                 <span class="token annotation punctuation">@Override</span>
+                                 <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token class-name">Object</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                   <span class="token class-name">String</span> uri <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> o<span class="token punctuation">;</span>
+                                   <span class="token class-name">Intent</span> intent <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Intent</span><span class="token punctuation">(</span><span class="token class-name">CameraCloudStorageActivity</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token class-name">WebViewActivity</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                   intent<span class="token punctuation">.</span><span class="token function">putExtra</span><span class="token punctuation">(</span><span class="token string">&quot;Uri&quot;</span><span class="token punctuation">,</span>uri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                   <span class="token function">startActivity</span><span class="token punctuation">(</span>intent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                 <span class="token punctuation">}</span>
+                               <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="&#x9500;&#x6BC1;">&#x9500;&#x6BC1;</h3>
-<pre class="language-"><code>public void onDestroy()
-</code></pre><h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">null</span> <span class="token operator">!=</span> cameraCloudSDK<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        cameraCloudSDK<span class="token punctuation">.</span><span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+  cameraCloudSDK<span class="token punctuation">.</span><span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h3 id="icloudcachemanagercallback">ICloudCacheManagerCallback</h3>
 <p><strong>&#x63CF;&#x8FF0;</strong></p>
@@ -1107,7 +1109,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"云存储数据api","level":"1.8.3","depth":2,"next":{"title":"云存储播放api","level":"1.8.4","depth":2,"path":"resource/CloudStorageVideoApi.md","ref":"./resource/CloudStorageVideoApi.md","articles":[]},"previous":{"title":"云存储购买组件","level":"1.8.2","depth":2,"path":"resource/CloudStorage_aar.md","ref":"./resource/CloudStorage_aar.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","prism"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Daju.huang","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tuya IPC","language":"zh-hans","gitbook":"*","description":"Tuya IPC SDK Docs"},"file":{"path":"resource/CloudStorageApi.md","mtime":"2020-03-11T06:50:42.324Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-15T15:56:36.819Z"},"basePath":"..","book":{"language":"zh-hans"}});
+            gitbook.page.hasChanged({"page":{"title":"云存储数据获取api","level":"1.8.3","depth":2,"next":{"title":"云存储播放api","level":"1.8.4","depth":2,"path":"resource/CloudStorageVideoApi.md","ref":"./resource/CloudStorageVideoApi.md","articles":[]},"previous":{"title":"云存储购买组件","level":"1.8.2","depth":2,"path":"resource/CloudStorage_aar.md","ref":"./resource/CloudStorage_aar.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","prism","-highlight"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Daju.huang","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tuya IPC","language":"zh-hans","gitbook":"*","description":"Tuya IPC SDK Docs"},"file":{"path":"resource/CloudStorageApi.md","mtime":"2020-03-17T03:10:45.077Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-17T04:42:19.788Z"},"basePath":"..","book":{"language":"zh-hans"}});
         });
     </script>
 </div>
