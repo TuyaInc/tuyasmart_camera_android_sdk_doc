@@ -4,7 +4,7 @@
 
 ## 描述
 
-ICameraP2P是**Tuya Smart Camera Android SDK**核心功能接口，主要提供了音视频通信和指令集交互接口。
+**ICameraP2P** 是 **Tuya Smart Camera Android SDK** 核心功能接口，主要提供了音视频通信和指令集交互接口。
 
 
 
@@ -13,7 +13,7 @@ ICameraP2P是**Tuya Smart Camera Android SDK**核心功能接口，主要提供�
 
 
 
-### TuyaCamera对象初始化
+### TuyaCamera 对象初始化
 ```java
 public static ICameraP2P generateTuyaSmartCamera(int  p2pType)
 ```
@@ -74,7 +74,7 @@ public void destroyCameraView();
 
 **描述**
 
-建立关联与底层库p2p对象设备
+建立关联与底层库 p2p 对象设备
 
 ```java
 public void createDevice(OperationDelegateCallBack callback, ConfigCameraBean config)
@@ -87,17 +87,17 @@ public void createDevice(OperationDelegateCallBack callback, ConfigCameraBean co
 | OperationDelegateCallBack | 操作回调     |
 | ConfigCameraBean          | 配置参数对象 |
 
-> OperationDelegateCallBack:为此次操作回调，请[查阅](./Callback.md)
+> OperationDelegateCallBack :为此次操作回调，请[查阅](./Callback.md)
 
-> ConfigCameraBean:为配置参数对象，参数如下:
+> ConfigCameraBean :为配置参数对象，参数如下:
 
 | 参数          | 说明         |
 | ------------- | ------------ |
-| p2pType       | p2p类型      |
+| p2pType       | p2p 类型     |
 | initString    | 关键配置数据 |
 | p2pId         | p2p Id       |
-| password      | p2p秘钥      |
-| devId         | 设备id       |
+| password      | p2p 秘钥     |
+| devId         | 设备 id      |
 | localId       | /            |
 | localKey      | /            |
 | token         | /            |
@@ -133,7 +133,7 @@ public void disconnect(OperationDelegateCallBack callBack);
 
 
 
-### 开启live
+### 开启 live
 
 ```java
 public void startPreview(OperationDelegateCallBack callBack);
@@ -147,7 +147,7 @@ public void startPreview(OperationDelegateCallBack callBack);
 
 
 
-### 停止live
+### 停止 live
 
 ```java
 public void stopPreview(OperationDelegateCallBack callBack);

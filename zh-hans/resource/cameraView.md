@@ -4,7 +4,7 @@
 
 ## 描述
 
-Monitor是一个播放器控件
+Monitor 是一个播放器控件
 
 
 
@@ -26,7 +26,7 @@ public void setOnRenderDirectionCallback(OnRenderDirectionCallback var1) {
 | ------------------------- | ------------ |
 | OnRenderDirectionCallback | 方向操作回调 |
 
-> OnRenderDirectionCallback操作回调方法，参考如下：
+> OnRenderDirectionCallback 操作回调方法，参考如下：
 
 | 方法     | 说明     |
 | -------- | -------- |

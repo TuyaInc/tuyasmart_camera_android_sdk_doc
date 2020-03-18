@@ -10,7 +10,7 @@
 
 ## 组件引入
 
-项目根目录的build.gradle：
+项目根目录的 build.gradle：
 
 ```gradle
 buildscript {
@@ -45,7 +45,7 @@ apply plugin: 'tymodule-config'
 
 **示例代码**
 
-Styles.xml需要修改
+Styles.xml 需要修改
 
 ```xml
 
@@ -359,7 +359,7 @@ Styles.xml需要修改
 <color name="color_ff5800">#ff5800</color>
 ```
 
-application初始化
+application 初始化
 
   ```java
   	public class TuyaSmartApp extends MultiDexApplication {

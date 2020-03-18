@@ -1,6 +1,6 @@
 # 视频直播
 
-视频直播需要获取云端服务器信息，接着创建`ICameraP2P`对象，然后进行P2P连接后，就可以播放实时视频，截图、录制视频和实时对讲数据传输。
+视频直播需要获取云端服务器信息，接着创建 `ICameraP2P` 对象，然后进行 P2P 连接后，就可以播放实时视频，截图、录制视频和实时对讲数据传输。
 
 
 
@@ -14,7 +14,7 @@
 
 #### 1. 初始化
 
-`ICameraP2P`需要绑定`Monitor`，使用者要创建`ICameraP2P`和`Monitor`,同时也需要注册`OnP2PCameraListener`。如下所示：
+`ICameraP2P` 需要绑定 `Monitor`，使用者要创建 `ICameraP2P` 和 `Monitor` ,同时也需要注册`OnP2PCameraListener` 。如下所示：
 
 ```java
 private static final int ASPECT_RATIO_WIDTH = 9;
@@ -164,7 +164,7 @@ mCameraP2P.startPreview(new OperationDelegateCallBack() {
 });
    ```
 
-> 注意：startPreview成功回调之后，onReceiveFrameYUVData回调会开始接收视频数据，并抛给业务层。
+> 注意：startPreview 成功回调之后，onReceiveFrameYUVData 回调会开始接收视频数据，并抛给业务层。
 
 
 
@@ -236,7 +236,7 @@ TuyaSmartCameraP2PFactory.onDestroyTuyaSmartCamera();
 
 #### 开启视频录制
 
-调用startRecordLocalMp4方法。
+调用 startRecordLocalMp4 方法。
 
 **示例代码**
 
@@ -274,7 +274,7 @@ if (Constants.hasStoragePermission()) {
 
 #### 停止视频录制
 
-调用stopRecordLocalMp4方法。
+调用 stopRecordLocalMp4 方法。
 
 **示例代码**
 

@@ -1,8 +1,8 @@
 # CameraBusiness
 
-获取IPC Config数据的实现类
+获取 IPC Config 数据的实现类
 
-## 获取IPC Config数据方法
+## 获取 IPC Config 数据方法
 
 ```java
 void requestCameraInfo(String devId, ResultListener<CameraInfoBean> listener)
@@ -11,8 +11,8 @@ void requestCameraInfo(String devId, ResultListener<CameraInfoBean> listener)
 ### 参数说明
 
 | 参数              |      描述      |
-| -------------------- | ------------ | --------------- |
-| devId  | 设备Id |
+| -------------------- | ------------ |
+| devId  | 设备 Id |
 | listener  | 数据回调 |
 
 CameraInfoBean
@@ -21,8 +21,8 @@ CameraInfoBean
 | ------------------------ | ------ |
 | password                   | 秘钥   |
 | p2pId               | p2p Id |
-| p2pSpecifiedType         | p2p的类型   |
-| P2pConfig             | p2p配置信息 |
+| p2pSpecifiedType         | p2p 的类型  |
+| P2pConfig             | p2p 配置信息 |
 
 P2pConfig
 
@@ -30,9 +30,9 @@ P2pConfig
 | ------------------------ | ------ |
 | initStr                   | initStr   |
 | p2pKey               | p2p Id |
-| ices         | ices数据   |
+| ices         | ices 数据  |
 
-> p2pId，pwd, localkey,initStr,p2pkey这几个参数是TuyaCameraSDK初始化所必须有的，这几个参数没有对应成功，p2p的构建通道就不可能成功。
+> p2pId，pwd , localkey , initStr , p2pkey 这几个参数是 TuyaCameraSDK 初始化所必须有的，这几个参数没有对应成功，p2p 的构建通道就不可能成功。
 
 
 

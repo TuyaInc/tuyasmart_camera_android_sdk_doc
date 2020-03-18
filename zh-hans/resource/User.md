@@ -2,7 +2,7 @@
 
 
 
-涂鸦云支持多种用户体系：手机、邮箱、UID。其中手机支持验证码登录和密码登录两种方式，UID 登录主要用于已经有自己的账号体系的时候使用。具体内容可以参考文档[用户管理](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/User.html)。
+涂鸦云支持多种用户体系：手机、邮箱、UID 。其中手机支持验证码登录和密码登录两种方式，UID 登录主要用于已经有自己的账号体系的时候使用。具体内容可以参考文档[用户管理](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/User.html)。
 
 
 

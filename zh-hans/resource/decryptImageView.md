@@ -1,15 +1,15 @@
-# 图片解密组件-DecryptImageView
+# 图片解密组件 
 
 
 
 ## 简介
 
-图片解密组件DecryptImageView是基于`Fresco`开发的图片加载组件，因tuya安全机制，所以图片显示需要通过自定义`imagepipeline-okhttp3`进行数据解密。
+图片解密组件 DecryptImageView 是基于 `Fresco `开发的图片加载组件，因tuya安全机制，所以图片显示需要通过自定义 `imagepipeline-okhttp3` 进行数据解密。
 
 
 
 ## 引用
-模块下的build.gradle的依赖添加：
+模块下的 build.gradle 的依赖添加：
 
 ```groovy
 //消息中心图片解密组件
@@ -48,15 +48,15 @@ public void setImageURI(String uriString, byte[] key)
 
 ## 使用方法
 
-  DecryptImageView是基于[Fresco](https://www.fresco-cn.org/docs/index.html)开发的图片加载组件
+  DecryptImageView 是基于 [Fresco ](https://www.fresco-cn.org/docs/index.html) 开发的图片加载组件
 
-在图片加载之前，首先初始化，只需要FrescoManager.initFresco(this)一次加载就可以，在application中做再合适不过。
+在图片加载之前，首先初始化，只需要 `FrescoManager.initFresco(this)` 一次加载就可以，在 `application` 中做再合适不过。
 
 ```java
 FrescoManager.initFresco(this);
 ```
 
-> 注意：FrescoManager.initFresco(this)就不需要调用Fresco.initialize(this)，不然无法进行图片解密。
+> 注意：`FrescoManager.initFresco(this)` 就不需要调用 `Fresco.initialize(this)` ，不然无法进行图片解密。
 
 ```java
 public class TuyaSmartApp extends MultiDexApplication {
@@ -75,7 +75,7 @@ public class TuyaSmartApp extends MultiDexApplication {
 
 做完上面的工作后，你需要在 `AndroidManifest.xml` 中指定你的 Application 类。为了下载网络图片，请确认你声明了网络请求的权限。
 
-在xml布局文件中, 加入命名空间：
+在 xml 布局文件中, 加入命名空间：
 
 ```xml
 <LinearLayout
@@ -85,7 +85,7 @@ public class TuyaSmartApp extends MultiDexApplication {
     android:layout_width="match_parent">
 ```
 
-加入DecryptImageView：
+加入 DecryptImageView：
 
 ```xml
 <com.tuya.drawee.view.DecryptImageView
@@ -100,7 +100,7 @@ public class TuyaSmartApp extends MultiDexApplication {
         fresco:roundedCornerRadius="@dimen/dp_4" />
 ```
 
-开始加载加密图片，传入解密秘钥**decryption**，**imageUrl**，调用mSnapshot.setImageURI(imageUrl, decryption.getBytes())。
+开始加载加密图片，传入解密秘钥 **decryption**，**imageUrl** ，调用`mSnapshot.setImageURI(imageUrl, decryption.getBytes())`。
 
 ```java
 String attachPics = cameraMessageBean.getAttachPics();

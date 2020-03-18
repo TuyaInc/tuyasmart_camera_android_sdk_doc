@@ -144,11 +144,11 @@ public void setChangeOrientation(int orientation)
 
 > 所有属性都有默认值，可以不设置
 
-| 属性值           | 描述               |
-| ---------------- | ------------------ |
-| bottomTextMargin | 底部刻度值的margin |
-| smallRulerHeight | 短刻度线的高度     |
-| topTextMargin    | 顶部刻度值的margin |
+| 属性值           | 描述                |
+| ---------------- | ------------------- |
+| bottomTextMargin | 底部刻度值的 margin |
+| smallRulerHeight | 短刻度线的高度      |
+| topTextMargin    | 顶部刻度值的 margin |
 
 
 

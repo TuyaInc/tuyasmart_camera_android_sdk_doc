@@ -5,7 +5,7 @@
 
 ## 集成准备 
 
-项目模块的build.gradle：
+项目模块的 build.gradle：
 
 ```groovy
 ...
@@ -17,7 +17,7 @@
 
 ## 获取云存储数据接口方法
 
-**CameraCloudSDK**是云存储ATOP的API接口调用的实体对象，提供了获取云存储购买，时间数据相关的API方法。
+**CameraCloudSDK ** 是云存储数据的 API 接口调用的实体对象，提供了获取云存储购买，时间数据相关的 API 方法。
 
 ### 获取云存储 当前状态值（有无购买等）
 
@@ -39,7 +39,7 @@ cameraCloudSDK.getCameraCloudInfo(TuyaHomeSdk.getDataInstance().getDeviceBean(de
 
 
 
-### 获取设备云存储相关的数据,Secret，Auth等参数
+### 获取设备云存储相关的数据 Secret、Auth 等参数
 
 ```java
 public void getCloudMediaCount(String devId, String timeZone, ICloudCacheManagerCallback callback)
@@ -167,7 +167,7 @@ if (null != cameraCloudSDK) {
 
 **描述**
 
-调用sdk之后的回调方法
+调用 sdk 之后的回调方法
 
 
 
@@ -184,7 +184,7 @@ void getCloudDayList(List<CloudDayBean> cloudDayBeanList);
 
 
 
-#### 返回云存储encryKey
+#### 返回云存储 encryKey
 
 
 ```java
@@ -198,7 +198,7 @@ void getCloudSecret(String encryKey);
 
 
 
-#### 返回云存储authorityJson
+#### 返回云存储 authorityJson
 
 
 ```java
@@ -299,8 +299,8 @@ void onError(int errorCode);
 
 | 错误码    | 说明                               |
 | ------- | ---------------------------------- |
-| 10100 | 获取SECRET 失败 |
-| 10101 | 获取AUTH 失败 |
+| 10100 | 获取 SECRET 失败 |
+| 10101 | 获取 AUTH 失败 |
 | 10110 | 其他异常 |
 | 10010 | 获取认证信息失败 |
 | 10011 | 获取某天的时间片（鉴权信息）失败 |
