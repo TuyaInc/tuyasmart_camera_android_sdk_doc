@@ -36,7 +36,7 @@ P2pConfig
 
 
 
-### 示例代码：
+### 示例代码
 
 ```java
 private void getApi() {

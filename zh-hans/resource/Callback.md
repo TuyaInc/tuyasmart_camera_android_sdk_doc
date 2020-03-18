@@ -4,8 +4,8 @@
 
 ## 简介
 
-OnP2PCameraListener: 实现业务层所需的回调
-OperationDelegateCallBack: p2p信令操作方法回调
+- OnP2PCameraListener: 实现业务层所需的回调
+- OperationDelegateCallBack: p2p信令操作方法回调
 
 
 

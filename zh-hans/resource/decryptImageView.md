@@ -4,7 +4,7 @@
 
 ## 简介
 
-图片解密组件DecryptImageView是基于Fresco开发的图片加载组件，因tuya安全机制，所以图片显示需要通过自定义imagepipeline-okhttp3进行数据解密。
+图片解密组件DecryptImageView是基于`Fresco`开发的图片加载组件，因tuya安全机制，所以图片显示需要通过自定义`imagepipeline-okhttp3`进行数据解密。
 
 
 
