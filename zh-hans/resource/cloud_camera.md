@@ -2,7 +2,7 @@
 
 **【描述】**
 
-涂鸦智能摄像头设备提供了云存储服务,因此我们也给Android客户端开发者提供了相应IPC camera 云存储API功能，来实现展示云端化的音视频数据。
+涂鸦智能摄像头设备提供了云存储服务,因此我们也给 Android 客户端开发者提供了相应 IPC Camera 云存储 API 功能，来实现展示云端化的音视频数据。
 
 
 
@@ -15,9 +15,9 @@ implementation 'io.reactivex.rxjava2:rxjava:2.1.7'
 
 
 
-## 云存储API接口
+## 云存储 API 接口
 
-ICloudCameraManager提供云存储视频数据获取和播放相关的能力。
+ICloudCameraManager 提供云存储视频数据获取和播放相关的能力。
 
 ```java
 public interface ICloudCameraManager {
@@ -134,7 +134,7 @@ cloudCameraManager = TuyaSmartCloudVideoPlayer.getInstance();
 
 #### 回调
 
-ICloudManagerCallback接口提供了监听云存储日期、事件、时间片段数据。
+ICloudManagerCallback 接口提供了监听云存储日期、事件、时间片段数据。
 
 ```java
   public interface ICloudManagerCallback<T> {
@@ -145,7 +145,7 @@ ICloudManagerCallback接口提供了监听云存储日期、事件、时间片�
     }
 ```
 
-OnCloudCameraVideoListener接口提供了云存储视频YUV数据回调
+OnCloudCameraVideoListener 接口提供了云存储视频YUV数据回调
 
 ```java
 public interface OnCloudCameraVideoListener {
@@ -156,7 +156,7 @@ public interface OnCloudCameraVideoListener {
 
 ```
 
-OperationCallBack接口提供了云存储视频操作的回调
+OperationCallBack 接口提供了云存储视频操作的回调
 
 ```java
 public interface OperationCallBack {
@@ -175,7 +175,7 @@ public interface OperationCallBack {
 
 #### 云存储视频播放器
 
-TuyaMonitorView类是云存储播放器，提供的是视频播放的功能，与IPC Camera摄像机的播放器是同一个。
+TuyaMonitorView 类是云存储播放器，提供的是视频播放的功能，与 IPC Camera 摄像机的播放器是同一个。
 
 **【创建对象】**
 
@@ -194,17 +194,19 @@ TuyaMonitorView类是云存储播放器，提供的是视频播放的功能，�
 
 #### 初始化云存储
 
-参数1:DeviceBean，参数2:ICloudManagerCallback，如果回调成功的话，就可以获取云存储日期数据。
+参数1：DeviceBean ，参数2：ICloudManagerCallback ，如果回调成功的话，就可以获取云存储日期数据。
 
-| 参数       | 描述     |
-| ---------- | -------- |
-| deviceBean | 设备bean |
-| callback   | 回调     |
+**参数说明**
 
-callback状态码：
+| 参数       | 描述                                                |
+| ---------- | --------------------------------------------------- |
+| deviceBean | DeviceBean，设备 bean                               |
+| callback   | ICloudManagerCallback，回调成功，获取云存储日期数据 |
+
+**callback 状态码**
 
 ```java
-	public static final int NO_SERVES = 10001; //无云服务
+		public static final int NO_SERVES = 10001; //无云服务
     public static final int SERVES_NO_CLOUD_DATA = 10002;  //有服务无云存储数据
     public static final int SERVES_DATA = 10003;    //有云服务且有云存储数据
     public static final int EXPIRED_SERVES_DATA = 10004;   //云服务过期且有云存储数据
@@ -212,7 +214,7 @@ callback状态码：
     public static final int ERROR_QUERY_CODE = 10006;      //数据查询失败
 ```
 
-
+**示例代码**
 
 ```java
 /**
@@ -240,7 +242,7 @@ private void initCameraCloud() {
     }
 ```
 
-> 注意：云存储初始化非常重要，如果出现ERROR_QUERY_CODE，要重新初始化
+> 注意：云存储初始化非常重要，如果出现 ERROR_QUERY_CODE，要重新初始化
 
 #### 云存储日期数据查询
 
@@ -302,16 +304,18 @@ public class CloudDayBean implements Comparable<CloudDayBean> {
 
 #### 云存储时间片段数据查询
 
-cloudCameraManager.getCloudTimeLine通过回调获取时间片段的数据，获取到的数据是以jsonArray形式输出来的。
+cloudCameraManager.getCloudTimeLine 通过回调获取时间片段的数据，获取到的数据是以 jsonArray 形式输出来的。
+
+**参数说明**
 
 | 参数     | 描述     |
 | -------- | -------- |
-| devId    | 设备id   |
+| devId    | 设备 id  |
 | timeGT   | 开始时间 |
 | timeLT   | 结束时间 |
 | callback | 回调     |
 
-callback状态码：
+callback 状态码：
 
 ```java
 public static final int QUERY_SUCCESS = 10000; //数据查询成功
@@ -319,7 +323,7 @@ public static final int ERROR_QUERY_CODE = 10006;      //数据查询失败
 public static final int NO_TIME_PIECE_DATA = 10008; //无云存储时间片段数据
 ```
 
-TimePieceBean是时间片段的bean类
+TimePieceBean 是时间片段的 bean 类
 
 **数据结构**：
 
@@ -400,17 +404,19 @@ cloudCameraManager.getCloudTimeLine(devId, String.valueOf(cloudDayBean.getCurren
 
 #### 云存储事件数据查询
 
-cloudCameraManager.getTimeEvent()通过回调获取时间事件数据，获取到成功的数据是以jsonArray形式输出来的。
+cloudCameraManager.getTimeEvent() 通过回调获取时间事件数据，获取到成功的数据是以 jsonArray 形式输出来的。
+
+**参数说明**
 
 | 参数         | 描述                        |
 | ------------ | --------------------------- |
-| CloudDayBean | 日期数据bean                |
-| devId        | 设备id                      |
+| CloudDayBean | 日期数据 bean               |
+| devId        | 设备 id                     |
 | offset       | 数据起始查询点(一般设置为0) |
 | limit        | 查询条数                    |
 | callback     | 回调                        |
 
-callback状态码：
+callback 状态码：
 
 ```java
 public static final int ERROR_QUERY_CODE = 10006;      //数据查询失败
@@ -420,7 +426,7 @@ public static final int NO_TIME_RANG_DATA = 10007; //无云存储事件数据
 
 
 
-TimeEventBean是一个事件的数据bean类。
+TimeEventBean 是一个事件的数据 bean 类。
 
 **【数据结构】**
 
@@ -519,7 +525,7 @@ cloudCameraManager.getTimeEvent(cloudDayBean, devId, 0, -1, new CloudCameraManag
 | callback             | 播放操作的回调                                      |
 | playFinishedCallBack | 播放结束回调                                        |
 
-事例如下：
+事例代码：
 
 ```java
 if (null != timePieceBean) {
@@ -547,6 +553,8 @@ if (null != timePieceBean) {
                 }
 ```
 
+
+
 **【暂停播放】**
 
 ```java
@@ -562,6 +570,8 @@ cloudCameraManager.pausePlayCloudVideo(new OperationCallBack() {
                     }
                 });
 ```
+
+
 
 **【恢复播放】**
 
@@ -579,6 +589,8 @@ cloudCameraManager.resumePlayCloudVideo(new OperationCallBack() {
                 });
 ```
 
+
+
 **【结束播放】**
 
 ```java
@@ -595,7 +607,9 @@ cloudCameraManager.stopPlayCloudVideo(new OperationCallBack() {
                 });
 ```
 
-> 注意：一旦结束了播放，就不能恢复播放，要重新调用playCloudDataWithStartTime开始播放
+> 注意：一旦结束了播放，就不能恢复播放，要重新调用 playCloudDataWithStartTime 开始播放
+
+
 
 **【音频设置】**
 

@@ -19,9 +19,9 @@ public static ICameraP2P generateTuyaSmartCamera(int  p2pType)
 ```
 **参数说明**
 
-| 参数    | 说明                               |
-| ------- | ---------------------------------- |
-| p2pType | p2p类型，对应匹配相应设备的p2p能力 |
+| 参数    | 说明                                  |
+| ------- | ------------------------------------- |
+| p2pType | p2p 类型，对应匹配相应设备的 p2p 能力 |
 
 
 
@@ -33,11 +33,11 @@ public void registorOnP2PCameraListener(OnP2PCameraListener listener)
 
 **参数说明**
 
-| 参数                | 说明        |
-| ------------------- | ----------- |
-| OnP2PCameraListener | p2p操作回调 |
+| 参数                | 说明         |
+| ------------------- | ------------ |
+| OnP2PCameraListener | p2p 操作回调 |
 
-> OnP2PCameraListener: 具体请[查阅](./Callback.md)
+> OnP2PCameraListener: 具体请 [查阅](./Callback.md)
 
 
 
@@ -87,7 +87,7 @@ public void createDevice(OperationDelegateCallBack callback, ConfigCameraBean co
 | OperationDelegateCallBack | 操作回调     |
 | ConfigCameraBean          | 配置参数对象 |
 
-> OperationDelegateCallBack :为此次操作回调，请[查阅](./Callback.md)
+> OperationDelegateCallBack :为此次操作回调，请 [查阅](./Callback.md)
 
 > ConfigCameraBean :为配置参数对象，参数如下:
 
@@ -176,7 +176,7 @@ public void snapshot(String absoluteFilePath, Context context, PLAYMODE playmode
 | playmode                  | 播放模式     |
 | OperationDelegateCallBack | 操作回调     |
 
-> playmodel: 分为LIVE，PLAYBACK
+> playmodel: 分为 LIVE，PLAYBACK
 
 
 
@@ -299,7 +299,7 @@ public void startPlayback(int startTime, int stopTime,int playTime, OperationDel
 | callBack                  | 开启播放回放操作回调 |
 | OperationDelegateCallBack | 播放结束操作回调     |
 
-> playTime必须在startTime、stopTime之间，否则会播放失败
+> playTime 必须在 startTime、stopTime 之间，否则会播放失败
 
 
 

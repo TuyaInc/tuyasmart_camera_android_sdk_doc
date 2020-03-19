@@ -16,7 +16,7 @@ implementation 'com.tuya.smart:tuyasmart-ipc-camera-message:3.13.0r128'
 
 
 
-## 消息中心列表获取数据API说明
+## 消息中心列表获取数据 API 说明
 
 
 
@@ -30,13 +30,13 @@ void queryAlarmDetectionDaysByMonth(String jsonParams, ResultListener<JSONArray>
 
 **参数说明**
 
-| 参数名称 | 类型   | 参数要求 | 描述                            |
-| :------: | ------ | -------- | ------------------------------- |
-| msgSrcId | String | 必须     | devId(设备 ID)                  |
-|  month   | String | 必须     | 年月,中间以 - 拼接,例如: 2019-8 |
-| timeZone | String | 必须     | 时区, 例如: Asia/Shanghai       |
+|   参数   | 类型   | 必传 | 说明                            |
+| :------: | ------ | ---- | ------------------------------- |
+| msgSrcId | String | 必须 | devId(设备 ID)                  |
+|  month   | String | 必须 | 年月,中间以 - 拼接,例如: 2019-8 |
+| timeZone | String | 必须 | 时区, 例如: Asia/Shanghai       |
 
-然后将其**整体**包含在 **json** 字段中，例如：
+然后将其**整体**包含在 **json** 字段中，例如
 
 ```java
 JSONObject object = new JSONObject();
@@ -61,7 +61,7 @@ JSONObject object = new JSONObject();
                 });
 ```
 
-返回数据结构示例:(具体以实际请求为准)
+返回数据结构示例（具体以实际请求为准）
 
 ```json
 *** JSON示例 ***
@@ -85,11 +85,11 @@ void queryAlarmDetectionClassify(String devId, ResultListener<ArrayList<CameraMe
 
 **参数说明**
 
-| 参数名称 | 类型   | 出现要求 | 描述           |
-| :------: | ------ | -------- | -------------- |
-|  devId   | String | 必须     | devId(设备 ID) |
+| 参数  | 类型   | 必传 | 描述             |
+| :---: | ------ | -------- | ---------------- |
+| devId | String | 必须     | devId（设备 ID） |
 
-然后将其**整体**包含在 **json** 字段中,例如：
+然后将其**整体**包含在 **json** 字段中，例如
 
 ```java
 public void queryCameraMessageClassify(String devId) {
@@ -110,7 +110,7 @@ public void queryCameraMessageClassify(String devId) {
 }
 ```
 
-返回数据结构示例:(具体以实际请求为准)
+返回数据结构示例（具体以实际请求为准）
 
 ```json
 *** JSON示例 ***
@@ -130,15 +130,15 @@ public void queryCameraMessageClassify(String devId) {
 }
 ```
 
-返回数据封装在CameraMessageClassifyBean，格式说明如下：
+返回数据封装在 CameraMessageClassifyBean，格式说明如下
 
-| 参数     | 说明     |
+**CameraMessageClassifyBean 数据模型**
+
+| 字段     | 描述     |
 | -------- | -------- |
 | describe | 消息描述 |
 | msgCode  | 无需关注 |
 | selected | 无需关注 |
-
-
 
 
 
@@ -150,19 +150,19 @@ public void queryCameraMessageClassify(String devId) {
 void getAlarmDetectionMessageList(String json, ResultListener<JSONObject> listener)
 ```
 
-#### 参数说明
+**参数说明**
 
-| 参数名称  | 类型     | 出现要求 | 描述                                                         |
-| :-------: | -------- | -------- | ------------------------------------------------------------ |
-| msgSrcId  | String   | 必须     | devId(设备 ID)                                               |
+|   参数    | 类型     | 必传 | 说明              |
+| :-------: | -------- | -------- | --------------------------------- |
+| msgSrcId  | String   | 必须     | devId (设备 ID)                                              |
 |  msgType  | Int      | 必须     | 消息类型，目前只要传4即可                                    |
 |   limit   | Int      | 必须     | 请求的数量                                                   |
 |  offset   | Int      | 必须     | 请求的偏移量,用来做分页                                      |
-| startTime | Long     | 必须     | 起始时间 传 Unix 时间戳,秒级                                     |
-|  endTime  | Long     | 必须     | 结束时间 传 Unix 时间戳,秒级                                      |
+| startTime | Long     | 必须     | 起始时间 传 Unix 时间戳,秒级                                 |
+|  endTime  | Long     | 必须     | 结束时间 传 Unix 时间戳,秒级                                 |
 | msgCodes  | String[] | 可选     | 如果不传,默认请求所有类型的数据,如果传了,则请求对应类型的消息数据(消息数组可以查看消息类型接口介绍) |
 
->  PS: 如果要查询某一天的全部消息数据，可以将结束时间和起始时间间隔一天的时间戳即可。然后将其**整体**包含在 **json** 字段中，例如：
+>  PS: 如果要查询某一天的全部消息数据，可以将结束时间和起始时间间隔一天的时间戳即可。然后将其**整体**包含在 **json** 字段中，例如
 
 ```java
 if (null != messageBusiness){
@@ -204,7 +204,7 @@ if (null != messageBusiness){
 }
 ```
 
-返回数据结构示例:(具体以实际请求为准)
+返回数据结构示例（具体以实际请求为准）
 
 ```json
 *** JSON示例 ***
@@ -239,7 +239,9 @@ if (null != messageBusiness){
 }
 ```
 
-返回数据已经封装在CameraMessageBean中，格式如下：
+返回数据已经封装在 CameraMessageBean 中，格式如下
+
+**CameraMessageBean 数据模型**
 
 | 参数           | 说明                                       |
 | -------------- | ------------------------------------------ |
@@ -250,8 +252,8 @@ if (null != messageBusiness){
 | attachPics     | 消息事件的图片，数组格式，取第一个数据     |
 | attachVideos   | 消息事件的视频数据，数组格式，取第一个数据 |
 | actionURL      | /                                          |
-| id             | 事件ID                                     |
-| msgSrcId       | 消息ID                                     |
+| id             | 事件 ID                                    |
+| msgSrcId       | 消息 ID                                    |
 
 
 
@@ -263,13 +265,13 @@ if (null != messageBusiness){
 void deleteAlarmDetectionMessageList(String ids, ResultListener<Boolean> listener)
 ```
 
-#### 参数说明
+**参数说明**
 
-| 参数名称 | 类型   | 出现要求 | 描述                          |
-| :------: | ------ | -------- | ----------------------------- |
-|   ids    | String | 必须     | 字符串，多个消息id用逗号,分隔 |
+| 参数 | 类型   | 必传 | 说明                             |
+| :--: | ------ | -------- | -------------------------------- |
+| ids  | String | 必须     | 字符串，多个消息 id 用逗号，分隔 |
 
-其**整体**包含在 **json** 字段中,例如：
+其**整体**包含在 **json** 字段中，例如
 
 ```java
 StringBuilder ids = new StringBuilder();
@@ -294,7 +296,7 @@ messageBusiness.deleteAlarmDetectionMessageList(ids.toString(), new Business.Res
             });
 ```
 
-返回数据结构示例:(具体以实际请求为准)
+返回数据结构示例（具体以实际请求为准）
 
 ```json
 *** JSON示例 ***

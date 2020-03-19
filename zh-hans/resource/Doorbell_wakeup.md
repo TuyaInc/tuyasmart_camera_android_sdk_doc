@@ -4,7 +4,7 @@
 
 ## 简介
 
-低功耗门铃由电池供电，为了节省电量，在一定时间内没有 p2p 连接会休眠，休眠后无法直接连接p2p，需要通过设备功能点`wirelessWake`先唤醒设备，唤醒后再连接p2p通道。
+低功耗门铃由电池供电，为了节省电量，在一定时间内没有 p2p 连接会休眠，休眠后无法直接连接 p2p ，需要通过设备功能点 `wirelessWake` 先唤醒设备，唤醒后再连接 p2p 通道。
 
 
 
@@ -25,7 +25,7 @@ void wirelessWake(String localkey, String devId);
 | localkey | 设备 localkey |
 | devId | 设备id |
 
-#### 示例代码
+**示例代码**
 
 ```java
 mDeviceControl = TuyaCameraDeviceControlSDK.getCameraDeviceInstance(devId);

@@ -36,9 +36,9 @@ public void setOnRenderDirectionCallback(OnRenderDirectionCallback var1) {
 | onDown   | 向下操作 |
 | onCancel | 结束操作 |
 
-### 示例代码：
+**示例代码**
 
-xml布局文件：
+xml 布局文件：
 
 ```xml
 <com.tuya.smart.camera.ipccamerasdk.monitor.Monitor

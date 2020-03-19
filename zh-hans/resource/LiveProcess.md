@@ -128,7 +128,7 @@ private void getApi() {
 
 #### 3. P2P 连接
 
-在开始视频播放之前，需要先连接P2P通道。P2P状态需要使用者自己维护，SDK只负责下发指令和接收摄像机响应结果。
+在开始视频播放之前，需要先连接 P2P 通道。P2P 状态需要使用者自己维护，SDK 只负责下发指令和接收摄像机响应结果。
 
 ```java
 mCameraP2P.connect(new OperationDelegateCallBack() {
@@ -190,7 +190,7 @@ camera.stopPreview(new OperationDelegateCallBack() {
 
 #### 6. 断开P2P连接
 
-disconnect断开连线,离开页面的时候可以选择断开p2p连接。
+disconnect 断开连线，离开页面的时候可以选择断开 p2p 连接。
 
    ```java
 mCameraP2P.disconnect(new OperationDelegateCallBack() {
@@ -210,7 +210,7 @@ mCameraP2P.disconnect(new OperationDelegateCallBack() {
 
 #### 7. 销毁ICameraP2P对象
 
-destroy销毁对象，不再使用camera功能的时候，一定要调用destroy
+destroy 销毁对象，不再使用 camera 功能的时候，一定要调用 destroy
 
 ```java
 TuyaSmartCameraP2PFactory.onDestroyTuyaSmartCamera();   
@@ -230,7 +230,7 @@ TuyaSmartCameraP2PFactory.onDestroyTuyaSmartCamera();
 
 ### 视频录制
 
-视频录制功能可以把实时视频的影像文件以mp4格式存储到手机SD卡上。
+视频录制功能可以把实时视频的影像文件以 mp4 格式存储到手机 SD 卡上。
 
 
 
@@ -299,7 +299,7 @@ mCameraP2P.stopRecordLocalMp4(new OperationDelegateCallBack() {
 
 #### 视频截图
 
-截取实时视频的影像图片存储到手机SD卡上。
+截取实时视频的影像图片存储到手机 SD 卡上。
 
 **示例代码**
 

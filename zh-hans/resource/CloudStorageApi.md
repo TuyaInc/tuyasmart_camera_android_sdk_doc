@@ -1,4 +1,4 @@
-# 云存储数据获取API
+# 云存储数据获取 API
 
 
 
@@ -255,7 +255,7 @@ void getCloudStatusSuccess(int code);
 
 
 
-#### 返回云存储配置信息，需要传入sdk验证
+#### 返回云存储配置信息，需要传入 sdk 验证
 
 
 ```java

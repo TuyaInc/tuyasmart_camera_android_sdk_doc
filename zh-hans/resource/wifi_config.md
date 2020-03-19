@@ -12,7 +12,7 @@
 
 > 二维码模式配网比较简单，建议使用二维码配网，如果设备扫描不了二维码，再尝试快连模式。
 
-**快连模式**和**热点模式**这两种配网方式和涂鸦其他设备的配网方式是一样的可以查看[**涂鸦全屋智能 SDK 文档配网**](https://mimimumu.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/Activator_wifi.html), 这里重点讲解一下 Qrcode 的配网文档。
+**快连模式**和**热点模式**这两种配网方式和涂鸦其他设备的配网方式是一样的可以查看 [**涂鸦全屋智能 SDK 文档配网**](https://mimimumu.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/Activator_wifi.html), 这里重点讲解一下 Qrcode 的配网文档。
 
 
 
@@ -24,8 +24,6 @@
 WiFiUtil.getCurrentSSID()
 ```
 
-
-
 ### 获取配网 Token
 
 Token 的有效期为10分钟，且配置成功后就会失效（再次配网需要重新获取）,获取方法如下：
@@ -33,14 +31,15 @@ Token 的有效期为10分钟，且配置成功后就会失效（再次配网需
 ```java
 void getActivatorToken(final long homeId, final ITuyaActivatorGetToken activatorGetToken);
 ```
-#### 参数说明
+**参数说明**
 
 | 参数    | 说明                               |
 | ------- | ---------------------------------- |
 | homeid | 家庭 id |
 | ITuyaActivatorGetToken | 获取 token 的回调 |
 
-#### 示例代码
+**示例代码**
+
 ```java//需要传入当前家庭的homeid
 TuyaHomeSdk.getActivatorInstance().getActivatorToken (homeid, new ITuyaActivatorGetToken() {
             @Override
@@ -68,13 +67,13 @@ TuyaCameraActivatorBuilder builder = new TuyaCameraActivatorBuilder()
     .setSsid(ssid)
     .setListener(listener); //传入ITuyaSmartCameraActivatorListener 监听对象
 ```
-#### 参数说明
+**参数说明**
 
 | 参数    | 说明                               |
 | ------- | ---------------------------------- |
 | token | active token |
-| password | wifi的 password |
-| ssid | wifi的 ssid |
+| password | wifi 的 password |
+| ssid | wifi 的 ssid |
 | ITuyaSmartCameraActivatorListener | 回调接口|
 
 

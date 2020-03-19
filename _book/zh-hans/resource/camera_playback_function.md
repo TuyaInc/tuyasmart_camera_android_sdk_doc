@@ -1,16 +1,14 @@
-# IPC Camera SDK回放功能方法调用及生命周期
+# IPC Camera SDK 回放功能方法调用及生命周期
 
 
 
-## 示例代码
-
-### 主要链路代码
+## 回放链路代码
 
 
 
 1. 初始化
 
-   IPC Camera SDK需要绑定Monitor，使用者首先要创建Monitor，并在初始化的时候给绑定到camera sdk中，同时要把OnP2PCameraListener注入。如下所示：
+   IPC Camera SDK 需要绑定 Monitor，使用者首先要创建 Monitor，并在初始化的时候给绑定到 camera sdk中，同时要把 OnP2PCameraListener 注入。如下所示：
 
    ```java
    private static final int ASPECT_RATIO_WIDTH = 9;
@@ -127,7 +125,7 @@
 
 3. connect 连线
 
-   摄像头p2p连接操作及回调方法
+   摄像头 p2p 连接操作及回调方法
 
    ```java
            mCameraP2P.connect(new OperationDelegateCallBack() {
@@ -216,7 +214,6 @@
                            });
    ```
    
-
 7. 暂停回放
 
    ```java
@@ -267,7 +264,7 @@
 
    
 
-10. disconnect断开连线,离开页面的时候可以选择断开p2p连接
+10. disconnect 断开连线,离开页面的时候可以选择断开 p2p 连接
 
    ```java
      mCameraP2P.disconnect(new OperationDelegateCallBack() {
@@ -283,10 +280,10 @@
             });
    ```
 
-11. destroy销毁对象，不再使用camera功能的时候，一定要调用destroy
+11. destroy 销毁对象，不再使用 camera 功能的时候，一定要调用 destroy
 
     ```java
-       TuyaSmartCameraP2PFactory.onDestroyTuyaSmartCamera();   
+    TuyaSmartCameraP2PFactory.onDestroyTuyaSmartCamera();   
     ```
 
 >  以上方法调用构成摄像头live的生命周期

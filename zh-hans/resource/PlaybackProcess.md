@@ -2,21 +2,17 @@
 
 # 存储卡回放
 
-涂鸦IPC 摄像机支持SD卡录制功能。智能摄像机插入存储卡后，可以查看存储卡的信息和状态，并设置录像开关和模式。详情可以参考[存储卡管理功能](./camera_device_points.md#存储卡及本地录像管理)。
+涂鸦 IPC 摄像机支持 SD卡录制功能，智能摄像机插入存储卡后，可以查看存储卡的信息和状态，并设置录像开关和模式，详情可以参考 [存储卡管理功能](./camera_device_points.md#存储卡及本地录像管理)。
 
-存储卡回放是**Tuya Smart Camera Android SDK**通过云端服务器信息，接着创建`ICameraP2P`对象，然后进行P2P连接后，就可以播放摄像机SD卡录制下来的视频了。
-
-
-
-## 示例代码
-
-### 主要链路代码
+存储卡回放是 **Tuya Smart Camera Android SDK **通过云端服务器信息，接着创建 `ICameraP2P` 对象，然后进行 P2P 连接后，就可以播放摄像机 SD 卡录制下来的视频了。
 
 
+
+## 主要链路代码
 
 #### 1. 初始化
 
-`ICameraP2P`需要绑定`Monitor`，使用者要创建`ICameraP2P`和`Monitor`,同时也需要注册`OnP2PCameraListener`。如下所示：
+`ICameraP2P `需要绑定 `Monitor`，使用者要创建 `ICameraP2P` 和 `Monitor` ，同时也需要注册`OnP2PCameraListener`。如下所示
 
    ```java
 private static final int ASPECT_RATIO_WIDTH = 9;
@@ -129,7 +125,7 @@ private void getApi() {
 
 #### 3. P2P 连接
 
-在开始视频播放之前，需要先连接P2P通道。P2P状态需要使用者自己维护，SDK只负责下发指令和接收摄像机响应结果。
+在开始视频播放之前，需要先连接 P2P 通道。P2P 状态需要使用者自己维护，SDK 只负责下发指令和接收摄像机响应结果。
 
 ```java
 mCameraP2P.connect(new OperationDelegateCallBack() {
@@ -284,7 +280,7 @@ mCameraP2P.stopPlayBack(new OperationDelegateCallBack() {
 
 #### 10. 断开P2P连接
 
-disconnect断开连线,离开页面的时候可以选择断开p2p连接。
+disconnect 断开连线，离开页面的时候可以选择断开 p2p 连接。
 
    ```java
 mCameraP2P.disconnect(new OperationDelegateCallBack() {
@@ -304,7 +300,7 @@ mCameraP2P.disconnect(new OperationDelegateCallBack() {
 
 #### 11. 销毁ICameraP2P对象
 
-destroy销毁对象，不再使用camera功能的时候，一定要调用destroy
+destroy 销毁对象，不再使用 camera 功能的时候，一定要调用 destroy
 
 ```java
 TuyaSmartCameraP2PFactory.onDestroyTuyaSmartCamera();   

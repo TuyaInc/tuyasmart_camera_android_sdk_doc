@@ -4,8 +4,8 @@
 
 ## 简介
 
-- OnP2PCameraListener: 实现业务层所需的回调
-- OperationDelegateCallBack: p2p 信令操作方法回调
+- OnP2PCameraListener：实现业务层所需的回调
+- OperationDelegateCallBack：p2p 信令操作方法回调
 
 
 
@@ -24,7 +24,7 @@ void onReceiveFrameYUVData(int sessionId, ByteBuffer y, ByteBuffer u, ByteBuffer
 
 | 参数        | 说明                             |
 | ----------- | -------------------------------- |
-| sessionId   | \                                |
+| sessionId   | /                                |
 | Y           | 视频Y数据                        |
 | u           | 视频U数据                        |
 | v           | 视频V数据                        |
@@ -35,7 +35,7 @@ void onReceiveFrameYUVData(int sessionId, ByteBuffer y, ByteBuffer u, ByteBuffer
 | timestamp   | 时间戳                           |
 | nProgress   | 时间进度(消息中心视频播放的进度) |
 | nDuration   | 时长(消息中心视频播放时长)       |
-| camera      | \                                |
+| camera      | /                                |
 
 ### p2p 的链接状态回调
 

@@ -4,7 +4,7 @@
 
 ## 简介
 
-图片解密组件 DecryptImageView 是基于 `Fresco `开发的图片加载组件，因tuya安全机制，所以图片显示需要通过自定义 `imagepipeline-okhttp3` 进行数据解密。
+图片解密组件 DecryptImageView 是基于 `Fresco ` 开发的图片加载组件，因tuya安全机制，所以图片显示需要通过自定义 `imagepipeline-okhttp3` 进行数据解密。
 
 
 
@@ -39,10 +39,10 @@ public void setImageURI(String uriString, byte[] key)
 
 #### 参数说明
 
-| 参数      | 说明                               |
-| --------- | ---------------------------------- |
-| uriString | p2p类型，对应匹配相应设备的p2p能力 |
-| key       | 秘钥数据                           |
+| 参数      | 说明                                  |
+| --------- | ------------------------------------- |
+| uriString | p2p 类型，对应匹配相应设备的 p2p 能力 |
+| key       | 秘钥数据                              |
 
 
 
@@ -75,7 +75,7 @@ public class TuyaSmartApp extends MultiDexApplication {
 
 做完上面的工作后，你需要在 `AndroidManifest.xml` 中指定你的 Application 类。为了下载网络图片，请确认你声明了网络请求的权限。
 
-在 xml 布局文件中, 加入命名空间：
+在 xml 布局文件中，加入命名空间：
 
 ```xml
 <LinearLayout
@@ -100,7 +100,7 @@ public class TuyaSmartApp extends MultiDexApplication {
         fresco:roundedCornerRadius="@dimen/dp_4" />
 ```
 
-开始加载加密图片，传入解密秘钥 **decryption**，**imageUrl** ，调用`mSnapshot.setImageURI(imageUrl, decryption.getBytes())`。
+开始加载加密图片，传入解密秘钥 **decryption**，**imageUrl** ，调用 `mSnapshot.setImageURI(imageUrl, decryption.getBytes())`。
 
 ```java
 String attachPics = cameraMessageBean.getAttachPics();

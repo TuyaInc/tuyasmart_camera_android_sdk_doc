@@ -2,7 +2,7 @@
 
 
 
-**Tuya Smart Camera SDK ** 依赖于**涂鸦全屋智能 APP SDK ** ，在接入涂鸦 **Tuya Smart Camera SDK** 之前，您务必先了解一下[涂鸦全屋智能 APP SDK](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/)。
+**Tuya Smart Camera SDK ** 依赖于**涂鸦全屋智能 APP SDK ** ，在接入涂鸦 **Tuya Smart Camera SDK** 之前，您务必先了解一下 [涂鸦全屋智能 APP SDK](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/)。
 
 
 

@@ -6,12 +6,12 @@
 
 ### 属性
 
-| 属性                | 说明                    |
-| ------------------- | ----------------------- |
-| 状态码              | 操作相关的状态码        |
-| ITYCloudVideo       | 控制播放器操作API的接口 |
-| TuyaCameraView      | 视频播放控件            |
-| OnP2PCameraListener | 业务层所需的方法回调    |
+| 属性                | 说明                      |
+| ------------------- | ------------------------- |
+| 状态码              | 操作相关的状态码          |
+| ITYCloudVideo       | 控制播放器操作 API 的接口 |
+| TuyaCameraView      | 视频播放控件              |
+| OnP2PCameraListener | 业务层所需的方法回调      |
 
 ### 方法
 
@@ -31,7 +31,7 @@ void registorOnP2PCameraListener(OnP2PCameraListener listener);
 
 #### 绑定播放器对象
 
-注入播放器View，用来渲染视频画面
+注入播放器 View，用来渲染视频画面
 
 ```java
 void generateCloudCameraView(IRegistorIOTCListener view);
@@ -54,7 +54,7 @@ void createCloudDevice(String cachePath, String devId, OperationDelegateCallBack
 | 参数                      | 说明         |
 | ------------------------- | ------------ |
 | cachePath                 | 缓存文件地址 |
-| devId                     | 设备id       |
+| devId                     | 设备 id      |
 | OperationDelegateCallBack | 操作回调     |
 
 ##### 示例代码：
@@ -129,7 +129,7 @@ void pauseVideo(OperationCallBack callback);
 | ------------------------- | -------- |
 | OperationDelegateCallBack | 操作回调 |
 
-##### 示例代码：
+##### 示例代码
 
 ```kotlin
 override fun pauseVideo() {
@@ -162,7 +162,7 @@ void setCloudVideoMute(int mute, OperationDelegateCallBack callBack);
 | mute                      | 拾音器模式: ICameraP2P.MUTE/ICameraP2P.UNMUTE（静音/非静音） |
 | OperationDelegateCallBack | 操作回调                                                     |
 
-##### 示例代码：
+##### 示例代码
 
 ```kotlin
 private fun setCloudVideoMute(voiceMode: Int) {
@@ -196,7 +196,7 @@ void resumeVideo(OperationCallBack callback);
 | ------------------------- | -------- |
 | OperationDelegateCallBack | 操作回调 |
 
-##### 示例代码：
+##### 示例代码
 
 ```kotlin
 override fun resumeVideo() {
@@ -228,7 +228,7 @@ void stopVideo(OperationCallBack callback);
 | ------------------------- | -------- |
 | OperationDelegateCallBack | 操作回调 |
 
-##### 示例代码：
+##### 示例代码
 
 ```kotlin
 override fun stopVideo() {
@@ -279,9 +279,9 @@ override fun onReceiveFrameYUVData(sessionId: Int, y: ByteBuffer, u: ByteBuffer,
 | nDuration   | 时长(消息中心视频播放时长)       |
 | camera      | \                                |
 
-  > 在这里的视频播放只要关心nProgress，nDuration即可
+  > 在这里的视频播放只要关心 nProgress，nDuration 即可
 
-##### 示例代码：
+##### 示例代码
 
   ```kotlin
 override fun onReceiveFrameYUVData(sessionId: Int, y: ByteBuffer, u: ByteBuffer, v: ByteBuffer, width: Int, height: Int, nFrameRate: Int, nIsKeyFrame: Int, timestamp: Long, nProgress: Long, nDuration: Long, camera: Any) {

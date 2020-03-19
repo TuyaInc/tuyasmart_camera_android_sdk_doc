@@ -8,14 +8,14 @@
 void requestCameraInfo(String devId, ResultListener<CameraInfoBean> listener)
 ```
 
-### 参数说明
+**参数说明**
 
 | 参数              |      描述      |
 | -------------------- | ------------ |
 | devId  | 设备 Id |
 | listener  | 数据回调 |
 
-CameraInfoBean
+**CameraInfoBean 数据模型**
 
 | 名称                     | 描述   |
 | ------------------------ | ------ |
@@ -24,7 +24,7 @@ CameraInfoBean
 | p2pSpecifiedType         | p2p 的类型  |
 | P2pConfig             | p2p 配置信息 |
 
-P2pConfig
+**P2pConfig 数据模型**
 
 | 名称                     | 描述   |
 | ------------------------ | ------ |
@@ -32,11 +32,11 @@ P2pConfig
 | p2pKey               | p2p Id |
 | ices         | ices 数据  |
 
-> p2pId，pwd , localkey , initStr , p2pkey 这几个参数是 TuyaCameraSDK 初始化所必须有的，这几个参数没有对应成功，p2p 的构建通道就不可能成功。
+> p2pId，pwd，localkey，initStr，p2pkey 这几个参数是 TuyaCameraSDK 初始化所必须有的，这几个参数没有对应成功，p2p 的构建通道就不可能成功。
 
 
 
-### 示例代码
+**示例代码**
 
 ```java
 private void getApi() {

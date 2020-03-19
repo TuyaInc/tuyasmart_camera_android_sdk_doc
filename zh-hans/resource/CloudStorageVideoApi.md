@@ -4,7 +4,7 @@
 
 ## 描述
 
-**ITYCloudCamera**提供了云存储播放相关的API接口
+**ITYCloudCamera** 提供了云存储播放相关的API接口
 
 
 
@@ -40,7 +40,7 @@ void registorOnP2PCameraListener(OnP2PCameraListener listener);
 
 | 参数                 | 说明               |
 | -------------------- | ------------------ |
-| listener | p2p回调 |
+| listener | p2p 回调 |
 
 **示例代码**
 
@@ -63,7 +63,7 @@ cloudCamera.removeOnP2PCameraListener();
 
 
 
-### 绑定播放组件view
+### 绑定播放组件 view
 
 ```java
 void generateCloudCameraView(IRegistorIOTCListener view);
@@ -82,7 +82,7 @@ cloudCamera.generateCloudCameraView(mVideoView);
 
 
 
-### 配置云存储数据tags(开始播放云存前需要先进行配置)
+### 配置云存储数据 tags (开始播放云存前需要先进行配置)
 
 ```java
 int configCloudDataTagsV1(String jsonStr, OperationDelegateCallBack callBack);
@@ -91,7 +91,7 @@ int configCloudDataTagsV1(String jsonStr, OperationDelegateCallBack callBack);
 
 | 参数                 | 说明               |
 | -------------------- | ------------------ |
-| jsonStr | 配置云存储数据tags |
+| jsonStr | 配置云存储数据 tags |
 | callBack | 回调 |
 
 **示例代码**

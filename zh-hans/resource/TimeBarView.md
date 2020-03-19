@@ -6,7 +6,7 @@
 
 时间刻度尺，功能如下：
 
-- 继承View
+- 继承 View
 - 适配横竖屏
 - 缩放功能(小时、分钟、秒级别)
 - 时间轴中选择时间
@@ -53,13 +53,13 @@
 public synchronized void setCurrentTimeInMillisecond(long currentTimeInMillisecond)
 ```
 
-#### 参数说明
+**参数说明**
 
 | 参数                     | 描述           |
 | ------------------------ | -------------- |
 | currentTimeInMillisecond | 时、分、秒级别 |
 
-#### 示例代码
+** 示例代码**
 
 ```java
 mTimeBarView.setCurrentTimeInMillisecond(System.currentTimeMillis());
@@ -71,13 +71,13 @@ mTimeBarView.setCurrentTimeInMillisecond(System.currentTimeMillis());
 public void setMode(int scalMode)
 ```
 
-#### 参数说明
+**参数说明**
 
 | 参数  | 描述                    |
 | ----- | ----------------------- |
 | model | 分为时、分、秒 三个级别 |
 
-#### 示例代码
+**示例代码**
 
 ```java
 mTimeBarView.setMode(2);
@@ -91,7 +91,7 @@ mTimeBarView.setMode(2);
 public void setRecordDataExistTimeClipsList(List<TimePieceBean> recordDataExistTimeClipsList)
 ```
 
-#### 参数说明
+**参数说明**
 
 | 参数                         | 描述           |
 | ---------------------------- | -------------- |
@@ -99,7 +99,7 @@ public void setRecordDataExistTimeClipsList(List<TimePieceBean> recordDataExistT
 
 
 
-#### 示例代码
+**示例代码**
 
 ```java
 List<TimePieceBean> times = new ArrayList<>();
@@ -122,13 +122,13 @@ List<TimePieceBean> times = new ArrayList<>();
 public void setChangeOrientation(int orientation)
 ```
 
-#### 参数说明
+**参数说明**
 
-| 参数        | 描述               |
+| 参数        | 说明          |
 | ----------- | ------------------ |
-| orientation | 横屏/竖屏的value值 |
+| orientation | 横屏/竖屏的 value 值 |
 
-#### 示例代码
+**示例代码**
 
 ```java
     @Override
@@ -144,7 +144,7 @@ public void setChangeOrientation(int orientation)
 
 > 所有属性都有默认值，可以不设置
 
-| 属性值           | 描述                |
+| 属性             | 描述                |
 | ---------------- | ------------------- |
 | bottomTextMargin | 底部刻度值的 margin |
 | smallRulerHeight | 短刻度线的高度      |

@@ -665,7 +665,7 @@
 <h2 id="&#x6A21;&#x5757;&#x5F15;&#x7528;">&#x6A21;&#x5757;&#x5F15;&#x7528;</h2>
 <pre class="language-"><code class="lang-groovy">implementation <span class="token string">&apos;com.tuya.smart:tuyasmart-ipc-camera-message:3.13.0r128&apos;</span>
 </code></pre>
-<h2 id="&#x6D88;&#x606F;&#x4E2D;&#x5FC3;&#x5217;&#x8868;&#x83B7;&#x53D6;&#x6570;&#x636E;api&#x8BF4;&#x660E;">&#x6D88;&#x606F;&#x4E2D;&#x5FC3;&#x5217;&#x8868;&#x83B7;&#x53D6;&#x6570;&#x636E;API&#x8BF4;&#x660E;</h2>
+<h2 id="&#x6D88;&#x606F;&#x4E2D;&#x5FC3;&#x5217;&#x8868;&#x83B7;&#x53D6;&#x6570;&#x636E;-api-&#x8BF4;&#x660E;">&#x6D88;&#x606F;&#x4E2D;&#x5FC3;&#x5217;&#x8868;&#x83B7;&#x53D6;&#x6570;&#x636E; API &#x8BF4;&#x660E;</h2>
 <h3 id="queryalarmdetectiondaysbymonth">queryAlarmDetectionDaysByMonth</h3>
 <p>&#x83B7;&#x53D6;&#x6444;&#x50CF;&#x673A;&#x6D88;&#x606F;&#x4E2D;&#x5FC3;&#x6307;&#x5B9A;&#x6708;&#x542B;&#x6709;&#x6D88;&#x606F;&#x7684;&#x5177;&#x4F53;&#x65E5;&#x671F;&#x5217;&#x8868;</p>
 <pre class="language-"><code class="lang-java"><span class="token keyword">void</span> <span class="token function">queryAlarmDetectionDaysByMonth</span><span class="token punctuation">(</span><span class="token class-name">String</span> jsonParams<span class="token punctuation">,</span> <span class="token class-name">ResultListener</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">JSONArray</span><span class="token punctuation">&gt;</span></span> listener<span class="token punctuation">)</span>
@@ -674,10 +674,10 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:center">&#x53C2;&#x6570;&#x540D;&#x79F0;</th>
+<th style="text-align:center">&#x53C2;&#x6570;</th>
 <th>&#x7C7B;&#x578B;</th>
-<th>&#x53C2;&#x6570;&#x8981;&#x6C42;</th>
-<th>&#x63CF;&#x8FF0;</th>
+<th>&#x5FC5;&#x4F20;</th>
+<th>&#x8BF4;&#x660E;</th>
 </tr>
 </thead>
 <tbody>
@@ -701,7 +701,7 @@
 </tr>
 </tbody>
 </table>
-<p>&#x7136;&#x540E;&#x5C06;&#x5176;<strong>&#x6574;&#x4F53;</strong>&#x5305;&#x542B;&#x5728; <strong>json</strong> &#x5B57;&#x6BB5;&#x4E2D;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<p>&#x7136;&#x540E;&#x5C06;&#x5176;<strong>&#x6574;&#x4F53;</strong>&#x5305;&#x542B;&#x5728; <strong>json</strong> &#x5B57;&#x6BB5;&#x4E2D;&#xFF0C;&#x4F8B;&#x5982;</p>
 <pre class="language-"><code class="lang-java"><span class="token class-name">JSONObject</span> object <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JSONObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         object<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;msgSrcId&quot;</span><span class="token punctuation">,</span> devId<span class="token punctuation">)</span><span class="token punctuation">;</span>
         object<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;timeZone&quot;</span><span class="token punctuation">,</span> <span class="token class-name">TimeZoneUtils</span><span class="token punctuation">.</span><span class="token function">getTimezoneGCMById</span><span class="token punctuation">(</span><span class="token class-name">TimeZone</span><span class="token punctuation">.</span><span class="token function">getDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -723,7 +723,7 @@
                     <span class="token punctuation">}</span>
                 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x793A;&#x4F8B;:(&#x5177;&#x4F53;&#x4EE5;&#x5B9E;&#x9645;&#x8BF7;&#x6C42;&#x4E3A;&#x51C6;)</p>
+<p>&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x793A;&#x4F8B;&#xFF08;&#x5177;&#x4F53;&#x4EE5;&#x5B9E;&#x9645;&#x8BF7;&#x6C42;&#x4E3A;&#x51C6;&#xFF09;</p>
 <pre class="language-"><code class="lang-json">*** JSON&#x793A;&#x4F8B; ***
 <span class="token punctuation">{</span>
     <span class="token property">&quot;result&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;20&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
@@ -740,9 +740,9 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:center">&#x53C2;&#x6570;&#x540D;&#x79F0;</th>
+<th style="text-align:center">&#x53C2;&#x6570;</th>
 <th>&#x7C7B;&#x578B;</th>
-<th>&#x51FA;&#x73B0;&#x8981;&#x6C42;</th>
+<th>&#x5FC5;&#x4F20;</th>
 <th>&#x63CF;&#x8FF0;</th>
 </tr>
 </thead>
@@ -751,11 +751,11 @@
 <td style="text-align:center">devId</td>
 <td>String</td>
 <td>&#x5FC5;&#x987B;</td>
-<td>devId(&#x8BBE;&#x5907; ID)</td>
+<td>devId&#xFF08;&#x8BBE;&#x5907; ID&#xFF09;</td>
 </tr>
 </tbody>
 </table>
-<p>&#x7136;&#x540E;&#x5C06;&#x5176;<strong>&#x6574;&#x4F53;</strong>&#x5305;&#x542B;&#x5728; <strong>json</strong> &#x5B57;&#x6BB5;&#x4E2D;,&#x4F8B;&#x5982;&#xFF1A;</p>
+<p>&#x7136;&#x540E;&#x5C06;&#x5176;<strong>&#x6574;&#x4F53;</strong>&#x5305;&#x542B;&#x5728; <strong>json</strong> &#x5B57;&#x6BB5;&#x4E2D;&#xFF0C;&#x4F8B;&#x5982;</p>
 <pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">queryCameraMessageClassify</span><span class="token punctuation">(</span><span class="token class-name">String</span> devId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>messageBusiness <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         messageBusiness<span class="token punctuation">.</span><span class="token function">queryAlarmDetectionClassify</span><span class="token punctuation">(</span>devId<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Business</span><span class="token punctuation">.</span><span class="token class-name">ResultListener</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ArrayList</span><span class="token punctuation">&lt;</span><span class="token class-name">CameraMessageClassifyBean</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -773,7 +773,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x793A;&#x4F8B;:(&#x5177;&#x4F53;&#x4EE5;&#x5B9E;&#x9645;&#x8BF7;&#x6C42;&#x4E3A;&#x51C6;)</p>
+<p>&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x793A;&#x4F8B;&#xFF08;&#x5177;&#x4F53;&#x4EE5;&#x5B9E;&#x9645;&#x8BF7;&#x6C42;&#x4E3A;&#x51C6;&#xFF09;</p>
 <pre class="language-"><code class="lang-json">*** JSON&#x793A;&#x4F8B; ***
 <span class="token punctuation">{</span>
     <span class="token property">&quot;result&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
@@ -790,12 +790,13 @@
     <span class="token property">&quot;status&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ok&quot;</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x5C01;&#x88C5;&#x5728;CameraMessageClassifyBean&#xFF0C;&#x683C;&#x5F0F;&#x8BF4;&#x660E;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x5C01;&#x88C5;&#x5728; CameraMessageClassifyBean&#xFF0C;&#x683C;&#x5F0F;&#x8BF4;&#x660E;&#x5982;&#x4E0B;</p>
+<p><strong>CameraMessageClassifyBean &#x6570;&#x636E;&#x6A21;&#x578B;</strong></p>
 <table>
 <thead>
 <tr>
-<th>&#x53C2;&#x6570;</th>
-<th>&#x8BF4;&#x660E;</th>
+<th>&#x5B57;&#x6BB5;</th>
+<th>&#x63CF;&#x8FF0;</th>
 </tr>
 </thead>
 <tbody>
@@ -817,14 +818,14 @@
 <p>&#x83B7;&#x53D6;&#x6D88;&#x606F;&#x4E2D;&#x5FC3;&#x5177;&#x4F53;&#x6570;&#x636E;</p>
 <pre class="language-"><code class="lang-java"><span class="token keyword">void</span> <span class="token function">getAlarmDetectionMessageList</span><span class="token punctuation">(</span><span class="token class-name">String</span> json<span class="token punctuation">,</span> <span class="token class-name">ResultListener</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">JSONObject</span><span class="token punctuation">&gt;</span></span> listener<span class="token punctuation">)</span>
 </code></pre>
-<h4 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">&#x53C2;&#x6570;&#x540D;&#x79F0;</th>
+<th style="text-align:center">&#x53C2;&#x6570;</th>
 <th>&#x7C7B;&#x578B;</th>
-<th>&#x51FA;&#x73B0;&#x8981;&#x6C42;</th>
-<th>&#x63CF;&#x8FF0;</th>
+<th>&#x5FC5;&#x4F20;</th>
+<th>&#x8BF4;&#x660E;</th>
 </tr>
 </thead>
 <tbody>
@@ -832,7 +833,7 @@
 <td style="text-align:center">msgSrcId</td>
 <td>String</td>
 <td>&#x5FC5;&#x987B;</td>
-<td>devId(&#x8BBE;&#x5907; ID)</td>
+<td>devId (&#x8BBE;&#x5907; ID)</td>
 </tr>
 <tr>
 <td style="text-align:center">msgType</td>
@@ -873,7 +874,7 @@
 </tbody>
 </table>
 <blockquote>
-<p> PS: &#x5982;&#x679C;&#x8981;&#x67E5;&#x8BE2;&#x67D0;&#x4E00;&#x5929;&#x7684;&#x5168;&#x90E8;&#x6D88;&#x606F;&#x6570;&#x636E;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x7ED3;&#x675F;&#x65F6;&#x95F4;&#x548C;&#x8D77;&#x59CB;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x4E00;&#x5929;&#x7684;&#x65F6;&#x95F4;&#x6233;&#x5373;&#x53EF;&#x3002;&#x7136;&#x540E;&#x5C06;&#x5176;<strong>&#x6574;&#x4F53;</strong>&#x5305;&#x542B;&#x5728; <strong>json</strong> &#x5B57;&#x6BB5;&#x4E2D;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<p> PS: &#x5982;&#x679C;&#x8981;&#x67E5;&#x8BE2;&#x67D0;&#x4E00;&#x5929;&#x7684;&#x5168;&#x90E8;&#x6D88;&#x606F;&#x6570;&#x636E;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x7ED3;&#x675F;&#x65F6;&#x95F4;&#x548C;&#x8D77;&#x59CB;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x4E00;&#x5929;&#x7684;&#x65F6;&#x95F4;&#x6233;&#x5373;&#x53EF;&#x3002;&#x7136;&#x540E;&#x5C06;&#x5176;<strong>&#x6574;&#x4F53;</strong>&#x5305;&#x542B;&#x5728; <strong>json</strong> &#x5B57;&#x6BB5;&#x4E2D;&#xFF0C;&#x4F8B;&#x5982;</p>
 </blockquote>
 <pre class="language-"><code class="lang-java"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">null</span> <span class="token operator">!=</span> messageBusiness<span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">long</span> startTime <span class="token operator">=</span> <span class="token class-name">DateUtils</span><span class="token punctuation">.</span><span class="token function">getTodayStart</span><span class="token punctuation">(</span>day<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -913,7 +914,7 @@
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x793A;&#x4F8B;:(&#x5177;&#x4F53;&#x4EE5;&#x5B9E;&#x9645;&#x8BF7;&#x6C42;&#x4E3A;&#x51C6;)</p>
+<p>&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x793A;&#x4F8B;&#xFF08;&#x5177;&#x4F53;&#x4EE5;&#x5B9E;&#x9645;&#x8BF7;&#x6C42;&#x4E3A;&#x51C6;&#xFF09;</p>
 <pre class="language-"><code class="lang-json">*** JSON&#x793A;&#x4F8B; ***
  <span class="token punctuation">{</span>
     <span class="token property">&quot;result&quot;</span> <span class="token operator">:</span> <span class="token punctuation">{</span>
@@ -945,7 +946,8 @@
     <span class="token property">&quot;status&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;ok&quot;</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x5DF2;&#x7ECF;&#x5C01;&#x88C5;&#x5728;CameraMessageBean&#x4E2D;&#xFF0C;&#x683C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x5DF2;&#x7ECF;&#x5C01;&#x88C5;&#x5728; CameraMessageBean &#x4E2D;&#xFF0C;&#x683C;&#x5F0F;&#x5982;&#x4E0B;</p>
+<p><strong>CameraMessageBean &#x6570;&#x636E;&#x6A21;&#x578B;</strong></p>
 <table>
 <thead>
 <tr>
@@ -984,11 +986,11 @@
 </tr>
 <tr>
 <td>id</td>
-<td>&#x4E8B;&#x4EF6;ID</td>
+<td>&#x4E8B;&#x4EF6; ID</td>
 </tr>
 <tr>
 <td>msgSrcId</td>
-<td>&#x6D88;&#x606F;ID</td>
+<td>&#x6D88;&#x606F; ID</td>
 </tr>
 </tbody>
 </table>
@@ -996,14 +998,14 @@
 <p>&#x6D88;&#x606F;&#x5220;&#x9664;&#x63A5;&#x53E3;</p>
 <pre class="language-"><code class="lang-java"><span class="token keyword">void</span> <span class="token function">deleteAlarmDetectionMessageList</span><span class="token punctuation">(</span><span class="token class-name">String</span> ids<span class="token punctuation">,</span> <span class="token class-name">ResultListener</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Boolean</span><span class="token punctuation">&gt;</span></span> listener<span class="token punctuation">)</span>
 </code></pre>
-<h4 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">&#x53C2;&#x6570;&#x540D;&#x79F0;</th>
+<th style="text-align:center">&#x53C2;&#x6570;</th>
 <th>&#x7C7B;&#x578B;</th>
-<th>&#x51FA;&#x73B0;&#x8981;&#x6C42;</th>
-<th>&#x63CF;&#x8FF0;</th>
+<th>&#x5FC5;&#x4F20;</th>
+<th>&#x8BF4;&#x660E;</th>
 </tr>
 </thead>
 <tbody>
@@ -1011,11 +1013,11 @@
 <td style="text-align:center">ids</td>
 <td>String</td>
 <td>&#x5FC5;&#x987B;</td>
-<td>&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x591A;&#x4E2A;&#x6D88;&#x606F;id&#x7528;&#x9017;&#x53F7;,&#x5206;&#x9694;</td>
+<td>&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x591A;&#x4E2A;&#x6D88;&#x606F; id &#x7528;&#x9017;&#x53F7;&#xFF0C;&#x5206;&#x9694;</td>
 </tr>
 </tbody>
 </table>
-<p>&#x5176;<strong>&#x6574;&#x4F53;</strong>&#x5305;&#x542B;&#x5728; <strong>json</strong> &#x5B57;&#x6BB5;&#x4E2D;,&#x4F8B;&#x5982;&#xFF1A;</p>
+<p>&#x5176;<strong>&#x6574;&#x4F53;</strong>&#x5305;&#x542B;&#x5728; <strong>json</strong> &#x5B57;&#x6BB5;&#x4E2D;&#xFF0C;&#x4F8B;&#x5982;</p>
 <pre class="language-"><code class="lang-java"><span class="token class-name">StringBuilder</span> ids <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> mWaitingDeleteCameraMessageList<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     ids<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>mWaitingDeleteCameraMessageList<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1037,7 +1039,7 @@ messageBusiness<span class="token punctuation">.</span><span class="token functi
                 <span class="token punctuation">}</span>
             <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x793A;&#x4F8B;:(&#x5177;&#x4F53;&#x4EE5;&#x5B9E;&#x9645;&#x8BF7;&#x6C42;&#x4E3A;&#x51C6;)</p>
+<p>&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x793A;&#x4F8B;&#xFF08;&#x5177;&#x4F53;&#x4EE5;&#x5B9E;&#x9645;&#x8BF7;&#x6C42;&#x4E3A;&#x51C6;&#xFF09;</p>
 <pre class="language-"><code class="lang-json">*** JSON&#x793A;&#x4F8B; ***
 <span class="token punctuation">{</span>
     <span class="token property">&quot;result&quot;</span> <span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
@@ -1089,7 +1091,7 @@ messageBusiness<span class="token punctuation">.</span><span class="token functi
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"消息中心","level":"1.12","depth":1,"next":{"title":"消息列表","level":"1.12.1","depth":2,"anchor":"#","path":"resource/message_center_list.md","ref":"./resource/message_center_list.md#","articles":[]},"previous":{"title":"云台控制","level":"1.11.5","depth":2,"anchor":"#云台控制","path":"resource/camera_device_points.md","ref":"./resource/camera_device_points.md#云台控制","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","prism","-highlight"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Daju.huang","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tuya IPC","language":"zh-hans","gitbook":"*","description":"Tuya IPC SDK Docs"},"file":{"path":"resource/message_center_list.md","mtime":"2020-03-16T22:57:51.007Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-17T04:42:19.788Z"},"basePath":"..","book":{"language":"zh-hans"}});
+            gitbook.page.hasChanged({"page":{"title":"消息中心","level":"1.12","depth":1,"next":{"title":"消息列表","level":"1.12.1","depth":2,"anchor":"#","path":"resource/message_center_list.md","ref":"./resource/message_center_list.md#","articles":[]},"previous":{"title":"云台控制","level":"1.11.5","depth":2,"anchor":"#云台控制","path":"resource/camera_device_points.md","ref":"./resource/camera_device_points.md#云台控制","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","prism","-highlight"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"expandable-chapters-small":{},"back-to-top-button":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Daju.huang","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tuya IPC","language":"zh-hans","gitbook":"*","description":"Tuya IPC SDK Docs"},"file":{"path":"resource/message_center_list.md","mtime":"2020-03-19T13:48:01.876Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-19T13:48:40.028Z"},"basePath":"..","book":{"language":"zh-hans"}});
         });
     </script>
 </div>
@@ -1104,10 +1106,6 @@ messageBusiness<span class="token punctuation">.</span><span class="token functi
     
         
         <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

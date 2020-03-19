@@ -10,19 +10,19 @@
 
 1. 初始化
 
-   IPC Camera SDK需要绑定Monitor，使用者首先要创建Monitor，并在初始化的时候给绑定到camera sdk中，同时要把OnP2PCameraListener注入。如下所示：
+   IPC Camera SDK 需要绑定 Monitor，使用者首先要创建 Monitor，并在初始化的时候给绑定到 camera sdk中，同时要把 OnP2PCameraListener 注入。如下所示：
 
    ```java
    private static final int ASPECT_RATIO_WIDTH = 9;
    private static final int ASPECT_RATIO_HEIGHT = 16;
    @Override
-       protected void onCreate(Bundle savedInstanceState) {
-           ···
-        initView();
-        initData();
-        initListener();
-   		...
-       }
+   protected void onCreate(Bundle savedInstanceState) {
+     ···
+     initView();
+     initData();
+     initListener();
+     ...
+   }
    ```
 
    ```java
@@ -109,7 +109,7 @@
 2. 初始化回调
 
    ```java
-       private void initCameraView() {
+    private void initCameraView() {
            mCameraP2P.createDevice(new OperationDelegateCallBack() {
                @Override
                public void onSuccess(int sessionId, int requestId, String data) {
@@ -120,15 +120,15 @@
                public void onFailure(int sessionId, int requestId, int errCode) {
                    mHandler.sendMessage(MessageUtil.getMessage(MSG_CREATE_DEVICE, ARG1_OPERATE_FAIL));
                }
-           },configCameraBean);
+           }, configCameraBean);
        }
    ```
 
    
 
-3. connect 连线及connectChannel创建通道
+3. connect 连线及 connectChannel 创建通道
 
-   摄像头p2p连接操作及回调方法
+   摄像头 p2p 连接操作及回调方法
 
    ```java
         mCameraP2P.connect(new OperationDelegateCallBack() {
@@ -163,9 +163,9 @@
             }
         });
    ```
-   > 注意：startPreview成功回调之后，onReceiveFrameYUVData回调会开始接收视频数据，并抛给业务层。
+   > 注意：startPreview 成功回调之后，onReceiveFrameYUVData 回调会开始接收视频数据，并抛给业务层。
 
-5. stopPreview停止播放影像
+5. stopPreview 停止播放影像
 
    停止摄像头播放影像操作
 
@@ -183,7 +183,7 @@
             });
    ```
 
-6. disconnect断开连线,离开页面的时候可以选择断开p2p连接
+6. disconnect 断开连线,离开页面的时候可以选择断开 p2p 连接
 
    ```java
      mCameraP2P.disconnect(new OperationDelegateCallBack() {
@@ -199,13 +199,13 @@
             });
    ```
 
-7. destroy销毁对象，不再使用camera功能的时候，一定要调用destroy
+7. destroy 销毁对象，不再使用 camera 功能的时候，一定要调用 destroy
 
    ```java
-      TuyaSmartCameraP2PFactory.onDestroyTuyaSmartCamera();   
+   TuyaSmartCameraP2PFactory.onDestroyTuyaSmartCamera();   
    ```
 
->  以上方法调用构成摄像头live的生命周期
+>  以上方法调用构成摄像头 live 的生命周期
 
 
 

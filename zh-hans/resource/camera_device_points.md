@@ -1,6 +1,6 @@
 # 摄像头设备功能点
 
-涂鸦智能设备通过设备功能点来控制设备，并且通过标准化的功能点实现设备与App之间的交互。**Tuya Smart Camera Android SDK** 基于 [自定义设备控制](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/Device_standard.html) 封装了一套智能摄像机的扩展功能。
+涂鸦智能设备通过设备功能点来控制设备，并且通过标准化的功能点实现设备与 App 之间的交互。**Tuya Smart Camera Android SDK** 基于 [自定义设备控制](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/Device_standard.html) 封装了一套智能摄像机的扩展功能。
 
 
 
@@ -11,11 +11,11 @@
 
 | 功能点 | 数据类型 | value | 描述 | 功能定义 |
 | ------ | ------ | :----: | ------ | ------ |
-| DpBasicIndicator.ID | boolean | true为正常状态下开启指示灯，false为正常状态下关闭指示灯 | 状态指示灯 | 开启/关闭设备正常状态下的指示灯，在晚间避免光污染。配网阶段、设备故障等情况下指示灯仍需要正常显示以提示用户 |
-| DpBasicFlip.ID | boolean |                 true为翻转，false为正常                 | 画面翻转 | 开启/关闭画面垂直翻转，用于设备倒装时调整画面方向 |
-| DpBasicOSD.ID | boolean |              true为打开OSD，false为关闭OSD              | 时间水印 | 开启/关闭直播画面的时间水印 |
-| DpBasicPrivate.ID | boolean | true为开启隐私模式，false为关闭隐私模式 | 隐私模式 | 开启/关闭隐私模式，休眠时设备的音视频采集不工作，即设备无法直播也无法保存录像 |
-| DpBasicNightvision.ID | enum | 0：自动, 1：关, 2：开 | 红外夜视功能 | 调整红外夜视功能的开/关/自动状态 |
+| DpBasicIndicator.ID | boolean | true 为正常状态下开启指示灯，false 为正常状态下关闭指示灯 | 状态指示灯 | 开启/关闭设备正常状态下的指示灯，在晚间避免光污染。配网阶段、设备故障等情况下指示灯仍需要正常显示以提示用户 |
+| DpBasicFlip.ID | boolean |                 true 为翻转，false 为正常                 | 画面翻转 | 开启/关闭画面垂直翻转，用于设备倒装时调整画面方向 |
+| DpBasicOSD.ID | boolean |              true 为打开OSD，false 为关闭OSD              | 时间水印 | 开启/关闭直播画面的时间水印 |
+| DpBasicPrivate.ID | boolean | true 为开启隐私模式，false 为关闭隐私模式 | 隐私模式 | 开启/关闭隐私模式，休眠时设备的音视频采集不工作，即设备无法直播也无法保存录像 |
+| DpBasicNightvision.ID | enum | 0：自动，1：关，2：开 | 红外夜视功能 | 调整红外夜视功能的开/关/自动状态 |
 
 
 
@@ -23,18 +23,18 @@
 
 | 功能点                 | 数据类型 | value                                           | 描述                   | 功能定义                                                     |
 | ---------------------- | -------- | ----------------------------------------------- | ---------------------- | ------------------------------------------------------------ |
-| DpPIRSwitch.ID         | enum     | 0：关闭，1：低灵敏度，2：中灵敏度，3：高灵敏度  | PIR开关及灵敏度        | 调整PIR功能的关闭/低灵敏度/中灵敏度/高灵敏度                 |
+| DpPIRSwitch.ID         | enum     | 0：关闭，1：低灵敏度，2：中灵敏度，3：高灵敏度  | PIR 开关及灵敏度       | 调整PIR功能的关闭/低灵敏度/中灵敏度/高灵敏度                 |
 | DpMotionSwitch.ID      | boolean  | true为开启移动侦测报警，false为关闭移动侦测报警 | 移动侦测报警开关       | 开启/关闭移动侦测报警，开启后，设备需要在适当的条件下每次检测到移动均上报消息到服务器 |
-| DpMotionSensitivity.ID | enum     | 0：低,1：中, 2：高                              | 移动侦测报警灵敏度设置 | 设置移动侦测报警的灵敏度                                     |
+| DpMotionSensitivity.ID | enum     | 0：低，1：中，2：高                             | 移动侦测报警灵敏度设置 | 设置移动侦测报警的灵敏度                                     |
 
 
 
 ### 声音侦测报警
 
-| 功能点                  | 数据类 型 | value                                           | 描述                   | 功能定义                                                     |
-| ----------------------- | --------- | ----------------------------------------------- | ---------------------- | ------------------------------------------------------------ |
-| DpDecibelSwitch.ID      | boolean   | true为打开声音侦测报警，false为关闭声音侦测报警 | 声音侦测报警开关       | 开启/关闭声音侦测报警，开启后，设备需要在适当的条件下每次检测到声音均上报消息到服务器 |
-| DpDecibelSensitivity.ID | enum      | 0：低灵敏度,1：高灵敏度                         | 声音侦测报警灵敏度设置 | 设置声音侦测报警的灵敏度                                     |
+| 功能点                  | 数据类 型 | value                                             | 描述                   | 功能定义                                                     |
+| ----------------------- | --------- | ------------------------------------------------- | ---------------------- | ------------------------------------------------------------ |
+| DpDecibelSwitch.ID      | boolean   | true 为打开声音侦测报警，false 为关闭声音侦测报警 | 声音侦测报警开关       | 开启/关闭声音侦测报警，开启后，设备需要在适当的条件下每次检测到声音均上报消息到服务器 |
+| DpDecibelSensitivity.ID | enum      | 0：低灵敏度，1：高灵敏度                          | 声音侦测报警灵敏度设置 | 设置声音侦测报警的灵敏度                                     |
 
 
 
@@ -42,21 +42,21 @@
 
 | 功能点              | 数据类型 | value                                                        | 描述                         | 功能定义                                                     |
 | ------------------- | -------- | ------------------------------------------------------------ | ---------------------------- | ------------------------------------------------------------ |
-| DpSDStatus.ID       | value    | 1：正常,2：异常（SD卡损坏或格式不对）,3：空间不足, 4：正在格式化,5：无SD卡 | 存储卡状态                   | 设备向云端上报当前SD卡的状态，包括SD卡正常、异常、空间不足等 |
+| DpSDStatus.ID       | value    | 1：正常，2：异常（ SD 卡损坏或格式不对），3：空间不足， 4：正在格式化，5：无 SD 卡 | 存储卡状态                   | 设备向云端上报当前 SD 卡的状态，包括 SD 卡正常、异常、空间不足等 |
 | DpSDStorage.ID      | string   | string                                                       | 存储卡容量信息查询           | 上报存储卡当前的容量状态，包括总容量、已使用容量、剩余容量   |
 | DpSDFormat.ID       | boolean  | boolean                                                      | 存储卡格式化                 | 发起格式化存储卡的指令、上报当前存储卡格式化的进度等状态     |
-| DpSDFormatStatus.ID | value    | 正数为格式化进度0-100                                        | 当前存储卡格式化的进度等状态 | 正数为格式化进度，100即格式化成功.错误码：-2000：SD卡已在格式化状态，-2001：SD卡格式化异常 |
-| DpSDRecordSwitch.ID | boolean  | true为打开本地录像，false为关闭本地录像                      | 本地录像开关                 | 开启/关闭SD卡录像，关闭后设备不会将实时录像记录在SD卡        |
-| DpRecordMode.ID     | enum     | 1：事件录像（检测到移动再录像到SD卡）2：连续录像             | 本地录像模式选择             | 在本地录像开启的状态下，选择录像的模式，支持“事件录像”和“连续录像” |
+| DpSDFormatStatus.ID | value    | 正数为格式化进度 0-100                                       | 当前存储卡格式化的进度等状态 | 正数为格式化进度，100即格式化成功.错误码：-2000：SD卡已在格式化状态，-2001：SD 卡格式化异常 |
+| DpSDRecordSwitch.ID | boolean  | true 为打开本地录像，false 为关闭本地录像                    | 本地录像开关                 | 开启/关闭SD卡录像，关闭后设备不会将实时录像记录在SD 卡       |
+| DpRecordMode.ID     | enum     | 1：事件录像（检测到移动再录像到 SD 卡）2：连续录像           | 本地录像模式选择             | 在本地录像开启的状态下，选择录像的模式，支持“事件录像”和“连续录像” |
 
 
 
 ### PTZ(云台方向控制)功能
 
-| 功能点          | 数据类型 | value                          | 描述             | 功能定义                             |
-| --------------- | -------- | ------------------------------ | ---------------- | ------------------------------------ |
-| DpPTZControl.ID | enum     | 0：上,2：右,4：下,6：左        | 云台方向控制     | 用于控制云台开始转动以及转动的方向。 |
-| DpPTZStop.ID    | boolean  | bool(云台停止转动命令，无参数) | 控制云台停止转动 | 云台停止转动命令，无参数             |
+| 功能点          | 数据类型 | value                           | 描述             | 功能定义                             |
+| --------------- | -------- | ------------------------------- | ---------------- | ------------------------------------ |
+| DpPTZControl.ID | enum     | 0：上，2：右，4：下，6：左      | 云台方向控制     | 用于控制云台开始转动以及转动的方向。 |
+| DpPTZStop.ID    | boolean  | bool (云台停止转动命令，无参数) | 控制云台停止转动 | 云台停止转动命令，无参数             |
 
 
 
@@ -75,7 +75,7 @@
 
 ## 设备标准化功能方法
 
-ITuyaCameraDevice提供与设备信息通信的能力，提供了控制指令下发、获取当前功能点的数据。
+ITuyaCameraDevice 提供与设备信息通信的能力，提供了控制指令下发、获取当前功能点的数据。
 
 
 
@@ -83,7 +83,7 @@ ITuyaCameraDevice提供与设备信息通信的能力，提供了控制指令下
 
 **描述**
 
-根据设备id初始化设备控制类
+根据设备 id 初始化设备控制类
 
 ```java
 ITuyaCameraDevice getCameraDeviceInstance(String devId) 
@@ -101,7 +101,7 @@ ITuyaCameraDevice tuyaCameraDevice = TuyaCameraDeviceControlSDK.getCameraDeviceI
 
 **描述**
 
-通过该方法可以判断设备是否支持该功能点，如果设备不支持该功能，调用**数据下发**和**数据查询**的方法是会失败的，因此做数据下发和查询之前要先判断该功能是否支持。**入参**为功能点的ID
+通过该方法可以判断设备是否支持该功能点，如果设备不支持该功能，调用**数据下发**和**数据查询**的方法是会失败的，因此做数据下发和查询之前要先判断该功能是否支持。**入参**为功能点的 ID
 
 ```java
 boolean isSupportCameraDps(String dpCodeID);
@@ -149,7 +149,7 @@ mTuyaCameraDevice.publishCameraDps(DpBasicFlip.ID, true);
 
 ### ITuyaCameraDeviceControlCallback 回调
 
- ITuyaCameraDeviceControlCallback类提供监听设备信息数据接收，以及app端数据下发后，收到设备回传来的回调。如果功能点的数据类型是Boolean，回调可以设置Boolean；如果是枚举，回调设置String；如果是value，回调设置Integer。
+ ITuyaCameraDeviceControlCallback 类提供监听设备信息数据接收，以及 app 端数据下发后，收到设备回传来的回调。如果功能点的数据类型是 Boolean，回调可以设置 Boolean；如果是枚举，回调设置 String；如果是  value，回调设置 Integer。
 
 ```java
 public interface ITuyaCameraDeviceControlCallback<E> {
@@ -172,11 +172,11 @@ public interface ITuyaCameraDeviceControlCallback<E> {
 
 
 
-#### Value数据查询
+#### Value 数据查询
 
 **【描述】**
 
-通过缓存获取对应功能点的数据，根据Value的数据类型可以分别用以下方法查询
+通过缓存获取对应功能点的数据，根据 Value 的数据类型可以分别用以下方法查询
 
 ```java
  int queryIntegerCurrentCameraDps(String dpCodeID);
@@ -190,11 +190,11 @@ int dpvalue = mTuyaCameraDevice.queryIntegerCurrentCameraDps(DpSDStatus.ID);
 
 
 
-#### Object数据查询
+#### Object 数据查询
 
 **【描述】**
 
-通过缓存获取对应功能点的数据，支持enum、value、boolean、String所有的功能点查询
+通过缓存获取对应功能点的数据，支持 enum、value、boolean、String 所有的功能点查询
 
 ```java
 Object queryObjectCameraDps(String dpCodeID);
@@ -206,15 +206,15 @@ Object queryObjectCameraDps(String dpCodeID);
 Object dpValue = mTuyaCameraDevice.queryObjectCameraDps(DpBasicFlip.ID);
 ```
 
-> 如果使用：queryObjectCameraDps进行查询，需要开发者对数据类型进行单独区分
+> 如果使用：queryObjectCameraDps 进行查询，需要开发者对数据类型进行单独区分
 
 
 
-#### String/Enum数据查询
+#### String/Enum 数据查询
 
 **【描述】**
 
-通过缓存获取对应功能点的数据，根据String/Enum的数据类型可以分别用以下方法查询
+通过缓存获取对应功能点的数据，根据 String/Enum 的数据类型可以分别用以下方法查询
 
 ```java
  String queryStringCurrentCameraDps(String dpCodeID);
@@ -228,11 +228,11 @@ String mode = mTuyaCameraDevice.queryStringCurrentCameraDps(DpMotionSensitivity.
 
 
 
-#### Boolean数据查询
+#### Boolean 数据查询
 
 **【描述】**
 
-通过缓存获取对应功能点的数据，根据boolean的数据类型可以分别用以下方法查询
+通过缓存获取对应功能点的数据，根据 boolean 的数据类型可以分别用以下方法查询
 
 ```java
  boolean queryBooleanCameraDps(String dpCodeID);
@@ -267,13 +267,13 @@ boolean dpValue = mTuyaCameraDevice.queryBooleanCameraDps(DpBasicFlip.ID);
 
 在开始管理存储卡或者进行录像回放前，需要先获取存储卡的状态，如果设备未检测到存储卡，则无法进行下一步。如果存储卡异常，则需要先格式化存储卡。
 
-> sdcard的LAN/Cloud数据下发是不需要传其他参数的。
+> sdcard 的 LAN/Cloud 数据下发是不需要传其他参数的。
 
 
 
 ### 状态 
 
-DpSDStatus是控制sdcard状态的DP点。
+DpSDStatus 是控制 sdcard 状态的 DP 点。
 
 **示例代码**
 
@@ -296,7 +296,7 @@ mTuyaCameraDevice.registorTuyaCameraDeviceControlCallback(DpSDStatus.ID, new ITu
 
 ### 存储卡容量获取 
 
-DpSDStorge的数据下发可以获取到涂鸦IPC摄像机当前的存储卡容量。
+DpSDStorge 的数据下发可以获取到涂鸦 IPC 摄像机当前的存储卡容量。
 
 **示例代码**
 
@@ -321,7 +321,7 @@ mTuyaCameraDevice.publishCameraDps(DpSDStorage.ID, null);
 
 ### 格式化 
 
-在格式化存储卡的时候，根据摄像机厂商的实现，有两种情况。有些厂商实现的固件中，会主动上报格式化的进度，格式化完成后也会主动上报当前的容量状态，但是有少部分厂商的固件，不会主动上报，所以需要定时主动去查询格式化的进度，当进度达到 100 时，再主动去查询当前的容量状态。DpSDFormat的数据下发可以启动格式化操作。
+在格式化存储卡的时候，根据摄像机厂商的实现，有两种情况。有些厂商实现的固件中，会主动上报格式化的进度，格式化完成后也会主动上报当前的容量状态，但是有少部分厂商的固件，不会主动上报，所以需要定时主动去查询格式化的进度，当进度达到 100 时，再主动去查询当前的容量状态。DpSDFormat 的数据下发可以启动格式化操作。
 
 **示例代码**
 
@@ -344,7 +344,7 @@ mTuyaCameraDevice.publishCameraDps(DpSDFormat.ID, true);
 
 ### 格式化状态
 
-DpSDFormatStatus数据下发可以查询格式化进度，当进度达到100时，即格式化结束。可以再次去查询存储卡容量。
+DpSDFormatStatus 数据下发可以查询格式化进度，当进度达到100时，即格式化结束。可以再次去查询存储卡容量。
 
 **示例代码**
 
@@ -367,7 +367,7 @@ mTuyaCameraDevice.publishCameraDps(DpSDFormatStatus.ID, null);
 
 ### 录像开关
 
-DpSDRecordSwitch的数据下发来控制涂鸦智能摄像机是否开启录像功能。
+DpSDRecordSwitch 的数据下发来控制涂鸦智能摄像机是否开启录像功能。
 
 **示例代码**
 
@@ -390,7 +390,7 @@ mTuyaCameraDevice.publishCameraDps(DpSDRecordSwitch.ID, true);
 
 ### 录像模式
 
-涂鸦摄像机在插入存储卡后，可以将采集的影像录制保存在存储卡中，可以通过 涂鸦IPC Camera SDK 设置视频录制开关和模式。录制模式分为以下两种：
+涂鸦摄像机在插入存储卡后，可以将采集的影像录制保存在存储卡中，可以通过 涂鸦 IPC Camera SDK 设置视频录制开关和模式。录制模式分为以下两种：
 
 - **连续录制**：摄像机会将采集到的音视频连续不断的录制保存在存储卡中，存储卡的容量不足的时候，将会覆盖最早录制的视频数据。
 - **事件录制**：摄像机只会在触发侦测报警的时候才会开始录制视频，视频的长短会根据事件类型，和事件持续时间而变化。
@@ -518,19 +518,19 @@ mTuyaCameraDevice.registorTuyaCameraDeviceControlCallback(DpWirelessPowermode.ID
 mTuyaCameraDevice.publishCameraDps(DpWirelessPowermode.ID, null);
 ```
 
-> 注意：DpWirelessPowermode数据下发不需要带参数，所以传null值即可。
+> 注意：DpWirelessPowermode 数据下发不需要带参数，所以传null值即可。
 
 
 
 ## 云台控制
 
-涂鸦云台摄像机可以通过**Tuya Smart Camera Android SDK** 远程控制其向指定方向转动。
+涂鸦云台摄像机可以通过 **Tuya Smart Camera Android SDK** 远程控制其向指定方向转动。
 
 > SDK 控制云台机转动时，并不是单位角度转动。SDK 下发开始转动的命令后，设备会朝着指定方向一致转动，直到无法转动，或者收到停止转动的命令。
 
 在开始控制云台摄像机转动前，需要先判断当前设备是否支持云台控制。
 
-#### 示例代码
+**示例代码**
 
 ```java
 mTuyaCameraDevice.registorTuyaCameraDeviceControlCallback(DpPTZControl.ID, new ITuyaCameraDeviceControlCallback<String>() {
