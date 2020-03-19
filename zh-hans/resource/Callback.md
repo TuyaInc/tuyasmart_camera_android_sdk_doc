@@ -23,7 +23,7 @@ void onReceiveFrameYUVData(int sessionId, ByteBuffer y, ByteBuffer u, ByteBuffer
 **参数说明**
 
 | 参数        | 说明                             |
-| ----------- | -------------------------------- |
+| :----------- | :-------------------------------- |
 | sessionId   | /                                |
 | Y           | 视频Y数据                        |
 | u           | 视频U数据                        |
@@ -46,7 +46,7 @@ void onReceiveFrameYUVData(int sessionId, ByteBuffer y, ByteBuffer u, ByteBuffer
 #### 参数说明
 
 | 参数          | 说明         |
-| ------------- | ------------ |
+| :------------- | :------------ |
 | camera        | /            |
 | sessionId     | session Id   |
 | sessionStatus | session 状态 |
@@ -66,7 +66,7 @@ void onSuccess(int sessionId, int requestId, String data)
 **参数说明**
 
 | 参数      | 说明             |
-| --------- | ---------------- |
+| :--------- | :---------------- |
 | sessionId | /                |
 | requestId | /                |
 | data      | 可携带回来的数据 |
@@ -82,7 +82,7 @@ void onFailure(int sessionId, int requestId, int errCode)
 **参数说明**
 
 | 参数      | 说明       |
-| --------- | ---------- |
+| :--------- | :---------- |
 | sessionId | /          |
 | requestId | /          |
 | errCode   | 操作错误码 |

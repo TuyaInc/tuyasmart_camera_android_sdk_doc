@@ -34,7 +34,7 @@ void getActivatorToken(final long homeId, final ITuyaActivatorGetToken activator
 **参数说明**
 
 | 参数    | 说明                               |
-| ------- | ---------------------------------- |
+| :------- | :---------------------------------- |
 | homeid | 家庭 id |
 | ITuyaActivatorGetToken | 获取 token 的回调 |
 
@@ -70,7 +70,7 @@ TuyaCameraActivatorBuilder builder = new TuyaCameraActivatorBuilder()
 **参数说明**
 
 | 参数    | 说明                               |
-| ------- | ---------------------------------- |
+| :------- | :---------------------------------- |
 | token | active token |
 | password | wifi 的 password |
 | ssid | wifi 的 ssid |
@@ -151,7 +151,7 @@ ITuyaSmartCameraActivatorListener() {
 #### 方法说明
 
 | 方法    | 说明                               |
-| ------- | ---------------------------------- |
+| :------- | :---------------------------------- |
 | onQRCodeSuccess | 生成二维码 URL 成功回调，回调参数即为二维码 url 地址 |
 | onError | 错误信息 |
 | onActiveSuccess | 激活成功 |

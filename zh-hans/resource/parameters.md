@@ -11,14 +11,14 @@ void requestCameraInfo(String devId, ResultListener<CameraInfoBean> listener)
 **参数说明**
 
 | 参数              |      描述      |
-| -------------------- | ------------ |
+| :-------------------- | :------------ |
 | devId  | 设备 Id |
 | listener  | 数据回调 |
 
 **CameraInfoBean 数据模型**
 
 | 名称                     | 描述   |
-| ------------------------ | ------ |
+| :------------------------ | :------ |
 | password                   | 秘钥   |
 | p2pId               | p2p Id |
 | p2pSpecifiedType         | p2p 的类型  |
@@ -27,7 +27,7 @@ void requestCameraInfo(String devId, ResultListener<CameraInfoBean> listener)
 **P2pConfig 数据模型**
 
 | 名称                     | 描述   |
-| ------------------------ | ------ |
+| :------------------------ | :------ |
 | initStr                   | initStr   |
 | p2pKey               | p2p Id |
 | ices         | ices 数据  |

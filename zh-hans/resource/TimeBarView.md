@@ -56,7 +56,7 @@ public synchronized void setCurrentTimeInMillisecond(long currentTimeInMilliseco
 **参数说明**
 
 | 参数                     | 描述           |
-| ------------------------ | -------------- |
+| :------------------------ | :-------------- |
 | currentTimeInMillisecond | 时、分、秒级别 |
 
 ** 示例代码**
@@ -74,7 +74,7 @@ public void setMode(int scalMode)
 **参数说明**
 
 | 参数  | 描述                    |
-| ----- | ----------------------- |
+| :----- | :----------------------- |
 | model | 分为时、分、秒 三个级别 |
 
 **示例代码**
@@ -94,7 +94,7 @@ public void setRecordDataExistTimeClipsList(List<TimePieceBean> recordDataExistT
 **参数说明**
 
 | 参数                         | 描述           |
-| ---------------------------- | -------------- |
+| :---------------------------- | :-------------- |
 | recordDataExistTimeClipsList | 时间片段数据集 |
 
 
@@ -125,7 +125,7 @@ public void setChangeOrientation(int orientation)
 **参数说明**
 
 | 参数        | 说明          |
-| ----------- | ------------------ |
+| :----------- | :------------------ |
 | orientation | 横屏/竖屏的 value 值 |
 
 **示例代码**
@@ -145,7 +145,7 @@ public void setChangeOrientation(int orientation)
 > 所有属性都有默认值，可以不设置
 
 | 属性             | 描述                |
-| ---------------- | ------------------- |
+| :---------------- | :------------------- |
 | bottomTextMargin | 底部刻度值的 margin |
 | smallRulerHeight | 短刻度线的高度      |
 | topTextMargin    | 顶部刻度值的 margin |

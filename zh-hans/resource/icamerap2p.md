@@ -20,7 +20,7 @@ public static ICameraP2P generateTuyaSmartCamera(int  p2pType)
 **参数说明**
 
 | 参数    | 说明                                  |
-| ------- | ------------------------------------- |
+| :------- | :------------------------------------- |
 | p2pType | p2p 类型，对应匹配相应设备的 p2p 能力 |
 
 
@@ -34,7 +34,7 @@ public void registorOnP2PCameraListener(OnP2PCameraListener listener)
 **参数说明**
 
 | 参数                | 说明         |
-| ------------------- | ------------ |
+| :------------------- | :------------ |
 | OnP2PCameraListener | p2p 操作回调 |
 
 > OnP2PCameraListener: 具体请 [查阅](./Callback.md)
@@ -58,7 +58,7 @@ public void generateCameraView(T view)
 **参数说明**
 
 | 参数 | 说明           |
-| ---- | -------------- |
+| :---- | :-------------- |
 | View | 播放器组件对象 |
 
 
@@ -83,7 +83,7 @@ public void createDevice(OperationDelegateCallBack callback, ConfigCameraBean co
 **参数说明**
 
 | 参数                      | 说明         |
-| ------------------------- | ------------ |
+| :------------------------- | :------------ |
 | OperationDelegateCallBack | 操作回调     |
 | ConfigCameraBean          | 配置参数对象 |
 
@@ -92,7 +92,7 @@ public void createDevice(OperationDelegateCallBack callback, ConfigCameraBean co
 > ConfigCameraBean :为配置参数对象，参数如下:
 
 | 参数          | 说明         |
-| ------------- | ------------ |
+| :------------- | :------------ |
 | p2pType       | p2p 类型     |
 | initString    | 关键配置数据 |
 | p2pId         | p2p Id       |
@@ -114,7 +114,7 @@ public void connect(OperationDelegateCallBack callback);
 **参数说明**
 
 | 参数                      | 说明     |
-| ------------------------- | -------- |
+| :------------------------- | :-------- |
 | OperationDelegateCallBack | 操作回调 |
 
 
@@ -128,7 +128,7 @@ public void disconnect(OperationDelegateCallBack callBack);
 **参数说明**
 
 | 参数                      | 说明     |
-| ------------------------- | -------- |
+| :------------------------- | :-------- |
 | OperationDelegateCallBack | 操作回调 |
 
 
@@ -142,7 +142,7 @@ public void startPreview(OperationDelegateCallBack callBack);
 **参数说明**
 
 | 参数                      | 说明     |
-| ------------------------- | -------- |
+| :------------------------- | :-------- |
 | OperationDelegateCallBack | 操作回调 |
 
 
@@ -156,7 +156,7 @@ public void stopPreview(OperationDelegateCallBack callBack);
 **参数说明**
 
 | 参数                      | 说明     |
-| ------------------------- | -------- |
+| :------------------------- | :-------- |
 | OperationDelegateCallBack | 操作回调 |
 
 
@@ -170,7 +170,7 @@ public void snapshot(String absoluteFilePath, Context context, PLAYMODE playmode
 **参数说明**
 
 | 参数                      | 说明         |
-| ------------------------- | ------------ |
+| :------------------------- | :------------ |
 | absoluteFilePath          | 图片地址路径 |
 | context                   | 上下文       |
 | playmode                  | 播放模式     |
@@ -188,7 +188,7 @@ public int startRecordLocalMp4(String folderPath, String fileName, Context conte
 **参数说明**
 
 | 参数                      | 说明               |
-| ------------------------- | ------------------ |
+| :------------------------- | :------------------ |
 | folderPath                | 视频文件夹地址路径 |
 | fileName                  | 上下文             |
 | Context                   | 播放模式           |
@@ -205,7 +205,7 @@ public int stopRecordLocalMp4(OperationDelegateCallBack callBack);
 **参数说明**
 
 | 参数                      | 说明     |
-| ------------------------- | -------- |
+| :------------------------- | :-------- |
 | OperationDelegateCallBack | 操作回调 |
 
 
@@ -219,7 +219,7 @@ public void startAudioTalk(OperationDelegateCallBack callBack);
 #### 参数说明
 
 | 参数                      | 说明     |
-| ------------------------- | -------- |
+| :------------------------- | :-------- |
 | OperationDelegateCallBack | 操作回调 |
 
 
@@ -233,7 +233,7 @@ public void stopAudioTalk(OperationDelegateCallBack callBack);
 **参数说明**
 
 | 参数                      | 说明     |
-| ------------------------- | -------- |
+| :------------------------- | :-------- |
 | OperationDelegateCallBack | 操作回调 |
 
 
@@ -247,7 +247,7 @@ public void getVideoClarity(OperationDelegateCallBack callBack);
 **参数说明**
 
 | 参数                      | 说明     |
-| ------------------------- | -------- |
+| :------------------------- | :-------- |
 | OperationDelegateCallBack | 操作回调 |
 
 
@@ -261,7 +261,7 @@ public void setVideoClarity(int mode, OperationDelegateCallBack callBack)
 **参数说明**
 
 | 参数                      | 说明                      |
-| ------------------------- | ------------------------- |
+| :------------------------- | :------------------------- |
 | mode                      | 清晰度参数：HD / STANDEND |
 | OperationDelegateCallBack | 操作回调                  |
 
@@ -276,7 +276,7 @@ public void setMute(PLAYMODE playModel, int mute, OperationDelegateCallBack call
 **参数说明**
 
 | 参数                      | 说明                  |
-| ------------------------- | --------------------- |
+| :------------------------- | :--------------------- |
 | playModel                 | 播放模式              |
 | Mute                      | 静音参数：UNMUTE/MUTE |
 | OperationDelegateCallBack | 操作回调              |
@@ -292,7 +292,7 @@ public void startPlayback(int startTime, int stopTime,int playTime, OperationDel
 **参数说明**
 
 | 参数                      | 说明                 |
-| ------------------------- | -------------------- |
+| :------------------------- | :-------------------- |
 | startTime                 | 片段开始时间         |
 | stopTime                  | 片段结束时间         |
 | playTime                  | 播放时间             |
@@ -312,7 +312,7 @@ public void stopplayback(OperationDelegateCallBack callBack)
 **参数说明**
 
 | 参数                      | 说明     |
-| ------------------------- | -------- |
+| :------------------------- | :-------- |
 | OperationDelegateCallBack | 操作回调 |
 
 
@@ -326,7 +326,7 @@ public void pausePlayback(OperationDelegateCallBack callBack)
 **参数说明**
 
 | 参数                      | 说明     |
-| ------------------------- | -------- |
+| :------------------------- | :-------- |
 | OperationDelegateCallBack | 操作回调 |
 
 
@@ -340,7 +340,7 @@ public void resumePlayback(OperationDelegateCallBack callBack)
 **参数说明**
 
 | 参数                      | 说明     |
-| ------------------------- | -------- |
+| :------------------------- | :-------- |
 | OperationDelegateCallBack | 操作回调 |
 
 
@@ -354,7 +354,7 @@ public void queryRecordDaysByMonth(int year, int month, OperationDelegateCallBac
 **参数说明**
 
 | 参数                      | 说明     |
-| ------------------------- | -------- |
+| :------------------------- | :-------- |
 | year                      | 年       |
 | month                     | 月       |
 | OperationDelegateCallBack | 操作回调 |
@@ -370,7 +370,7 @@ public void queryRecordTimeSliceByDay(int year, int month, int day, OperationDel
 **参数说明**
 
 | 参数                      | 说明     |
-| ------------------------- | -------- |
+| :------------------------- | :-------- |
 | year                      | 年       |
 | month                     | 月       |
 | day                       | 日       |

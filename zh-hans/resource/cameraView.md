@@ -23,13 +23,13 @@ public void setOnRenderDirectionCallback(OnRenderDirectionCallback var1) {
 ##### 参数说明
 
 | 参数                      | 说明         |
-| ------------------------- | ------------ |
+| :------------------------- | :------------ |
 | OnRenderDirectionCallback | 方向操作回调 |
 
 > OnRenderDirectionCallback 操作回调方法，参考如下：
 
 | 方法     | 说明     |
-| -------- | -------- |
+| :-------- | :-------- |
 | onLeft   | 向左操作 |
 | onRight  | 向右操作 |
 | onUp     | 向上操作 |

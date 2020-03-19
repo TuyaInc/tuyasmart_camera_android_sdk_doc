@@ -27,7 +27,7 @@ void getCameraCloudInfo(DeviceBean deviceBean, ICloudCacheManagerCallback callba
 **参数说明**
 
 | 参数    | 说明                               |
-| ------- | ---------------------------------- |
+| :------- | :---------------------------------- |
 | deviceBean | 设备信息 |
 | callback | 回调方法|
 
@@ -47,7 +47,7 @@ public void getCloudMediaCount(String devId, String timeZone, ICloudCacheManager
 **参数说明**
 
 | 参数    | 说明                               |
-| ------- | ---------------------------------- |
+| :------- | :---------------------------------- |
 | devId | 设备id |
 | timeZone | 时区|
 | callback | 回调方法|
@@ -68,7 +68,7 @@ public void getTimeLineInfoByTimeSlice(String devId, String timeGT, String timeL
 **参数说明**
 
 | 参数    | 说明                               |
-| ------- | ---------------------------------- |
+| :------- | :---------------------------------- |
 | devId | 设备id |
 | timeGT | 开始时间（13位时间戳）|
 | timeLT | 结束时间|
@@ -91,7 +91,7 @@ public void getMotionDetectionByTimeSlice(String devId, String timeGT, String ti
 **参数说明**
 
 | 参数    | 说明                               |
-| ------- | ---------------------------------- |
+| :------- | :---------------------------------- |
 | devId | 设备id |
 | timeGT | 开始时间（13位时间戳）|
 | timeLT | 结束时间|
@@ -118,7 +118,7 @@ public void buyCloudStorage(Context mContext, DeviceBean deviceBean, String home
 **参数说明**
 
 | 参数    | 说明                               |
-| ------- | ---------------------------------- |
+| :------- | :---------------------------------- |
 | mContext | 上下文 |
 | deviceBean | 设备信息）|
 | homeId | 家庭id|
@@ -179,7 +179,7 @@ void getCloudDayList(List<CloudDayBean> cloudDayBeanList);
 ##### 参数说明
 
 | 参数    | 说明                               |
-| ------- | ---------------------------------- |
+| :------- | :---------------------------------- |
 | cloudDayBeanList | 云存储日期数据集 |
 
 
@@ -193,7 +193,7 @@ void getCloudSecret(String encryKey);
 ##### 参数说明
 
 | 参数    | 说明                               |
-| ------- | ---------------------------------- |
+| :------- | :---------------------------------- |
 | encryKey | 云存储秘钥 |
 
 
@@ -207,7 +207,7 @@ void getAuthorityGet(String authorityJson);
 ##### 参数说明
 
 | 参数    | 说明                               |
-| ------- | ---------------------------------- |
+| :------- | :---------------------------------- |
 | authorityJson | 校验数据 |
 
 
@@ -221,7 +221,7 @@ void getTimePieceInfoByTimeSlice(List<TimePieceBean> timePieceBeans);
 ##### 参数说明
 
 | 参数    | 说明                               |
-| ------- | ---------------------------------- |
+| :------- | :---------------------------------- |
 | timePieceBeans | 时间片段数据集 |
 
 
@@ -235,7 +235,7 @@ void getMotionDetectionByTimeSlice(List<TimeRangeBean> timeRangeBeans);
 ##### 参数说明
 
 | 参数    | 说明                               |
-| ------- | ---------------------------------- |
+| :------- | :---------------------------------- |
 | timeRangeBeans | 移动侦测时间片段数据集 |
 
 
@@ -249,7 +249,7 @@ void getCloudStatusSuccess(int code);
 ##### 参数说明
 
 | 参数    | 说明                               |
-| ------- | ---------------------------------- |
+| :------- | :---------------------------------- |
 | code | 购买状态 |
 > code值，参考文章底下的状态码
 
@@ -264,7 +264,7 @@ void getCloudConfigDataTags(String config);
 ##### 参数说明
 
 | 参数    | 说明                               |
-| ------- | ---------------------------------- |
+| :------- | :---------------------------------- |
 | config | 配置信息数据 |
 
 
@@ -278,7 +278,7 @@ void onError(int errorCode);
 ##### 参数说明
 
 | 参数    | 说明                               |
-| ------- | ---------------------------------- |
+| :------- | :---------------------------------- |
 | errorCode | 错误码 |
 
 
@@ -286,7 +286,7 @@ void onError(int errorCode);
 #### 状态值
 
 | 状态值    | 说明                               |
-| ------- | ---------------------------------- |
+| :------- | :---------------------------------- |
 | 10001 | 未开通服务 |
 | 10002 | 已开通服务，无数据 |
 | 10003 | 已开通服务，有数据 |
@@ -298,7 +298,7 @@ void onError(int errorCode);
 #### 错误码
 
 | 错误码    | 说明                               |
-| ------- | ---------------------------------- |
+| :------- | :---------------------------------- |
 | 10100 | 获取 SECRET 失败 |
 | 10101 | 获取 AUTH 失败 |
 | 10110 | 其他异常 |

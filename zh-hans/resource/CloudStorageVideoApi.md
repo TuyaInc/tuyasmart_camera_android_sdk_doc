@@ -19,7 +19,7 @@ void createCloudDevice(String cachePath, String devId)
 **参数说明**
 
 | 参数                 | 说明               |
-| -------------------- | ------------------ |
+| :-------------------- | :------------------ |
 | cachePath | 缓存路径 |
 | devId | 设备id |
 
@@ -39,7 +39,7 @@ void registorOnP2PCameraListener(OnP2PCameraListener listener);
 **参数说明**
 
 | 参数                 | 说明               |
-| -------------------- | ------------------ |
+| :-------------------- | :------------------ |
 | listener | p2p 回调 |
 
 **示例代码**
@@ -71,7 +71,7 @@ void generateCloudCameraView(IRegistorIOTCListener view);
 **参数说明**
 
 | 参数                 | 说明               |
-| -------------------- | ------------------ |
+| :-------------------- | :------------------ |
 | view | 播放器组件 |
 
 **示例代码**
@@ -90,7 +90,7 @@ int configCloudDataTagsV1(String jsonStr, OperationDelegateCallBack callBack);
 **参数说明**
 
 | 参数                 | 说明               |
-| -------------------- | ------------------ |
+| :-------------------- | :------------------ |
 | jsonStr | 配置云存储数据 tags |
 | callBack | 回调 |
 
@@ -125,7 +125,7 @@ void playCloudDataWithStartTime(long mStartTime, long mEndTime, boolean isEvent,
 **参数说明**
 
 | 参数                 | 说明               |
-| -------------------- | ------------------ |
+| :-------------------- | :------------------ |
 | mStartTime | 开始时间 |
 | mEndTime | 结束时间，一般是这一天的结束时间 |
 | isEvent | 是否是侦测事件，默认false |
@@ -171,7 +171,7 @@ int pausePlayCloudVideo(OperationDelegateCallBack callBack);
 **参数说明**
 
 | 参数                 | 说明               |
-| -------------------- | ------------------ |
+| :-------------------- | :------------------ |
 | callBack | 操作回调 |
 
 **示例代码**
@@ -199,7 +199,7 @@ int resumePlayCloudVideo(OperationDelegateCallBack callBack);
 **参数说明**
 
 | 参数                 | 说明               |
-| -------------------- | ------------------ |
+| :-------------------- | :------------------ |
 | callBack | 操作回调 |
 
 **示例代码**
@@ -227,7 +227,7 @@ int stopPlayCloudVideo(OperationDelegateCallBack callBack);
 **参数说明**
 
 | 参数                 | 说明               |
-| -------------------- | ------------------ |
+| :-------------------- | :------------------ |
 | callBack | 操作回调 |
 
 **示例代码**
@@ -268,7 +268,7 @@ void setCloudMute(final int mute, OperationDelegateCallBack callBack);
 **参数说明**
 
 | 参数                 | 说明               |
-| -------------------- | ------------------ |
+| :-------------------- | :------------------ |
 | mute | 是否静音 |
 | callBack | 操作回调 |
 
@@ -297,7 +297,7 @@ int snapshot(String absoluteFilePath, OperationDelegateCallBack callBack);
 **参数说明**
 
 | 参数                 | 说明               |
-| -------------------- | ------------------ |
+| :-------------------- | :------------------ |
 | absoluteFilePath | 文件地址 |
 | callBack | 操作回调 |
 
@@ -326,7 +326,7 @@ int startRecordLocalMp4(String folderPath, String fileName, OperationDelegateCal
 **参数说明**
 
 | 参数                 | 说明               |
-| -------------------- | ------------------ |
+| :-------------------- | :------------------ |
 | folderPath | 文件夹路径 |
 | fileName | 文件名称 |
 | callBack | 操作回调 |
@@ -356,7 +356,7 @@ int stopRecordLocalMp4(OperationDelegateCallBack callBack);
 **参数说明**
 
 | 参数                 | 说明               |
-| -------------------- | ------------------ |
+| :-------------------- | :------------------ |
 | callBack | 操作回调 |
 
 **示例代码**
