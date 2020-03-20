@@ -7,7 +7,7 @@
 ### 属性
 
 | 属性                | 说明                      |
-| ------------------- | ------------------------- |
+| :------------------- | :------------------------- |
 | 状态码              | 操作相关的状态码          |
 | ITYCloudVideo       | 控制播放器操作 API 的接口 |
 | TuyaCameraView      | 视频播放控件              |
@@ -25,8 +25,8 @@ void registorOnP2PCameraListener(OnP2PCameraListener listener);
 
 ##### 参数说明
 
-| **参数**            | 说明             |
-| ------------------- | ---------------- |
+| 参数           | 说明             |
+| :------------------- | :---------------- |
 | OnP2PCameraListener | 视频播放回调数据 |
 
 #### 绑定播放器对象
@@ -39,8 +39,8 @@ void generateCloudCameraView(IRegistorIOTCListener view);
 
 ##### 参数说明
 
-| **参数**              | 说明       |
-| --------------------- | ---------- |
+| 参数              | 说明       |
+| :--------------------- | :---------- |
 | IRegistorIOTCListener | 播放器组件 |
 
 #### 创建云视频播放设备
@@ -52,7 +52,7 @@ void createCloudDevice(String cachePath, String devId, OperationDelegateCallBack
 ##### 参数说明
 
 | 参数                      | 说明         |
-| ------------------------- | ------------ |
+| :------------------------- | :------------ |
 | cachePath                 | 缓存文件地址 |
 | devId                     | 设备 id      |
 | OperationDelegateCallBack | 操作回调     |
@@ -80,7 +80,7 @@ void playVideo(String videoUrl, int startTime, String encryptKey, OperationCallB
 ##### 参数说明
 
 | 参数                 | 说明                    |
-| -------------------- | ----------------------- |
+| :-------------------- | :----------------------- |
 | videoUrl             | 视频播放地址            |
 | startTime            | 开始播放时间，初始值：0 |
 | encryptKey           | 播放视频的秘钥          |
@@ -125,8 +125,8 @@ void pauseVideo(OperationCallBack callback);
 
 ##### 参数说明
 
-| **参数**                  | **说明** |
-| ------------------------- | -------- |
+| 参数                 | 说明 |
+| :------------------------- | :-------- |
 | OperationDelegateCallBack | 操作回调 |
 
 ##### 示例代码
@@ -157,8 +157,8 @@ void setCloudVideoMute(int mute, OperationDelegateCallBack callBack);
 
 ##### 参数说明
 
-| **参数**                  | **说明**                                                     |
-| ------------------------- | ------------------------------------------------------------ |
+| 参数                  | 说明                                                     |
+| :------------------------- | :------------------------------------------------------------ |
 | mute                      | 拾音器模式: ICameraP2P.MUTE/ICameraP2P.UNMUTE（静音/非静音） |
 | OperationDelegateCallBack | 操作回调                                                     |
 
@@ -192,8 +192,8 @@ void resumeVideo(OperationCallBack callback);
 
 ##### 参数说明
 
-| **参数**                  | **说明** |
-| ------------------------- | -------- |
+| 参数                  | 说明 |
+| :------------------------- | :-------- |
 | OperationDelegateCallBack | 操作回调 |
 
 ##### 示例代码
@@ -224,8 +224,8 @@ void stopVideo(OperationCallBack callback);
 
 ##### 参数说明
 
-| **参数**                  | **说明** |
-| ------------------------- | -------- |
+| 参数                  | 说明 |
+| :------------------------- | :-------- |
 | OperationDelegateCallBack | 操作回调 |
 
 ##### 示例代码
@@ -265,7 +265,7 @@ override fun onReceiveFrameYUVData(sessionId: Int, y: ByteBuffer, u: ByteBuffer,
 ##### 参数说明
 
 | 参数        | 说明                             |
-| ----------- | -------------------------------- |
+| :----------- | :-------------------------------- |
 | sessionId   | \                                |
 | Y           | 视频Y数据                        |
 | u           | 视频U数据                        |

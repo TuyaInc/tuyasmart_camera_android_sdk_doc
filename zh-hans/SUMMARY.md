@@ -32,7 +32,7 @@
 	* [低功耗门铃功能](./resource/camera_device_points.md#低功耗门铃功能)
 	* [云台控制](./resource/camera_device_points.md#云台控制)
 * [消息中心](./resource/message_center_list.md)
-	* [消息列表](./resource/message_center_list.md#)
+	* [消息列表](./resource/message_center_list.md)
 	* [消息视频播放](./resource/mesage_center_video.md)
 * [状态码](./resource/statusCode.md)
 * [FAQ](./resource/FAQ.md)

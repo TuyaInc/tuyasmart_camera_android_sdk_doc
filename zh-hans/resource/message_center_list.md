@@ -31,7 +31,7 @@ void queryAlarmDetectionDaysByMonth(String jsonParams, ResultListener<JSONArray>
 **参数说明**
 
 |   参数   | 类型   | 必传 | 说明                            |
-| :------: | ------ | ---- | ------------------------------- |
+| :------ | :------ | :---- | :------------------------------- |
 | msgSrcId | String | 必须 | devId(设备 ID)                  |
 |  month   | String | 必须 | 年月,中间以 - 拼接,例如: 2019-8 |
 | timeZone | String | 必须 | 时区, 例如: Asia/Shanghai       |
@@ -86,7 +86,7 @@ void queryAlarmDetectionClassify(String devId, ResultListener<ArrayList<CameraMe
 **参数说明**
 
 | 参数  | 类型   | 必传 | 描述             |
-| :---: | ------ | -------- | ---------------- |
+| :--- | :------ | :-------- | :---------------- |
 | devId | String | 必须     | devId（设备 ID） |
 
 然后将其**整体**包含在 **json** 字段中，例如
@@ -135,7 +135,7 @@ public void queryCameraMessageClassify(String devId) {
 **CameraMessageClassifyBean 数据模型**
 
 | 字段     | 描述     |
-| -------- | -------- |
+| :-------- | :-------- |
 | describe | 消息描述 |
 | msgCode  | 无需关注 |
 | selected | 无需关注 |
@@ -153,7 +153,7 @@ void getAlarmDetectionMessageList(String json, ResultListener<JSONObject> listen
 **参数说明**
 
 |   参数    | 类型     | 必传 | 说明              |
-| :-------: | -------- | -------- | --------------------------------- |
+| :------- | :-------- | :-------- | :--------------------------------- |
 | msgSrcId  | String   | 必须     | devId (设备 ID)                                              |
 |  msgType  | Int      | 必须     | 消息类型，目前只要传4即可                                    |
 |   limit   | Int      | 必须     | 请求的数量                                                   |
@@ -244,7 +244,7 @@ if (null != messageBusiness){
 **CameraMessageBean 数据模型**
 
 | 参数           | 说明                                       |
-| -------------- | ------------------------------------------ |
+| :-------------- | :------------------------------------------ |
 | dateTime       | 发生日期                                   |
 | msgTypeContent | 无需关注                                   |
 | msgType        | 无需关注                                   |
@@ -268,7 +268,7 @@ void deleteAlarmDetectionMessageList(String ids, ResultListener<Boolean> listene
 **参数说明**
 
 | 参数 | 类型   | 必传 | 说明                             |
-| :--: | ------ | -------- | -------------------------------- |
+| :-- | :------ | :-------- | :-------------------------------- |
 | ids  | String | 必须     | 字符串，多个消息 id 用逗号，分隔 |
 
 其**整体**包含在 **json** 字段中，例如

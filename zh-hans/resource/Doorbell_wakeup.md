@@ -21,7 +21,7 @@ void wirelessWake(String localkey, String devId);
 **参数说明**
 
 | 参数    | 说明                               |
-| ------- | ---------------------------------- |
+| :------- | :---------------------------------- |
 | localkey | 设备 localkey |
 | devId | 设备id |
 
