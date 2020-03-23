@@ -322,7 +322,7 @@ TuyaSmartCameraP2PFactory.onDestroyTuyaSmartCamera();
 
 #### 开启视频录制
 
-调用startRecordLocalMp4方法。
+调用 startRecordLocalMp4 方法。
 
 **示例代码**
 

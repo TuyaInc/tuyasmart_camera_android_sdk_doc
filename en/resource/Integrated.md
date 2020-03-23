@@ -12,14 +12,47 @@ Build your project in the Android Studio.
 
 ### 2、Configure the build.gradle
 
-build.gradle 
+Add the following codes to the root build.gradle file.
+```groovy
+buildscript {
 
-Add the following codes to the build.gradle file.
+    repositories {
+        ...
+        maven {
+            url 'https://maven-other.tuya.com/repository/maven-releases/'
+        }
+        maven {
+            url 'https://maven-other.tuya.com/repository/maven-snapshots/'
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.4'
+				classpath 'com.tuya.android.module:tymodule-config:0.4.0-SNAPSHOT'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        ...
+        maven {
+            url 'https://maven-other.tuya.com/repository/maven-releases/'
+        }
+        maven {
+            url 'https://maven-other.tuya.com/repository/maven-snapshots/'
+        }
+    }
+}
+```
+
+Add the following codes to the app build.gradle file.
 
 ```groovy
+apply plugin: 'tymodule-config'
 defaultConfig {
     ndk {
-        abiFilters "armeabi-v7a"
+        abiFilters "armeabi-v7a","arm64-v8a"
     }
  }
     dependencies {
@@ -55,7 +88,7 @@ repositories {
 }
 ```
 
-> 【Tips】 TuyaSmart Camera Android sdk solely supports the platform of armeabi-v7a
+> 【Tips】 TuyaSmart Camera Android sdk solely supports the platform of armeabi-v7a,arm64-v8a
 
 
 

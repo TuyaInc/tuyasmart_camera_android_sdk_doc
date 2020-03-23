@@ -32,7 +32,7 @@
 	    }
 	    dependencies {
 	        classpath 'com.android.tools.build:gradle:3.1.4'
-	
+					classpath 'com.tuya.android.module:tymodule-config:0.4.0-SNAPSHOT'
 	        // NOTE: Do not place your application dependencies here; they belong
 	        // in the individual module build.gradle files
 	    }
@@ -55,6 +55,8 @@
 2. app 目录下的 build.gradle 配置：
 
 	```groovy
+	apply plugin: 'tymodule-config'
+	
 	defaultConfig {
 	    ndk {
 	        abiFilters "armeabi-v7a","arm64-v8a"

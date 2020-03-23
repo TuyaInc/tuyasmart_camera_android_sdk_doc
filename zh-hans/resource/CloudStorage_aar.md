@@ -23,7 +23,7 @@ buildscript {
 
 ```
 
-项目模块的build.gradle：
+项目模块的 build.gradle：
 
 ```gradle
 apply plugin: 'tymodule-config'
