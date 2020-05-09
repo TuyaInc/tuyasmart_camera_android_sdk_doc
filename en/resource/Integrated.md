@@ -59,26 +59,29 @@ defaultConfig {
         implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
         implementation 'com.alibaba:fastjson:1.1.67.android'
         implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.12.3'
-        implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
+        // implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
 
-       // required tuya home sdk
-       implementation 'com.tuya.smart:tuyasmart:3.12.4'
+        // required tuya home sdk
+        implementation 'com.tuya.smart:tuyasmart:3.17.0-beta1'
 
-       // tuya camera module
-      implementation 'com.tuya.smart:tuyasmart-ipc-camera-middleware:3.14.3r133'
-	  implementation 'com.tuya.smart:tuyasmart-ipc-camera-v2:3.14.4r134'
-	  implementation 'com.tuya.smart:tuyasmart-ipc-camera-utils:3.13.0r128'
-      implementation 'com.tuya.smart:tuyasmart-ipc-camera-message:3.13.0r128'
-	  implementation 'com.tuya.smart:tuyasmart-ipc-devicecontrol:3.14.3r133'
+        // tuya camera module
+        implementation 'com.tuya.smart:tuyasmart-ipc-camera-middleware:3.14.3r133'
+        implementation 'com.tuya.smart:tuyasmart-ipc-camera-v2:3.17.0r139'
+        implementation 'com.tuya.smart:tuyasmart-ipc-camera-utils:3.13.0r129h1'
+        implementation 'com.tuya.smart:tuyasmart-ipc-camera-message:3.13.0r128'
+        implementation 'com.tuya.smart:tuyasmart-ipc-devicecontrol:3.17.0r139'
+        //messge center imagepipeline 
+        implementation 'com.tuya.smart:tuyasmart-imagepipeline-okhttp3:0.0.1'
+        implementation 'com.facebook.fresco:fresco:1.3.0'
 
-      //Mall components
-      implementation 'com.tuya.smart:tuyasmart-webcontainer:3.12.6r125'
-      implementation 'com.tuya.smart:tuyasmart-xplatformmanager:1.0.0'
-      implementation "com.tuya.smart:tuyasmart-base:3.13.0r127"
-      implementation 'com.tuya.smart:tuyasmart-appshell:3.10.0'
-      implementation "com.tuya.smart:tuyasmart-stencilwrapper:3.13.0r127"
-      implementation "com.tuya.smart:tuyasmart-framework:3.13.0r127-open-rc.1"
-      implementation 'com.tuya.smart:tuyasmart-uispecs:0.0.3'
+        //Mall components
+        implementation 'com.tuya.smart:tuyasmart-webcontainer:3.17.6r141-open'
+        implementation 'com.tuya.smart:tuyasmart-xplatformmanager:1.1.0'
+        implementation "com.tuya.smart:tuyasmart-base:3.17.0r139-rc.3"
+        implementation 'com.tuya.smart:tuyasmart-appshell:3.10.0'
+        implementation "com.tuya.smart:tuyasmart-stencilwrapper:3.17.0.2r139"
+        implementation "com.tuya.smart:tuyasmart-framework:3.17.0.2r139-external"
+        implementation 'com.tuya.smart:tuyasmart-uispecs:0.0.5'
     }
 
 repositories {
@@ -129,8 +132,8 @@ Arrange aliasing configuration in corresponding proguard-rules.pro files.
 -dontwarn com.alibaba.fastjson.**
 
 #mqtt
--keep class org.eclipse.paho.client.mqttv3.** { *; }
--dontwarn org.eclipse.paho.client.mqttv3.**
+-keep class com.tuya.smart.mqttclient.mqttv3.** { *; }
+-dontwarn com.tuya.smart.mqttclient.mqttv3.**
 
 #tutk
 -keep class com.tutk.**{*;}

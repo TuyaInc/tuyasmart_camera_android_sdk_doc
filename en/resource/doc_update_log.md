@@ -13,8 +13,16 @@
 ## SDK update history
 
 
+- 2020.5.9
+  - Update SDK(base 3.17.0r139),fix audio problems (switch definition sound off) and .so crash, improve stability;
+  - Add reporting callback of all DP point operations of the device
+  - Update Demo
+- 2020.3.31
+  - Update SDK，modify messageCenter Video player bug on armabi .so
+- 2020.3.4
+  - Update SDK(base 3.15.0r135),add message center cloud strage video
 - 2019.11.15
-  - Update SDK (base 3.13.0r129)
+  - Update SDK (base 3.13.0r129)，ffmpeg 4.1.4
   - Update SDK Demo
 - 2019.10.8
   - Update SDK（ base 3.12.6r125）
