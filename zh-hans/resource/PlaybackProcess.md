@@ -12,113 +12,70 @@
 
 #### 1. 初始化
 
-`ICameraP2P `需要绑定 `Monitor`，使用者要创建 `ICameraP2P` 和 `Monitor` ，同时也需要注册`OnP2PCameraListener`。如下所示
-
-   ```java
-private static final int ASPECT_RATIO_WIDTH = 9;
-private static final int ASPECT_RATIO_HEIGHT = 16;
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-  ···
-    initView();
-  initData();
-  initListener();
-  ...
-}
-private void initView() {
-  ...
-    mVideoView = findViewById(R.id.camera_video_view);
-  ...
-
-    //播放器view最好宽高比设置16:9
-    WindowManager windowManager = (WindowManager) this.getSystemService(WINDOW_SERVICE);
-  int width = windowManager.getDefaultDisplay().getWidth();
-  int height = width * ASPECT_RATIO_WIDTH / ASPECT_RATIO_HEIGHT;
-  RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(width, height);
-  layoutParams.addRule(RelativeLayout.BELOW, R.id.toolbar_view);
-  findViewById(R.id.camera_video_view_Rl).setLayoutParams(layoutParams);
-
-}
-
-private void initData() {
-  localKey = getIntent().getStringExtra(INTENT_LOCALKEY);
-  devId = getIntent().getStringExtra(INTENT_DEVID);
-  sdkProvider = getIntent().getIntExtra(INTENT_SDK_POROVIDER, -1);
-  mIsRunSoft = getIntent().getBooleanExtra("isRunsoft", true);
-  if (null != TuyaHomeSdk.getUserInstance().getUser()) {
-    mlocalId = TuyaHomeSdk.getUserInstance().getUser().getUid();
-  }
-  mCameraP2P = TuyaSmartCameraP2PFactory.generateTuyaSmartCamera(sdkProvider);
-  mDeviceControl = TuyaCameraDeviceControlSDK.getCameraDeviceInstance(devId);
-  mCameraP2P.generateCameraView(mVideoView); //绑定 monitor
-  getApi(); //获取设备信息
-}
-
-private void initCameraView() {
-  mCameraP2P.createDevice(new OperationDelegateCallBack() {
-    @Override
-    public void onSuccess(int sessionId, int requestId, String data) {
-      mHandler.sendMessage(MessageUtil.getMessage(MSG_CREATE_DEVICE, ARG1_OPERATE_SUCCESS));
-    }
-
-    @Override
-    public void onFailure(int sessionId, int requestId, int errCode) {
-      mHandler.sendMessage(MessageUtil.getMessage(MSG_CREATE_DEVICE, ARG1_OPERATE_FAIL));
-    }
-  },configCameraBean);
-}
-...
-   ```
-
-
-
-#### 2. 获取设备信息
-
-通过调用云端接口，获取设备配置相关信息。
+`ICameraP2P` 需要绑定 `IMonitorView`，使用者要创建 `ICameraP2P` 和 `TuyaCameraView` ，再使用 `TuyaCameraView` 构造 `IMonitorView`，同时也需要注册`OnP2PCameraListener`、`CreateVideoViewCallback` 。
 
 ```java
+// 创建 ICameraP2P
+ICameraP2P mCameraP2P = TuyaSmartCameraP2PFactory.generateTuyaSmartCamera(sdkProvider);
+// 创建 TuyaCameraView
+TuyaCameraView mVideoView = findViewById(R.id.camera_video_view);
+
+// 为 TuyaCameraView 设置回调，类型为 TuyaCameraView.CreateVideoViewCallback
+mVideoView.setCameraViewCallback(this);
+// 使用 TuyaCameraView 构造 IMonitorView
+mVideoView.createVideoView(sdkProvider);
+
+...
+
+// TuyaCameraView 构造 IMonitorView 完成时回调
+@Override
+public void onCreated(Object view) {
+  if (null != mCameraP2P){
+    // 为 ICameraP2P 绑定 IMonitorView
+    mCameraP2P.generateCameraView(view);
+  }
+}
+```
+
+
+
+#### 2. 获取设备信息，并创建设备
+
+通过调用云端接口，获取设备配置相关信息后创建设备。
+
+```java
+// 获取设备配置相关信息
 private void getApi() {
-  Map postData = new HashMap();
-  postData.put("devId", devId);
-  CameraBusiness cameraBusiness = new CameraBusiness();
-  cameraBusiness.requestCameraInfo(devId, new Business.ResultListener<CameraInfoBean>() {
-    @Override
-    public void onFailure(BusinessResponse businessResponse, CameraInfoBean cameraInfoBean, String s) {
-      ToastUtil.shortToast(CameraPanelActivity.this, "get cameraInfo failed");
-    }
+    mSmartCameraP2P = new TuyaSmartCameraP2P();
+    mSmartCameraP2P.requestCameraInfo(devId, new ICameraConfig() {
+        @Override
+        public void onFailure(BusinessResponse var1, ConfigCameraBean var2, String var3) {
+            ToastUtil.shortToast(CameraPanelActivity.this, "get cameraInfo failed");
+        }
 
-    @Override
-    public void onSuccess(BusinessResponse businessResponse, CameraInfoBean cameraInfoBean, String s) {
-      configCameraBean = new ConfigCameraBean();
+        @Override
+        public void onSuccess(BusinessResponse var1, ConfigCameraBean var2, String var3) {
+            p2pWd = var2.getPassword();
+            p2pId = var2.getP2pId();
+            //创建设备
+            initCameraView(var2);
+        }
+    });
+}
 
-      infoBean = cameraInfoBean;
+private void initCameraView(ConfigCameraBean bean) {
+    mCameraP2P.createDevice(new OperationDelegateCallBack() {
+        @Override
+        public void onSuccess(int sessionId, int requestId, String data) {
+            mHandler.sendMessage(MessageUtil.getMessage(MSG_CREATE_DEVICE, ARG1_OPERATE_SUCCESS));
+        }
 
-      mP2p3Id = infoBean.getId();
-      p2pType = infoBean.getP2pSpecifiedType();
-      p2pId = infoBean.getP2pId().split(",")[0];
-      p2pWd = infoBean.getPassword();
-      mInitStr = infoBean.getP2pConfig().getInitStr();
-      mP2pKey = infoBean.getP2pConfig().getP2pKey();
-      mInitStr += ":" + mP2pKey;
-      if (null != infoBean.getP2pConfig().getIces()) {
-        token = infoBean.getP2pConfig().getIces().toString();
-      }
-      configCameraBean.setDevId(devId);
-      configCameraBean.setLocalKey(localKey);
-      configCameraBean.setInitString(mInitStr);
-      configCameraBean.setToken(token);
-      configCameraBean.setP2pType(p2pType);
-      configCameraBean.setLocalId(mlocalId);
-      configCameraBean.setPassword(p2pWd);
-      if (P2P_2 == p2pType) {
-        configCameraBean.setP2pId(p2pId);
-      }else if (P2P_4 == p2pType){
-        configCameraBean.setP2pId(mP2p3Id);
-      }
-      initCameraView();
-    }
-  });
-}   
+        @Override
+        public void onFailure(int sessionId, int requestId, int errCode) {
+            mHandler.sendMessage(MessageUtil.getMessage(MSG_CREATE_DEVICE, ARG1_OPERATE_FAIL));
+        }
+    },bean);
+}
 ```
 
 

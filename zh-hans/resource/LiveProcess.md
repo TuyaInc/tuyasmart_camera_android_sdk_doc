@@ -8,120 +8,76 @@
 
 
 
-### 主要链路代码
+### 主要链路代码   
 
 
 
 #### 1. 初始化
 
-`ICameraP2P` 需要绑定 `Monitor`，使用者要创建 `ICameraP2P` 和 `Monitor` ,同时也需要注册`OnP2PCameraListener` 。如下所示：
+`ICameraP2P` 需要绑定 `IMonitorView`，使用者要创建 `ICameraP2P` 和 `TuyaCameraView` ，再使用 `TuyaCameraView` 构造 `IMonitorView`，同时也需要注册 `OnP2PCameraListener`、`CreateVideoViewCallback` 。
 
 ```java
-private static final int ASPECT_RATIO_WIDTH = 9;
-   private static final int ASPECT_RATIO_HEIGHT = 16;
-   @Override
-       protected void onCreate(Bundle savedInstanceState) {
-           ···
-        initView();
-        initData();
-        initListener();
-   		...
-       }
+// 创建 ICameraP2P
+ICameraP2P mCameraP2P = TuyaSmartCameraP2PFactory.generateTuyaSmartCamera(sdkProvider);
+// 创建 TuyaCameraView
+TuyaCameraView mVideoView = findViewById(R.id.camera_video_view);
 
-		private void initView() {
-           ...
-           mVideoView = findViewById(R.id.camera_video_view);
-           ...
-   
-           //播放器view最好宽高比设置16:9
-           WindowManager windowManager = (WindowManager) this.getSystemService(WINDOW_SERVICE);
-           int width = windowManager.getDefaultDisplay().getWidth();
-           int height = width * ASPECT_RATIO_WIDTH / ASPECT_RATIO_HEIGHT;
-           RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(width, height);
-           layoutParams.addRule(RelativeLayout.BELOW, R.id.toolbar_view);
-           findViewById(R.id.camera_video_view_Rl).setLayoutParams(layoutParams);
-   
-   }
+// 为 TuyaCameraView 设置回调，类型为 TuyaCameraView.CreateVideoViewCallback
+mVideoView.setCameraViewCallback(this);
+// 使用 TuyaCameraView 构造 IMonitorView
+mVideoView.createVideoView(sdkProvider);
 
-private void initData() {
-           localKey = getIntent().getStringExtra(INTENT_LOCALKEY);
-           devId = getIntent().getStringExtra(INTENT_DEVID);
-           sdkProvider = getIntent().getIntExtra(INTENT_SDK_POROVIDER, -1);
-           mIsRunSoft = getIntent().getBooleanExtra("isRunsoft", true);
-           if (null != TuyaHomeSdk.getUserInstance().getUser()) {
-               mlocalId = TuyaHomeSdk.getUserInstance().getUser().getUid();
-           }
-           mCameraP2P = TuyaSmartCameraP2PFactory.generateTuyaSmartCamera(sdkProvider);
-           mDeviceControl = TuyaCameraDeviceControlSDK.getCameraDeviceInstance(devId);
-       		mCameraP2P.generateCameraView(mVideoView); //绑定 monitor
-           getApi(); //获取设备信息
-       }
-
-private void initCameraView() {
-           mCameraP2P.createDevice(new OperationDelegateCallBack() {
-               @Override
-               public void onSuccess(int sessionId, int requestId, String data) {
-                   mHandler.sendMessage(MessageUtil.getMessage(MSG_CREATE_DEVICE, ARG1_OPERATE_SUCCESS));
-               }
-   
-               @Override
-               public void onFailure(int sessionId, int requestId, int errCode) {
-                   mHandler.sendMessage(MessageUtil.getMessage(MSG_CREATE_DEVICE, ARG1_OPERATE_FAIL));
-               }
-           },configCameraBean);
-       }
 ...
+
+// TuyaCameraView 构造 IMonitorView 完成时回调
+@Override
+public void onCreated(Object view) {
+  if (null != mCameraP2P){
+    // 为 ICameraP2P 绑定 IMonitorView
+    mCameraP2P.generateCameraView(view);
+  }
+}
 ```
 
 
 
-#### 2. 获取设备信息
+#### 2. 获取设备信息，并创建设备
 
-通过调用云端接口，获取设备配置相关信息。
+通过调用云端接口，获取设备配置相关信息后创建设备。
 
 ```java
+// 获取设备配置相关信息
 private void getApi() {
-        Map postData = new HashMap();
-        postData.put("devId", devId);
-        CameraBusiness cameraBusiness = new CameraBusiness();
-        cameraBusiness.requestCameraInfo(devId, new Business.ResultListener<CameraInfoBean>() {
-            @Override
-            public void onFailure(BusinessResponse businessResponse, CameraInfoBean cameraInfoBean, String s) {
-                ToastUtil.shortToast(CameraPanelActivity.this, "get cameraInfo failed");
-            }
+    mSmartCameraP2P = new TuyaSmartCameraP2P();
+    mSmartCameraP2P.requestCameraInfo(devId, new ICameraConfig() {
+        @Override
+        public void onFailure(BusinessResponse var1, ConfigCameraBean var2, String var3) {
+            ToastUtil.shortToast(CameraPanelActivity.this, "get cameraInfo failed");
+        }
 
-            @Override
-            public void onSuccess(BusinessResponse businessResponse, CameraInfoBean cameraInfoBean, String s) {
-                configCameraBean = new ConfigCameraBean();
+        @Override
+        public void onSuccess(BusinessResponse var1, ConfigCameraBean var2, String var3) {
+            p2pWd = var2.getPassword();
+            p2pId = var2.getP2pId();
+          	//创建设备
+            initCameraView(var2);
+        }
+    });
+}
 
-                infoBean = cameraInfoBean;
+private void initCameraView(ConfigCameraBean bean) {
+    mCameraP2P.createDevice(new OperationDelegateCallBack() {
+        @Override
+        public void onSuccess(int sessionId, int requestId, String data) {
+            mHandler.sendMessage(MessageUtil.getMessage(MSG_CREATE_DEVICE, ARG1_OPERATE_SUCCESS));
+        }
 
-                mP2p3Id = infoBean.getId();
-                p2pType = infoBean.getP2pSpecifiedType();
-                p2pId = infoBean.getP2pId().split(",")[0];
-                p2pWd = infoBean.getPassword();
-                mInitStr = infoBean.getP2pConfig().getInitStr();
-                mP2pKey = infoBean.getP2pConfig().getP2pKey();
-                mInitStr += ":" + mP2pKey;
-                if (null != infoBean.getP2pConfig().getIces()) {
-                    token = infoBean.getP2pConfig().getIces().toString();
-                }
-                configCameraBean.setDevId(devId);
-                configCameraBean.setLocalKey(localKey);
-                configCameraBean.setInitString(mInitStr);
-                configCameraBean.setToken(token);
-                configCameraBean.setP2pType(p2pType);
-                configCameraBean.setLocalId(mlocalId);
-                configCameraBean.setPassword(p2pWd);
-                if (P2P_2 == p2pType) {
-                    configCameraBean.setP2pId(p2pId);
-                }else if (P2P_4 == p2pType){
-                    configCameraBean.setP2pId(mP2p3Id);
-                }
-                initCameraView();
-            }
-        });
-    }   
+        @Override
+        public void onFailure(int sessionId, int requestId, int errCode) {
+            mHandler.sendMessage(MessageUtil.getMessage(MSG_CREATE_DEVICE, ARG1_OPERATE_FAIL));
+        }
+    },bean);
+}
 ```
 
 
@@ -132,17 +88,19 @@ private void getApi() {
 
 ```java
 mCameraP2P.connect(new OperationDelegateCallBack() {
-            @Override
-            public void onSuccess(int sessionId, int requestId, String data) {
-                mHandler.sendMessage(MessageUtil.getMessage(MSG_CONNECT, ARG1_OPERATE_SUCCESS));
-            }
+    @Override
+    public void onSuccess(int sessionId, int requestId, String data) {
+        mHandler.sendMessage(MessageUtil.getMessage(MSG_CONNECT, ARG1_OPERATE_SUCCESS));
+    }
 
-            @Override
-            public void onFailure(int sessionId, int requestId, int errCode) {
-                mHandler.sendMessage(MessageUtil.getMessage(MSG_CONNECT, ARG1_OPERATE_FAIL, errCode));
-            }
+    @Override
+    public void onFailure(int sessionId, int requestId, int errCode) {
+        mHandler.sendMessage(MessageUtil.getMessage(MSG_CONNECT, ARG1_OPERATE_FAIL, errCode));
+    }
 });
 ```
+
+
 
 #### 4. 开启实时播放视频
 
@@ -242,30 +200,30 @@ TuyaSmartCameraP2PFactory.onDestroyTuyaSmartCamera();
 
 ```java
 if (Constants.hasStoragePermission()) {
-                String picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
-                File file = new File(picPath);
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                String fileName = System.currentTimeMillis() + ".mp4";
-                videoPath = picPath + fileName;
-                mCameraP2P.startRecordLocalMp4(picPath, fileName, CameraPanelActivity.this, new OperationDelegateCallBack() {
-                    @Override
-                    public void onSuccess(int sessionId, int requestId, String data) {
-                        isRecording = true;
-                        mHandler.sendEmptyMessage(MSG_VIDEO_RECORD_BEGIN);
+    String picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
+    File file = new File(picPath);
+    if (!file.exists()) {
+        file.mkdirs();
+    }
+    String fileName = System.currentTimeMillis() + ".mp4";
+    videoPath = picPath + fileName;
+    mCameraP2P.startRecordLocalMp4(picPath, fileName, CameraPanelActivity.this, new OperationDelegateCallBack() {
+        @Override
+        public void onSuccess(int sessionId, int requestId, String data) {
+            isRecording = true;
+            mHandler.sendEmptyMessage(MSG_VIDEO_RECORD_BEGIN);
 
-                    }
+        }
 
-                    @Override
-                    public void onFailure(int sessionId, int requestId, int errCode) {
-                        mHandler.sendEmptyMessage(MSG_VIDEO_RECORD_FAIL);
-                    }
-                });
-                recordStatue(true);
-            } else {
-                Constants.requestPermission(CameraPanelActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE, Constants.EXTERNAL_STORAGE_REQ_CODE, "open_storage");
-            } 
+        @Override
+        public void onFailure(int sessionId, int requestId, int errCode) {
+            mHandler.sendEmptyMessage(MSG_VIDEO_RECORD_FAIL);
+        }
+    });
+    recordStatue(true);
+} else {
+    Constants.requestPermission(CameraPanelActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE, Constants.EXTERNAL_STORAGE_REQ_CODE, "open_storage");
+} 
 ```
 
 > 注：录制视频需要写存储卡权限
@@ -280,19 +238,19 @@ if (Constants.hasStoragePermission()) {
 
 ```java
 mCameraP2P.stopRecordLocalMp4(new OperationDelegateCallBack() {
-                @Override
-                public void onSuccess(int sessionId, int requestId, String data) {
-                    isRecording = false;
-                    //data 返回的是文件路径
-                    mHandler.sendMessage(MessageUtil.getMessage(MSG_VIDEO_RECORD_OVER, ARG1_OPERATE_SUCCESS, data));
-                }
+    @Override
+    public void onSuccess(int sessionId, int requestId, String data) {
+        isRecording = false;
+        //data 返回的是文件路径
+        mHandler.sendMessage(MessageUtil.getMessage(MSG_VIDEO_RECORD_OVER, ARG1_OPERATE_SUCCESS, data));
+    }
 
-                @Override
-                public void onFailure(int sessionId, int requestId, int errCode) {
-                    isRecording = false;
-                    mHandler.sendMessage(MessageUtil.getMessage(MSG_VIDEO_RECORD_OVER, ARG1_OPERATE_FAIL));
-                }
-            });
+    @Override
+    public void onFailure(int sessionId, int requestId, int errCode) {
+        isRecording = false;
+        mHandler.sendMessage(MessageUtil.getMessage(MSG_VIDEO_RECORD_OVER, ARG1_OPERATE_FAIL));
+    }
+});
 ```
 
 
@@ -305,25 +263,25 @@ mCameraP2P.stopRecordLocalMp4(new OperationDelegateCallBack() {
 
 ```java
 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
-            File file = new File(path);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            picPath = path;
-        }
-        mCameraP2P.snapshot(picPath, CameraPanelActivity.this, ICameraP2P.PLAYMODE.LIVE, new OperationDelegateCallBack() {
-            @Override
-            public void onSuccess(int sessionId, int requestId, String data) {
-             //data 返回的是文件路径
-                mHandler.sendMessage(MessageUtil.getMessage(MSG_SCREENSHOT, ARG1_OPERATE_SUCCESS, data));
-            }
+    String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
+    File file = new File(path);
+    if (!file.exists()) {
+        file.mkdirs();
+    }
+    picPath = path;
+}
+mCameraP2P.snapshot(picPath, CameraPanelActivity.this, ICameraP2P.PLAYMODE.LIVE, new OperationDelegateCallBack() {
+    @Override
+    public void onSuccess(int sessionId, int requestId, String data) {
+     //data 返回的是文件路径
+        mHandler.sendMessage(MessageUtil.getMessage(MSG_SCREENSHOT, ARG1_OPERATE_SUCCESS, data));
+    }
 
-            @Override
-            public void onFailure(int sessionId, int requestId, int errCode) {
-                mHandler.sendMessage(MessageUtil.getMessage(MSG_SCREENSHOT, ARG1_OPERATE_FAIL));
-            }
-        });
+    @Override
+    public void onFailure(int sessionId, int requestId, int errCode) {
+        mHandler.sendMessage(MessageUtil.getMessage(MSG_SCREENSHOT, ARG1_OPERATE_FAIL));
+    }
+});
 ```
 
 
@@ -362,25 +320,25 @@ mCameraP2P.setMute(ICameraP2P.PLAYMODE.LIVE, mute, new OperationDelegateCallBack
 
 ```java
 if (Constants.hasRecordPermission()) {
-                mCameraP2P.startAudioTalk(new OperationDelegateCallBack() {
-                    @Override
-                    public void onSuccess(int sessionId, int requestId, String data) {
-                        isSpeaking = true;
-                        mHandler.sendMessage(MessageUtil.getMessage(MSG_TALK_BACK_BEGIN, ARG1_OPERATE_SUCCESS));
-                        ToastUtil.shortToast(CameraPanelActivity.this, "start talk success");
-                    }
+    mCameraP2P.startAudioTalk(new OperationDelegateCallBack() {
+        @Override
+        public void onSuccess(int sessionId, int requestId, String data) {
+            isSpeaking = true;
+            mHandler.sendMessage(MessageUtil.getMessage(MSG_TALK_BACK_BEGIN, ARG1_OPERATE_SUCCESS));
+            ToastUtil.shortToast(CameraPanelActivity.this, "start talk success");
+        }
 
-                    @Override
-                    public void onFailure(int sessionId, int requestId, int errCode) {
-                        isSpeaking = false;
-                        mHandler.sendMessage(MessageUtil.getMessage(MSG_TALK_BACK_BEGIN, ARG1_OPERATE_FAIL));
-                        ToastUtil.shortToast(CameraPanelActivity.this, "operation fail");
+        @Override
+        public void onFailure(int sessionId, int requestId, int errCode) {
+            isSpeaking = false;
+            mHandler.sendMessage(MessageUtil.getMessage(MSG_TALK_BACK_BEGIN, ARG1_OPERATE_FAIL));
+            ToastUtil.shortToast(CameraPanelActivity.this, "operation fail");
 
-                    }
-                });
-            } else {
-                Constants.requestPermission(CameraPanelActivity.this, Manifest.permission.RECORD_AUDIO, Constants.EXTERNAL_AUDIO_REQ_CODE, "open_recording");
-            }
+        }
+    });
+} else {
+    Constants.requestPermission(CameraPanelActivity.this, Manifest.permission.RECORD_AUDIO, Constants.EXTERNAL_AUDIO_REQ_CODE, "open_recording");
+}
 ```
 
 
@@ -393,19 +351,19 @@ if (Constants.hasRecordPermission()) {
 
 ```java
 mCameraP2P.stopAudioTalk(new OperationDelegateCallBack() {
-                @Override
-                public void onSuccess(int sessionId, int requestId, String data) {
-                    isSpeaking = false;
-                    mHandler.sendMessage(MessageUtil.getMessage(MSG_TALK_BACK_OVER, ARG1_OPERATE_SUCCESS));
-                }
+    @Override
+    public void onSuccess(int sessionId, int requestId, String data) {
+        isSpeaking = false;
+        mHandler.sendMessage(MessageUtil.getMessage(MSG_TALK_BACK_OVER, ARG1_OPERATE_SUCCESS));
+    }
 
-                @Override
-                public void onFailure(int sessionId, int requestId, int errCode) {
-                    isSpeaking = false;
-                    mHandler.sendMessage(MessageUtil.getMessage(MSG_TALK_BACK_OVER, ARG1_OPERATE_FAIL));
+    @Override
+    public void onFailure(int sessionId, int requestId, int errCode) {
+        isSpeaking = false;
+        mHandler.sendMessage(MessageUtil.getMessage(MSG_TALK_BACK_OVER, ARG1_OPERATE_FAIL));
 
-                }
-            });
+    }
+});
 ```
 
 > 注：对讲和录制是互斥的，而且只有在预览时可以开启对讲。
@@ -420,16 +378,16 @@ mCameraP2P.stopAudioTalk(new OperationDelegateCallBack() {
 
 ```java
 mCameraP2P.getVideoClarity(new OperationDelegateCallBack() {
-            @Override
-            public void onSuccess(int sessionId, int requestId, String data) {
-                
-            }
+    @Override
+    public void onSuccess(int sessionId, int requestId, String data) {
+        
+    }
 
-            @Override
-            public void onFailure(int sessionId, int requestId, int errCode) {
+    @Override
+    public void onFailure(int sessionId, int requestId, int errCode) {
 
-            }
-        });
+    }
+});
 ```
 
 > 注意：预览画面出来后，调取该函数
@@ -442,36 +400,35 @@ mCameraP2P.getVideoClarity(new OperationDelegateCallBack() {
 
 ```java
  mCameraP2P.setVideoClarity(videoClarity == ICameraP2P.HD ? ICameraP2P.STANDEND : ICameraP2P.HD, new OperationDelegateCallBack() {
-            @Override
-            public void onSuccess(int sessionId, int requestId, String data) {
-                videoClarity = Integer.valueOf(data);
-                mHandler.sendMessage(MessageUtil.getMessage(MSG_GET_CLARITY, ARG1_OPERATE_SUCCESS));
-            }
+    @Override
+    public void onSuccess(int sessionId, int requestId, String data) {
+        videoClarity = Integer.valueOf(data);
+        mHandler.sendMessage(MessageUtil.getMessage(MSG_GET_CLARITY, ARG1_OPERATE_SUCCESS));
+    }
 
-            @Override
-            public void onFailure(int sessionId, int requestId, int errCode) {
-                mHandler.sendMessage(MessageUtil.getMessage(MSG_GET_CLARITY, ARG1_OPERATE_FAIL));
-            }
-        });
+    @Override
+    public void onFailure(int sessionId, int requestId, int errCode) {
+        mHandler.sendMessage(MessageUtil.getMessage(MSG_GET_CLARITY, ARG1_OPERATE_FAIL));
+    }
+});
 ```
 
 #### 清晰度模式
 
 ```java
 public interface ICameraP2P<T> {
-       /**
-       * 高清
-       */
-      int HD = 4;
-      /**
-       * 标清
-       */
-      int STANDEND = 2;
-      ...
-          
-      }
-
-
+  
+  /**
+   * 高清
+   */
+  int HD = 4;
+  /**
+   * 标清
+   */
+  int STANDEND = 2;
+  ...
+        
+}
 ```
 
 

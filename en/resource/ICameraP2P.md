@@ -97,9 +97,9 @@ public void createDevice(OperationDelegateCallBack callback, ConfigCameraBean co
 | OperationDelegateCallBack | Operation callback      |
 | ConfigCameraBean          | Configuration parameter |
 
-> OperationDelegateCallBack: please refer to[Callback](./Callback.md)
+> OperationDelegateCallBack: please refer to [Callback](./Callback.md)
 
-> ConfigCameraBean:为配置参数对象，参数如下:
+> ConfigCameraBean: configuration parameters bean，it will return when [requestCameraInfo](./TuyaSmartCameraP2P.md), the parameters are as follows:
 
 **Parameter Description**
 

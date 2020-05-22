@@ -89,7 +89,7 @@ public void createDevice(OperationDelegateCallBack callback, ConfigCameraBean co
 
 > OperationDelegateCallBack :为此次操作回调，请 [查阅](./Callback.md)
 
-> ConfigCameraBean :为配置参数对象，参数如下:
+> ConfigCameraBean :为配置参数对象，在 [获取 IPC Config 数据](./TuyaSmartCameraP2P.md) 会返回该模型实例，参数如下:
 
 | 参数          | 说明         |
 | :------------- | :------------ |

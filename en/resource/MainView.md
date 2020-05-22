@@ -11,7 +11,7 @@ The main objects of **Tuya Smart Camera Android SDK** are as follows:
 | Object                    |                                                 Description |
 | :------------------------ | ----------------------------------------------------------: |
 | ICameraP2P                | IOTCamera provides the function of related remote IP Camera |
-| Monitor                   |                                     Video playback controls |
+| TuyaCameraView                   |                                     Video playback controls |
 | OnP2PCameraListener       |                  Method callback required by business layer |
 | OperationDelegateCallBack |                     p2p signaling operation method callback |
 | DecryptImageView          |                                  Image decryption component |

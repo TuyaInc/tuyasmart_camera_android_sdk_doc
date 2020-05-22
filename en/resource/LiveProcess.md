@@ -18,112 +18,73 @@ For live video, you need to obtain the cloud server information, then create an 
 
 #### 1. init
 
-`ICameraP2P` needs to be bound to `Monitor`, users need to create `ICameraP2P` and `Monitor`, and also need to register `OnP2PCameraListener`.
+`ICameraP2P` needs to be bound to `IMonitorView`, users need to create `ICameraP2P` and `TuyaCameraView`, then use `TuyaCameraView` to construct `IMonitorView`, and also need to register `OnP2PCameraListener` and `CreateVideoViewCallback`.
 
 ```java
-private static final int ASPECT_RATIO_WIDTH = 9;
-   private static final int ASPECT_RATIO_HEIGHT = 16;
-   @Override
-       protected void onCreate(Bundle savedInstanceState) {
-           ···
-        initView();
-        initData();
-        initListener();
-   		...
-       }
+// construct ICameraP2P
+ICameraP2P mCameraP2P = TuyaSmartCameraP2PFactory.generateTuyaSmartCamera(sdkProvider);
 
-		private void initView() {
-           ...
-           mVideoView = findViewById(R.id.camera_video_view);
-           ...
-           WindowManager windowManager = (WindowManager) this.getSystemService(WINDOW_SERVICE);
-           int width = windowManager.getDefaultDisplay().getWidth();
-           int height = width * ASPECT_RATIO_WIDTH / ASPECT_RATIO_HEIGHT;
-           RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(width, height);
-           layoutParams.addRule(RelativeLayout.BELOW, R.id.toolbar_view);
-           findViewById(R.id.camera_video_view_Rl).setLayoutParams(layoutParams);
-   
-   }
+// construct TuyaCameraView
+TuyaCameraView mVideoView = findViewById(R.id.camera_video_view);
 
-private void initData() {
-           localKey = getIntent().getStringExtra(INTENT_LOCALKEY);
-           devId = getIntent().getStringExtra(INTENT_DEVID);
-           sdkProvider = getIntent().getIntExtra(INTENT_SDK_POROVIDER, -1);
-           mIsRunSoft = getIntent().getBooleanExtra("isRunsoft", true);
-           if (null != TuyaHomeSdk.getUserInstance().getUser()) {
-               mlocalId = TuyaHomeSdk.getUserInstance().getUser().getUid();
-           }
-           mCameraP2P = TuyaSmartCameraP2PFactory.generateTuyaSmartCamera(sdkProvider);
-           mDeviceControl = TuyaCameraDeviceControlSDK.getCameraDeviceInstance(devId);
-       		mCameraP2P.generateCameraView(mVideoView); 
-           getApi();
-       }
+// set callback for TuyaCameraView，the type is TuyaCameraView.CreateVideoViewCallback
+mVideoView.setCameraViewCallback(this);
 
-private void initCameraView() {
-           mCameraP2P.createDevice(new OperationDelegateCallBack() {
-               @Override
-               public void onSuccess(int sessionId, int requestId, String data) {
-                   mHandler.sendMessage(MessageUtil.getMessage(MSG_CREATE_DEVICE, ARG1_OPERATE_SUCCESS));
-               }
-   
-               @Override
-               public void onFailure(int sessionId, int requestId, int errCode) {
-                   mHandler.sendMessage(MessageUtil.getMessage(MSG_CREATE_DEVICE, ARG1_OPERATE_FAIL));
-               }
-           },configCameraBean);
-       }
+// use TuyaCameraView to construct IMonitorView
+mVideoView.createVideoView(sdkProvider);
+
 ...
+
+// CreateVideoViewCallback callback when IMonitorView construction is complete
+@Override
+public void onCreated(Object view) {
+  if (null != mCameraP2P){
+
+    // Bind IMonitorView to ICameraP2P
+    mCameraP2P.generateCameraView(view);
+  }
+}
 ```
 
 
 
-#### 2. Get device information
+#### 2. Get device information and create device
 
 Get device configuration related information by calling the cloud interface.
 
 ```java
+// get device information
 private void getApi() {
-        Map postData = new HashMap();
-        postData.put("devId", devId);
-        CameraBusiness cameraBusiness = new CameraBusiness();
-        cameraBusiness.requestCameraInfo(devId, new Business.ResultListener<CameraInfoBean>() {
-            @Override
-            public void onFailure(BusinessResponse businessResponse, CameraInfoBean cameraInfoBean, String s) {
-                ToastUtil.shortToast(CameraPanelActivity.this, "get cameraInfo failed");
-            }
+    mSmartCameraP2P = new TuyaSmartCameraP2P();
+    mSmartCameraP2P.requestCameraInfo(devId, new ICameraConfig() {
+        @Override
+        public void onFailure(BusinessResponse var1, ConfigCameraBean var2, String var3) {
+            ToastUtil.shortToast(CameraPanelActivity.this, "get cameraInfo failed");
+        }
 
-            @Override
-            public void onSuccess(BusinessResponse businessResponse, CameraInfoBean cameraInfoBean, String s) {
-                configCameraBean = new ConfigCameraBean();
+        @Override
+        public void onSuccess(BusinessResponse var1, ConfigCameraBean var2, String var3) {
+            p2pWd = var2.getPassword();
+            p2pId = var2.getP2pId();
+            // create device
+            initCameraView(var2);
+        }
+    });
+}
 
-                infoBean = cameraInfoBean;
+private void initCameraView(ConfigCameraBean bean) {
+    mCameraP2P.createDevice(new OperationDelegateCallBack() {
+        @Override
+        public void onSuccess(int sessionId, int requestId, String data) {
+            mHandler.sendMessage(MessageUtil.getMessage(MSG_CREATE_DEVICE, ARG1_OPERATE_SUCCESS));
+        }
 
-                mP2p3Id = infoBean.getId();
-                p2pType = infoBean.getP2pSpecifiedType();
-                p2pId = infoBean.getP2pId().split(",")[0];
-                p2pWd = infoBean.getPassword();
-                mInitStr = infoBean.getP2pConfig().getInitStr();
-                mP2pKey = infoBean.getP2pConfig().getP2pKey();
-                mInitStr += ":" + mP2pKey;
-                if (null != infoBean.getP2pConfig().getIces()) {
-                    token = infoBean.getP2pConfig().getIces().toString();
-                }
-                configCameraBean.setDevId(devId);
-                configCameraBean.setLocalKey(localKey);
-                configCameraBean.setInitString(mInitStr);
-                configCameraBean.setToken(token);
-                configCameraBean.setP2pType(p2pType);
-                configCameraBean.setLocalId(mlocalId);
-                configCameraBean.setPassword(p2pWd);
-                if (P2P_2 == p2pType) {
-                    configCameraBean.setP2pId(p2pId);
-                }else if (P2P_4 == p2pType){
-                    configCameraBean.setP2pId(mP2p3Id);
-                }
-                initCameraView();
-            }
-        });
-    }   
+        @Override
+        public void onFailure(int sessionId, int requestId, int errCode) {
+            mHandler.sendMessage(MessageUtil.getMessage(MSG_CREATE_DEVICE, ARG1_OPERATE_FAIL));
+        }
+    },bean);
+}
 ```
 
 
@@ -134,15 +95,15 @@ Before starting video playback, you need to connect the P2P channel. The P2P sta
 
 ```java
 mCameraP2P.connect(new OperationDelegateCallBack() {
-            @Override
-            public void onSuccess(int sessionId, int requestId, String data) {
-                mHandler.sendMessage(MessageUtil.getMessage(MSG_CONNECT, ARG1_OPERATE_SUCCESS));
-            }
+    @Override
+    public void onSuccess(int sessionId, int requestId, String data) {
+        mHandler.sendMessage(MessageUtil.getMessage(MSG_CONNECT, ARG1_OPERATE_SUCCESS));
+    }
 
-            @Override
-            public void onFailure(int sessionId, int requestId, int errCode) {
-                mHandler.sendMessage(MessageUtil.getMessage(MSG_CONNECT, ARG1_OPERATE_FAIL, errCode));
-            }
+    @Override
+    public void onFailure(int sessionId, int requestId, int errCode) {
+        mHandler.sendMessage(MessageUtil.getMessage(MSG_CONNECT, ARG1_OPERATE_FAIL, errCode));
+    }
 });
 ```
 
@@ -242,30 +203,30 @@ Call the startRecordLocalMp4 method.
 
 ```java
 if (Constants.hasStoragePermission()) {
-                String picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
-                File file = new File(picPath);
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                String fileName = System.currentTimeMillis() + ".mp4";
-                videoPath = picPath + fileName;
-                mCameraP2P.startRecordLocalMp4(picPath, fileName, CameraPanelActivity.this, new OperationDelegateCallBack() {
-                    @Override
-                    public void onSuccess(int sessionId, int requestId, String data) {
-                        isRecording = true;
-                        mHandler.sendEmptyMessage(MSG_VIDEO_RECORD_BEGIN);
+      String picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
+      File file = new File(picPath);
+      if (!file.exists()) {
+          file.mkdirs();
+      }
+      String fileName = System.currentTimeMillis() + ".mp4";
+      videoPath = picPath + fileName;
+      mCameraP2P.startRecordLocalMp4(picPath, fileName, CameraPanelActivity.this, new OperationDelegateCallBack() {
+          @Override
+          public void onSuccess(int sessionId, int requestId, String data) {
+              isRecording = true;
+              mHandler.sendEmptyMessage(MSG_VIDEO_RECORD_BEGIN);
 
-                    }
+          }
 
-                    @Override
-                    public void onFailure(int sessionId, int requestId, int errCode) {
-                        mHandler.sendEmptyMessage(MSG_VIDEO_RECORD_FAIL);
-                    }
-                });
-                recordStatue(true);
-            } else {
-                Constants.requestPermission(CameraPanelActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE, Constants.EXTERNAL_STORAGE_REQ_CODE, "open_storage");
-            } 
+          @Override
+          public void onFailure(int sessionId, int requestId, int errCode) {
+              mHandler.sendEmptyMessage(MSG_VIDEO_RECORD_FAIL);
+          }
+      });
+      recordStatue(true);
+  } else {
+      Constants.requestPermission(CameraPanelActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE, Constants.EXTERNAL_STORAGE_REQ_CODE, "open_storage");
+}     
 ```
 
 > Note: Recording video requires write card permission
@@ -280,18 +241,18 @@ Call the stopRecordLocalMp4 method.
 
 ```java
 mCameraP2P.stopRecordLocalMp4(new OperationDelegateCallBack() {
-                @Override
-                public void onSuccess(int sessionId, int requestId, String data) {
-                    isRecording = false;
-                    mHandler.sendMessage(MessageUtil.getMessage(MSG_VIDEO_RECORD_OVER, ARG1_OPERATE_SUCCESS, data));
-                }
+    @Override
+    public void onSuccess(int sessionId, int requestId, String data) {
+        isRecording = false;
+        mHandler.sendMessage(MessageUtil.getMessage(MSG_VIDEO_RECORD_OVER, ARG1_OPERATE_SUCCESS, data));
+    }
 
-                @Override
-                public void onFailure(int sessionId, int requestId, int errCode) {
-                    isRecording = false;
-                    mHandler.sendMessage(MessageUtil.getMessage(MSG_VIDEO_RECORD_OVER, ARG1_OPERATE_FAIL));
-                }
-            });
+    @Override
+    public void onFailure(int sessionId, int requestId, int errCode) {
+        isRecording = false;
+        mHandler.sendMessage(MessageUtil.getMessage(MSG_VIDEO_RECORD_OVER, ARG1_OPERATE_FAIL));
+    }
+});
 ```
 
 
@@ -304,24 +265,24 @@ Capture live video images and store them on the SD card of the mobile phone.
 
 ```java
 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
-            File file = new File(path);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            picPath = path;
-        }
-        mCameraP2P.snapshot(picPath, CameraPanelActivity.this, ICameraP2P.PLAYMODE.LIVE, new OperationDelegateCallBack() {
-            @Override
-            public void onSuccess(int sessionId, int requestId, String data) {
-                mHandler.sendMessage(MessageUtil.getMessage(MSG_SCREENSHOT, ARG1_OPERATE_SUCCESS, data));
-            }
+    String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
+    File file = new File(path);
+    if (!file.exists()) {
+        file.mkdirs();
+    }
+    picPath = path;
+}
+mCameraP2P.snapshot(picPath, CameraPanelActivity.this, ICameraP2P.PLAYMODE.LIVE, new OperationDelegateCallBack() {
+    @Override
+    public void onSuccess(int sessionId, int requestId, String data) {
+        mHandler.sendMessage(MessageUtil.getMessage(MSG_SCREENSHOT, ARG1_OPERATE_SUCCESS, data));
+    }
 
-            @Override
-            public void onFailure(int sessionId, int requestId, int errCode) {
-                mHandler.sendMessage(MessageUtil.getMessage(MSG_SCREENSHOT, ARG1_OPERATE_FAIL));
-            }
-        });
+    @Override
+    public void onFailure(int sessionId, int requestId, int errCode) {
+        mHandler.sendMessage(MessageUtil.getMessage(MSG_SCREENSHOT, ARG1_OPERATE_FAIL));
+    }
+});
 ```
 
 
@@ -359,25 +320,25 @@ Turn on the phone to transmit the sound to the camera for operation.
 
 ```java
 if (Constants.hasRecordPermission()) {
-                mCameraP2P.startAudioTalk(new OperationDelegateCallBack() {
-                    @Override
-                    public void onSuccess(int sessionId, int requestId, String data) {
-                        isSpeaking = true;
-                        mHandler.sendMessage(MessageUtil.getMessage(MSG_TALK_BACK_BEGIN, ARG1_OPERATE_SUCCESS));
-                        ToastUtil.shortToast(CameraPanelActivity.this, "start talk success");
-                    }
+    mCameraP2P.startAudioTalk(new OperationDelegateCallBack() {
+        @Override
+        public void onSuccess(int sessionId, int requestId, String data) {
+            isSpeaking = true;
+            mHandler.sendMessage(MessageUtil.getMessage(MSG_TALK_BACK_BEGIN, ARG1_OPERATE_SUCCESS));
+            ToastUtil.shortToast(CameraPanelActivity.this, "start talk success");
+        }
 
-                    @Override
-                    public void onFailure(int sessionId, int requestId, int errCode) {
-                        isSpeaking = false;
-                        mHandler.sendMessage(MessageUtil.getMessage(MSG_TALK_BACK_BEGIN, ARG1_OPERATE_FAIL));
-                        ToastUtil.shortToast(CameraPanelActivity.this, "operation fail");
+        @Override
+        public void onFailure(int sessionId, int requestId, int errCode) {
+            isSpeaking = false;
+            mHandler.sendMessage(MessageUtil.getMessage(MSG_TALK_BACK_BEGIN, ARG1_OPERATE_FAIL));
+            ToastUtil.shortToast(CameraPanelActivity.this, "operation fail");
 
-                    }
-                });
-            } else {
-                Constants.requestPermission(CameraPanelActivity.this, Manifest.permission.RECORD_AUDIO, Constants.EXTERNAL_AUDIO_REQ_CODE, "open_recording");
-            }
+        }
+    });
+} else {
+    Constants.requestPermission(CameraPanelActivity.this, Manifest.permission.RECORD_AUDIO, Constants.EXTERNAL_AUDIO_REQ_CODE, "open_recording");
+}
 ```
 
 
@@ -390,19 +351,19 @@ Turn off the phone sound transmission to the camera operation.
 
 ```java
 mCameraP2P.stopAudioTalk(new OperationDelegateCallBack() {
-                @Override
-                public void onSuccess(int sessionId, int requestId, String data) {
-                    isSpeaking = false;
-                    mHandler.sendMessage(MessageUtil.getMessage(MSG_TALK_BACK_OVER, ARG1_OPERATE_SUCCESS));
-                }
+    @Override
+    public void onSuccess(int sessionId, int requestId, String data) {
+        isSpeaking = false;
+        mHandler.sendMessage(MessageUtil.getMessage(MSG_TALK_BACK_OVER, ARG1_OPERATE_SUCCESS));
+    }
 
-                @Override
-                public void onFailure(int sessionId, int requestId, int errCode) {
-                    isSpeaking = false;
-                    mHandler.sendMessage(MessageUtil.getMessage(MSG_TALK_BACK_OVER, ARG1_OPERATE_FAIL));
+    @Override
+    public void onFailure(int sessionId, int requestId, int errCode) {
+        isSpeaking = false;
+        mHandler.sendMessage(MessageUtil.getMessage(MSG_TALK_BACK_OVER, ARG1_OPERATE_FAIL));
 
-                }
-            });
+    }
+});
 ```
 
 > Note: Intercom and recording are mutually exclusive, and intercom can only be turned on during preview.
@@ -417,16 +378,16 @@ Get the sharpness of the image transmitted from the camera.
 
 ```java
 mCameraP2P.getVideoClarity(new OperationDelegateCallBack() {
-            @Override
-            public void onSuccess(int sessionId, int requestId, String data) {
-                
-            }
+    @Override
+    public void onSuccess(int sessionId, int requestId, String data) {
+        
+    }
 
-            @Override
-            public void onFailure(int sessionId, int requestId, int errCode) {
+    @Override
+    public void onFailure(int sessionId, int requestId, int errCode) {
 
-            }
-        });
+    }
+});
 ```
 
 > Note: After the preview screen comes out, call this function
@@ -441,17 +402,17 @@ Set the sharpness of the image played by the camera.
 
 ```java
 mCameraP2P.setVideoClarity(videoClarity == ICameraP2P.HD ? ICameraP2P.STANDEND : ICameraP2P.HD, new OperationDelegateCallBack() {
-            @Override
-            public void onSuccess(int sessionId, int requestId, String data) {
-                videoClarity = Integer.valueOf(data);
-                mHandler.sendMessage(MessageUtil.getMessage(MSG_GET_CLARITY, ARG1_OPERATE_SUCCESS));
-            }
+    @Override
+    public void onSuccess(int sessionId, int requestId, String data) {
+        videoClarity = Integer.valueOf(data);
+        mHandler.sendMessage(MessageUtil.getMessage(MSG_GET_CLARITY, ARG1_OPERATE_SUCCESS));
+    }
 
-            @Override
-            public void onFailure(int sessionId, int requestId, int errCode) {
-                mHandler.sendMessage(MessageUtil.getMessage(MSG_GET_CLARITY, ARG1_OPERATE_FAIL));
-            }
-        });
+    @Override
+    public void onFailure(int sessionId, int requestId, int errCode) {
+        mHandler.sendMessage(MessageUtil.getMessage(MSG_GET_CLARITY, ARG1_OPERATE_FAIL));
+    }
+});
 ```
 
 
@@ -461,12 +422,10 @@ mCameraP2P.setVideoClarity(videoClarity == ICameraP2P.HD ? ICameraP2P.STANDEND :
 ```java
 public interface ICameraP2P<T> {
 
-      int HD = 4;
-      int STANDEND = 2;
-      ...
+  int HD = 4;
+  int STANDEND = 2;
+  ...
           
-      }
-
-
+}
 ```
 
