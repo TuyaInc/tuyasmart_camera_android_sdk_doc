@@ -2,6 +2,16 @@
 
 
 
+## Import
+
+Add dependencies of build.gradle under the module:
+
+```groovy
+implementation 'com.tuya.smart:tuyasmart-timebar:1.0.1'
+```
+
+
+
 ## Introduction
 
 Time Bar View,  the function is as follows:

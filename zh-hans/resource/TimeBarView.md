@@ -2,6 +2,16 @@
 
 
 
+## 引用
+
+模块下的 build.gradle 的依赖添加：
+
+```groovy
+implementation 'com.tuya.smart:tuyasmart-timebar:1.0.1'
+```
+
+
+
 ## 描述
 
 时间刻度尺，功能如下：
