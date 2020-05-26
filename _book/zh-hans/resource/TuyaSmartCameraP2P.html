@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>CameraBusiness · Tuya IPC</title>
+        <title>TuyaSmartCameraP2P · Tuya IPC</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -253,7 +253,7 @@
                 <a href="cameraView.html">
             
                     
-                    Monitor
+                    TuyaCameraView
             
                 </a>
             
@@ -261,12 +261,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.7.1.3" data-path="parameters.html">
+        <li class="chapter active" data-level="1.7.1.3" data-path="TuyaSmartCameraP2P.html">
             
-                <a href="parameters.html">
+                <a href="TuyaSmartCameraP2P.html">
             
                     
-                    CameraBusiness
+                    TuyaSmartCameraP2P
             
                 </a>
             
@@ -644,7 +644,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >CameraBusiness</a>
+        <a href=".." >TuyaSmartCameraP2P</a>
     </h1>
 </div>
 
@@ -659,10 +659,10 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="camerabusiness">CameraBusiness</h1>
+                                <h1 id="tuyasmartcamerap2p">TuyaSmartCameraP2P</h1>
 <p>&#x83B7;&#x53D6; IPC Config &#x6570;&#x636E;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;</p>
-<h2 id="&#x83B7;&#x53D6;-ipc-config-&#x6570;&#x636E;&#x65B9;&#x6CD5;">&#x83B7;&#x53D6; IPC Config &#x6570;&#x636E;&#x65B9;&#x6CD5;</h2>
-<pre class="language-"><code class="lang-java"><span class="token keyword">void</span> <span class="token function">requestCameraInfo</span><span class="token punctuation">(</span><span class="token class-name">String</span> devId<span class="token punctuation">,</span> <span class="token class-name">ResultListener</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">CameraInfoBean</span><span class="token punctuation">&gt;</span></span> listener<span class="token punctuation">)</span>
+<h2 id="&#x83B7;&#x53D6;-ipc-config-&#x6570;&#x636E;">&#x83B7;&#x53D6; IPC Config &#x6570;&#x636E;</h2>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">requestCameraInfo</span><span class="token punctuation">(</span><span class="token keyword">final</span> <span class="token class-name">String</span> devId<span class="token punctuation">,</span> <span class="token keyword">final</span> <span class="token class-name">ICameraConfig</span> callback<span class="token punctuation">)</span>
 </code></pre>
 <p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
@@ -678,12 +678,38 @@
 <td style="text-align:left">&#x8BBE;&#x5907; Id</td>
 </tr>
 <tr>
-<td style="text-align:left">listener</td>
+<td style="text-align:left">callback</td>
 <td style="text-align:left">&#x6570;&#x636E;&#x56DE;&#x8C03;</td>
 </tr>
 </tbody>
 </table>
-<p><strong>CameraInfoBean &#x6570;&#x636E;&#x6A21;&#x578B;</strong></p>
+<h4 id="icameraconfig-&#x56DE;&#x8C03;&#x63A5;&#x53E3;&#x7C7B;">ICameraConfig &#x56DE;&#x8C03;&#x63A5;&#x53E3;&#x7C7B;</h4>
+<table>
+<thead>
+<tr>
+<th>&#x56DE;&#x8C03;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onSuccess</td>
+<td>&#x8BF7;&#x6C42;&#x6210;&#x529F;&#x56DE;&#x8C03;</td>
+</tr>
+<tr>
+<td>onFailure</td>
+<td>&#x8BF7;&#x6C42;&#x5931;&#x8D25;&#x56DE;&#x8C03;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x8BF7;&#x6C42;&#x6210;&#x529F;&#x56DE;&#x8C03;&#xFF08;onSuccess&#xFF09;</p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token class-name">BusinessResponse</span> var1<span class="token punctuation">,</span> <span class="token class-name">ConfigCameraBean</span> var2<span class="token punctuation">,</span> <span class="token class-name">String</span> var3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x8BF7;&#x6C42;&#x5931;&#x8D25;&#x56DE;&#x8C03;&#xFF08;onFailure&#xFF09;</p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token class-name">BusinessResponse</span> var1<span class="token punctuation">,</span> <span class="token class-name">ConfigCameraBean</span> var2<span class="token punctuation">,</span> <span class="token class-name">String</span> var3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>ConfigCameraBean &#x6570;&#x636E;&#x6A21;&#x578B;</strong></p>
+<p>&#x8BE5;&#x6A21;&#x578B;&#x9700;&#x8981;&#x5728;&#x521B;&#x5EFA;&#x8BBE;&#x5907;&#x65F6;&#x4F20;&#x5165;&#xFF0C;&#x8BE6;&#x89C1; <strong>ICameraP2P-&#x521B;&#x5EFA;&#x8BBE;&#x5907;</strong>&#x3002;</p>
 <table>
 <thead>
 <tr>
@@ -701,84 +727,35 @@
 <td style="text-align:left">p2p Id</td>
 </tr>
 <tr>
-<td style="text-align:left">p2pSpecifiedType</td>
+<td style="text-align:left">p2pType</td>
 <td style="text-align:left">p2p &#x7684;&#x7C7B;&#x578B;</td>
 </tr>
 <tr>
-<td style="text-align:left">P2pConfig</td>
-<td style="text-align:left">p2p &#x914D;&#x7F6E;&#x4FE1;&#x606F;</td>
+<td style="text-align:left">...</td>
+<td style="text-align:left">...</td>
 </tr>
 </tbody>
 </table>
-<p><strong>P2pConfig &#x6570;&#x636E;&#x6A21;&#x578B;</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">&#x540D;&#x79F0;</th>
-<th style="text-align:left">&#x63CF;&#x8FF0;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">initStr</td>
-<td style="text-align:left">initStr</td>
-</tr>
-<tr>
-<td style="text-align:left">p2pKey</td>
-<td style="text-align:left">p2p Id</td>
-</tr>
-<tr>
-<td style="text-align:left">ices</td>
-<td style="text-align:left">ices &#x6570;&#x636E;</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>p2pId&#xFF0C;pwd&#xFF0C;localkey&#xFF0C;initStr&#xFF0C;p2pkey &#x8FD9;&#x51E0;&#x4E2A;&#x53C2;&#x6570;&#x662F; TuyaCameraSDK &#x521D;&#x59CB;&#x5316;&#x6240;&#x5FC5;&#x987B;&#x6709;&#x7684;&#xFF0C;&#x8FD9;&#x51E0;&#x4E2A;&#x53C2;&#x6570;&#x6CA1;&#x6709;&#x5BF9;&#x5E94;&#x6210;&#x529F;&#xFF0C;p2p &#x7684;&#x6784;&#x5EFA;&#x901A;&#x9053;&#x5C31;&#x4E0D;&#x53EF;&#x80FD;&#x6210;&#x529F;&#x3002;</p>
-</blockquote>
 <p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
 <pre class="language-"><code class="lang-java"><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">getApi</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token class-name">Map</span> postData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        postData<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;devId&quot;</span><span class="token punctuation">,</span> devId<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">CameraBusiness</span> cameraBusiness <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CameraBusiness</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        cameraBusiness<span class="token punctuation">.</span><span class="token function">requestCameraInfo</span><span class="token punctuation">(</span>devId<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Business</span><span class="token punctuation">.</span><span class="token class-name">ResultListener</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">CameraInfoBean</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token class-name">BusinessResponse</span> businessResponse<span class="token punctuation">,</span> <span class="token class-name">CameraInfoBean</span> cameraInfoBean<span class="token punctuation">,</span> <span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token class-name">ToastUtil</span><span class="token punctuation">.</span><span class="token function">shortToast</span><span class="token punctuation">(</span><span class="token class-name">CameraPanelActivity</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token string">&quot;get cameraInfo failed&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
+    mSmartCameraP2P <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TuyaSmartCameraP2P</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    mSmartCameraP2P<span class="token punctuation">.</span><span class="token function">requestCameraInfo</span><span class="token punctuation">(</span>devId<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ICameraConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token class-name">BusinessResponse</span> var1<span class="token punctuation">,</span> <span class="token class-name">ConfigCameraBean</span> var2<span class="token punctuation">,</span> <span class="token class-name">String</span> var3<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">ToastUtil</span><span class="token punctuation">.</span><span class="token function">shortToast</span><span class="token punctuation">(</span><span class="token class-name">CameraPanelActivity</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token string">&quot;get cameraInfo failed&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token class-name">BusinessResponse</span> businessResponse<span class="token punctuation">,</span> <span class="token class-name">CameraInfoBean</span> cameraInfoBean<span class="token punctuation">,</span> <span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                configCameraBean <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConfigCameraBean</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-                infoBean <span class="token operator">=</span> cameraInfoBean<span class="token punctuation">;</span>
-
-                mP2p3Id <span class="token operator">=</span> infoBean<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                p2pType <span class="token operator">=</span> infoBean<span class="token punctuation">.</span><span class="token function">getP2pSpecifiedType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                p2pId <span class="token operator">=</span> infoBean<span class="token punctuation">.</span><span class="token function">getP2pId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">&quot;,&quot;</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-                p2pWd <span class="token operator">=</span> infoBean<span class="token punctuation">.</span><span class="token function">getPassword</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                mInitStr <span class="token operator">=</span> infoBean<span class="token punctuation">.</span><span class="token function">getP2pConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getInitStr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                mP2pKey <span class="token operator">=</span> infoBean<span class="token punctuation">.</span><span class="token function">getP2pConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getP2pKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                mInitStr <span class="token operator">+=</span> <span class="token string">&quot;:&quot;</span> <span class="token operator">+</span> mP2pKey<span class="token punctuation">;</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">null</span> <span class="token operator">!=</span> infoBean<span class="token punctuation">.</span><span class="token function">getP2pConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getIces</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    token <span class="token operator">=</span> infoBean<span class="token punctuation">.</span><span class="token function">getP2pConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getIces</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-                configCameraBean<span class="token punctuation">.</span><span class="token function">setDevId</span><span class="token punctuation">(</span>devId<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                configCameraBean<span class="token punctuation">.</span><span class="token function">setLocalKey</span><span class="token punctuation">(</span>localKey<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                configCameraBean<span class="token punctuation">.</span><span class="token function">setInitString</span><span class="token punctuation">(</span>mInitStr<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                configCameraBean<span class="token punctuation">.</span><span class="token function">setToken</span><span class="token punctuation">(</span>token<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                configCameraBean<span class="token punctuation">.</span><span class="token function">setP2pType</span><span class="token punctuation">(</span>p2pType<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                configCameraBean<span class="token punctuation">.</span><span class="token function">setLocalId</span><span class="token punctuation">(</span>mlocalId<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                configCameraBean<span class="token punctuation">.</span><span class="token function">setPassword</span><span class="token punctuation">(</span>p2pWd<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span>P2P_2 <span class="token operator">==</span> p2pType<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    configCameraBean<span class="token punctuation">.</span><span class="token function">setP2pId</span><span class="token punctuation">(</span>p2pId<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>P2P_4 <span class="token operator">==</span> p2pType<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                    configCameraBean<span class="token punctuation">.</span><span class="token function">setP2pId</span><span class="token punctuation">(</span>mP2p3Id<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-                <span class="token function">initCameraView</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token class-name">BusinessResponse</span> var1<span class="token punctuation">,</span> <span class="token class-name">ConfigCameraBean</span> var2<span class="token punctuation">,</span> <span class="token class-name">String</span> var3<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            p2pWd <span class="token operator">=</span> var2<span class="token punctuation">.</span><span class="token function">getPassword</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            p2pId <span class="token operator">=</span> var2<span class="token punctuation">.</span><span class="token function">getP2pId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">initCameraView</span><span class="token punctuation">(</span>var2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x53D6;&#x6D88;&#x6240;&#x6709;-ipc-config-&#x6570;&#x636E;&#x8BF7;&#x6C42;">&#x53D6;&#x6D88;&#x6240;&#x6709; IPC Config &#x6570;&#x636E;&#x8BF7;&#x6C42;</h3>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">destroyCameraBusiness</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
                                 
@@ -807,7 +784,7 @@
 
             
                 
-                <a href="cameraView.html" class="navigation navigation-prev " aria-label="Previous page: Monitor">
+                <a href="cameraView.html" class="navigation navigation-prev " aria-label="Previous page: TuyaCameraView">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -823,7 +800,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"CameraBusiness","level":"1.7.1.3","depth":3,"next":{"title":"业务层回调","level":"1.7.1.4","depth":3,"path":"resource/Callback.md","ref":"./resource/Callback.md","articles":[]},"previous":{"title":"Monitor","level":"1.7.1.2","depth":3,"path":"resource/cameraView.md","ref":"./resource/cameraView.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","prism","-highlight"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"expandable-chapters-small":{},"back-to-top-button":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Daju.huang","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tuya IPC","language":"zh-hans","gitbook":"*","description":"Tuya IPC SDK Docs"},"file":{"path":"resource/parameters.md","mtime":"2020-03-20T02:19:31.241Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-09T11:55:59.947Z"},"basePath":"..","book":{"language":"zh-hans"}});
+            gitbook.page.hasChanged({"page":{"title":"TuyaSmartCameraP2P","level":"1.7.1.3","depth":3,"next":{"title":"业务层回调","level":"1.7.1.4","depth":3,"path":"resource/Callback.md","ref":"./resource/Callback.md","articles":[]},"previous":{"title":"TuyaCameraView","level":"1.7.1.2","depth":3,"path":"resource/cameraView.md","ref":"./resource/cameraView.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","prism","-highlight"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Daju.huang","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tuya IPC","language":"zh-hans","gitbook":"*","description":"Tuya IPC SDK Docs"},"file":{"path":"resource/TuyaSmartCameraP2P.md","mtime":"2020-05-26T06:16:05.935Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-26T06:22:56.260Z"},"basePath":"..","book":{"language":"zh-hans"}});
         });
     </script>
 </div>
@@ -838,6 +815,10 @@
     
         
         <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
