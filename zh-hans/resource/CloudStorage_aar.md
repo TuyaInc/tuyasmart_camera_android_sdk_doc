@@ -12,7 +12,7 @@
 
 项目根目录的 build.gradle：
 
-```gradle
+```groovy
 buildscript {
     ···
     dependencies {
@@ -25,7 +25,7 @@ buildscript {
 
 项目模块的 build.gradle：
 
-```gradle
+```groovy
 apply plugin: 'tymodule-config'
 
 ...
