@@ -37,6 +37,3 @@
 * [状态码](./resource/statusCode.md)
 * [FAQ](./resource/FAQ.md)
 * [版本记录](./resource/doc_update_log.md)
-
-
-
