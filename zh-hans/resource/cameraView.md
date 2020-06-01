@@ -18,7 +18,7 @@ public void createVideoView(int provider);
 
 | 参数     | 说明                            |
 | -------- | ------------------------------- |
-| provider | 设备类型。tutk 传 1，其他传 0。 |
+| provider | 设备类型。从 DeviceBean 中获取到的 p2pType 值 |
 
 #### 获取播放器实例
 

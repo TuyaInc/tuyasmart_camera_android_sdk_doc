@@ -21,7 +21,7 @@ public void createVideoView(int provider);
 
 | Parameter     | Description                            |
 | -------- | ------------------------------- |
-| provider | device type。1 for tutk，0 for others。 |
+| provider | device type。the p2pType value, obtained from DeviceBean |
 
 #### Get player instance
 
