@@ -1,8 +1,8 @@
-# Tuya Smart Camera Android SDK Main View
+# Camera function
 
 
 
-## Introduction
+## Live video
 
 **Tuya Smart Camera Android SDK **provides the basic capabilities of smart camera real-time video playback, device memory card video playback, screenshots of the video being played, recorded video, real-time talking with the camera, and provides YUV data after video frame decoding. Secondary processing of video data is possible.
 

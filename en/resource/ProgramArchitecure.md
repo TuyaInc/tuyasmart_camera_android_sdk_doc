@@ -1,14 +1,14 @@
-#  program architecture statement
+#  SDK architecture
 
 
 
-## SDK Architecture
+## SDK architecture
 
 
 
 ### Introduction
 
-**Tuya IPC Android SDK** is based on the **Tuya  Smart  SDK** and encapsulates the functions of smart cameras. The entire SDK architecture is divided into three levels: Tuya Smart SDK, IPC network communication layer, and camera business layer.
+**Camera SDK** is based on the **Tuya  Smart  SDK** and encapsulates the functions of smart cameras. The entire SDK architecture is divided into three levels: Tuya Smart SDK, IPC network communication layer, and camera business layer.
 
 	- **Tuya  Smart  SDK**  provides a home-based package for hardware devices and Tuya cloud communication.
 	- IPC network communication layer provides P2P network channel implementation.

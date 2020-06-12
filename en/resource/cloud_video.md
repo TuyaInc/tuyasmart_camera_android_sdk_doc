@@ -1,20 +1,21 @@
-# 云存储
+# Cloud Storage
 
-涂鸦平台为智能摄像机提供云存储的服务，可以将设备录制的视频上传到涂鸦云端。
+Tuya IoT provides cloud storage service for smart camera, which can upload the video recorded by the device to Tuya cloud.
 
-## 流程图
+## Flow chart
 
-先获取云存储服务状态，如果云存储服务未开通或者已经过期并且云视频已经被全部删除（云存储服务过期后，已经上传的云视频还会保留一段时间，通常是 7 天），就需要先购买云存储服务。如果云存储服务在有效期，先获取有云存储视频的日期，然后获取指定日期的相关数据，包括云存储事件，时间轴数据，鉴权信息等。之后就可以选择一个云存储事件或者一个时间点开始播放云视频了。
+
+Request the cloud storage service status first. If the cloud storage service is not activated or has expired and the cloud video has been completely deleted (after the cloud storage service expires, the uploaded cloud video will be retained for some days), you need to first purchase cloud storage services. If the cloud storage service is in the validity period, first request the dates of the cloud storage video, and then request the relevant data of the specified date, including cloud storage events, timeline data, authentication information, etc. After that, you can choose a cloud storage event or a point in time to start playing cloud video.
 
 ![](./images/cloud_storage_process.png)
 
-## 服务购买
+## Cloud service
 
-云存储服务购买需要使用云存储购买 H5 组件，该组件提供了云存储购买的 H5 页面和订单展示功能
+This component provides H5 pages and order display functions for cloud storage purchases.
 
-### 组件引入
+### Import
 
-项目根目录的 build.gradle：
+1. Build.gradle in the project root：
 
 ```groovy
 buildscript {
@@ -27,13 +28,12 @@ buildscript {
 
 ```
 
-项目模块的 build.gradle：
+2. Build.gradle of the project module：
 
 ```groovy
 apply plugin: 'tymodule-config'
 
 ...
-//商城组件
 implementation 'com.tuya.smart:tuyasmart-webcontainer:3.12.6r125'
 implementation 'com.tuya.smart:tuyasmart-xplatformmanager:1.1.0'
 implementation "com.tuya.smart:tuyasmart-base:3.13.0r127"
@@ -43,11 +43,13 @@ implementation "com.tuya.smart:tuyasmart-framework:3.13.0r127-open-rc.1"
 implementation 'com.tuya.smart:tuyasmart-uispecs:0.0.3'
 ```
 
-### 使用方法
 
-**示例代码**
 
-Styles.xml 需要修改
+### Use
+
+**Example**
+
+Styles.xml needs to be modified
 
 ```xml
 
@@ -82,7 +84,7 @@ Styles.xml 需要修改
   <item name="android:layout_width">match_parent</item>
   <item name="android:background">@color/line_color</item>
 </style>
-<!-- 普通的文本按钮 -->
+
 <style name="Button.Normal" parent="android:Widget.Button">
   <item name="android:layout_height">@dimen/wh_36</item>
   <item name="android:minWidth">@dimen/wh_88</item>
@@ -100,7 +102,7 @@ Styles.xml 需要修改
   <item name="android:lineSpacingExtra">@dimen/wh_4</item>
 </style>
 
-<!-- listview有分割线 -->
+
 <style name="TY_List_Normal">
   <item name="android:fadingEdge">none</item>
   <item name="android:listSelector">@android:color/transparent</item>
@@ -172,18 +174,18 @@ Styles.xml 需要修改
 </style>
 
 <style name="MyMenuTextAppearance" parent="android:TextAppearance.Holo.Widget.ActionBar.Menu">
-  <!-- 此处需要 android-14 -->
+
   <item name="android:textAllCaps">false</item>
 </style>
 
-<!-- 普通文本 -->
+
 <style name="TextView.Normal" parent="android:Widget.TextView">
   <item name="android:textSize">@dimen/ts_15</item>
   <item name="android:textColor">@color/textColor</item>
   <item name="android:lineSpacingExtra">4dp</item>
   <item name="android:ellipsize">end</item>
 </style>
-<!-- 普通加载 -->
+
 <style name="ProgressBar.Normal" parent="Widget.AppCompat.ProgressBar">
   <item name="android:minWidth">23dp</item>
   <item name="android:maxWidth">23dp</item>
@@ -205,7 +207,7 @@ Styles.xml 需要修改
 </style>
 
 
-<!--横线-->
+
 <style name="line_long">
   <item name="android:layout_width">match_parent</item>
   <item name="android:layout_height">@dimen/line_dip</item>
@@ -213,9 +215,9 @@ Styles.xml 需要修改
 </style>
 <style name="dialog_style" parent="android:Animation">
   <item name="android:windowEnterAnimation">@anim/dialog_enter</item>
-  //进入时的动画
+
   <item name="android:windowExitAnimation">@anim/dialog_exit</item>
-  //退出时的动画
+
 </style>
 
 <style name="dialog_alert" parent="@android:style/Theme.Holo.DialogWhenLarge">
@@ -245,7 +247,7 @@ Styles.xml 需要修改
   <item name="android:textAppearance">?android:attr/textAppearance</item>
 </style>
 
-<!-- 设置项表单单项 -->
+
 <style name="ListItem.ItemNormal" parent="android:Widget">
   <item name="android:layout_height">48dp</item>
   <item name="android:layout_width">match_parent</item>
@@ -283,7 +285,7 @@ Styles.xml 需要修改
   <item name="titleTextAppearance">@style/myActionTitleTextAppearance</item>
 </style>
 
-<!--横线-->
+
 <style name="line_normal">
   <item name="android:layout_width">match_parent</item>
   <item name="android:layout_height">@dimen/line_dip</item>
@@ -297,7 +299,7 @@ Styles.xml 需要修改
   <item name="android:textColor">@color/white</item>
   <item name="android:textAllCaps">false</item>
 </style>
-<!-- 文本输入框 -->
+
 <style name="EditText.Normal" parent="android:Widget.EditText">
   <item name="android:background">@drawable/bg_white_round</item>
   <item name="android:textSize">@dimen/ts_16</item>
@@ -313,7 +315,7 @@ Styles.xml 需要修改
 </style>
 
 <style name="Default_Public_Theme" parent="AppTheme">
-  <!-- 菜单标题文字颜色 -->
+
   <item name="status_font_color">@color/app_bg_color</item>
   <item name="status_bg_color">@color/navbar_font_color</item>
   <item name="status_system_bg_color">@color/status_system_bg_color</item>
@@ -361,175 +363,180 @@ Styles.xml 需要修改
 <color name="color_ff5800">#ff5800</color>
 ```
 
-application 初始化
+application initialization
 
-```java
+  ```java
 public class TuyaSmartApp extends MultiDexApplication {
 
-private static final String TAG = "TuyaSmartApp";
+  private static final String TAG = "TuyaSmartApp";
 
-@Override
-public void onCreate() {
-   super.onCreate();
-   context=this;
-   L.d(TAG, "onCreate " + getProcessName(this));
-   L.setSendLogOn(true);
-   TuyaWrapper.init(this);
-   TuyaSdk.init(this);
-   ...
-}
-```
+  @Override
+  public void onCreate() {
+    super.onCreate();
+    context=this;
+    L.d(TAG, "onCreate " + getProcessName(this));
+    L.setSendLogOn(true);
+    TuyaWrapper.init(this);
+    TuyaSdk.init(this);
+    ...
+  }
 
-### 跳转到云存储购买页面
+  ```
+
+### Jump to cloud storage purchase page
 
 ```java
 findViewById(R.id.buy_btn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //购买页面
-                cameraCloudSDK.buyCloudStorage(CameraCloudStorageActivity.this,
-                        TuyaHomeSdk.getDataInstance().getDeviceBean(devId),
-                        String.valueOf(FamilyManager.getInstance().getCurrentHomeId()), new ICloudManagerCallback() {
-                            @Override
-                            public void onError(int i) {
+  @Override
+  public void onClick(View v) {
+    cameraCloudSDK.buyCloudStorage(CameraCloudStorageActivity.this,
+                                   TuyaHomeSdk.getDataInstance().getDeviceBean(devId),
+                                   String.valueOf(FamilyManager.getInstance().getCurrentHomeId()), new ICloudManagerCallback() {
+                                     @Override
+                                     public void onError(int i) {
 
-                            }
+                                     }
 
-                            @Override
-                            public void onSuccess(Object o) {
-                                String uri = (String) o;
-                                Intent intent = new Intent(CameraCloudStorageActivity.this, WebViewActivity.class);
-                                intent.putExtra("Uri",uri);
-                                startActivity(intent);
-                            }
-                        });
-            }
-        });
+                                     @Override
+                                     public void onSuccess(Object o) {
+                                       String uri = (String) o;
+                                       Intent intent = new Intent(CameraCloudStorageActivity.this, WebViewActivity.class);
+                                       intent.putExtra("Uri",uri);
+                                       startActivity(intent);
+                                     }
+                                   });
+  }
+});
 ```
 
-## 云视频
 
+## Cloud video
 
-### 云存储数据
+### Cloud storage data
 
-#### 集成准备
+#### Integration preparation 
 
-项目模块的 build.gradle：
+Build.gradle of the project module:
 
 ```groovy
-
-implementation 'com.tuya.smart:tuyasmart-ipc-camera-middleware:3.14.3r133'
+...
+    implementation 'com.tuya.smart:tuyasmart-ipc-camera-middleware:3.14.3r133'
+...
 ```
 
-**CameraCloudSDK ** 是云存储数据的 API 接口调用的实体对象，提供了获取云存储购买，时间数据相关的 API 方法。
+CameraCloudSDK is an entity object called by the API interface of cloud storage ATOP, and provides API methods related to obtaining cloud storage purchase and time data.
 
 
-#### 获取云存储当前状态值（有无购买等）
+#### Get cloud storage current status value (with or without purchase, etc.)
 
 ```java
 void getCameraCloudInfo(DeviceBean deviceBean, ICloudCacheManagerCallback callback)
 ```
-**参数说明**
 
-| 参数    | 说明                               |
-| :------- | :---------------------------------- |
-| deviceBean | 设备信息 |
-| callback | 回调方法|
+**Parameter**
 
-**示例代码**
+
+| Parameter  | Description |
+| ---------- | ----------- |
+| deviceBean | device info |
+| callback   | Callback    |
+
+**Example**
+
 
 ```java
 cameraCloudSDK.getCameraCloudInfo(TuyaHomeSdk.getDataInstance().getDeviceBean(devId), CameraCloudStorageActivity.this);
 ```
 
-
-
-#### 获取设备云存储相关的数据 Secret、Auth 等参数
+#### Get device cloud storage related data, Secret, Auth and other parameters
 
 ```java
 public void getCloudMediaCount(String devId, String timeZone, ICloudCacheManagerCallback callback)
 ```
-**参数说明**
+**Parameter**
 
-| 参数    | 说明                               |
-| :------- | :---------------------------------- |
-| devId | 设备id |
-| timeZone | 时区|
-| callback | 回调方法|
 
-**示例代码**
+| Parameter | Description |
+| --------- | ----------- |
+| devId     | device Id   |
+| timeZone  | time Zone   |
+| callback  | Callback    |
+
+**Example**
+
 
 ```java
 cameraCloudSDK.getCloudMediaCount(devId, TimeZone.getDefault().getID(), CameraCloudStorageActivity.this);
 ```
 
-
-
-#### 获取指定时间的时间片
+#### Get time slice at specified time
 
 ```java
 public void getTimeLineInfoByTimeSlice(String devId, String timeGT, String timeLT, ICloudCacheManagerCallback callback)
 ```
-**参数说明**
 
-| 参数    | 说明                               |
-| :------- | :---------------------------------- |
-| devId | 设备id |
-| timeGT | 开始时间（13位时间戳）|
-| timeLT | 结束时间|
-| callback | 回调方法|
+**Parameter**
 
-**示例代码**
+
+| Parameter | Description                   |
+| --------- | ----------------------------- |
+| devId     | device Id                     |
+| timeGT    | Start time (13-bit timestamp) |
+| timeLT    | End Time                      |
+| callback  | Callback                      |
+
+**Example**
+
 
 ```java
 getTimeLineInfoByTimeSlice(devId, String.valueOf(dayBean.getCurrentStartDayTime()), String.valueOf(dayBean.getCurrentDayEndTime()));
 ```
 
-
-
-#### 根据时间片段始末获取相应的移动侦测数据
+#### Get the corresponding motion detection data according to the beginning and end of the time segment
 
 ```java
 public void getMotionDetectionByTimeSlice(String devId, String timeGT, String timeLT, int offset, int limit, ICloudCacheManagerCallback callback) 
 ```
 
-**参数说明**
+**Parameter**
 
-| 参数    | 说明                               |
-| :------- | :---------------------------------- |
-| devId | 设备id |
-| timeGT | 开始时间（13位时间戳）|
-| timeLT | 结束时间|
-| offset | 第几页，默认0|
-| limit | 每次拉取条数，默认-1，表示所有数据|
-| callback | 回调方法|
 
-**示例代码**
+| Parameter | Description                                                 |
+| --------- | ----------------------------------------------------------- |
+| devId     | device Id                                                   |
+| timeGT    | Start time (13-bit timestamp)                               |
+| timeLT    | End Time                                                    |
+| offset    | Page number, default 0                                      |
+| limit     | Number of pulls at a time, default -1, which means all data |
+| callback  | callback                                                    |
+
+**Example**
+
 
 ```java
 cameraCloudSDK.getMotionDetectionByTimeSlice(devId, timeGT, timeLT, offset, limit, this);
 ```
 
 
-
-#### 云存储购买地址接口
+#### Cloud storage purchase address interface
 
 ```java
 public void buyCloudStorage(Context mContext, DeviceBean deviceBean, String homeId, ICloudManagerCallback callback) {
-        CameraCloudManager.getInstance().getCloudStorageUrl(mContext, deviceBean, homeId);
-    }
+  CameraCloudManager.getInstance().getCloudStorageUrl(mContext, deviceBean, homeId);
+}
 ```
 
-**参数说明**
+**Parameter**
 
-| 参数    | 说明                               |
-| :------- | :---------------------------------- |
-| mContext | 上下文 |
-| deviceBean | 设备信息）|
-| homeId | 家庭id|
-| callback | 回调方法|
+| Parameter  | Description |
+| ---------- | ----------- |
+| mContext   | /           |
+| deviceBean | device Info |
+| homeId     | home Id     |
+| callback   | callback    |
 
-**示例代码**
+**Example**
+
 
 ```java
 cameraCloudSDK.buyCloudStorage(CameraCloudStorageActivity.this,
@@ -552,13 +559,14 @@ cameraCloudSDK.buyCloudStorage(CameraCloudStorageActivity.this,
 
 
 
-#### 销毁
+#### Destroy
 
 ```java
 public void onDestroy()
 ```
 
-**示例代码**
+**Example**
+
 
 ```java
 if (null != cameraCloudSDK) {
@@ -568,194 +576,203 @@ if (null != cameraCloudSDK) {
 
 
 
-#### 云存储回调方法
+#### ICloudCacheManagerCallback
 
-**接口说明**
+**Parameter**
 
-调用 sdk 之后的回调方法
+
+Callback method after calling SDK
 
 ```java
 public interface ICloudCacheManagerCallback {
 
     /**
-     * 返回有云存储数据日期
+     * return date with cloud storage data
      *
-     * @param cloudDayBeanList 云存储日期数据集
+     * @param cloudDayBeanList: Cloud storage date List
      */
     void getCloudDayList(List<CloudDayBean> cloudDayBeanList);
 
     /**
-     * 返回 云存储 encryKey
+     * return cloud storage encryKey
      *
-     * @param encryKey
+     * @param encryKey: Cloud storage key
      */
     void getCloudSecret(String encryKey);
 
     /**
-     * 返回 云存储 authorityJson
+     * return authorityJson
      *
-     * @param authorityJson 云存储秘钥
+     * @param authorityJson: Cloud storage key
      */
     void getAuthorityGet(String authorityJson);
 
     /**
-     * 返回 云存储 根据某一天时间段查询的数据
+     * return data queried by cloud storage based on a certain time period.
      *
-     * @param timePieceBeans 时间片段数据集
+     * @param timePieceBeans: Time-slice data list
      */
     void getTimePieceInfoByTimeSlice(List<TimePieceBean> timePieceBeans);
 
     /**
-     * 返回 云存储-移动侦测 根据某一天时间段查询的数据
+     * return data from cloud storage motion detection queries based on a certain time period.
      *
-     * @param timeRangeBeans 移动侦测时间片段数据集
+     * @param timeRangeBeans: Motion detection time segment data list
      */
     void getMotionDetectionByTimeSlice(List<TimeRangeBean> timeRangeBeans);
 
     /**
-     * 错误码
+     * error code
      *
      * @param errorCode
      */
     void onError(int errorCode);
 
     /**
-     * 返回 云存储 状态
+     * return cloud storage status
      *
-     * @param code 购买状态，code值参考文章底下的状态码
+     * @param code: code value, refer to the status code at the bottom of the article.
      */
     void getCloudStatusSuccess(int code);
 
     /**
-     * 返回 云存储 配置信息，需要传入sdk验证
+     * return cloud storage configuration information, need to pass in SDK verification
      *
-     * @param config 配置信息数据
+     * @param config: Configuration information data
      */
     void getCloudConfigDataTags(String config);
 }
 
 ```
 
-##### 状态值
 
-| 状态值    | 说明                               |
-| :------- | :---------------------------------- |
-| 10001 | 未开通服务 |
-| 10002 | 已开通服务，无数据 |
-| 10003 | 已开通服务，有数据 |
-| 10004 | 服务已过期，有数据 |
-| 10005 | 服务已过期，无数据 |
+#### Status value
 
-
-##### 错误码
-
-| 错误码    | 说明                               |
-| :------- | :---------------------------------- |
-| 10100 | 获取 SECRET 失败 |
-| 10101 | 获取 AUTH 失败 |
-| 10110 | 其他异常 |
-| 10010 | 获取认证信息失败 |
-| 10011 | 获取某天的时间片（鉴权信息）失败 |
+| Status value | Description                             |
+| ------------ | --------------------------------------- |
+| 10001        | Not Opened                              |
+| 10002        | Service opened, no data                 |
+| 10003        | Service is available, data is available |
+| 10004        | Service expired with data               |
+| 10005        | Service expired, no data                |
 
 
 
-### 云存储播放
+#### Error code
 
-**ITYCloudCamera** 提供了云存储播放相关的API接口
+| error code | Description                                                  |
+| ---------- | ------------------------------------------------------------ |
+| 10100      | Get SECRET failed                                            |
+| 10101      | Failed to get AUTH                                           |
+| 10110      | Other exceptions                                             |
+| 10010      | Failed to obtain authentication information                  |
+| 10011      | Failed to get time slice (authentication information) for a certain day |
 
-#### 初始化
+### Cloud storage video play
 
-创建设备对象
+**ITYCloudCamera** provides API interfaces related to cloud storage playback.
+
+
+#### Initialize and create device
 
 ```java
 void createCloudDevice(String cachePath, String devId)
 ```
 
-**参数说明**
+**Parameter**
 
-| 参数                 | 说明               |
-| :-------------------- | :------------------ |
-| cachePath | 缓存路径 |
-| devId | 设备id |
 
-**示例代码**
+| Parameter | Description |
+| --------- | ----------- |
+| cachePath | Cache path  |
+| devId     | device Id   |
+
+**Example**
+
 
 ```java
 cloudCamera.createCloudDevice(cachePath, devId);
 ```
 
 
-#### 注册云存储监听
+#### Register for Cloud camera listening
 
 ```java
 void registorOnP2PCameraListener(OnP2PCameraListener listener);
 ```
-**参数说明**
 
-| 参数                 | 说明               |
-| :-------------------- | :------------------ |
-| listener | p2p 回调 |
+**Parameter**
 
-**示例代码**
+
+| Parameter | Description |
+| --------- | ----------- |
+| listener  | Callback    |
+
+**Example**
+
 
 ```java
 cloudCamera.registorOnP2PCameraListener(this);
 ```
 
+#### Unregister Cloud Camera listening
 
-
-#### 反注册云存储监听
 
 ```java
 void removeOnP2PCameraListener();
 ```
-**示例代码**
+
+**Example**
+
 
 ```java
-cloudCamera.removeOnP2PCameraListener();
+cloudCamera.removeOnP2PCameraListener(this);
 ```
 
 
-
-#### 绑定播放组件 view
+#### Binder video View
 
 ```java
 void generateCloudCameraView(IRegistorIOTCListener view);
 ```
-**参数说明**
 
-| 参数                 | 说明               |
-| :-------------------- | :------------------ |
-| view | 播放器组件 |
+**Parameter**
 
-**示例代码**
+
+| Parameter | Description |
+| --------- | ----------- |
+| view      | Video view  |
+
+**Example**
+
 
 ```java
 cloudCamera.generateCloudCameraView(mVideoView);
 ```
 
 
-
-#### 配置云存储数据 tags (开始播放云存前需要先进行配置)
+#### Configure cloud storage data tags (requires configuration before starting to play cloud storage).
 
 ```java
 int configCloudDataTagsV1(String jsonStr, OperationDelegateCallBack callBack);
 ```
-**参数说明**
 
-| 参数                 | 说明               |
-| :-------------------- | :------------------ |
-| jsonStr | 配置云存储数据 tags |
-| callBack | 回调 |
+**Parameter**
 
-**示例代码**
+
+| Parameter | Description                       |
+| --------- | :-------------------------------- |
+| jsonStr   | Configure cloud storage data tags |
+| callBack  | Callback                          |
+
+**Example**
+
 
 ```java
 cloudCamera.configCloudDataTagsV1(config, new OperationDelegateCallBack() {
 
   @Override
   public void onSuccess(int i, int i1, String s) {
-    //成功之后开始播放
     if (timePieceBeans.size() > 0) {
       int startTime = timePieceBeans.get(0).getStartTime();
       playCloudDataWithStartTime(startTime, (int) (getTodayEnd(startTime * 1000L) / 1000) - 1, true);
@@ -770,24 +787,25 @@ cloudCamera.configCloudDataTagsV1(config, new OperationDelegateCallBack() {
 ```
 
 
-#### 播放云存储视频
+#### Cloud storage playing
 
 ```java
 void playCloudDataWithStartTime(long mStartTime, long mEndTime, boolean isEvent, String jsonAuthParams, String encryptKey, OperationCallBack callback, OperationCallBack playFinishedCallBack);
 ```
-**参数说明**
 
-| 参数                 | 说明               |
-| :-------------------- | :------------------ |
-| mStartTime | 开始时间 |
-| mEndTime | 结束时间，一般是这一天的结束时间 |
-| isEvent | 是否是侦测事件，默认false |
-| jsonAuthParams | 校验数据|
-| encryptKey | 秘钥 |
-| callBack | 播放回调 |
-| playFinishedCallBack | 播放结束回调 |
+**Parameter Description**
 
-**示例代码**
+| Parameter            | Description                               |
+| -------------------- | ----------------------------------------- |
+| mStartTime           | Starting time                             |
+| mEndTime             | End time, usually the end time of the day |
+| isEvent              | Whether to detect events, default false   |
+| jsonAuthParams       | Check data                                |
+| encryptKey           | Secret key                                |
+| callBack             | play callback                             |
+| playFinishedCallBack | Play finish callback                      |
+
+**Sample Code**
 
 ```java
 cloudCamera.playCloudDataWithStartTime(startTime, endTime, isEvent,
@@ -795,7 +813,7 @@ cloudCamera.playCloudDataWithStartTime(startTime, endTime, isEvent,
                                        new OperationCallBack() {
                                          @Override
                                          public void onSuccess(int sessionId, int requestId, String data, Object camera) {
-                                           // 播放中的回调, playing
+
                                          }
 
                                          @Override
@@ -805,7 +823,7 @@ cloudCamera.playCloudDataWithStartTime(startTime, endTime, isEvent,
                                        }, new OperationCallBack() {
                                          @Override
                                          public void onSuccess(int sessionId, int requestId, String data, Object camera) {
-                                           //播放完成的回调, playCompleted
+
                                          }
 
                                          @Override
@@ -816,18 +834,20 @@ cloudCamera.playCloudDataWithStartTime(startTime, endTime, isEvent,
 
 
 
-##### 暂停播放
+#### Pause playing
 
 ```java
 int pausePlayCloudVideo(OperationDelegateCallBack callBack);
 ```
-**参数说明**
 
-| 参数                 | 说明               |
-| :-------------------- | :------------------ |
-| callBack | 操作回调 |
+**Parameter**
 
-**示例代码**
+
+| Parameter | Description |
+| --------- | ----------- |
+| callBack  | call back   |
+
+**Example**
 
 ```java
 cloudCamera.pausePlayCloudVideo(new OperationDelegateCallBack() {
@@ -843,19 +863,21 @@ cloudCamera.pausePlayCloudVideo(new OperationDelegateCallBack() {
 ```
 
 
-
-##### 继续播放
+#### Resume playing
 
 ```java
 int resumePlayCloudVideo(OperationDelegateCallBack callBack);
 ```
-**参数说明**
 
-| 参数                 | 说明               |
-| :-------------------- | :------------------ |
-| callBack | 操作回调 |
+**Parameter**
 
-**示例代码**
+
+| Parameter | Description |
+| --------- | ----------- |
+| callBack  | call back   |
+
+**Example**
+
 
 ```java
 cloudCamera.resumePlayCloudVideo(new OperationDelegateCallBack() {
@@ -871,19 +893,21 @@ cloudCamera.resumePlayCloudVideo(new OperationDelegateCallBack() {
 ```
 
 
-
-##### 停止播放
+#### Stop playing
 
 ```java
 int stopPlayCloudVideo(OperationDelegateCallBack callBack);
 ```
-**参数说明**
 
-| 参数                 | 说明               |
-| :-------------------- | :------------------ |
-| callBack | 操作回调 |
+**Parameter**
 
-**示例代码**
+
+| Parameter | Description |
+| --------- | ----------- |
+| callBack  | call back   |
+
+**Example**
+
 
 ```java
 cloudCamera.stopPlayCloudVideo(new OperationDelegateCallBack() {
@@ -899,63 +923,67 @@ cloudCamera.stopPlayCloudVideo(new OperationDelegateCallBack() {
 ```
 
 
-#### 其他功能
-
-云存储视频播放也提供有声音开关，本地视频录制，截图等功能。
-
-##### 设置静音状态
-
-``` java
-void setCloudMute(final int mute, OperationDelegateCallBack callBack);
-```
-**参数说明**
-
-| 参数                 | 说明               |
-| :-------------------- | :------------------ |
-| mute | 是否静音 |
-| callBack | 操作回调 |
-
-**示例代码**
-
-```java
-cloudCamera.setCloudMute(mute, new OperationDelegateCallBack() {
-            @Override
-            public void onSuccess(int sessionId, int requestId, String data) {
-                soundState = Integer.valueOf(data);
-            }
-
-            @Override
-            public void onFailure(int sessionId, int requestId, int errCode) {
-            }
-        });
-```
-
-
-##### 获取静音状态
+#### Get sound status
 
 ```java
 int getCloudMute();
 ```
-**示例代码**
+
+**Example**
+
 
 ```java
 cloudCamera.getCloudMute()
 ```
 
 
-##### 截图
+#### Set sound status
+
+``` java
+void setCloudMute(final int mute, OperationDelegateCallBack callBack);
+```
+
+**Parameter**
+
+
+| Parameter | Description |
+| --------- | ----------- |
+| mute      | is mute     |
+| callBack  | call back   |
+
+**Example**
+
+
+```java
+cloudCamera.setCloudMute(mute, new OperationDelegateCallBack() {
+  @Override
+  public void onSuccess(int sessionId, int requestId, String data) {
+    soundState = Integer.valueOf(data);
+  }
+
+  @Override
+  public void onFailure(int sessionId, int requestId, int errCode) {
+  }
+});
+```
+
+
+#### snapshot
 
 ```java
 int snapshot(String absoluteFilePath, OperationDelegateCallBack callBack);
 ```
-**参数说明**
 
-| 参数                 | 说明               |
-| :-------------------- | :------------------ |
-| absoluteFilePath | 文件地址 |
-| callBack | 操作回调 |
+**Parameter**
 
-**示例代码**
+
+| Parameter        | Description |
+| ---------------- | ----------- |
+| absoluteFilePath | file path   |
+| callBack         | call back   |
+
+**Example**
+
 
 ```java
 cloudCamera.snapshot(IPCCameraUtils.recordSnapshotPath(devId), new OperationDelegateCallBack() {
@@ -971,21 +999,23 @@ cloudCamera.snapshot(IPCCameraUtils.recordSnapshotPath(devId), new OperationDele
 ```
 
 
-
-##### 开始录制
+### start Recording
 
 ```java
 int startRecordLocalMp4(String folderPath, String fileName, OperationDelegateCallBack callBack);
 ```
-**参数说明**
 
-| 参数                 | 说明               |
-| :-------------------- | :------------------ |
-| folderPath | 文件夹路径 |
-| fileName | 文件名称 |
-| callBack | 操作回调 |
+**Parameter**
 
-**示例代码**
+
+| Parameter  | Description |
+| ---------- | ----------- |
+| folderPath | folder path |
+| fileName   | file name   |
+| callBack   | Call back   |
+
+**Example**
+
 
 ```java
 cloudCamera.startRecordLocalMp4(IPCCameraUtils.recordPath(devId), String.valueOf(System.currentTimeMillis()), new OperationDelegateCallBack() {
@@ -1001,19 +1031,21 @@ cloudCamera.startRecordLocalMp4(IPCCameraUtils.recordPath(devId), String.valueOf
 ```
 
 
-
-##### 结束录制
+#### Stop recording
 
 ```java
 int stopRecordLocalMp4(OperationDelegateCallBack callBack);
 ```
-**参数说明**
 
-| 参数                 | 说明               |
-| :-------------------- | :------------------ |
-| callBack | 操作回调 |
+**Parameter**
 
-**示例代码**
+
+| Parameter | Description |
+| --------- | ----------- |
+| callBack  | call back   |
+
+**Example**
+
 
 ```java
 cloudCamera.stopRecordLocalMp4(new OperationDelegateCallBack() {
@@ -1030,14 +1062,16 @@ cloudCamera.stopRecordLocalMp4(new OperationDelegateCallBack() {
 
 
 
-#### 反初始化
+### Deinit
 
 ```java
 void deinitCloudCamera();
 ```
 
-**示例代码**
+**Example**
+
 
 ```java
 cloudCamera.deinitCloudCamera();
 ```
+

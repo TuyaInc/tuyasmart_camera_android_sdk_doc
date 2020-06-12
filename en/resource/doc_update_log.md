@@ -1,5 +1,4 @@
-# Version history
-
+# Change Log
 
 
 ## Document update history
@@ -10,7 +9,7 @@
 
 
 
-## SDK update history
+## SDK update log
 
 
 - 2020.5.9

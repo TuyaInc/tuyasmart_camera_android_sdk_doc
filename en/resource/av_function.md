@@ -1,32 +1,32 @@
+## AV Functions
 
-## 音视频功能
+The SDK provides some additional audio and video capabilities when play live video or playback.
 
-除了实时视频直播，存储卡录像播放以外，Camera SDK 还提供了一些额外的音视频能力。
+### Recording
 
-### 本地录制
+Once the video has been successfully played (either live or playback), you can record the video currently playing to the phone.
 
-当视频成功开始播放以后（可以是视频直播，也可以是录像回放），可以将当前正在播放的视频录制到手机中。
+#### Start video recording
 
-#### 开启视频录制
-
-**接口说明**
+**Declaration**
 
 ```java
 int startRecordLocalMp4(String folderPath, String fileName, Context context, OperationDelegateCallBack callBack);
 ```
 
-> 注：录制视频需要写存储卡权限
+> Note: Recording video requires write card permission
 
-**参数说明**
+**Parameter**
 
-|    参数     |       说明       |
-| ---------- | ---------------- |
-| folderPath | 保存视频的文件路径 |
-| fileName   | 保存视频的名称     |
-| context    | 上下文            |
-| callBack   | 操作回调          |
 
-**示例代码**
+| Parameter  |       Description        |
+| ---------- | ------------------------ |
+| folderPath | file path to save video |
+| fileName   | file name                |
+| context    | Context                  |
+| callBack   | result callback         |
+
+**Example**
 
 ```java
 if (Constants.hasStoragePermission()) {
@@ -56,48 +56,49 @@ if (Constants.hasStoragePermission()) {
 } 
 ```
 
-#### 停止视频录制
+#### stop video recording
 
-**接口说明**
+**Declaration**
 
 ```java
 int stopRecordLocalMp4(OperationDelegateCallBack callBack);
 ```
 
-**参数说明**
+**Parameter**
 
 
-|   参数    |   说明   |
-| -------- | ------- |
-| callBack | 操作回调 |
+| Parameter |   Description   |
+| --------- | ---------------- |
+| callback  | result callback |
 
-**示例代码**
+**Example**
 
 ```java
 mCameraP2P.stopRecordLocalMp4(new OperationDelegateCallBack() {
     @Override
     public void onSuccess(int sessionId, int requestId, String data) {
-        //成功
+
     }
 
     @Override
     public void onFailure(int sessionId, int requestId, int errCode) {
-        //失败
+
     }
 });
 ```
 
-### 视频截图
+### Video snapshot
 
-截取实时视频的影像图片存储到手机 SD 卡上
+When the video starts to play successfully (it can be live video or video playback), you can take a screenshot of the currently displayed video image.
 
-**接口说明**
+**Declaration**
 
 ```java
 int snapshot(String absoluteFilePath, Context context, PLAYMODE playmode, OperationDelegateCallBack callBack);
 ```
 
-**播放模式**
+
+**Play mode**
 
 ```java
 enum PLAYMODE {
@@ -105,16 +106,18 @@ enum PLAYMODE {
 }
 ```
 
-**参数说明**
+**Parameter**
 
-|       参数        |    说明     |
-| ----------------- | ----------- |
-| absoluteFilePath | 图片存储路径 |
-| context           | 上下文      |
-| playmode         | 播放模式     |
-| callBack         | 操作回调     |
 
-**示例代码**
+|    Parameter     |     Description      |
+| ----------------- | --------------------- |
+| absoluteFilePath | Picture storage path |
+| context           | Context               |
+| playmode           | Play mode               |
+| callback           | Result callback             |
+
+**Example**
+
 
 ```java
 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -128,7 +131,6 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 mCameraP2P.snapshot(picPath, CameraPanelActivity.this, ICameraP2P.PLAYMODE.LIVE, new OperationDelegateCallBack() {
     @Override
     public void onSuccess(int sessionId, int requestId, String data) {
-     //data 返回的是文件路径
         mHandler.sendMessage(MessageUtil.getMessage(MSG_SCREENSHOT, ARG1_OPERATE_SUCCESS, data));
     }
 
@@ -139,11 +141,11 @@ mCameraP2P.snapshot(picPath, CameraPanelActivity.this, ICameraP2P.PLAYMODE.LIVE,
 });
 ```
 
-### 视频声音
+### Video sound
 
-当视频成功开始播放以后（可以是视频直播，也可以是录像回放），可以开启视频声音，默认声音是关闭状态。
+When the video is successfully played (either live or playback), the video sound can be turned on, with the default sound turned off.
 
-**示例代码**
+**Example**
 
 ```java
 int mute;
@@ -151,7 +153,7 @@ mute = previewMute == ICameraP2P.MUTE ? ICameraP2P.UNMUTE : ICameraP2P.MUTE;
 mCameraP2P.setMute(ICameraP2P.PLAYMODE.LIVE, mute, new OperationDelegateCallBack() {
   @Override
   public void onSuccess(int sessionId, int requestId, String data) {
-    //data返回的是对应操作之后的结果值
+    //data is the result value after the operation
     previewMute = Integer.valueOf(data);
     mHandler.sendMessage(MessageUtil.getMessage(MSG_MUTE, ARG1_OPERATE_SUCCESS));
   }
@@ -163,15 +165,15 @@ mCameraP2P.setMute(ICameraP2P.PLAYMODE.LIVE, mute, new OperationDelegateCallBack
 });
 ```
 
-### 实时对讲
+### Talk to camera
 
-在 p2p 连接成功后，可以开启与设备的实时通话功能，在开始对讲前，需要确保 App 已获得手机麦克风的访问权限。
+After the p2p connection is successful, the real-time calling function with the device can be enabled. Before starting talk to device, we need to ensure that the App has gained access to the phone's microphone.
 
-#### 开启对讲
+#### Start talck
 
-打开手机声音传输给摄像机操作。
+Open the audio channel from App to camera.
 
-**示例代码**
+**Example**
 
 ```java
 if (Constants.hasRecordPermission()) {
@@ -196,11 +198,11 @@ if (Constants.hasRecordPermission()) {
 }
 ```
 
-#### 停止对讲
+#### Stop talck
 
-关闭手机声音传输给摄像机操作。
+Close the audio channel from App to camera.
 
-**示例代码**
+**Example**
 
 ```java
 mCameraP2P.stopAudioTalk(new OperationDelegateCallBack() {
@@ -219,34 +221,25 @@ mCameraP2P.stopAudioTalk(new OperationDelegateCallBack() {
 });
 ```
 
-> 注：对讲和录制是互斥的，而且只有在预览时可以开启对讲。
+#### Two-way talk
 
+In the video live broadcast, turn on the video sound. At this time, the sound played is the human voice and environmental sound collected by the camera in real time. Then, open the sound channel from App to the camera to implement two-way talk.
 
-#### 双向对讲
+> Some cameras may not have speakers or pickups, and such cameras are not capable of two-way talk.
 
-在实时视频直播时，打开视频声音，此时播放的声音即为摄像机实时采集的人声与环境声音，此时打开 App 到摄像机的声音通道，即可实现双向对讲功能。
+#### One-way talk
 
-> 部分摄像机可能没有扬声器或者拾音器，此类摄像机无法实现双向对讲。
+The one-way talk function needs the developer to implement control. When the talk is on, turn off the video sound. After the talk is off, turn on the video sound again.
 
-#### 单向对讲
+### Definition switching
 
-单向对讲功能需要开发者来实现控制。在开启对讲的时候，关闭视频声音，关闭对讲后，再打开视频声音即可。
+In the video live, you can switch the definition (a few cameras only support one kind of definition), currently only high-definition and standard clarity two kinds of definition, and only when the video live support. A memory card video recording saves only one definition stream of video at the time of recording.
 
-### 清晰度切换
+#### Get definition
 
-在实时视频直播时，可以切换清晰度（少数摄像机只支持一种清晰度），目前只有高清和标清两种清晰度，且只有实时视频直播时才支持。存储卡视频录像在录制时只保存了一种清晰度的视频流。
+Get the sharpness of the image transmitted from the camera.
 
-#### 获取清晰度
-
-
-
-获取摄像机传过来的影像清晰度。
-
-
-
-**示例代码**
-
-
+**Example**
 
 ```java
 mCameraP2P.getVideoClarity(new OperationDelegateCallBack() {
@@ -273,50 +266,27 @@ mCameraP2P.getVideoClarity(new OperationDelegateCallBack() {
 
 ```
 
+> note: After the preview screen comes out, call this function
 
-> 注意：预览画面出来后，调取该函数
+#### Set Video Clarity
 
+Set the sharpness of the image played by the camera.
 
-#### 设置清晰度
-
-
-
-设置摄像机播放的影像清晰度。
-
-
-
-**示例代码**
-
-
+**Sample code**
 
 ```java
+mCameraP2P.setVideoClarity(videoClarity == ICameraP2P.HD ? ICameraP2P.STANDEND : ICameraP2P.HD, new OperationDelegateCallBack() {
+    @Override
+    public void onSuccess(int sessionId, int requestId, String data) {
+        videoClarity = Integer.valueOf(data);
+        mHandler.sendMessage(MessageUtil.getMessage(MSG_GET_CLARITY, ARG1_OPERATE_SUCCESS));
+    }
 
- mCameraP2P.setVideoClarity(videoClarity == ICameraP2P.HD ? ICameraP2P.STANDEND : ICameraP2P.HD, new OperationDelegateCallBack() {
-
-​    @Override
-
-​    public void onSuccess(int sessionId, int requestId, String data) {
-
-​        videoClarity = Integer.valueOf(data);
-
-​        mHandler.sendMessage(MessageUtil.getMessage(MSG_GET_CLARITY, ARG1_OPERATE_SUCCESS));
-
-​    }
-
-
-
-​    @Override
-
-​    public void onFailure(int sessionId, int requestId, int errCode) {
-
-​        mHandler.sendMessage(MessageUtil.getMessage(MSG_GET_CLARITY, ARG1_OPERATE_FAIL));
-
-​    }
-
+    @Override
+    public void onFailure(int sessionId, int requestId, int errCode) {
+        mHandler.sendMessage(MessageUtil.getMessage(MSG_GET_CLARITY, ARG1_OPERATE_FAIL));
+    }
 });
-
 ```
-
-
 
 

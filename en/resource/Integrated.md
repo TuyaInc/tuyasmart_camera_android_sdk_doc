@@ -1,16 +1,36 @@
 # Integrate SDK
 
 
+## Solutions introduction
 
+Before integrate Tuya smart camera SDK, please learn about [Home SDK](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/en/).
+
+The Tuya Open Platform provides rious integrate modes based on Tuya's mature IoT services, refer to [Solutions Introduction](https://docs.tuya.com/en/iot/open-api/quick-start/solution-overview?id=K95ztz6mui51y).
+ 
 ## Preparation for Integration
 
+1. Click "App Service" - "App SDK" - "Obtain SDK" in order on the iot platform.
 
-###  1、Create Project
+
+2. Select the appropriate development plan according to your needs and click "Next".
+
+  ![](./images/sdk_preparation_1.png)
+
+3. Enter the created app information as prompted and click "Next."
+
+![](./images/sdk_preparation_3.png)
+
+4. AppKey, AppSecret can be obtained in the Android section. Click "Download" and " Download Android-based App SDK(Gradle)" to download the required security images and dependencies.
+
+![](./images/sdk_preparation_2.png)
+
+
+##  Create Project
 
 Build your project in the Android Studio.
 
 
-### 2、Configure the build.gradle
+### Configure the build.gradle
 
 Add the following codes to the root build.gradle file.
 ```groovy
@@ -95,7 +115,7 @@ repositories {
 
 
 
-### 3、Set the AndroidManifest.xml
+### Set the AndroidManifest.xml
 
 Set appkey and appSecret in the AndroidManifest.xml file, and configure corresponding permissions, etc.
 
@@ -122,7 +142,7 @@ android:value="App key" />
 
 
 
-### 4、proguard-rules
+### Proguard-rules
 
 Arrange aliasing configuration in corresponding proguard-rules.pro files.
 

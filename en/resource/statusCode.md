@@ -1,4 +1,4 @@
-# Status Code
+# Error code
 
 
 

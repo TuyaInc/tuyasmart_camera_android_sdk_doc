@@ -126,7 +126,7 @@ mCameraP2P.pausePlayBack(new OperationDelegateCallBack() {
 
 **示例代码**
 
-   ```java
+```java
 mCameraP2P.resumePlayBack(new OperationDelegateCallBack() {
   @Override
   public void onSuccess(int sessionId, int requestId, String data) {
@@ -138,7 +138,7 @@ mCameraP2P.resumePlayBack(new OperationDelegateCallBack() {
 
   }
 });
-   ```
+```
 
  
 
@@ -146,7 +146,7 @@ mCameraP2P.resumePlayBack(new OperationDelegateCallBack() {
 
 **示例代码**
 
-   ```java
+```java
 mCameraP2P.stopPlayBack(new OperationDelegateCallBack() {
   @Override
   public void onSuccess(int sessionId, int requestId, String data) {
@@ -158,7 +158,7 @@ mCameraP2P.stopPlayBack(new OperationDelegateCallBack() {
 
   }
 });
-   ```
+```
 
 ### 流程图
 
