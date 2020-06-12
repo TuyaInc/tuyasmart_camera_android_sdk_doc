@@ -1,14 +1,18 @@
-# 摄像机消息中心
+# 侦测报警
+
+涂鸦智能摄像机通常具有侦测报警的功能，可以通过设备功能点打开侦测开关。侦测告警主要分两种，声音检测和移动检测。当设备检测到声音或者物体移动时，会上报一个警告消息，如果你的 App 集成了推送功能，App 还会收到一个推送通知。集成推送请参考[集成 Push](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/Push.html)。
+
+报警消息通常会附带一张当前视频的截图。
+
+直供电门铃设备，提供视频消息的能力。当有人按下门铃时，设备可以上传一段留言视频，这个消息也会通过报警消息获取到，消息体会附带一段 6 秒的加密视频。
 
 
 
-## 简介
 
-摄像机消息中心记录了摄像机侦测报警的图片数据、视频数据及有人来访的数据。
-
+## 消息列表
 
 
-## 模块引用
+### 模块引用
 
 ```groovy
 implementation 'com.tuya.smart:tuyasmart-ipc-camera-message:3.13.0r128'
@@ -16,11 +20,12 @@ implementation 'com.tuya.smart:tuyasmart-ipc-camera-message:3.13.0r128'
 
 
 
-## 消息中心列表获取数据 API 说明
 
+### 消息日历
 
+可以通过 Camera SDK 查询到某年某月有报警消息的日期，以便于在日历上直观展示。
 
-### queryAlarmDetectionDaysByMonth 
+**接口说明**
 
 获取摄像机消息中心指定月含有消息的具体日期列表
 
@@ -40,25 +45,25 @@ void queryAlarmDetectionDaysByMonth(String jsonParams, ResultListener<JSONArray>
 
 ```java
 JSONObject object = new JSONObject();
-        object.put("msgSrcId", devId);
-        object.put("timeZone", TimeZoneUtils.getTimezoneGCMById(TimeZone.getDefault().getID()));
-        object.put("month", year + "-" + month);
-        messageBusiness.queryAlarmDetectionDaysByMonth(object.toJSONString(),
-                new Business.ResultListener<JSONArray>() {
-                    @Override
-                    public void onFailure(BusinessResponse businessResponse, JSONArray objects, String s) {
-                        mHandler.sendEmptyMessage(ALARM_DETECTION_DATE_MONTH_FAILED);
-                    }
+object.put("msgSrcId", devId);
+object.put("timeZone", TimeZoneUtils.getTimezoneGCMById(TimeZone.getDefault().getID()));
+object.put("month", year + "-" + month);
+messageBusiness.queryAlarmDetectionDaysByMonth(object.toJSONString(),
+new Business.ResultListener<JSONArray>() {
+    @Override
+    public void onFailure(BusinessResponse businessResponse, JSONArray objects, String s) {
+        mHandler.sendEmptyMessage(ALARM_DETECTION_DATE_MONTH_FAILED);
+    }
 
-                    @Override
-                    public void onSuccess(BusinessResponse businessResponse, JSONArray objects, String s) {
-                        List<Integer> dates = JSONArray.parseArray(objects.toJSONString(), Integer.class);
-                        if (dates.size() > 0){
-                            day = dates.get(0);
-                        }
-                        mHandler.sendEmptyMessage(ALARM_DETECTION_DATE_MONTH_SUCCESS);
-                    }
-                });
+    @Override
+    public void onSuccess(BusinessResponse businessResponse, JSONArray objects, String s) {
+        List<Integer> dates = JSONArray.parseArray(objects.toJSONString(), Integer.class);
+        if (dates.size() > 0){
+            day = dates.get(0);
+        }
+        mHandler.sendEmptyMessage(ALARM_DETECTION_DATE_MONTH_SUCCESS);
+    }
+});
 ```
 
 返回数据结构示例（具体以实际请求为准）
@@ -75,7 +80,11 @@ JSONObject object = new JSONObject();
 
 
 
-### queryAlarmDetectionClassify
+### 消息类型
+
+侦测报警消息根据触发方式定义有多种类型，部分类型又可以划分为一个大的分类。Camera SDK 提供获取默认分类的列表，以便于分类查询报警消息。
+
+**接口说明**
 
 获取消息类型
 
@@ -142,9 +151,13 @@ public void queryCameraMessageClassify(String devId) {
 
 
 
-### getAlarmDetectionMessageList
+### 消息列表
 
-获取消息中心具体数据
+可以通过 Camera SDK 查询和删除侦测报警消息。
+
+#### 获取侦测报警消息列表
+
+**接口说明**
 
 ```java
 void getAlarmDetectionMessageList(String json, ResultListener<JSONObject> listener)
@@ -257,9 +270,9 @@ if (null != messageBusiness){
 
 
 
-### deleteAlarmDetectionMessageList
+#### 批量删除报警消息
 
-消息删除接口
+**接口说明**
 
 ```java
 void deleteAlarmDetectionMessageList(String ids, ResultListener<Boolean> listener)
@@ -307,6 +320,312 @@ messageBusiness.deleteAlarmDetectionMessageList(ids.toString(), new Business.Res
 	"status" : "ok"
 }
 ```
+
+
+## 视频消息
+
+
+### 注册监听
+
+注册监听器，只有注册之后才能获取到视频播放的回调数据。
+
+**接口说明**
+
+```java
+void registorOnP2PCameraListener(OnP2PCameraListener listener);
+```
+
+**参数说明**
+
+| 参数           | 说明             |
+| :------------------- | :---------------- |
+| OnP2PCameraListener | 视频播放回调数据 |
+
+### 绑定播放器对象
+
+**接口说明**
+
+注入播放器 View，用来渲染视频画面
+
+```java
+void generateCloudCameraView(IRegistorIOTCListener view);
+```
+
+**参数说明**
+
+| 参数              | 说明       |
+| :--------------------- | :---------- |
+| IRegistorIOTCListener | 播放器组件 |
+
+### 创建云视频播放设备
+
+**接口说明**
+
+```java
+void createCloudDevice(String cachePath, String devId, OperationDelegateCallBack callBack);
+```
+
+**参数说明**
+
+| 参数                      | 说明         |
+| :------------------------- | :------------ |
+| cachePath                 | 缓存文件地址 |
+| devId                     | 设备 id      |
+| OperationDelegateCallBack | 操作回调     |
+
+**示例代码**
+
+```kotlin
+cloudVideo?.createCloudDevice(cachePath, devId, object : OperationDelegateCallBack {
+  override fun onSuccess(sessionId: Int, requestId: Int, data: String) {
+    mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_MEDIA_DEVICE, ICameraVideoPlayModel.OPERATE_SUCCESS, data))
+  }
+
+  override fun onFailure(sessionId: Int, requestId: Int, errCode: Int) {
+    mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_MEDIA_DEVICE, ICameraVideoPlayModel.OPERATE_FAIL, errCode))
+  }
+})
+```
+
+### 播放报警消息中的视频
+
+**接口说明**
+
+```java
+void playVideo(String videoUrl, int startTime, String encryptKey, OperationCallBack callback, OperationCallBack playFinishedCallBack);
+```
+
+**参数说明**
+
+| 参数                 | 说明                    |
+| :-------------------- | :----------------------- |
+| videoUrl             | 视频播放地址            |
+| startTime            | 开始播放时间，初始值：0 |
+| encryptKey           | 播放视频的秘钥          |
+| callback             | 操作回调                |
+| playFinishedCallBack | 结束播放的操作回调      |
+
+**示例代码**
+
+```kotlin
+override fun playVideo(videoUrl: String, startTime: Int, encryptKey: String) {
+  if (cloudVideo == null) {
+    return
+  }
+  cloudVideo!!.playVideo(videoUrl, startTime, encryptKey, object : OperationCallBack {
+    override fun onSuccess(sessionId: Int, requestId: Int, data: String, camera: Any) {
+      playState = CloudPlayState.STATE_PLAYING
+      mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_PLAY, ICameraVideoPlayModel.OPERATE_SUCCESS))
+    }
+
+    override fun onFailure(sessionId: Int, requestId: Int, errCode: Int, camera: Any) {
+      playState = CloudPlayState.STATE_ERROR
+      mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_PLAY, ICameraVideoPlayModel.OPERATE_FAIL))
+    }
+  }, object : OperationCallBack {
+    override fun onSuccess(sessionId: Int, requestId: Int, data: String, camera: Any) {
+      playState = CloudPlayState.STATE_COMPLETED
+      mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_STOP, ICameraVideoPlayModel.OPERATE_SUCCESS))
+    }
+
+    override fun onFailure(sessionId: Int, requestId: Int, errCode: Int, camera: Any) {
+      mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_STOP, ICameraVideoPlayModel.OPERATE_FAIL))
+    }
+  })
+}
+```
+
+### 暂停播放
+
+**接口说明**
+
+```java
+void pauseVideo(OperationCallBack callback);
+```
+
+**参数说明**
+
+| 参数                 | 说明 |
+| :------------------------- | :-------- |
+| OperationDelegateCallBack | 操作回调 |
+
+**示例代码**
+
+```kotlin
+override fun pauseVideo() {
+  if (cloudVideo == null) {
+    return
+  }
+  cloudVideo!!.pauseVideo(object : OperationCallBack {
+    override fun onSuccess(sessionId: Int, requestId: Int, data: String, camera: Any) {
+      playState = CloudPlayState.STATE_PAUSED
+      mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_PAUSE, ICameraVideoPlayModel.OPERATE_SUCCESS))
+    }
+
+    override fun onFailure(sessionId: Int, requestId: Int, errCode: Int, camera: Any) {
+      mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_PAUSE, ICameraVideoPlayModel.OPERATE_FAIL))
+    }
+  })
+}
+```
+
+### 恢复播放
+
+**接口说明**
+
+```java
+void resumeVideo(OperationCallBack callback);
+```
+
+**参数说明**
+
+| 参数                  | 说明 |
+| :------------------------- | :-------- |
+| OperationDelegateCallBack | 操作回调 |
+
+**示例代码**
+
+```kotlin
+override fun resumeVideo() {
+  if (cloudVideo == null) {
+    return
+  }
+  cloudVideo!!.resumeVideo(object : OperationCallBack {
+    override fun onSuccess(sessionId: Int, requestId: Int, data: String, camera: Any) {
+      playState = CloudPlayState.STATE_PLAYING
+      mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_RESUME, ICameraVideoPlayModel.OPERATE_SUCCESS))
+    }
+
+    override fun onFailure(sessionId: Int, requestId: Int, errCode: Int, camera: Any) {
+      mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_RESUME, ICameraVideoPlayModel.OPERATE_FAIL))
+    }
+  })
+}
+```
+
+### 停止播放
+
+**接口说明**
+
+```java
+void stopVideo(OperationCallBack callback);
+```
+
+**参数说明**
+
+| 参数                  | 说明 |
+| :------------------------- | :-------- |
+| OperationDelegateCallBack | 操作回调 |
+
+**示例代码**
+
+```kotlin
+override fun stopVideo() {
+  if (cloudVideo == null) {
+    return
+  }
+  cloudVideo!!.stopVideo(object : OperationCallBack {
+    override fun onSuccess(sessionId: Int, requestId: Int, data: String, camera: Any) {
+      playState = CloudPlayState.STATE_STOP
+      mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_STOP, ICameraVideoPlayModel.OPERATE_SUCCESS))
+    }
+
+    override fun onFailure(sessionId: Int, requestId: Int, errCode: Int, camera: Any) {
+      mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_STOP, ICameraVideoPlayModel.OPERATE_FAIL))
+    }
+  })
+}
+```
+
+### 设置视频播放的声音开关
+
+**接口说明**
+
+```java
+void setCloudVideoMute(int mute, OperationDelegateCallBack callBack);
+```
+
+**参数说明**
+
+| 参数                  | 说明                                                     |
+| :------------------------- | :------------------------------------------------------------ |
+| mute                      | 拾音器模式: ICameraP2P.MUTE/ICameraP2P.UNMUTE（静音/非静音） |
+| OperationDelegateCallBack | 操作回调                                                     |
+
+**示例代码**
+
+```kotlin
+private fun setCloudVideoMute(voiceMode: Int) {
+  if (cloudVideo == null) {
+    return
+  }
+  cloudVideo!!.setCloudVideoMute(voiceMode, object : OperationDelegateCallBack {
+
+    override fun onSuccess(sessionId: Int, requestId: Int, data: String) {
+      mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_MUTE, IPanelModel.ARG1_OPERATE_SUCCESS, data))
+    }
+
+    override fun onFailure(sessionId: Int, requestId: Int, errCode: Int) {
+      mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_MUTE, IPanelModel.ARG1_OPERATE_FAIL))
+    }
+  })
+}
+```
+
+
+### 销毁云视频播放设备
+
+**接口说明**
+
+当云视频不再使用的时候，做销毁处理
+
+```java
+void deinitCloudVideo();
+```
+
+### 视频数据回调
+
+```kotlin
+override fun onReceiveFrameYUVData(sessionId: Int, y: ByteBuffer, u: ByteBuffer, v: ByteBuffer, width: Int, height: Int, nFrameRate: Int, nIsKeyFrame: Int, timestamp: Long, nProgress: Long, nDuration: Long, camera: Any)
+```
+
+**参数说明**
+
+| 参数        | 说明                             |
+| :----------- | :-------------------------------- |
+| sessionId   | \                                |
+| Y           | 视频Y数据                        |
+| u           | 视频U数据                        |
+| v           | 视频V数据                        |
+| width       | 视频画面的宽                     |
+| height      | 视频画面的高                     |
+| nFrameRate  | 帧率                             |
+| nIsKeyFrame | 是否I帧                          |
+| timestamp   | 时间戳                           |
+| nProgress   | 时间进度(消息中心视频播放的进度) |
+| nDuration   | 时长(消息中心视频播放时长)       |
+| camera      | \                                |
+
+  > 在这里的视频播放只要关心 nProgress，nDuration 即可
+
+**示例代码**
+
+  ```kotlin
+override fun onReceiveFrameYUVData(sessionId: Int, y: ByteBuffer, u: ByteBuffer, v: ByteBuffer, width: Int, height: Int, nFrameRate: Int, nIsKeyFrame: Int, timestamp: Long, nProgress: Long, nDuration: Long, camera: Any) {
+  val map = HashMap<String, Long>(2)
+  map["progress"] = nProgress
+  map["duration"] = nDuration
+  mHandler.sendMessage(MessageUtil.getMessage(ICameraVideoPlayModel.MSG_CLOUD_VIDEO_INFO, ICameraVideoPlayModel.OPERATE_SUCCESS, map))
+}
+  
+  ```
+
+
+
+
+### 流程图
+
+![](./images/video_play_flow.png)
 
 
 

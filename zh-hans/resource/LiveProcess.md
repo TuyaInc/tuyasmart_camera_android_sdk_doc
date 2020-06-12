@@ -1,423 +1,304 @@
-# 视频直播
+# 摄像机功能
+
+Camera SDK 提供智能摄像机的实时视频播放，设备存储卡录像播放，对当前正在播放的视频截图、录制视频， 与摄像机实时通话等基础能力，并提供视频帧解码后的 YUV 数据，开发者可以对视频数据进行二次处理。
+
+
+
+## 视频直播
 
 视频直播需要获取云端服务器信息，接着创建 `ICameraP2P` 对象，然后进行 P2P 连接后，就可以播放实时视频，截图、录制视频和实时对讲数据传输。
 
+### 初始化
 
+`ICameraP2P` 需要绑定渲染视图，使用者要创建 `ICameraP2P` 和 `TuyaCameraView` ，再使用 `TuyaCameraView` 构造渲染视图，同时也需要注册 `OnP2PCameraListener`、`CreateVideoViewCallback` 。
 
-## 示例代码
+#### 1. 创建 ICameraP2P 对象
 
-
-
-### 主要链路代码   
-
-
-
-#### 1. 初始化
-
-`ICameraP2P` 需要绑定 `IMonitorView`，使用者要创建 `ICameraP2P` 和 `TuyaCameraView` ，再使用 `TuyaCameraView` 构造 `IMonitorView`，同时也需要注册 `OnP2PCameraListener`、`CreateVideoViewCallback` 。
+**接口说明**
 
 ```java
-// 创建 ICameraP2P
-ICameraP2P mCameraP2P = TuyaSmartCameraP2PFactory.generateTuyaSmartCamera(sdkProvider);
-// 创建 TuyaCameraView
-TuyaCameraView mVideoView = findViewById(R.id.camera_video_view);
+public static ICameraP2P generateTuyaSmartCamera(int sdkprovider);
+```
 
-// 为 TuyaCameraView 设置回调，类型为 TuyaCameraView.CreateVideoViewCallback
-mVideoView.setCameraViewCallback(this);
-// 使用 TuyaCameraView 构造 IMonitorView
+**参数说明**
+
+|     参数     |   说明   |
+| ------------ | ------- |
+| sdkprovider | 设备类型 |
+
+**示例代码**
+
+```java
+ICameraP2P mCameraP2P = TuyaSmartCameraP2PFactory.generateTuyaSmartCamera(sdkProvider);
+```
+
+#### 2. 为渲染视图容器设置回调
+
+**接口说明**
+
+```java
+public void setCameraViewCallback(CreateVideoViewCallback callback)
+```
+
+**参数说明**
+
+|   参数    |   说明   |
+| -------- | ------- |
+| callback | 回调接口 |
+
+**示例代码**
+
+```java
+TuyaCameraView mVideoView = findViewById(R.id.camera_video_view);
+mVideoView.setCameraViewCallback(new TuyaCameraView.CreateVideoViewCallback() {
+    @Override
+    public void onCreated(Object o) {
+        //渲染视图构造完成时回调
+    }
+
+    @Override
+    public void videoViewClick() {
+
+    }
+
+    @Override
+    public void startCameraMove(PTZDirection ptzDirection) {
+
+    }
+
+    @Override
+    public void onActionUP() {
+
+    }
+});
+```
+
+#### 3. 构造渲染视图
+
+**接口说明**
+
+```java
+public void createVideoView(int provider);
+```
+
+**参数说明**
+
+|   参数    |   说明   |
+| -------- | ------- |
+| provider | 设备类型 |
+
+**示例代码**
+
+```
+TuyaCameraView mVideoView = findViewById(R.id.camera_video_view);
+mVideoView.createVideoView(sdkProvider);
+```
+
+**接口说明**
+
+获取视频渲染视图
+
+> 需要注意如果未构造视频渲染视图会返回 null
+
+```java
+public Object createdView();
+```
+
+**示例代码**
+
+```java
+TuyaCameraView mVideoView = findViewById(R.id.camera_video_view);
+mVideoView.createdView()
+```
+
+#### 4. 为 ICameraP2P 绑定渲染视图
+
+**接口说明**
+
+```java
+void generateCameraView(T view);
+```
+
+**示例代码**
+
+```java
+mCameraP2P.generateCameraView(mVideoView.createdView());
+```
+
+#### 链路
+
+**示例代码**
+
+```java
+// 1. 创建 ICameraP2P
+ICameraP2P mCameraP2P = TuyaSmartCameraP2PFactory.generateTuyaSmartCamera(sdkProvider);
+// 2. 为渲染视图容器设置回调
+TuyaCameraView mVideoView = findViewById(R.id.camera_video_view);
+mVideoView.setCameraViewCallback(new TuyaCameraView.CreateVideoViewCallback() {
+    @Override
+    public void onCreated(Object o) {
+        //4. 渲染视图构造完成后，为 ICameraP2P 绑定渲染视图
+        mCameraP2P.generateCameraView(mVideoView.createdView());
+    }
+
+    @Override
+    public void videoViewClick() {
+
+    }
+
+    @Override
+    public void startCameraMove(PTZDirection ptzDirection) {
+
+    }
+
+    @Override
+    public void onActionUP() {
+
+    }
+});
+// 3. 构造渲染视图 IMonitorView
 mVideoView.createVideoView(sdkProvider);
 
-...
-
-// TuyaCameraView 构造 IMonitorView 完成时回调
-@Override
-public void onCreated(Object view) {
-  if (null != mCameraP2P){
-    // 为 ICameraP2P 绑定 IMonitorView
-    mCameraP2P.generateCameraView(view);
-  }
-}
 ```
 
+### 获取设备信息
 
+通过调用云端接口，获取设备配置相关信息。
 
-#### 2. 获取设备信息，并创建设备
-
-通过调用云端接口，获取设备配置相关信息后创建设备。
+**接口说明**
 
 ```java
-// 获取设备配置相关信息
-private void getApi() {
-    mSmartCameraP2P = new TuyaSmartCameraP2P();
-    mSmartCameraP2P.requestCameraInfo(devId, new ICameraConfig() {
-        @Override
-        public void onFailure(BusinessResponse var1, ConfigCameraBean var2, String var3) {
-            ToastUtil.shortToast(CameraPanelActivity.this, "get cameraInfo failed");
-        }
+void requestCameraInfo(String devId, ICameraConfig callback);
+```
 
-        @Override
-        public void onSuccess(BusinessResponse var1, ConfigCameraBean var2, String var3) {
-            p2pWd = var2.getPassword();
-            p2pId = var2.getP2pId();
-          	//创建设备
-            initCameraView(var2);
-        }
-    });
-}
+**参数说明**
 
-private void initCameraView(ConfigCameraBean bean) {
-    mCameraP2P.createDevice(new OperationDelegateCallBack() {
-        @Override
-        public void onSuccess(int sessionId, int requestId, String data) {
-            mHandler.sendMessage(MessageUtil.getMessage(MSG_CREATE_DEVICE, ARG1_OPERATE_SUCCESS));
-        }
+|   参数    |  说明   |
+| -------- | ------- |
+| devId    | 设备 id |
+| callback | 结果回调 |
 
-        @Override
-        public void onFailure(int sessionId, int requestId, int errCode) {
-            mHandler.sendMessage(MessageUtil.getMessage(MSG_CREATE_DEVICE, ARG1_OPERATE_FAIL));
-        }
-    },bean);
+**示例代码**
+
+```java
+TuyaSmartCameraP2P mSmartCameraP2P = new TuyaSmartCameraP2P();
+mSmartCameraP2P.requestCameraInfo(devId, new ICameraConfig() {
+    @Override
+    public void onSuccess(BusinessResponse var1, ConfigCameraBean var2, String var3) {
+        //获取信息成功
+    }
+
+    @Override
+    public void onFailure(BusinessResponse var1, ConfigCameraBean var2, String var3) {
+        //获取信息失败
+    }
 }
 ```
 
+### 创建设备
 
+需要在获取设备配置信息之后创建设备才能进行 P2P 连接
 
-#### 3. P2P 连接
+**接口说明**
+
+```java
+void createDevice(OperationDelegateCallBack callback, ConfigCameraBean bean);
+```
+
+**参数说明**
+
+|   参数    |           说明            |
+| -------- | ------------------------- |
+| callback | 结果回调                   |
+| bean     | 配置信息，获取设备信息时会返回 |
+
+**示例代码**
+
+```java
+mCameraP2P.createDevice(new OperationDelegateCallBack() {
+    @Override
+    public void onSuccess(int sessionId, int requestId, String data) {
+        //创建成功
+    }
+
+    @Override
+    public void onFailure(int sessionId, int requestId, int errCode) {
+        //创建失败
+    }
+}, bean);
+```
+
+### P2P 连接
 
 在开始视频播放之前，需要先连接 P2P 通道。P2P 状态需要使用者自己维护，SDK 只负责下发指令和接收摄像机响应结果。
+
+**接口说明**
+
+开始连接 P2P 通道
+
+```java
+void connect(OperationDelegateCallBack callBack);
+```
+
+断开 P2P 通道
+
+```java
+void disconnect(OperationDelegateCallBack callBack);
+```
+
+**参数说明**
+
+|   参数    | 说明 |
+| -------- | --- |
+| callBack |  操作结果回调   |
+
+**示例代码**
 
 ```java
 mCameraP2P.connect(new OperationDelegateCallBack() {
     @Override
     public void onSuccess(int sessionId, int requestId, String data) {
-        mHandler.sendMessage(MessageUtil.getMessage(MSG_CONNECT, ARG1_OPERATE_SUCCESS));
+        //连接成功
     }
 
     @Override
     public void onFailure(int sessionId, int requestId, int errCode) {
-        mHandler.sendMessage(MessageUtil.getMessage(MSG_CONNECT, ARG1_OPERATE_FAIL, errCode));
+        //连接失败
     }
 });
 ```
 
 
-
-#### 4. 开启实时播放视频
+### 实时播放视频
 
 P2P连接成功之后，就能进行实时视频播放了。
 
-   ```java
-mCameraP2P.startPreview(new OperationDelegateCallBack() {
-  @Override
-  public void onSuccess(int sessionId, int requestId, String data) {
-    Log.d(TAG, "start preview onSuccess");
-    isPlay = true;
-  }
+**接口说明**
 
-  @Override
-  public void onFailure(int sessionId, int requestId, int errCode) {
-    Log.d(TAG, "start preview onFailure");
-    isPlay = false;
-  }
-});
-   ```
-
-> 注意：startPreview 成功回调之后，onReceiveFrameYUVData 回调会开始接收视频数据，并抛给业务层。
-
-
-
-#### 5. 停止实时播放视频
-
-停止播放摄像机实时视频操作。
+开始播放实时视频
 
 ```java
-camera.stopPreview(new OperationDelegateCallBack() {
-  @Override
-  public void onSuccess(int sessionId, int requestId, String data) {
-
-  }
-
-  @Override
-  public void onFailure(int sessionId, int requestId, int errCode) {
-
-  }
-});
+void startPreview(int clarity, OperationDelegateCallBack callBack);
 ```
 
-
-
-#### 6. 断开P2P连接
-
-disconnect 断开连线，离开页面的时候可以选择断开 p2p 连接。
-
-   ```java
-mCameraP2P.disconnect(new OperationDelegateCallBack() {
-  @Override
-  public void onSuccess(int sessionId, int requestId, String data) {
-
-  }
-
-  @Override
-  public void onFailure(int sessionId, int requestId, int errCode) {
-
-  }
-});
-   ```
-
-
-
-#### 7. 销毁ICameraP2P对象
-
-destroy 销毁对象，不再使用 camera 功能的时候，一定要调用 destroy
+停止播放实时视频
 
 ```java
-TuyaSmartCameraP2PFactory.onDestroyTuyaSmartCamera();   
+int stopPreview(OperationDelegateCallBack callBack);
 ```
 
->  以上方法调用构成摄像头live的生命周期
+**参数说明**
 
+|   参数    |    说明     |
+| -------- | ----------- |
+| clarity  | 清晰度模式   |
+| callBack | 操作结果回调 |
 
 
-## 流程图
-
-<img src="./images/live_process_image.jpg" style="zoom:60%;" />
-
-## 实时视频开启成功后，可调用信令
-
-
-
-### 视频录制
-
-视频录制功能可以把实时视频的影像文件以 mp4 格式存储到手机 SD 卡上。
-
-
-
-#### 开启视频录制
-
-调用 startRecordLocalMp4 方法。
-
-**示例代码**
-
-```java
-if (Constants.hasStoragePermission()) {
-    String picPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
-    File file = new File(picPath);
-    if (!file.exists()) {
-        file.mkdirs();
-    }
-    String fileName = System.currentTimeMillis() + ".mp4";
-    videoPath = picPath + fileName;
-    mCameraP2P.startRecordLocalMp4(picPath, fileName, CameraPanelActivity.this, new OperationDelegateCallBack() {
-        @Override
-        public void onSuccess(int sessionId, int requestId, String data) {
-            isRecording = true;
-            mHandler.sendEmptyMessage(MSG_VIDEO_RECORD_BEGIN);
-
-        }
-
-        @Override
-        public void onFailure(int sessionId, int requestId, int errCode) {
-            mHandler.sendEmptyMessage(MSG_VIDEO_RECORD_FAIL);
-        }
-    });
-    recordStatue(true);
-} else {
-    Constants.requestPermission(CameraPanelActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE, Constants.EXTERNAL_STORAGE_REQ_CODE, "open_storage");
-} 
-```
-
-> 注：录制视频需要写存储卡权限
-
-
-
-#### 停止视频录制
-
-调用 stopRecordLocalMp4 方法。
-
-**示例代码**
-
-```java
-mCameraP2P.stopRecordLocalMp4(new OperationDelegateCallBack() {
-    @Override
-    public void onSuccess(int sessionId, int requestId, String data) {
-        isRecording = false;
-        //data 返回的是文件路径
-        mHandler.sendMessage(MessageUtil.getMessage(MSG_VIDEO_RECORD_OVER, ARG1_OPERATE_SUCCESS, data));
-    }
-
-    @Override
-    public void onFailure(int sessionId, int requestId, int errCode) {
-        isRecording = false;
-        mHandler.sendMessage(MessageUtil.getMessage(MSG_VIDEO_RECORD_OVER, ARG1_OPERATE_FAIL));
-    }
-});
-```
-
-
-
-#### 视频截图
-
-截取实时视频的影像图片存储到手机 SD 卡上。
-
-**示例代码**
-
-```java
-if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-    String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
-    File file = new File(path);
-    if (!file.exists()) {
-        file.mkdirs();
-    }
-    picPath = path;
-}
-mCameraP2P.snapshot(picPath, CameraPanelActivity.this, ICameraP2P.PLAYMODE.LIVE, new OperationDelegateCallBack() {
-    @Override
-    public void onSuccess(int sessionId, int requestId, String data) {
-     //data 返回的是文件路径
-        mHandler.sendMessage(MessageUtil.getMessage(MSG_SCREENSHOT, ARG1_OPERATE_SUCCESS, data));
-    }
-
-    @Override
-    public void onFailure(int sessionId, int requestId, int errCode) {
-        mHandler.sendMessage(MessageUtil.getMessage(MSG_SCREENSHOT, ARG1_OPERATE_FAIL));
-    }
-});
-```
-
-
-
-#### 设置拾音器状态
-
-设置设备传过来的声音开关
-
-**示例代码**
-
-```java
-int mute;
-mute = previewMute == ICameraP2P.MUTE ? ICameraP2P.UNMUTE : ICameraP2P.MUTE;
-mCameraP2P.setMute(ICameraP2P.PLAYMODE.LIVE, mute, new OperationDelegateCallBack() {
-  @Override
-  public void onSuccess(int sessionId, int requestId, String data) {
-    //data返回的是对应操作之后的结果值
-    previewMute = Integer.valueOf(data);
-    mHandler.sendMessage(MessageUtil.getMessage(MSG_MUTE, ARG1_OPERATE_SUCCESS));
-  }
-
-  @Override
-  public void onFailure(int sessionId, int requestId, int errCode) {
-    mHandler.sendMessage(MessageUtil.getMessage(MSG_MUTE, ARG1_OPERATE_FAIL));
-  }
-});
-```
-
-
-
-#### 开启对讲
-
-打开手机声音传输给摄像机操作。
-
-**示例代码**
-
-```java
-if (Constants.hasRecordPermission()) {
-    mCameraP2P.startAudioTalk(new OperationDelegateCallBack() {
-        @Override
-        public void onSuccess(int sessionId, int requestId, String data) {
-            isSpeaking = true;
-            mHandler.sendMessage(MessageUtil.getMessage(MSG_TALK_BACK_BEGIN, ARG1_OPERATE_SUCCESS));
-            ToastUtil.shortToast(CameraPanelActivity.this, "start talk success");
-        }
-
-        @Override
-        public void onFailure(int sessionId, int requestId, int errCode) {
-            isSpeaking = false;
-            mHandler.sendMessage(MessageUtil.getMessage(MSG_TALK_BACK_BEGIN, ARG1_OPERATE_FAIL));
-            ToastUtil.shortToast(CameraPanelActivity.this, "operation fail");
-
-        }
-    });
-} else {
-    Constants.requestPermission(CameraPanelActivity.this, Manifest.permission.RECORD_AUDIO, Constants.EXTERNAL_AUDIO_REQ_CODE, "open_recording");
-}
-```
-
-
-
- #### 停止对讲
-
-关闭手机声音传输给摄像机操作。
-
-**示例代码**
-
-```java
-mCameraP2P.stopAudioTalk(new OperationDelegateCallBack() {
-    @Override
-    public void onSuccess(int sessionId, int requestId, String data) {
-        isSpeaking = false;
-        mHandler.sendMessage(MessageUtil.getMessage(MSG_TALK_BACK_OVER, ARG1_OPERATE_SUCCESS));
-    }
-
-    @Override
-    public void onFailure(int sessionId, int requestId, int errCode) {
-        isSpeaking = false;
-        mHandler.sendMessage(MessageUtil.getMessage(MSG_TALK_BACK_OVER, ARG1_OPERATE_FAIL));
-
-    }
-});
-```
-
-> 注：对讲和录制是互斥的，而且只有在预览时可以开启对讲。
-
-
-
-#### 获取清晰度
-
-获取摄像机传过来的影像清晰度。
-
-**示例代码**
-
-```java
-mCameraP2P.getVideoClarity(new OperationDelegateCallBack() {
-    @Override
-    public void onSuccess(int sessionId, int requestId, String data) {
-        
-    }
-
-    @Override
-    public void onFailure(int sessionId, int requestId, int errCode) {
-
-    }
-});
-```
-
-> 注意：预览画面出来后，调取该函数
-
-#### 设置清晰度
-
-设置摄像机播放的影像清晰度。
-
-**示例代码**
-
-```java
- mCameraP2P.setVideoClarity(videoClarity == ICameraP2P.HD ? ICameraP2P.STANDEND : ICameraP2P.HD, new OperationDelegateCallBack() {
-    @Override
-    public void onSuccess(int sessionId, int requestId, String data) {
-        videoClarity = Integer.valueOf(data);
-        mHandler.sendMessage(MessageUtil.getMessage(MSG_GET_CLARITY, ARG1_OPERATE_SUCCESS));
-    }
-
-    @Override
-    public void onFailure(int sessionId, int requestId, int errCode) {
-        mHandler.sendMessage(MessageUtil.getMessage(MSG_GET_CLARITY, ARG1_OPERATE_FAIL));
-    }
-});
-```
-
-#### 清晰度模式
+**清晰度模式**
 
 ```java
 public interface ICameraP2P<T> {
-  
   /**
    * 高清
    */
@@ -427,10 +308,39 @@ public interface ICameraP2P<T> {
    */
   int STANDEND = 2;
   ...
-        
 }
 ```
 
+**示例代码**
+
+```java
+mCameraP2P.startPreview(new OperationDelegateCallBack() {
+    @Override
+    public void onSuccess(int sessionId, int requestId, String data) {
+        //开始播放实时视频成功
+    }
+
+    @Override
+    public void onFailure(int sessionId, int requestId, int errCode) {
+        //开始播放实时视频失败
+    }
+});
+```
+
+> 注意：startPreview 成功回调之后，onReceiveFrameYUVData 回调会开始接收视频数据，并抛给业务层。
 
 
+### 销毁 ICameraP2P 对象
+
+destroy 销毁对象，不再使用 camera 功能的时候，一定要调用 destroy
+
+**示例代码**
+
+```java
+TuyaSmartCameraP2PFactory.onDestroyTuyaSmartCamera();   
+```
+
+## 流程图
+
+<img src="./images/live_process_image.jpg" style="zoom:60%;" />
 
