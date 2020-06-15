@@ -1,25 +1,71 @@
 {
-    "title" : "Tuya IPC",
-    "author" : "Daju.huang",
-    "description" : "Tuya IPC SDK Docs",
-    "language" : "zh-hans",
-    "plugins": [
-        "expandable-chapters-small",
-        "back-to-top-button",
-        "prism",
-        "-highlight"
-    ],
-    "pluginsConfig": {
-        "prism": {
-          "css": [
-            "prismjs/themes/prism-okaidia.css"
-          ],
-          "lang": {
-            "java": "java"
-          },
-          "ignore": [
-            "sequence"
-          ]
+  "plugins": [
+    "js-sequence-diagram-full@>=0.3.1",
+    "prism",
+    "-highlight",
+    "anchors",
+    "splitter",
+    "github",
+    "anchor-navigation-ex",
+    "ga",
+    "expandable-chapters-small",
+    "pageview-count",
+    "language-picker",
+    "hide-element",
+    "flexible-alerts"
+  ],
+  "pluginsConfig": {
+    "prism": {
+      "css": [
+        "prismjs/themes/prism-okaidia.css"
+      ],
+      "lang": {
+        "oc": "objectivec",
+        "objc": "objectivec",
+        "objective-c": "objectivec"
+      },
+      "ignore": [
+        "sequence"
+      ]
+    },
+    "github": {
+      "url": "https://github.com/TuyaInc/tuyasmart_camera_android_sdk"
+    },
+    "anchor-navigation-ex": {
+      "showGoTop": false
+    },
+    "ga": {
+      "token": "UA-165828612-1"
+    },
+    "hide-element": {
+            "elements": [".gitbook-link"]
+    },
+    "flexible-alerts": {
+      "style": "flat",
+      "note": {
+        "label": {
+          "zh-hans": "提示",
+          "en": "Note"
         }
+      },
+      "tip": {
+        "label": {
+          "zh-hans": "Tips",
+          "en": "Tip"
+        }
+      },
+      "warning": {
+        "label": {
+          "zh-hans": "警告",
+          "en": "Warning"
+        }
+      },
+      "danger": {
+        "label": {
+          "zh-hans": "注意",
+          "en": "Attention"
+        }
+      }
     }
+  }
 }
