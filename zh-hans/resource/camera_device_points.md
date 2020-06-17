@@ -1,12 +1,10 @@
 # 设备功能点
 
-
-
 涂鸦智能设备通过设备功能点来控制设备，并且通过标准化的功能点实现设备与 App 之间的交互。**Camera SDK** 基于 [自定义设备控制](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/resource/Device_standard.html) 封装了一套智能摄像机的扩展功能。
 
 ITuyaCameraDevice 提供与设备信息通信的能力，提供了控制指令下发、获取当前功能点的数据。
 
-
+## 设备控制
 
 ### 获取对象
 
@@ -24,9 +22,7 @@ ITuyaCameraDevice getCameraDeviceInstance(String devId)
 ITuyaCameraDevice tuyaCameraDevice = TuyaCameraDeviceControlSDK.getCameraDeviceInstance(devId);
 ```
 
-
-
-#### 功能点是否支持
+### 状态查询
 
 **接口说明**
 
@@ -41,65 +37,6 @@ boolean isSupportCameraDps(String dpCodeID);
 ```java
 boolean isSupportDpBasicFlip = mTuyaCameraDevice.isSupportCameraDps(DpBasicFlip.ID);
 ```
-
-
-
-#### 数据下发
-
-**接口说明**
-
-通过局域网或者云端这两种方式发送指令
-
-```java
-void publishCameraDps(String dpCode, Object value);
-```
-
-
-
-**示例代码**
-
-```java
-//如果功能点的返回值是Boolean，回调可以设置Boolean；如果是enum/String，回调设置String；如果是value，回调设置Integer
-mTuyaCameraDevice.registorTuyaCameraDeviceControlCallback(DpBasicFlip.ID, new ITuyaCameraDeviceControlCallback<Boolean>() {
-  @Override
-  public void onSuccess(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, Boolean o) {
-    showPublishTxt.setText("LAN/Cloud query result: " + o);
-  }
-
-  @Override
-  public void onFailure(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String s1, String s2) {
-
-  }
-});
-mTuyaCameraDevice.publishCameraDps(DpBasicFlip.ID, true);
-```
-
-
-
-### ITuyaCameraDeviceControlCallback 回调
-
- ITuyaCameraDeviceControlCallback 类提供监听设备信息数据接收，以及 app 端数据下发后，收到设备回传来的回调。如果功能点的数据类型是 Boolean，回调可以设置 Boolean；如果是枚举，回调设置 String；如果是  value，回调设置 Integer。
-
-```java
-public interface ITuyaCameraDeviceControlCallback<E> {
-    //成功回调
-    void onSuccess(String devId, ACTION action, SUB_ACTION subAction, E o);
-	  //失败回调
-    void onFailure(String devId, ACTION action, SUB_ACTION subAction, String errorCode, String errorString);
-}
-```
-
-支持的数据类型：
-
-| 数据类型 | 描述           |
-| :-------- | :-------------- |
-| Boolean  | 布尔型         |
-| String   | 字符型、枚举型 |
-| Value    | 数值型         |
-
-
-
-
 
 #### Value 数据查询
 
@@ -121,7 +58,7 @@ int dpvalue = mTuyaCameraDevice.queryIntegerCurrentCameraDps(DpSDStatus.ID);
 
 #### Object 数据查询
 
-**【描述】**
+**接口说明**
 
 通过缓存获取对应功能点的数据，支持 enum、value、boolean、String 所有的功能点查询
 
@@ -136,8 +73,6 @@ Object dpValue = mTuyaCameraDevice.queryObjectCameraDps(DpBasicFlip.ID);
 ```
 
 > 如果使用：queryObjectCameraDps 进行查询，需要开发者对数据类型进行单独区分
-
-
 
 #### String/Enum 数据查询
 
@@ -173,27 +108,61 @@ boolean queryBooleanCameraDps(String dpCodeID);
 boolean dpValue = mTuyaCameraDevice.queryBooleanCameraDps(DpBasicFlip.ID);
 ```
 
+### 数据下发
 
+**接口说明**
 
-### 枚举型功能点
+通过局域网或者云端这两种方式发送指令
 
-字符串枚举类型功能点的取值范围，在 SDK 中有定义相应的字符串枚举常量，如下表。
+```java
+void publishCameraDps(String dpCode, Object value);
+```
 
-| 功能点                 | 枚举                  |
-| :-------------------- | :--------------------- |
-| DpMotionSensitivity  | MotionSensitivityMode |
-| DpBasicNightvision   | NightStatusMode       |
-| DpPIRSwitch          | PIRMode               |
-| DpRecordMode         | RecordMode            |
-| DpPTZControl         | PTZDirection          |
-| DpDecibelSensitivity | SoundSensitivityMode  |
+**示例代码**
+
+```java
+//如果功能点的返回值是Boolean，回调可以设置Boolean；如果是enum/String，回调设置String；如果是value，回调设置Integer
+mTuyaCameraDevice.registorTuyaCameraDeviceControlCallback(DpBasicFlip.ID, new ITuyaCameraDeviceControlCallback<Boolean>() {
+  @Override
+  public void onSuccess(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, Boolean o) {
+    showPublishTxt.setText("LAN/Cloud query result: " + o);
+  }
+
+  @Override
+  public void onFailure(String s, DpNotifyModel.ACTION action, DpNotifyModel.SUB_ACTION sub_action, String s1, String s2) {
+
+  }
+});
+mTuyaCameraDevice.publishCameraDps(DpBasicFlip.ID, true);
+```
+
+### 数据回调
+
+ ITuyaCameraDeviceControlCallback 类提供监听设备信息数据接收，以及 app 端数据下发后，收到设备回传来的回调。如果功能点的数据类型是 Boolean，回调可以设置 Boolean；如果是枚举，回调设置 String；如果是  value，回调设置 Integer。
+
+```java
+public interface ITuyaCameraDeviceControlCallback<E> {
+    //成功回调
+    void onSuccess(String devId, ACTION action, SUB_ACTION subAction, E o);
+	  //失败回调
+    void onFailure(String devId, ACTION action, SUB_ACTION subAction, String errorCode, String errorString);
+}
+```
+
+支持的数据类型：
+
+| 数据类型 | 描述           |
+| :-------- | :-------------- |
+| Boolean  | 布尔型         |
+| String   | 字符型、枚举型 |
+| Value    | 数值型         |
 
 
 
 ## 功能点常量
 
 
-### 设备基本设置功能
+### 基础功能
 
 | 功能点 | 数据类型 | value | 描述 | 功能定义 |
 | :------ | :------ | :---- | :------ | :------ |
@@ -237,7 +206,7 @@ boolean dpValue = mTuyaCameraDevice.queryBooleanCameraDps(DpBasicFlip.ID);
 
 
 
-### PTZ(云台方向控制)功能
+### 云台控制
 
 | 功能点          | 数据类型 | value                           | 描述             | 功能定义                             |
 | :--------------- | :-------- | :------------------------------- | :---------------- | :------------------------------------ |
@@ -246,7 +215,7 @@ boolean dpValue = mTuyaCameraDevice.queryBooleanCameraDps(DpBasicFlip.ID);
 
 
 
-### 电池供电产品功能
+### 低功耗
 
 | 功能点                   | 数据类型 | value                     | 描述               | 功能定义                                                     |
 | :------------------------ | :-------- | :------------------------- | :------------------ | :------------------------------------------------------------ |
@@ -254,5 +223,18 @@ boolean dpValue = mTuyaCameraDevice.queryBooleanCameraDps(DpBasicFlip.ID);
 | DpWirelessLowpower.ID    | value    | value                     | 低电量报警阈值     | 用户可以在App上设置阈值，报警规则为dp145≤dp147则报警         |
 | DpWirelessBatterylock.ID | boolean  | true为上锁，false为解锁   | 电池锁             | 控制打开/关闭电池锁                                          |
 | DpWirelessPowermode.ID   | enum     | 0：电池供电,1：插电供电   | 设备供电方式查看   | 设备主动上报当前供电状态，供电状态发生变化时上报             |
+
+### 枚举型功能点
+
+字符串枚举类型功能点的取值范围，在 SDK 中有定义相应的字符串枚举常量，如下表。
+
+| 功能点                 | 枚举                  |
+| :-------------------- | :--------------------- |
+| DpMotionSensitivity  | MotionSensitivityMode |
+| DpBasicNightvision   | NightStatusMode       |
+| DpPIRSwitch          | PIRMode               |
+| DpRecordMode         | RecordMode            |
+| DpPTZControl         | PTZDirection          |
+| DpDecibelSensitivity | SoundSensitivityMode  |
 
 

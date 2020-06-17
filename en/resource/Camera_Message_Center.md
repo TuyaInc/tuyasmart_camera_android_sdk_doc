@@ -318,11 +318,9 @@ Example of returned data structure: (specifically based on actual request):
 
 ## Video message
 
-### Register to listener
-
-Register the listener. Only after registration can you get the callback data for video playback.
-
 **Declaration**
+
+Register the listener. Only after registration can you get the callback data for video playback
 
 
 ```java
@@ -336,11 +334,9 @@ void registorOnP2PCameraListener(OnP2PCameraListener listener);
 | ------------------- | ------------------------ |
 | OnP2PCameraListener | Video play callback data |
 
-### Bind player
+**Declaration**
 
 Inject player view to render video
-
-**Declaration**
 
 ```java
 void generateCloudCameraView(IRegistorIOTCListener view);
@@ -353,12 +349,9 @@ void generateCloudCameraView(IRegistorIOTCListener view);
 | --------------------- | ------------------------ |
 | IRegistorIOTCListener | Video play callback data |
 
-
-### createCloudDevice
-
-create Message VideoPlayer device 
-
 **Declaration**
+
+create Message VideoPlayer device
 
 
 ```java
@@ -388,9 +381,9 @@ cloudVideo?.createCloudDevice(cachePath, devId, object : OperationDelegateCallBa
 })
 ```
 
-### Play video in alarm message
-
 **Declaration**
+
+Play video in alarm message
 
 
 ```java
@@ -439,9 +432,9 @@ override fun playVideo(videoUrl: String, startTime: Int, encryptKey: String) {
 }
 ```
 
-### Pause playing
-
 **Declaration**
+
+Pause playing
 
 
 ```java
@@ -476,9 +469,9 @@ override fun pauseVideo() {
 }
 ```
 
-### Resume playing
-
 **Declaration**
+
+Resume playing
 
 
 ```java
@@ -513,9 +506,9 @@ override fun resumeVideo() {
 }
 ```
 
-### Stop playing
-
 **Declaration**
+
+Stop playing
 
 
 ```java
@@ -550,9 +543,9 @@ override fun stopVideo() {
 }
 ```
 
-### Set Cloud Video Mute
-
 **Declaration**
+
+Set Cloud Video Mute
 
 
 ```java
@@ -588,16 +581,17 @@ private fun setCloudVideoMute(voiceMode: Int) {
 }
 ```
 
+**Declaration**
 
-### Deinit Cloud Video
-
-When cloud video is no longer used, do destruction
+When cloud video is no longer used, deinit Cloud Video
 
 ```java
 void deinitCloudVideo();
 ```
 
-### Callback video YUV data
+**Declaration**
+
+Callback video YUV data
 
 ```java
 void onReceiveFrameYUVData(int sessionId, ByteBuffer y, ByteBuffer u, ByteBuffer v, int width, int height, int nFrameRate, int nIsKeyFrame, long timestamp, long nProgress, long nDuration, Object camera);
@@ -634,10 +628,16 @@ override fun onReceiveFrameYUVData(sessionId: Int, y: ByteBuffer, u: ByteBuffer,
 }
 ```
 
-
-## Flow Chart
+**Flow Chart**
 
 ![](./images/video_play_flow.png)
 
 
 
+### Alarm message and playback
+
+There is no direct correlation between the alarm message and the record videos in memory card, the only correlation is that in the memory card event recording mode, the trigger reason and time point of the alarm message and record video are the same.
+
+The alarm message is saved in the Tuya cloud, and the video recording of the memory card is saved in the camera's memory card, and the video in the memory card may be overwritten when the capacity is insufficient. The switch recorded by the memory card is not related to the switch that detects the alarm, so even in the mode of recording the memory card event, the alarm message and the video recording in the memory card are not one-to-one.
+
+However, if there is a video recording at the time when the alarm message occurs, the SDK does not provide an interface for such correlation search. The developer can establish the correlation by searching whether there is a corresponding video recording in the video clip of the memory card on the same day by the trigger time of the alarm message.

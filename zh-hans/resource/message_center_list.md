@@ -320,12 +320,9 @@ messageBusiness.deleteAlarmDetectionMessageList(ids.toString(), new Business.Res
 
 ## 视频消息
 
-
-### 注册监听
-
-注册监听器，只有注册之后才能获取到视频播放的回调数据。
-
 **接口说明**
+
+注册监听器，只有注册之后才能获取到视频播放的回调数据
 
 ```java
 void registorOnP2PCameraListener(OnP2PCameraListener listener);
@@ -336,8 +333,6 @@ void registorOnP2PCameraListener(OnP2PCameraListener listener);
 | 参数           | 说明             |
 | :------------------- | :---------------- |
 | OnP2PCameraListener | 视频播放回调数据 |
-
-### 绑定播放器对象
 
 **接口说明**
 
@@ -353,9 +348,9 @@ void generateCloudCameraView(IRegistorIOTCListener view);
 | :--------------------- | :---------- |
 | IRegistorIOTCListener | 播放器组件 |
 
-### 创建云视频播放设备
-
 **接口说明**
+
+创建云视频播放设备
 
 ```java
 void createCloudDevice(String cachePath, String devId, OperationDelegateCallBack callBack);
@@ -383,9 +378,9 @@ cloudVideo?.createCloudDevice(cachePath, devId, object : OperationDelegateCallBa
 })
 ```
 
-### 播放报警消息中的视频
-
 **接口说明**
+
+播放报警消息中的视频
 
 ```java
 void playVideo(String videoUrl, int startTime, String encryptKey, OperationCallBack callback, OperationCallBack playFinishedCallBack);
@@ -431,9 +426,9 @@ override fun playVideo(videoUrl: String, startTime: Int, encryptKey: String) {
 }
 ```
 
-### 暂停播放
-
 **接口说明**
+
+暂停播放
 
 ```java
 void pauseVideo(OperationCallBack callback);
@@ -465,9 +460,9 @@ override fun pauseVideo() {
 }
 ```
 
-### 恢复播放
-
 **接口说明**
+
+恢复播放
 
 ```java
 void resumeVideo(OperationCallBack callback);
@@ -499,9 +494,9 @@ override fun resumeVideo() {
 }
 ```
 
-### 停止播放
-
 **接口说明**
+
+停止播放
 
 ```java
 void stopVideo(OperationCallBack callback);
@@ -533,9 +528,9 @@ override fun stopVideo() {
 }
 ```
 
-### 设置视频播放的声音开关
-
 **接口说明**
+
+设置视频播放的声音开关
 
 ```java
 void setCloudVideoMute(int mute, OperationDelegateCallBack callBack);
@@ -569,17 +564,20 @@ private fun setCloudVideoMute(voiceMode: Int) {
 ```
 
 
-### 销毁云视频播放设备
 
 **接口说明**
 
-当云视频不再使用的时候，做销毁处理
+当云视频不再使用的时候，销毁云视频播放设备
 
 ```java
 void deinitCloudVideo();
 ```
 
-### 视频数据回调
+
+
+**接口说明**
+
+视频数据回调
 
 ```kotlin
 override fun onReceiveFrameYUVData(sessionId: Int, y: ByteBuffer, u: ByteBuffer, v: ByteBuffer, width: Int, height: Int, nFrameRate: Int, nIsKeyFrame: Int, timestamp: Long, nProgress: Long, nDuration: Long, camera: Any)
@@ -618,10 +616,16 @@ override fun onReceiveFrameYUVData(sessionId: Int, y: ByteBuffer, u: ByteBuffer,
 
 
 
-
-### 流程图
+**流程图**
 
 ![](./images/video_play_flow.png)
 
 
 
+### 报警消息与存储卡回放
+
+报警消息和存储卡回放没有直接联系，唯一的关联是在存储卡事件录制模式的情况下，报警消息和存储卡视频录制的触发原因和时间点是一样的。
+
+报警消息保存在涂鸦云端，存储卡视频录像保存在摄像机的存储卡中，且存储卡中的视频在容量不足时，可能会被覆盖。存储卡录制的开关和侦测报警的开关也没有关联，所以即使在存储卡事件录制的模式下，报警消息和存储卡中的视频录像也不是一一对应的。
+
+但是存在报警消息发生的时间点有视频录像的情况，Camera SDK 并不提供这种关联查找的接口，开发者可以通过报警消息的触发时间，在当天的存储卡录像视频片段中查找是否有对应的视频录像来建立这种关联。

@@ -383,7 +383,7 @@ public class TuyaSmartApp extends MultiDexApplication {
 
   ```
 
-### Jump to cloud storage purchase page
+### Jump to cloud service purchase page
 
 ```java
 findViewById(R.id.buy_btn).setOnClickListener(new View.OnClickListener() {
@@ -668,7 +668,7 @@ public interface ICloudCacheManagerCallback {
 | 10010      | Failed to obtain authentication information                  |
 | 10011      | Failed to get time slice (authentication information) for a certain day |
 
-### Cloud storage video play
+### Cloud video playback
 
 **ITYCloudCamera** provides API interfaces related to cloud storage playback.
 

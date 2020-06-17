@@ -289,4 +289,59 @@ mCameraP2P.setVideoClarity(videoClarity == ICameraP2P.HD ? ICameraP2P.STANDEND :
 });
 ```
 
+### Original video data
+
+Developers can get the YUV data of video from delegate method. The pixel format type of video data is YUV 420sp.
+
+**Declaration**
+
+To get the YUV data of video, you need to register a listener with ICameraPP:
+
+```
+void registorOnP2PCameraListener(OnP2PCameraListener listener);
+```
+
+OnP2PCameraListener main method:
+
+**Declaration**
+
+Callback video YUV data
+
+```java
+void onReceiveFrameYUVData(int sessionId, ByteBuffer y, ByteBuffer u, ByteBuffer v, int width, int height, int nFrameRate, int nIsKeyFrame, long timestamp, long nProgress, long nDuration, Object camera);
+```
+
+**Parameter**
+
+| Parameter   | Description                                             |
+| ----------- | ------------------------------------------------------- |
+| sessionId   | p2p session Id                                          |
+| y           | Video Y data                                            |
+| u           | Video U data                                            |
+| v           | Video V data                                            |
+| width       | Video width                                             |
+| height      | Video height                                            |
+| timestamp   | Time stamp                                              |
+| nFrameRate  | Frame rate                                              |
+| nIsKeyFrame | Whether I frame                                         |
+| nProgress   | ime progress (the progress of the message center video) |
+| nDuration   | Duration (message center video duration)                |
+| camera      | /                                                       |
+
+**Declaration**
+
+ p2p session status callback
+ 
+ 
+```java
+void onSessionStatusChanged(Object camera, int sessionId, int sessionStatus)
+```
+
+**Parameter**
+
+| Parameter     | Description    |
+| ------------- | -------------- |
+| camera        | /              |
+| sessionId     | session Id     |
+| sessionStatus | Session status |
 

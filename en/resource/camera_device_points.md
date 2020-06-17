@@ -3,8 +3,9 @@
 
 Tuya smart device controls the device through the device function point, and realizes the interaction between the device and the app through the standardized function point. **Tuya Smart Camera Android SDK** is based on [custom device control](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/en/resource/Device.html) and encapsulates a set of extended functions for smart cameras.
 
+## Device control
 
-### Obtain objective
+### Create instance
 
 **Declaration**
 
@@ -21,8 +22,7 @@ ITuyaCameraDevice getCameraDeviceInstance(String devId)
 ITuyaCameraDevice tuyaCameraDevice = TuyaCameraDeviceControlSDK.getCameraDeviceInstance(devId);
 ```
 
-### Data-point support or not
-
+### Query value
 
 **Declaration**
 
@@ -39,7 +39,80 @@ boolean isSupportCameraDps(String dpCodeID);
 boolean isSupportDpBasicFlip = mTuyaCameraDevice.isSupportCameraDps(DpBasicFlip.ID);
 ```
 
-### Data publish
+#### Value data-point
+
+**Declaration**
+
+
+IGet the data of the corresponding function point through the cache. According to the data type of Value, you can use the following methods to query.
+
+```java
+ int queryIntegerCurrentCameraDps(String dpCodeID);
+```
+
+**Example**
+
+
+```java
+int dpvalue = mTuyaCameraDevice.queryIntegerCurrentCameraDps(DpSDStatus.ID);
+```
+
+#### Object data-point
+
+**Declaration**
+
+
+Obtain the data of corresponding function points through the cache, and support all function point queries of enum, value, boolean, and String.
+
+```java
+Object queryObjectCameraDps(String dpCodeID);
+```
+
+**Example**
+
+
+```java
+Object dpValue = mTuyaCameraDevice.queryObjectCameraDps(DpBasicFlip.ID);
+```
+
+> If you use: queryObjectCameraDps for querying, developers need to distinguish the data types separately.
+
+#### String/Enum data-point
+
+**Declaration**
+
+Get the data of the corresponding function point through the cache. According to the data type of String / Enum, you can use the following methods to query.
+
+```java
+String queryStringCurrentCameraDps(String dpCodeID);
+```
+
+**Example**
+
+
+```java
+String mode = mTuyaCameraDevice.queryStringCurrentCameraDps(DpMotionSensitivity.ID);
+```
+
+#### Boolean data-point research
+
+**Declaration**
+
+
+Get the data of the corresponding function point through the cache. According to the data type of boolean, you can use the following methods to query.
+
+```java
+boolean queryBooleanCameraDps(String dpCodeID);
+```
+
+**Example**
+
+
+```java
+boolean dpValue = mTuyaCameraDevice.queryBooleanCameraDps(DpBasicFlip.ID);
+```
+
+### Publish data
 
 **Declaration**
 
@@ -66,7 +139,7 @@ mTuyaCameraDevice.publishCameraDps(DpBasicFlip.ID, true);
 ```
 
 
-### ITuyaCameraDeviceControlCallback
+### Callback
 
 
  ITuyaCameraDeviceControlCallback provides listener device info data receiving, and receive device callback  after data publishing from App side. Callback is able to set as Boolean/String/Integer when the data-point type is Boolean/Enum/Value.
@@ -89,104 +162,9 @@ Supported data types：
 | Value     | Number       |
 
 
-
-### Value data-point research
-
-**Declaration**
-
-
-IGet the data of the corresponding function point through the cache. According to the data type of Value, you can use the following methods to query.
-
-```java
- int queryIntegerCurrentCameraDps(String dpCodeID);
-```
-
-**Example**
-
-
-```java
-int dpvalue = mTuyaCameraDevice.queryIntegerCurrentCameraDps(DpSDStatus.ID);
-```
-
-### Support all data-point research
-
-**Declaration**
-
-
-Obtain the data of corresponding function points through the cache, and support all function point queries of enum, value, boolean, and String.
-
-```java
-Object queryObjectCameraDps(String dpCodeID);
-```
-
-**Example**
-
-
-```java
-Object dpValue = mTuyaCameraDevice.queryObjectCameraDps(DpBasicFlip.ID);
-```
-
-> If you use: queryObjectCameraDps for querying, developers need to distinguish the data types separately.
-
-
-### Support String/Enum data-point research
-
-**Declaration**
-
-
-
-Get the data of the corresponding function point through the cache. According to the data type of String / Enum, you can use the following methods to query.
-
-```java
-String queryStringCurrentCameraDps(String dpCodeID);
-```
-
-**Example**
-
-
-```java
-String mode = mTuyaCameraDevice.queryStringCurrentCameraDps(DpMotionSensitivity.ID);
-```
-
-
-
-### Support boolean data-point research
-
-**Declaration**
-
-
-Get the data of the corresponding function point through the cache. According to the data type of boolean, you can use the following methods to query.
-
-```java
-boolean queryBooleanCameraDps(String dpCodeID);
-```
-
-**Example**
-
-
-```java
-boolean dpValue = mTuyaCameraDevice.queryBooleanCameraDps(DpBasicFlip.ID);
-```
-
-
-
-### Enumerated Function 
-
-The value range of the function point of the string enumeration type. There are corresponding string enumeration constants defined in the SDK.
-
-| Function             | Enum                  |
-| -------------------- | --------------------- |
-| DpMotionSensitivity  | MotionSensitivityMode |
-| DpBasicNightvision   | NightStatusMode       |
-| DpPIRSwitch          | PIRMode               |
-| DpRecordMode         | RecordMode            |
-| DpPTZControl         | PTZDirection          |
-| DpDecibelSensitivity | SoundSensitivityMode  |
-
-
 ## Data point id
 
-### Device basic features setting
+### Basic features 
 
 | Data-point | Data type | value | Description |            Feature definition |
 | ------ | ------ | :----: | ------ | ------ |
@@ -217,7 +195,7 @@ The value range of the function point of the string enumeration type. There are 
 
 
 
-### Memory card and local video recording management
+### Memory card management
 
 |  Data-point  |   Data type | value                                                        |  Description                                            |              Feature definition                     |
 | ------------------- | --------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -230,7 +208,7 @@ The value range of the function point of the string enumeration type. There are 
 
 
 
-### PTZ functions
+### PTZ control
 
 | Data-point |  Data type | value                                                        |  Description                      |      Feature definition           |
 | ----------------- | ------------------- | ------------------------------------------------------------ | ------------------------------------- | ------------------------------------------------------------ |
@@ -239,7 +217,7 @@ The value range of the function point of the string enumeration type. There are 
 
 
 
-### Battery powered product features
+### Doorbell
 
 |  Data-point       |  Data type | value                                                        | Description                                      |                          Feature definition       |
 | ------------------------ | -------------------- | ------------------------------------------------------------ | ---------------------------------------------------- | ------------------------------------------------------------ |
@@ -247,4 +225,17 @@ The value range of the function point of the string enumeration type. There are 
 | DpWirelessLowpower.ID    | value                | value                                                        |          Low power alarm value       |  Users can set the value in App. Alarm regulation: dp145≤dp147 |
 | DpWirelessBatterylock.ID | boolean              |       True: locked    False: unlocked |    Battery lock                           |                  Turn on/off battery lock control |
 | DpWirelessPowermode.ID   | enum                 |   0: Battery power supply, 1: Plug power supply |      Device power supply method    |      Device reports current power supply status. Report once power supply method changes. |
+
+### Enum data points
+
+The value range of the function point of the string enumeration type. There are corresponding string enumeration constants defined in the SDK.
+
+| Function             | Enum                  |
+| -------------------- | --------------------- |
+| DpMotionSensitivity  | MotionSensitivityMode |
+| DpBasicNightvision   | NightStatusMode       |
+| DpPIRSwitch          | PIRMode               |
+| DpRecordMode         | RecordMode            |
+| DpPTZControl         | PTZDirection          |
+| DpDecibelSensitivity | SoundSensitivityMode  |
 
