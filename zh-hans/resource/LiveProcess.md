@@ -24,7 +24,7 @@ public static ICameraP2P generateTuyaSmartCamera(int sdkprovider);
 
 |     参数     |   说明   |
 | ------------ | ------- |
-| sdkprovider | 设备类型 |
+| sdkprovider | 设备 P2P 类型，从 DeviceBean 中获取，详见[P2P 类型](./home_device.md#摄像机) |
 
 **示例代码**
 

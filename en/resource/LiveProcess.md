@@ -24,7 +24,7 @@ public static ICameraP2P generateTuyaSmartCamera(int sdkprovider);
 
 |     Parameter     |   Description   |
 | ------------ | ------- |
-| sdkprovider | device type |
+| sdkprovider | device type. Obtained from DeviceBean, see [P2p Type](./home_device.md#Camera device) |
 
 **Example**
 
