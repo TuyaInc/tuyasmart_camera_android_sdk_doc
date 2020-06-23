@@ -51,6 +51,22 @@ mCameraP2P.queryRecordDaysByMonth(year, mouth, new OperationDelegateCallBack() {
 
 获取到有用回放记录的日期后，根据日期获取当日的视频回放记录
 
+**接口说明**
+
+```java
+void queryRecordTimeSliceByDay(int year, int month, int day, OperationDelegateCallBack callBack);
+```
+
+**参数说明**
+
+
+|      参数      |   说明    |
+| -------------- | --------- |
+| year           | 查询的年份 |
+| month          | 查询的月份 |
+| day          | 查询的天 |
+| callBack | 结果回调   |
+
 **示例代码**
 
 ```java
@@ -59,7 +75,8 @@ int mouth = Integer.parseInt(substring[1]);
 int day = Integer.parseInt(substring[2]);
 mCameraP2P.queryRecordTimeSliceByDay(year, mouth, day, new OperationDelegateCallBack() {
   @Override
-  public void onSuccess(int sessionId, int requestId, String data) {					//data是获取到的日期时间片段数据
+  public void onSuccess(int sessionId, int requestId, String data) {					
+    //data是获取到的日期时间片段数据
     parsePlaybackData(data);
   }
 
@@ -75,6 +92,24 @@ mCameraP2P.queryRecordTimeSliceByDay(year, mouth, day, new OperationDelegateCall
 ### 视频播放
 
 #### 开启回放
+
+
+**接口说明**
+
+```java
+void startPlayBack(int startTime, int stopTime, int playTime, OperationDelegateCallBack callBack, OperationDelegateCallBack finishCallBack);
+```
+
+**参数说明**
+
+
+|      参数      |   说明    |
+| -------------- | --------- |
+| startTime  | 开始时间 |
+| stopTime  | 结束时间 |
+| playTime  | 播放时间 |
+| callBack | 开启回放回调 |
+| finishcallBack | 结束回放回调 |
 
 **示例代码**
 
@@ -106,6 +141,20 @@ mCameraP2P.startPlayBack(timePieceBean.getStartTime(),
 
 #### 暂停回放
 
+
+**接口说明**
+
+```java
+void pausePlayBack(OperationDelegateCallBack callBack);
+```
+
+**参数说明**
+
+
+|      参数      |   说明    |
+| -------------- | --------- |
+| callBack | 操作回调 |
+
 **示例代码**
 
 ```java
@@ -123,6 +172,20 @@ mCameraP2P.pausePlayBack(new OperationDelegateCallBack() {
 ```
 
 #### 恢复回放
+
+
+**接口说明**
+
+```java
+void resumePlayBack(OperationDelegateCallBack callBack);
+```
+
+**参数说明**
+
+
+|      参数      |   说明    |
+| -------------- | --------- |
+| callBack | 操作回调 |
 
 **示例代码**
 
@@ -143,6 +206,20 @@ mCameraP2P.resumePlayBack(new OperationDelegateCallBack() {
  
 
 #### 结束回放
+
+
+**接口说明**
+
+```java
+void stopPlayBack(OperationDelegateCallBack callBack);
+```
+
+**参数说明**
+
+
+|      参数      |   说明    |
+| -------------- | --------- |
+| callBack | 操作回调 |
 
 **示例代码**
 

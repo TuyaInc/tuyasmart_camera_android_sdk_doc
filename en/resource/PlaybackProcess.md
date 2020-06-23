@@ -53,6 +53,24 @@ mCameraP2P.queryRecordDaysByMonth(year, mouth, new OperationDelegateCallBack() {
 
 After getting the date of useful playback record, get the video playback record of the day according to the date.
 
+**Declaration**
+
+```java
+void queryRecordTimeSliceByDay(int year, int month, int day, OperationDelegateCallBack callBack);
+```
+
+**Parameter**
+
+
+|   Parameter   |   Description   |
+| -------------- | ---------------- |
+| year           | query year      |
+| month          | query month     |
+| day          | query day     |
+| callBack | result callback |
+
+
+
 **Example**
 
 ```java
@@ -75,6 +93,25 @@ mCameraP2P.queryRecordTimeSliceByDay(year, mouth, day, new OperationDelegateCall
 ### Video playback
 
 #### Start Play back
+
+
+**Declaration**
+
+```java
+void startPlayBack(int startTime, int stopTime, int playTime, OperationDelegateCallBack callBack, OperationDelegateCallBack finishCallBack);
+```
+
+**Parameter**
+
+
+|      Parameter      |   Description    |
+| -------------- | --------- |
+| startTime  | starting time |
+| stopTime  | end time |
+| playTime  | play time |
+| callBack | playback callback |
+| finishcallBack | callback when playback ends |
+
 
 **Example**
 
@@ -107,6 +144,22 @@ mCameraP2P.startPlayBack(timePieceBean.getStartTime(),
 
 #### Pause playback
 
+
+**Declaration**
+
+```java
+void pausePlayBack(OperationDelegateCallBack callBack);
+```
+
+**Parameter**
+
+
+|      Parameter      |   Description    |
+| -------------- | --------- |
+| callBack | result callback |
+
+
+
 **Example**
 
 
@@ -122,8 +175,26 @@ mCameraP2P.pausePlayBack(new OperationDelegateCallBack() {
 
   }
 });
+```
 
 #### Resume playback
+
+
+
+**Declaration**
+
+```java
+void resumePlayBack(OperationDelegateCallBack callBack);
+```
+
+**Parameter**
+
+
+|      Parameter      |   Description    |
+| -------------- | --------- |
+| callBack | result callback |
+
+
 
 **Example**
 
@@ -142,6 +213,24 @@ mCameraP2P.resumePlayBack(new OperationDelegateCallBack() {
 ```
 
 #### Stop playback
+
+
+
+**Declaration**
+
+```java
+void stopPlayBack(OperationDelegateCallBack callBack);
+```
+
+**Parameter**
+
+
+|      Parameter      |   Description    |
+| -------------- | --------- |
+| callBack | result callback |
+
+
+
 
 **Example**
 
