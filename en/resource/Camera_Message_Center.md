@@ -148,6 +148,31 @@ CameraMessageClassifyBean
 | msgCode   | /                   |
 | selected  | /                   |
 
+The message type represents the trigger form of the alarm message, which is reflected in the code as the `msgCode` attribute of the alarm message data model.
+
+**Message Type**
+
+| Type            | Description                |
+| --------------- | -------------------------- |
+| ipc_motion      | Motion detecting           |
+| ipc_doorbell    | Doorbell ring              |
+| ipc_dev_link    | Devices linkage            |
+| ipc_passby      | Someone passby             |
+| ipc_linger      | Someone linger             |
+| ipc_leave_msg   | Doorbell message           |
+| ipc_connected   | Doorbell ring has answered |
+| ipc_unconnected | Doorbell not answered      |
+| ipc_refuse      | Doorbell resisted          |
+| ipc_human       | Human detection            |
+| ipc_cat         | Pet detection              |
+| ipc_car         | Car detection              |
+| ipc_baby_cry    | Baby cry                   |
+| ipc_bang        | Abnormal sound             |
+| ipc_face        | Face detection             |
+| ipc_antibreak   | Forced demolition alarm    |
+| ipc_low_battery | Low power alarm            |
+
+> Depending on the device's capabilities, the types of messages that can be triggered can vary.
 
 ### Message list
 

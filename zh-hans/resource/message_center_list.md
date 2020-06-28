@@ -142,10 +142,34 @@ public void queryCameraMessageClassify(String devId) {
 | 字段     | 描述     |
 | :-------- | :-------- |
 | describe | 消息描述 |
-| msgCode  | 无需关注 |
+| msgCode  | 消息类型 |
 | selected | 无需关注 |
 
+消息类型表示报警消息的触发形式，体现为报警消息数据模型的`msgCode`属性。
 
+**消息类型说明**
+
+| 类型            | 说明         |
+| --------------- | ------------ |
+| ipc_motion      | 移动侦测     |
+| ipc_doorbell    | 门铃呼叫     |
+| ipc_dev_link    | 设备联动     |
+| ipc_passby      | 有人经过     |
+| ipc_linger      | 有人徘徊     |
+| ipc_leave_msg   | 门铃消息留言 |
+| ipc_connected   | 门铃已接听   |
+| ipc_unconnected | 门铃未接听   |
+| ipc_refuse      | 门铃拒接     |
+| ipc_human       | 人形检测     |
+| ipc_cat         | 宠物检测     |
+| ipc_car         | 车辆检测     |
+| ipc_baby_cry    | 婴儿哭声     |
+| ipc_bang        | 异响         |
+| ipc_face        | 检测到人脸   |
+| ipc_antibreak   | 强拆报警     |
+| ipc_low_battery | 低电量告警   |
+
+> 由于设备能力的不同，能触发的消息类型会有差别。消息分类和消息类型不同，消息类型表示报警消息的触发方式，消息分类是将一个或多个类型的消息组合成一个大类，比如 `ipc_passby`、`ipc_linger`、`ipc_motion` 可以组合成一个分类为移动侦测。
 
 ### 消息列表
 
